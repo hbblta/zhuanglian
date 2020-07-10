@@ -1,13 +1,66 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/news/news",
+    "pages/tabBar/my/my"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "iconPath": "image/icon/index.png",
+        "selectedIconPath": "image/icon/indexShow.png",
+        "text": "大厅"
+      },
+      {
+        "pagePath": "pages/tabBar/news/news",
+        "iconPath": "image/icon/news.png",
+        "selectedIconPath": "image/icon/newsShow.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/tabBar/my/my",
+        "iconPath": "image/icon/my.png",
+        "selectedIconPath": "image/icon/myShow.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/decoration/",
+      "pages": []
+    },
+    {
+      "root": "pages/material/",
+      "pages": []
+    },
+    {
+      "root": "pages/ordinary/",
+      "pages": [
+        "platformManager/platformManager",
+        "decorationRecording/decorationRecording",
+        "materialRecording/materialRecording",
+        "decorationSchedule/decorationSchedule",
+        "materialOrder/materialOrder"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "装联客易",
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

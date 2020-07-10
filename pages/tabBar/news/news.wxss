@@ -1,0 +1,56 @@
+/* pages/tabBar/news/news.wxss */
+page{
+  background: #f7f7f7;
+}
+.newsList{
+  width: 670rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  padding: 30rpx 20rpx 0;
+  height: 110rpx;
+  border-radius: 8rpx;
+  border: 1px solid rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+.newsUserMsg{
+  display: flex;
+}
+.newsUserMsg image{
+  width: 80rpx;
+  height: 80rpx;
+  background: #DDDDDD;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.newsUserMsg view .newsUserName{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  font-weight: 550;
+}
+.newsUserMsg view .newsUserContent{
+  color: rgba(48, 49, 51, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.newMsgDeta{
+  display: flex;
+  align-items: flex-end;
+  flex-direction:column;
+}
+.newsDeta{
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  padding-bottom: 15rpx;
+  /* width: 100%; */
+}
+.newsNew{
+  background: #FF7200 ;
+  border-radius: 50%;
+  width: 16rpx;
+  height: 16rpx;
+}

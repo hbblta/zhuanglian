@@ -1,0 +1,10 @@
+<!--components/materialRecordingList/materialRecordingList.wxml-->
+<view class="decorationRecordingList">
+  <image src="{{item.imgUrl}}" class="decorationRecordingImg"></image>
+  <view class="decorationRecordingMsg">
+    <view>{{item.decorationName}}</view>
+    <view>商家地址 : {{item.decorationAddress}}</view>
+    <view>商家电话 : {{item.decorationPhone}}</view>
+  </view>
+</view>
+

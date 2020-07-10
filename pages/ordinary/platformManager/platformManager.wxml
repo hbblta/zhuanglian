@@ -1,0 +1,21 @@
+<!--pages/ordinary/platformManager/platformManager.wxml-->
+<view class="applicationTitle">—— 《装联客易》服务经理 ——</view>
+
+<view class="applicationBody">
+  <view class="applicationInputList">
+    <input placeholder="申请人"></input>
+    <input placeholder="申请人电话"></input>
+    <input placeholder="申请区域"></input>
+    <input placeholder="店码"></input>
+  </view>
+  <view class="privacyPolicy">
+    <!-- <image src="../../../image/icon/selecte.svg"></image> -->
+    <image src="../../../image/icon/selected.svg"></image>
+    <text>我已阅读并同意</text>
+    <text>《服务经理协议与保密条款》</text>
+  </view>
+  <view class="submitApplication">
+    提交申请
+  </view>
+</view>
+<image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>

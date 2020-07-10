@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "decorationRecordingList": "/components/decorationRecordingList/decorationRecordingList"
+  }
+}

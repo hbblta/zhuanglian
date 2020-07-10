@@ -1,0 +1,62 @@
+/* pages/ordinary/platformManager/platformManager.wxss */
+.applicationTitle{
+  margin-top: 54rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  width: 100%;
+  text-align: center;
+}
+.applicationBody{
+  margin:0 25rpx 0 25rpx;
+  width: 700rpx;
+}
+.applicationInputList input{
+  width: 665rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+  margin-top: 54rpx;
+  padding-left: 35rpx;
+}
+.privacyPolicy{
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+}
+.privacyPolicy image{
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 18rpx;
+}
+.privacyPolicy text:nth-child(2){
+  color: rgba(146, 146, 146, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.privacyPolicy text:nth-child(3){
+  color: #FF8E34;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.submitApplication{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 8rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(0, 129, 255, 1);
+}
+.applicationBk{
+  width: 100%;
+  height: 240rpx;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}

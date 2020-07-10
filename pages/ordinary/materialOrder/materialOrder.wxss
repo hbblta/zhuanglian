@@ -1,0 +1,21 @@
+/* pages/ordinary/materialOrder/materialOrder.wxss */
+.materialOrderScroll{
+  width: 510rpx;
+}
+.materialOrderStatusList{
+  white-space: nowrap;  
+  height: 80rpx;
+  width: 100%;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.materialOrderStatus{
+  display: inline-block;
+  padding: 24rpx 16rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.materialOrderStatusNow{
+  color: rgba(0, 129, 255, 1);
+}

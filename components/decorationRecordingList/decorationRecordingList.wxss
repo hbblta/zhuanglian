@@ -1,0 +1,34 @@
+/* components/decorationRecordingList/decorationRecordingList.wxss */
+.decorationRecordingList{
+  display: flex;
+  height: 240rpx;
+  width: 700rpx;
+  padding: 20rpx 25rpx 20rpx 25rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.decorationRecordingImg{
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.decorationRecordingMsg view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 28rpx;
+}
+.decorationRecordingMsg view:nth-child(2){
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 24rpx;
+}
+.decorationRecordingMsg view:nth-child(3){
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 10rpx;
+}

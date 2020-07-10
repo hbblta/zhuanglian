@@ -1,0 +1,18 @@
+<!--pages/ordinary/materialOrder/materialOrder.wxml-->
+<generalSelectionlist textList='{{textList}}'>
+  <view class="materialOrderScroll">
+    <scroll-view  scroll-x="true" class="materialOrderStatusList">
+        <view class="materialOrderStatus materialOrderStatusNow">全部</view>
+        <view  class="materialOrderStatus">待付款</view>
+        <view class="materialOrderStatus">全部</view>
+        <view  class="materialOrderStatus">待付款</view>
+        <view class="materialOrderStatus">全部</view>
+        <view  class="materialOrderStatus">待付款</view>
+        <view class="materialOrderStatus">全部</view>
+        <view  class="materialOrderStatus">待付款</view>
+        <view class="materialOrderStatus">全部</view>
+        <view  class="materialOrderStatus">待付款</view>
+    </scroll-view>
+  </view>
+</generalSelectionlist>
+

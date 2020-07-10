@@ -1,0 +1,4 @@
+/* pages/ordinary/decorationRecording/decorationRecording.wxss */
+page{
+  background: #f7f7f7;
+}

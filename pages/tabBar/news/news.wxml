@@ -1,0 +1,26 @@
+<!--pages/tabBar/news/news.wxml-->
+<searchHeader title='消息搜索'/>
+<view>
+  <view class="newsList" wx:for='{{newsList}}' wx:for-item='item' wx:for-index="index" wx:key='index'>
+    <view class="newsUserMsg">
+      <image></image>
+      <view>
+        <view class="newsUserName">
+          {{item.userName}}
+        </view>
+        <view class="newsUserContent">
+          {{item.userNewsMsg}}
+        </view>
+      </view>
+    </view>
+    <view class="newMsgDeta">
+        <view class="newsDeta">
+            {{item.newsDeta}}
+        </view>
+        <view class="newsNew">
+
+        </view>
+       
+    </view>
+  </view>
+</view>

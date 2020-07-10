@@ -1,0 +1,9 @@
+<!--pages/ordinary/components/searchHeader/searchHeader.wxml-->
+<view class="indexHeader">
+    <view class="searchInputView">
+      <icon class="icon-small" type="search" size="20"></icon>
+      <input class="searchInput" type='text' confirm-type='search' placeholder='{{title}}' />
+    </view>
+    <image class="shareButton" src="/image/icon/share.png"></image>
+    <image class="QECodeButton" src="/image/icon/QRCode.png"></image>
+</view>

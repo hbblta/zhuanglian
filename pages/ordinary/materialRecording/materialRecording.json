@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "materialRecordingList": "/components/materialRecordingList/materialRecordingList"
+  }
+}

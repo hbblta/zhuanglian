@@ -1,0 +1,38 @@
+<!--pages/tabBar/my/my.wxml-->
+<view class="myHeader">
+  <view class="myUserMsg">
+    <view class="myUserDate">
+      <image class="myUserImg"></image>
+      <text class="myUserName">名称</text>
+    </view>
+    <view class="myUserButton">
+      登录
+    </view>
+  </view>
+</view>
+
+<view class="myManager" bindtap="goUrl" data-url='/pages/ordinary/platformManager/platformManager'>
+  <view class="myManagerText">
+    <image src="../../../image/icon/crown.png"></image>
+    <text>审请《装联客易》服务经理</text>
+  </view>
+  <image class="myMangerMore" src="../../../image/icon/more.svg"></image>
+</view>
+
+<view class="myFeaturesList">
+  <view 
+  class="myFeatures"  
+  bindtap="goUrl"
+  data-url='{{item.ordinaryUrl}}'
+  wx:for='{{userFeaturesList}}' 
+  wx:for-item='item' 
+  wx:for-index="index" 
+  wx:key='index'>
+    <image src='{{item.ordinaryIcon}}'></image>
+    <view>{{item.ordinaryTitle}}</view>
+  </view>
+</view>
+
+<view class="myFooterText">
+  关注公众号，随时收到信息
+</view>

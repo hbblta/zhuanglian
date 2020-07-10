@@ -1,0 +1,117 @@
+/* pages/tabBar/my/my.wxss */
+page{
+  background: #f7f7f7;
+}
+.myHeader{
+  height: 200rpx;
+  width: 750rpx;
+  background: #0081FF;
+}
+.myUserMsg{
+  height: 80rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myUserImg{
+  height: 80rpx;
+  width: 80rpx;
+  margin-right: 30rpx;
+  background: #dddddd;
+  border-radius: 50%;
+}
+.myUserDate{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.myUserName{
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-weight: 550;
+}
+.myUserButton{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+  background: #ffffff;
+}
+.myManager{
+  display: flex;
+  width: 700rpx;
+  box-shadow: 0px 2rpx 6rpx 0px rgba(232, 231, 231, 0.4);
+  border-radius: 4rpx;
+  background: #FFFFFF;
+  margin-left: 25rpx;
+  height: 100rpx;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -50rpx;
+}
+.myManagerText{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+}
+.myManagerText image{
+  width: 68rpx;
+  height: 64rpx;
+  margin-right: 28rpx;
+  margin-left: 18rpx;
+}
+.myManagerText text{
+  color: rgba(255, 151, 15, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.myMangerMore{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+.myFeaturesList{
+  display: flex;
+  width: 700rpx;
+  margin-left: 20rpx;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  padding-bottom: 40rpx;
+  margin-top: 16rpx;
+}
+.myFeatures{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  width: 175rpx;
+  margin-top: 25rpx;
+}
+.myFeatures image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.myFeatures view{
+  color: rgba(48, 49, 51, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.myFooterText{
+  width: 700rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 34rpx;
+  background-color: rgba(255, 255, 255, 1);
+  text-align: center;
+  margin-top: 40rpx;
+  margin-left: 25rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}

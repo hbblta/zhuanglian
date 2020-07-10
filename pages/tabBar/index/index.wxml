@@ -1,0 +1,9 @@
+<!--pages/tabBar/index/index.wxml-->
+<searchHeader title='首页搜索'/>
+<view>
+  <image class="indexAdvertising" src="../../../image/testImg/index1.png"></image>
+</view>
+<view>
+  <image class="indexNone" src="../../../image/testImg/index2.png"></image>
+</view>
+

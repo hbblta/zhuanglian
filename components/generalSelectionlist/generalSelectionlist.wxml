@@ -1,0 +1,21 @@
+<!--components/generalSelectionlist/generalSelectionlist.wxml-->
+<view class="generalSelectionBody">
+  <view class="generalSelectionlist">
+    <view 
+    wx:for='{{textList}}' 
+    wx:for-item='item' 
+    wx:for-index="textListIndex" 
+    wx:key='textListIndex' 
+    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+    {{item.name}}</view>
+  </view>
+  <view>
+    <view class="searchInputViewBody">
+      <view class="searchInputView">
+        <icon class="icon-small" type="search" size="20"></icon>
+        <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+      </view>
+    </view>
+    <slot></slot>
+  </view>
+</view>

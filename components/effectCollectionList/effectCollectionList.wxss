@@ -1,0 +1,62 @@
+/* components/effectCollectionList/effectCollectionList.wxss */
+.decorationRecordingList{
+  display: flex;
+  height: 240rpx;
+  width: 700rpx;
+  padding: 20rpx 25rpx 20rpx 25rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.decorationRecordingImg{
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.decorationRecordingImg image{
+  width: 240rpx;
+  height: 240rpx;
+}
+.decorationRecordingMsg{
+  width: 100%;
+}
+.decorationRecordingTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 28rpx;
+}
+.decorationRecordingStyle{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 24rpx;
+  margin-bottom: 60rpx;
+}
+.decorationRecordingStyle text:nth-child(2){
+  margin-left: 50rpx;
+}
+.decorationRecordingMeun{
+  display: flex;
+  justify-content: space-between;
+}
+.decorationRecordingMeunTitle{
+  display: flex;
+  align-items: center;
+}
+.decorationRecordingMeunTitle image:nth-child(1){
+  width: 45rpx;
+  height: 45rpx;
+}
+.decorationRecordingMeunTitle text:nth-child(2){
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-left: 15rpx;
+  margin-right: 6rpx;
+}
+.decorationRecordingMeunTitle image:nth-child(3){
+  width: 30rpx;
+  height: 30rpx;
+}

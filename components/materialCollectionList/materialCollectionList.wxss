@@ -1,0 +1,45 @@
+/* components/materialCollectionList/materialCollectionList.wxss */
+.decorationRecordingList{
+  display: flex;
+  height: 240rpx;
+  width: 700rpx;
+  padding: 20rpx 25rpx 20rpx 25rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.decorationRecordingImg{
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.decorationRecordingMsg{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+.decorationRecordingMsg view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.decorationRecordingMsgGray{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.decorationRecordingMsgOrange{
+  color: #FF7200;
+  font-size: 30rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.decorationRecordingMsgOrange text{
+  margin-left: 20rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 400;
+}

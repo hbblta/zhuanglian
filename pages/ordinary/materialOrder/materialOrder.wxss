@@ -19,3 +19,89 @@
 .materialOrderStatusNow{
   color: rgba(0, 129, 255, 1);
 }
+.materalListAll{
+  margin-top: 16rpx;
+  background: #FFFFFF;
+}
+.materalList{
+  display: flex;
+  padding:18rpx;
+  border-bottom: 1rpx solid #DDDDDD;
+}
+.materalListImg{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 14rpx;
+  background: #DDDDDD;
+}
+.materalListImg image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.materalListTitle{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  width: 310rpx;
+}
+.materalListTitle text:nth-child(1){
+  font-size: 28rpx;
+  color: #303133;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.materalListTitle text:nth-child(2){
+  font-size: 28rpx;
+  color: #0081FF;
+  font-family: PingFangSC-regular;
+}
+.materalListData1{
+  color: #A9AAAF;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.materalListData2{
+  color: #FF7200;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.materalListMeun{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80rpx;
+  align-items: center;
+}
+.materalListMeun image{
+  margin-left: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.materalListMeunButton text:nth-child(1){
+  display: inline-block;
+  text-align: center;
+  line-height: 44rpx;
+  width: 140rpx;
+  height: 44rpx;
+  border-radius: 40rpx;
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  font-family: Microsoft Yahei;
+  border: 1px solid rgba(0, 129, 255, 1);
+  margin: 0 10rpx;
+}
+.materalListMeunButton text:nth-child(2){
+  display: inline-block;
+  text-align: center;
+  line-height: 44rpx;
+  width: 140rpx;
+  height: 44rpx;
+  border-radius: 40rpx;
+  color: #FFFFFF;
+  background: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  font-family: Microsoft Yahei;
+  border: 1px solid rgba(0, 129, 255, 1);
+  margin: 0 10rpx;
+}

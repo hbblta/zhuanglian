@@ -1,29 +1,18 @@
-// pages/ordinary/materialOrder/materialOrder.js
+// pages/ordinary/myPromotion/myPromotion.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList : [
-      {
-        name : '自己预定',
-        id : 0
-      },
-      {
-        name : '企业代订',
-        id : 1
-      },
-    ],
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '材料预定'
-    })
+
   },
 
   /**

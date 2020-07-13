@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "effectCollectionList": "/components/effectCollectionList/effectCollectionList"
+  }
+}

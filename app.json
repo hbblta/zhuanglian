@@ -46,7 +46,11 @@
         "decorationRecording/decorationRecording",
         "materialRecording/materialRecording",
         "decorationSchedule/decorationSchedule",
-        "materialOrder/materialOrder"
+        "materialOrder/materialOrder",
+        "effectCollection/effectCollection",
+        "materialCollection/materialCollection",
+        "myPromotion/myPromotion",
+        "constructionSite/constructionSite"
       ]
     }
   ],

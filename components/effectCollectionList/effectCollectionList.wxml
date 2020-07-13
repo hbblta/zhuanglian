@@ -1,0 +1,23 @@
+<!--components/effectCollectionList/effectCollectionList.wxml-->
+<view class="decorationRecordingList">
+ <view class="decorationRecordingImg"> <image src="{{item.imgUrl}}" ></image></view>
+  <view class="decorationRecordingMsg">
+    <view class="decorationRecordingTitle">{{item.decorationName}}</view>
+    <view class="decorationRecordingStyle">
+      <text>图片: 7张</text>
+      <text>风格: 现代简约</text>
+    </view>
+    <view class="decorationRecordingMeun">
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../image/icon/materialcon.png'></image>
+        <text>材料清单</text>
+        <image src='../../image/icon/more.svg'></image>
+      </view>
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../image/icon/VRIcon.png'></image>
+        <text>VR全景</text>
+        <image src='../../image/icon/more.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>

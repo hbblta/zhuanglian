@@ -30,22 +30,22 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/ordinary5.png',
         ordinaryTitle : '效果收藏',
-        ordinaryUrl : ''
+        ordinaryUrl : '/pages/ordinary/effectCollection/effectCollection'
       },
       {
         ordinaryIcon : '../../../image/icon/ordinary6.png',
         ordinaryTitle : '材料收藏',
-        ordinaryUrl : ''
+        ordinaryUrl : '/pages/ordinary/materialCollection/materialCollection'
       },
       {
         ordinaryIcon : '../../../image/icon/ordinary7.png',
         ordinaryTitle : '我的推广',
-        ordinaryUrl : ''
+        ordinaryUrl : '/pages/ordinary/myPromotion/myPromotion'
       },
       {
         ordinaryIcon : '../../../image/icon/ordinary8.png',
         ordinaryTitle : '施工现场',
-        ordinaryUrl : ''
+        ordinaryUrl : '/pages/ordinary/constructionSite/constructionSite'
       },
       {
         ordinaryIcon : '../../../image/icon/ordinary9.png',

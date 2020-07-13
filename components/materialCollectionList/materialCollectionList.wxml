@@ -1,0 +1,11 @@
+<!--components/materialCollectionList/materialCollectionList.wxml-->
+<view class="decorationRecordingList">
+  <image src="" class="decorationRecordingImg"></image>
+  <view class="decorationRecordingMsg">
+    <view class="decorationRecordingMsgGray">名称</view>
+    <view class="decorationRecordingMsgGray">品牌 : 海澜</view>
+    <view class="decorationRecordingMsgGray">型号 : 199</view>
+    <view class="decorationRecordingMsgGray">规格 : 100*100</view>
+    <view class="decorationRecordingMsgOrange">会员价 :￥699 <text> 原价: ￥69999</text></view>
+  </view>
+</view>

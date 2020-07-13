@@ -1,29 +1,37 @@
-// pages/ordinary/materialOrder/materialOrder.js
+// pages/ordinary/effectCollection/effectCollection.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList : [
+    list:[
       {
-        name : '自己预定',
-        id : 0
+       imgUrl : '',
+       decorationName : '金华材料商',
+       decorationAddress : '金华市',
+       decorationPhone:'1008611'
       },
       {
-        name : '企业代订',
-        id : 1
+       imgUrl : '',
+       decorationName : '北京材料商',
+       decorationAddress : '北京市',
+       decorationPhone:'121300861154154'
       },
-    ],
+      {
+       imgUrl : '',
+       decorationName : '新疆材料商',
+       decorationAddress : '新疆市',
+       decorationPhone:'1541857415114'
+      },
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '材料预定'
-    })
+
   },
 
   /**

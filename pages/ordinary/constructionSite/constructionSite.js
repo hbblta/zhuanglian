@@ -1,4 +1,4 @@
-// pages/ordinary/materialOrder/materialOrder.js
+// pages/ordinary/constructionSite/constructionSite.js
 Page({
 
   /**
@@ -7,12 +7,20 @@ Page({
   data: {
     textList : [
       {
-        name : '自己预定',
+        name : '全部',
         id : 0
       },
       {
-        name : '企业代订',
+        name : '改造',
         id : 1
+      },
+      {
+        name : '水电',
+        id : 2
+      },
+      {
+        name : '泥工',
+        id : 3
       },
     ],
   },
@@ -22,7 +30,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '材料预定'
+      title: '施工现场'
     })
   },
 

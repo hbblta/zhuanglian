@@ -1,20 +1,11 @@
-// pages/ordinary/materialOrder/materialOrder.js
+// pages/ordinary/materialCollection/materialCollection.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList : [
-      {
-        name : '自己预定',
-        id : 0
-      },
-      {
-        name : '企业代订',
-        id : 1
-      },
-    ],
+    list : 5
   },
 
   /**
@@ -22,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '材料预定'
+      title: '材料收藏'
     })
   },
 

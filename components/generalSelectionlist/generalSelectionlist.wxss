@@ -20,6 +20,7 @@ page{
   line-height: 70rpx;
   font-family: Arial;
   font-size: 28rpx;
+  color: #909399;
 }
 .generalSelectionlist .generalSelectionCurrent{
   background: #0081FF;

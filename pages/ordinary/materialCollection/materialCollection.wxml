@@ -1,0 +1,7 @@
+<!--pages/ordinary/materialCollection/materialCollection.wxml-->
+<materialCollectionList
+item='{{item}}'
+wx:for='{{list}}' 
+wx:for-item='item' 
+wx:for-index="index" 
+wx:key='index'/>

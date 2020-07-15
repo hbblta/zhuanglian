@@ -1,1 +1,4 @@
 /* pages/ordinary/materialRecording/materialRecording.wxss */
+page{
+  background: #f7f7f7;
+}

@@ -1,5 +1,4 @@
-// pages/ordinary/platformManager/platformManager.js
-const app = getApp()
+// pages/ordinary/login/login.js
 Page({
 
   /**
@@ -14,23 +13,10 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '申请'
+      title: '注册'
     })
   },
-  submitPlatform:function(){
-    let userData = app.globalData.userData
-    userData.platform = true
-    app.setGlobalData({
-      userData : userData
-    })
-  },
-  submitPlatforms:function(){
-    let userData = app.globalData.userData
-    userData.test = true
-    app.setGlobalData({
-      userData : userData
-    },)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

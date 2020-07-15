@@ -50,7 +50,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/ordinary9.png',
         ordinaryTitle : '我要注册',
-        ordinaryUrl : ''
+        ordinaryUrl : '/pages/ordinary/login/login'
       }
     ]
   },
@@ -62,7 +62,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.$watch('userData', (val, old) => {
+      console.log(app.globalData.userData);
+    })
   },
 
   onTabItemTap(item) {

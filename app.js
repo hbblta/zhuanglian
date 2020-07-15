@@ -48,7 +48,43 @@ App({
       // }
     })
   },
+  watchCallBack: {},
+  watchingKeys: [],
+  setGlobalData(data){//更改全局变量
+    Object.keys(data).map(key => {
+      this.globalData[key] = data[key]
+    })
+    // console.log('mutation', data);
+    // wx.setStorageSync('store', this.globalData)// 加入缓存
+  },
+  
+  $watch(key, cb){//监听globalData
+    this.watchCallBack = Object.assign({}, this.watchCallBack,{
+      [key]: this.watchCallBack[key] || []
+    });
+    this.watchCallBack[key].push(cb);
+    if(!this.watchingKeys.find(x => x === key)){
+      const that = this;
+      this.watchingKeys.push(key);
+      let val = this.globalData[key];
+      Object.defineProperty(this.globalData, key, {
+        configurable: true,
+        enumerable: true,
+        set(value){
+          const old = that.globalData[key];
+          val = value;
+          that.watchCallBack[key].map(func => func(value, old));
+        },
+        get(){
+          return val
+        }
+      })
+    }
+  },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    userData:{
+      platform : false
+    }
   }
 })

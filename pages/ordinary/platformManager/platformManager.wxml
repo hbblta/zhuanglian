@@ -8,13 +8,13 @@
     <input placeholder="申请区域"></input>
     <input placeholder="店码"></input>
   </view>
-  <view class="privacyPolicy">
+  <view class="privacyPolicy" bindtap="submitPlatforms">
     <!-- <image src="../../../image/icon/selecte.svg"></image> -->
     <image src="../../../image/icon/selected.svg"></image>
     <text>我已阅读并同意</text>
     <text>《服务经理协议与保密条款》</text>
   </view>
-  <view class="submitApplication">
+  <view class="submitApplication" bindtap="submitPlatform">
     提交申请
   </view>
 </view>

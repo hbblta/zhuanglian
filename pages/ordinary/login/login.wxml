@@ -1,0 +1,23 @@
+<!--pages/ordinary/login/login.wxml-->
+<view class="loginTitle">—— 选择注册的身份 ——</view>
+<view class="loginView">
+  <view class="loginViewIcon">
+    <image src="../../../image/icon/ordinary1.png"></image>
+    <view>装修公司</view>
+  </view>
+  <view class="loginViewType">
+    <view>企业</view>
+    <view>员工</view>
+  </view>
+</view>
+<view class="loginView orangeBack">
+  <view class="loginViewIcon">
+    <image src="../../../image/icon/ordinary2.png"></image>
+    <view class="orangeFont">材料商</view>
+  </view>
+  <view class="loginViewType">
+    <view class="orangeFont">企业</view>
+    <view class="orangeFont">员工</view>
+  </view>
+</view>
+<image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>

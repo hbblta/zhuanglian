@@ -1,1 +1,4 @@
 /* pages/ordinary/effectCollection/effectCollection.wxss */
+page{
+  background: #f7f7f7;
+}

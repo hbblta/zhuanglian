@@ -50,7 +50,8 @@
         "effectCollection/effectCollection",
         "materialCollection/materialCollection",
         "myPromotion/myPromotion",
-        "constructionSite/constructionSite"
+        "constructionSite/constructionSite",
+        "login/login"
       ]
     }
   ],

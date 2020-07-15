@@ -1,0 +1,76 @@
+<!--pages/ordinary/managerTrue/managerTrue.wxml-->
+<view class="managerTruePric">
+    <view>
+      <view class="managerTruePricTitle">我的金额</view>
+      <view class="managerTruePricText">
+          <text>0.00</text>
+          <text>明细</text>
+      </view>
+    </view>
+    <view class="managerTruePricButton">去提现</view>
+</view>
+<view class="managerTrueTitle">——邀请一家装企开通，奖励最高达1000元——</view>
+
+<view class="managerTrueListAll">
+  <view class="managerTrueList">
+      <view class="managerTrueListTitle">今日数据</view>
+      <view></view>
+  </view>
+  <view class="managerTrueList" bindtap="goUrl" data-url="/pages/ordinary/managerInvitation/managerInvitation">
+      <view class="managerTrueListText">邀请人数</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+  <view class="managerTrueList" bindtap="goUrl" data-url="/pages/ordinary/managerInvitation/managerInvitation">
+      <view class="managerTrueListText">注册经理</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+  <view class="managerTrueList">
+      <view class="managerTrueListText">装企通过</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+  <view class="managerTrueList">
+      <view class="managerTrueListTitle">累计数据</view>
+      <view></view>
+  </view>
+  <view class="managerTrueList">
+      <view class="managerTrueListText">邀请人数</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+  <view class="managerTrueList">
+      <view class="managerTrueListText">注册经理</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+  <view class="managerTrueList">
+      <view class="managerTrueListText">装企通过</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+</view>
+<view class="managerTrueListOne">
+  <view class="managerTrueList">
+      <view class="managerTrueListText">文章引流</view>
+      <view><image src="../../../image/icon/more.svg"></image></view>
+  </view>
+</view>
+<view class="managerTrueListOne">
+  <view class="managerTrueList">
+      <view class="managerTrueListTitle">奖励及说明</view>
+      <view></view>
+  </view>
+  <view class="managerTrueRemind">
+    <text>1、邀请装企开通店铺，获得200元奖励； 
+      2、每满100元即可提现；
+      3、提现必须是注册会员。 </text>
+  </view>
+  <view class="managerTrueRemindButton"><text>我要注册</text></view>
+</view>
+
+<view class="managerTrueListOne">
+  <view class="managerTrueList">
+      <view class="managerTrueListTitle">邀请方法</view>
+      <view></view>
+  </view>
+  <view class="managerTrueRemind">
+    <text>点击下方生成专有邀请码与邀请单页，分享邀请单页，请好友扫码关注开通店铺</text>
+  </view>
+  <view class="managerTrueRemindButton"><text>点击查看邀请图片</text></view>
+</view>

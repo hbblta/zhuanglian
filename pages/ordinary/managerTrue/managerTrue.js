@@ -1,4 +1,4 @@
-// pages/ordinary/platformManager/platformManager.js
+// pages/ordinary/managerTrue/managerTrue.js
 const app = getApp()
 Page({
 
@@ -14,22 +14,11 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '申请'
+      title: '服务经理'
     })
   },
-  submitPlatform:function(){
-    app.setGlobalData({
-      userData : {
-        platform : true
-      }
-    })
-  },
-  submitPlatforms:function(){
-    app.setGlobalData({
-      userData : {
-        test : true
-      }
-    },)
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

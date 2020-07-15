@@ -52,7 +52,8 @@ Page({
         ordinaryTitle : '我要注册',
         ordinaryUrl : '/pages/ordinary/login/login'
       }
-    ]
+    ],
+    userData : {}
   },
 
   goUrl(e){
@@ -63,7 +64,12 @@ Page({
    */
   onLoad: function (options) {
     app.$watch('userData', (val, old) => {
-      console.log(app.globalData.userData);
+      this.setData({
+        userData : app.globalData.userData
+      })
+    })
+    this.setData({
+      userData : app.globalData.userData
     })
   },
 

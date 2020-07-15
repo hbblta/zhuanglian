@@ -1,0 +1,132 @@
+/* pages/ordinary/managerTrue/managerTrue.wxss */
+page{
+  background: #f7f7f7;
+}
+.managerTruePric{
+  display: flex;
+  /* background-image: url(../../../image/backgroundImg/managerTrueBack.jpg); */
+  background:#F9E6D7;
+  width: 638rpx;
+  height: 160rpx;
+  padding-left: 44rpx;
+  padding-right: 18rpx;
+  margin-top: 25rpx;
+  margin-left: 25rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.managerTruePricText{
+  color: rgba(95, 63, 48, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-bold;
+}
+.managerTruePricText text:nth-child(1){
+  color: rgba(95, 63, 48, 1);
+  font-size: 56rpx;
+  font-family: PingFangSC-bold;
+  margin-right: 20rpx;
+}
+.managerTruePricText text:nth-child(2){
+  display: inline-block;
+  width: 90rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 60rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(95, 63, 48, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(95, 63, 48, 1);
+  position: relative;
+  bottom: 12rpx;
+}
+.managerTruePricButton{
+  width: 180rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  border-radius: 60rpx;
+  background-color: rgba(255, 138, 110, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+.managerTrueListAll,.managerTrueListOne{
+  border-radius: 8rpx;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(232, 231, 231, 0.4);
+}
+.managerTrueTitle{
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: rgba(144, 147, 153, 1);
+    font-size: 24rpx;
+    font-family: PingFangSC-regular;
+}
+.managerTrueList{
+  display: flex;
+  background: #FFFFFF;
+  width: 660rpx;
+  height: 96rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 25rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgba(247, 247, 247, 1);
+}
+.managerTrueList view image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.managerTrueListTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: 550;
+}
+.managerTrueListText{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.managerTrueListOne{
+  margin-top: 16rpx;
+}
+.managerTrueRemind{
+  background: #FFFFFF;
+  width: 660rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 25rpx;
+  padding-top: 20rpx;
+}
+.managerTrueRemind text{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.managerTrueRemindButton{
+  background: #FFFFFF;
+  width: 660rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-left: 25rpx;
+  padding-top: 25rpx;
+  padding-bottom: 32rpx;
+}
+.managerTrueRemindButton text{
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 640rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 40rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}

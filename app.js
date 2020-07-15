@@ -51,12 +51,14 @@ App({
   watchCallBack: {},
   watchingKeys: [],
   setGlobalData(data){//更改全局变量
-    Object.keys(data).map(key => {
-      this.globalData[key] = data[key]
-    })
-    // console.log('mutation', data);
-    // wx.setStorageSync('store', this.globalData)// 加入缓存
-  },
+    Object.keys(data).map(key => {
+      var oldGlobalData =  JSON.parse(JSON.stringify(this.globalData[key])) //old值
+      var newGlobalData  = Object.assign(oldGlobalData,data[key])
+       this.globalData[key] = newGlobalData
+    })
+    // console.log('mutation', data);
+    // wx.setStorageSync('store', this.globalData)// 加入缓存
+  },
   
   $watch(key, cb){//监听globalData
     this.watchCallBack = Object.assign({}, this.watchCallBack,{
@@ -84,7 +86,7 @@ App({
   globalData: {
     userInfo: null,
     userData:{
-      platform : false
+      platform : true
     }
   }
 })

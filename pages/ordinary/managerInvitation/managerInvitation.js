@@ -1,5 +1,4 @@
-// pages/ordinary/platformManager/platformManager.js
-const app = getApp()
+// pages/ordinary/managerInvitation/managerInvitation.js
 Page({
 
   /**
@@ -14,23 +13,10 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '申请'
+      title: '邀请人数'
     })
   },
-  submitPlatform:function(){
-    app.setGlobalData({
-      userData : {
-        platform : true
-      }
-    })
-  },
-  submitPlatforms:function(){
-    app.setGlobalData({
-      userData : {
-        test : true
-      }
-    },)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

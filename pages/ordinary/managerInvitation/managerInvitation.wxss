@@ -1,0 +1,132 @@
+/* pages/ordinary/managerInvitation/managerInvitation.wxss */
+page{
+  background: #f7f7f7;
+}
+.searchInputViewAll{
+  width: 750rpx;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+}
+.searchInputView{
+  display: flex;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 1);
+  margin-left: 15rpx;
+  padding-left: 15rpx;
+  width: 705rpx;
+}
+.searchInputView .searchInput{
+  width: 665rpx;
+  height: 76rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+  font-size: 28rpx;
+}
+.managerInvitationTab{
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  width: 710rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 80rpx;
+  align-items: center;
+}
+.managerInvitationTab text{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationTab .managerInvitationTabNow{
+  color: rgba(0, 129, 255, 1);
+  font-weight: 550;
+}
+.managerInvitationNum{
+  margin-top: 15rpx;
+}
+.managerInvitationDate{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(247, 247, 247, 1);
+  height: 80rpx;
+  width: 710rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #FFFFFF;
+}
+.managerInvitationDate view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationDate image{
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(90deg);
+}
+.managerInvitationList{
+  display: flex;
+  justify-content: space-between;
+  width: 720rpx;
+  padding: 20rpx 15rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.managerInvitationListData{
+  display: flex;
+}
+.managerInvitationListHeadImg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.managerInvitationListHeadImg image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.managerInvitationListDataText{
+  display: flex;
+  height: 160rpx;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.managerInvitationListDataText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationListDataText view:nth-child(2){
+  color: #2F98FF;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationListDataText view:nth-child(3){
+  color: #909399;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationListDataText view:nth-child(4){
+  color: #909399;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.managerInvitationListEvaluation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.managerInvitationListEvaluationImg{
+  display: flex;
+}
+.managerInvitationListEvaluationImg image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.managerInvitationListEvaluationDate{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}

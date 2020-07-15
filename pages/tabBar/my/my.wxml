@@ -11,10 +11,10 @@
   </view>
 </view>
 
-<view class="myManager" bindtap="goUrl" data-url='/pages/ordinary/platformManager/platformManager'>
+<view class="myManager" bindtap="goUrl"  data-url="{{userData.platform ? '/pages/ordinary/managerTrue/managerTrue' : '/pages/ordinary/platformManager/platformManager'}}">
   <view class="myManagerText">
     <image src="../../../image/icon/crown.png"></image>
-    <text>审请《装联客易》服务经理</text>
+    <text>{{userData.platform ? '我是《装联客易》服务经理' : '审请《装联客易》服务经理'}}</text>
   </view>
   <image class="myMangerMore" src="../../../image/icon/more.svg"></image>
 </view>

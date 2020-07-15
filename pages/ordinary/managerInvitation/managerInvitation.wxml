@@ -1,0 +1,67 @@
+<!--pages/ordinary/managerInvitation/managerInvitation.wxml-->
+<view class="searchInputViewAll">
+  <view class="searchInputView">
+    <icon class="icon-small" type="search" size="20"></icon>
+    <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+  </view>
+</view>
+<view class="managerInvitationTab">
+    <text class="managerInvitationTabNow">全部(12)</text>
+    <text>未注册(51)</text>
+    <text>已注册(120)</text>
+    <text>已开通(112)</text>
+</view>
+<view class="managerInvitationNum">
+  <view class="managerInvitationTab">
+      <text>总: 100人</text>
+      <text>直邀: 60人</text>
+      <text>间邀: 40人</text>
+      <text></text>
+  </view>
+  <view class="managerInvitationDate">
+    <view>2020/01</view>
+     <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<view>
+  <view class="managerInvitationList">
+     <view class="managerInvitationListData">
+        <view class="managerInvitationListHeadImg"><image></image></view>
+        <view class="managerInvitationListDataText">
+          <view>姓名/店铺</view>
+          <view>已注册</view>
+          <view>135164651365</view>
+          <view>访问次数: 2次</view>
+        </view>
+     </view>
+     <view class="managerInvitationListEvaluation">
+        <view class="managerInvitationListEvaluationImg">
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+        </view>
+        <view class="managerInvitationListEvaluationDate">在线时间: 12分</view>
+     </view>
+  </view>
+  <view class="managerInvitationList">
+     <view class="managerInvitationListData">
+        <view class="managerInvitationListHeadImg"><image></image></view>
+        <view class="managerInvitationListDataText">
+          <view>姓名/店铺</view>
+          <view>已注册</view>
+          <view>135164651365</view>
+          <view>访问次数: 2次</view>
+        </view>
+     </view>
+     <view class="managerInvitationListEvaluation">
+        <view class="managerInvitationListEvaluationImg">
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+          <image src='../../../image/icon/pentagram.svg'></image>
+        </view>
+        <view class="managerInvitationListEvaluationDate">在线时间: 12分</view>
+     </view>
+  </view>
+</view>

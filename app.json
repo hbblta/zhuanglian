@@ -51,7 +51,9 @@
         "materialCollection/materialCollection",
         "myPromotion/myPromotion",
         "constructionSite/constructionSite",
-        "login/login"
+        "login/login",
+        "managerTrue/managerTrue",
+        "managerInvitation/managerInvitation"
       ]
     }
   ],

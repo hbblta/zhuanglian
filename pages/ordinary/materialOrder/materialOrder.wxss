@@ -78,7 +78,10 @@
   width: 40rpx;
   height: 40rpx;
 }
-.materalListMeunButton text:nth-child(1){
+.materalListMeunButton{
+  display: flex;
+}
+.materalListMeunButton view:nth-child(1){
   display: inline-block;
   text-align: center;
   line-height: 44rpx;
@@ -91,7 +94,7 @@
   border: 1px solid rgba(0, 129, 255, 1);
   margin: 0 10rpx;
 }
-.materalListMeunButton text:nth-child(2){
+.materalListMeunButton view:nth-child(2){
   display: inline-block;
   text-align: center;
   line-height: 44rpx;

@@ -15,6 +15,10 @@ Page({
         id : 1
       },
     ],
+    decorationArray:{
+      textList: ['设计不满意','价格太高','产品没实样','其他原因'],
+      idList: [0,1,2,3]
+     }
   },
 
   /**
@@ -25,7 +29,9 @@ Page({
       title: '材料预定'
     })
   },
-
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

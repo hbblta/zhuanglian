@@ -53,7 +53,89 @@ Page({
         ordinaryUrl : '/pages/ordinary/login/login'
       }
     ],
-    userData : {}
+    userData : {},
+    decorationFeaturesList:[
+      {
+        ordinaryIcon : '../../../image/icon/decoration1.png',
+        ordinaryTitle : '我的店铺',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration2.png',
+        ordinaryTitle : '我的推广码',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration3.png',
+        ordinaryTitle : '文章引流',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration4.png',
+        ordinaryTitle : '装修计算器',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration5.png',
+        ordinaryTitle : '效果图管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration6.png',
+        ordinaryTitle : '设计团队管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration7.png',
+        ordinaryTitle : '分销团队管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration8.png',
+        ordinaryTitle : '佣金管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration9.png',
+        ordinaryTitle : '员工管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration10.png',
+        ordinaryTitle : '客户管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration11.png',
+        ordinaryTitle : '订单管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration12.png',
+        ordinaryTitle : '合作管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration13.png',
+        ordinaryTitle : '提成设置',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration14.png',
+        ordinaryTitle : '排行榜单',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration15.png',
+        ordinaryTitle : '施工管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration16.png',
+        ordinaryTitle : '辅材管理',
+        ordinaryUrl : '/pages/ordinary/login/login'
+      }
+    ]
   },
 
   goUrl(e){
@@ -64,6 +146,7 @@ Page({
    */
   onLoad: function (options) {
     app.$watch('userData', (val, old) => {
+      console.log('监听全局用户数据触发')
       this.setData({
         userData : app.globalData.userData
       })
@@ -71,6 +154,12 @@ Page({
     this.setData({
       userData : app.globalData.userData
     })
+    if(this.data.userData.userType == 2){
+      this.data.userFeaturesList.splice(8,1)
+      this.setData({
+        userFeaturesList : this.data.userFeaturesList
+      })
+    }
   },
 
   onTabItemTap(item) {

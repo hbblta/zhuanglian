@@ -115,3 +115,30 @@ page{
   font-size: 28rpx;
   font-family: PingFangSC-regular;
 }
+.myUserMsgTwo{
+  width: 710rpx;
+  margin-left: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myUserNameTwo{
+  opacity: 0.56;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 10rpx;
+}
+.myUserButtonMore{
+  margin-top: 10rpx;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(255, 255, 255, 1);
+}

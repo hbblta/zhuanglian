@@ -6,8 +6,8 @@
     <view>装修公司</view>
   </view>
   <view class="loginViewType">
-    <view>企业</view>
-    <view>员工</view>
+    <view bindtap="goUrl" data-url='/pages/ordinary/decorationBossBuy/decorationBossBuy'>企业</view>
+    <view bindtap="goUrl" data-url='/pages/ordinary/decorationStaff/decorationStaff'>员工</view>
   </view>
 </view>
 <view class="loginView orangeBack">
@@ -16,8 +16,8 @@
     <view class="orangeFont">材料商</view>
   </view>
   <view class="loginViewType">
-    <view class="orangeFont">企业</view>
-    <view class="orangeFont">员工</view>
+    <view class="orangeFont"  bindtap="goUrl" data-url='/pages/ordinary/materialRegistration/materialRegistration'>企业</view>
+    <view class="orangeFont"  bindtap="goUrl" data-url='/pages/ordinary/materialStaff/materialStaff'>员工</view>
   </view>
 </view>
 <image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>

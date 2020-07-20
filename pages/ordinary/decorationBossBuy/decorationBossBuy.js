@@ -1,42 +1,51 @@
-// pages/ordinary/decorationSchedule/decorationSchedule.js
+// pages/ordinary/decorationBossBuy/decorationBossBuy.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList : [
+    decorationBossBuyList:[
       {
-        name : '全部',
-        id : 0
+        name : '1年VIP',
+        type:1,
+        oldPrice:6999,
+        nowPrice:699,
+        img:'../../../image/testImg/decorationBossBuy1.png',
       },
       {
-        name : '待量房',
-        id : 1
+        name : '1年VIP',
+        type:2,
+        oldPrice:6999,
+        nowPrice:699,
+        img:'../../../image/testImg/decorationBossBuy1.png',
       },
       {
-        name : '待设计',
-        id : 2
-      },
-      {
-        name : '弃单',
-        id : 3
-      },
+        name : '1年VIP',
+        type:3,
+        oldPrice:6999,
+        nowPrice:699,
+        img:'../../../image/testImg/decorationBossBuy1.png',
+      }
     ],
-    decorationArray:{
-      textList: ['设计不满意','价格太高','产品没实样','其他原因'],
-      idList: [0,1,2,3]
-     }
+    swiperIndex:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '注册'
+    })
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  nowChange(e){
+    console.log(e)
+    if(e.detail.source){
+      this.setData({
+        swiperIndex : e.detail.current
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

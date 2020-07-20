@@ -1,43 +1,22 @@
-// pages/ordinary/decorationSchedule/decorationSchedule.js
+// pages/ordinary/materialRegistration/materialRegistration.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList : [
-      {
-        name : '全部',
-        id : 0
-      },
-      {
-        name : '待量房',
-        id : 1
-      },
-      {
-        name : '待设计',
-        id : 2
-      },
-      {
-        name : '弃单',
-        id : 3
-      },
-    ],
-    decorationArray:{
-      textList: ['设计不满意','价格太高','产品没实样','其他原因'],
-      idList: [0,1,2,3]
-     }
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '材料商注册'
+    })
+  },
 
-  },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

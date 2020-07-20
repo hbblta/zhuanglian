@@ -53,7 +53,12 @@
         "constructionSite/constructionSite",
         "login/login",
         "managerTrue/managerTrue",
-        "managerInvitation/managerInvitation"
+        "managerInvitation/managerInvitation",
+        "managerSuccess/managerSuccess",
+        "decorationBossBuy/decorationBossBuy",
+        "decorationStaff/decorationStaff",
+        "materialRegistration/materialRegistration",
+        "materialStaff/materialStaff"
       ]
     }
   ],

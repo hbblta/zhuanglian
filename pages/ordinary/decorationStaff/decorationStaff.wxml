@@ -1,0 +1,14 @@
+<!--pages/ordinary/decorationStaff/decorationStaff.wxml-->
+<view class="decorationStaffInput">
+    <input placeholder="申请人"></input>
+    <input placeholder="申请人电话"></input>
+    <input placeholder="申请区域"></input>
+    <input placeholder="装企选择"></input>
+</view>
+<view class="decorationStaffPact">
+  <image src="../../../image/icon/selecte.svg"></image>
+  <text>我已阅读并同意</text>
+  <text>《会员服务协议及隐私保密协议》</text>
+</view>
+<view class="decorationStaffButton">提交申请</view>
+<image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>

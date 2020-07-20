@@ -24,7 +24,7 @@
       <view class="managerTrueListText">注册经理</view>
       <view><image src="../../../image/icon/more.svg"></image></view>
   </view>
-  <view class="managerTrueList">
+  <view class="managerTrueList"  bindtap="goUrl" data-url="/pages/ordinary/managerSuccess/managerSuccess">
       <view class="managerTrueListText">装企通过</view>
       <view><image src="../../../image/icon/more.svg"></image></view>
   </view>

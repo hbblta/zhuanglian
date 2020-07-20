@@ -14,7 +14,9 @@
     </view>
     <view class="decorationButton">
       <view>联系商家</view>
-      <view>弃单</view>
+      <view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">弃单</picker>
+      </view>
       <view>留言</view>
     </view>
   </view>

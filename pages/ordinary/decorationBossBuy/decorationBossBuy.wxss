@@ -1,0 +1,124 @@
+/* pages/ordinary/decorationBossBuy/decorationBossBuy.wxss */
+page{
+  background: #f7f7f7;
+}
+.decorationBossBuyTitle{
+  display: flex;
+  justify-content: space-between;
+  width: 710rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  align-items: center;
+  height: 100rpx;
+  background: #FFFFFF;
+}
+.decorationBossBuyTitleName,.decorationBossBuyTitleMore{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.decorationBossBuyTitleName view,.decorationBossBuyTitleMore view{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+}
+.decorationBossBuyTitleName image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #DDDDDD;
+  margin-right: 30rpx;
+}
+.decorationBossBuyTitleMore image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 18rpx;
+}
+.decorationBossBuyListImg{
+  width: 460rpx;
+  height: 270rpx;
+  margin-top: 30rpx;
+  transition: .3s all linear;
+  transform: scale(0.8);
+  border-radius: 8rpx;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(79, 163, 251, 1);
+}
+.decorationBossBuyListImgNow{
+  transform: scale(1);
+}
+.decorationBossBuyTitleImg{
+  margin-left: 25rpx;
+  margin-top: 25rpx;
+  width: 700rpx;
+  height: 88rpx;
+  border-radius: 8rpx;
+}
+.decorationBossBuyMsgImg{
+  width: 700rpx;
+  height: 320rpx;
+  border-radius: 8rpx;
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(232, 231, 231, 0.4);
+  border: 2rpx solid rgba(255, 255, 255, 0);
+}
+.decorationBossBuyTerms{
+  display: flex;
+  align-items: center;
+  height: 40rpx;
+  width: 700rpx;
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+}
+.decorationBossBuyTerms image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+}
+.decorationBossBuyTerms text{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.decorationBossBuyButton{
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.decorationBossBuyPrice{
+  height: 100rpx;
+  width: 430rpx;
+  line-height: 100rpx;
+  background: #FFFFFF;
+}
+.decorationBossBuyPrice text:nth-child(1){
+  color: rgba(85, 85, 85, 1);
+  font-size: 38rpx;
+  font-family: PingFangSC-regular;
+  margin-left: 20rpx;
+}
+.decorationBossBuyPrice text:nth-child(2){
+  color: #FF7200 ;
+  font-size: 30rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.decorationBossBuyPrice text:nth-child(3){
+  color: #858585;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  text-decoration:line-through;
+}
+.decorationBossBuyPay{
+  width: 320rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  text-align: center;
+  font-family: Arial;
+}

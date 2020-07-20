@@ -86,7 +86,8 @@ App({
   globalData: {
     userInfo: null,
     userData:{
-      platform : true
+      // platform : true
+      userType : 2
     }
   }
 })

@@ -1,0 +1,19 @@
+<!--pages/ordinary/managerSuccess/managerSuccess.wxml-->
+<view class="searchInputViewAll">
+  <view class="searchInputView">
+    <icon class="icon-small" type="search" size="20"></icon>
+    <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+  </view>
+</view>
+<view>
+  <view class="managerSuccessList">
+    <view class="managerSuccessListImg"><image></image></view>
+    <view class="managerSuccessListText">
+      <view>
+        <view class="managerSuccessListName">装企名称</view>
+        <view class="managerSuccessListNum">13558946656</view>
+      </view>
+      <view class="managerSuccessListNum">通过时间: 2020/05/14</view>
+    </view>
+  </view>
+</view>

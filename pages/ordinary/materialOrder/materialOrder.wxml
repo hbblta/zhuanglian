@@ -30,8 +30,8 @@
       <view class="materalListMeun">
          <image src='../../../image/icon/moreMeun.svg'></image>
          <view class="materalListMeunButton">
-           <text>弃单</text>
-           <text>确认收货</text>
+           <view><picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">弃单</picker></view>
+           <view>确认收货</view>
          </view>
       </view>
     </view>

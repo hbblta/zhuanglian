@@ -1,0 +1,12 @@
+<!--pages/decoration/promoteCode/promoteCode.wxml-->
+<view class="promoteCode">
+  <image class="promoteCodeImg" src="../../../image/testImg/promoteCodeImg.png"></image>
+  <view class="promoteCodeRefresh">
+    <text>换一张</text>
+    <image src="../../../image/icon/refresh.svg"></image>
+  </view>
+  <view class="promoteCodeButton">
+    <text>保存图片</text>
+    <text>转发</text>
+  </view>
+</view>

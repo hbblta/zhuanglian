@@ -33,7 +33,11 @@
   "subPackages": [
     {
       "root": "pages/decoration/",
-      "pages": []
+      "pages": [
+        "promoteCode/promoteCode",
+        "articlePromote/articlePromote",
+        "articleDetails/articleDetails"
+      ]
     },
     {
       "root": "pages/material/",

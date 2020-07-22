@@ -63,12 +63,12 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration2.png',
         ordinaryTitle : '我的推广码',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/promoteCode/promoteCode'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration3.png',
         ordinaryTitle : '文章引流',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/articlePromote/articlePromote'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration4.png',

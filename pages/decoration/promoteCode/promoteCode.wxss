@@ -1,0 +1,60 @@
+/* pages/decoration/promoteCode/promoteCode.wxss */
+page{
+  background: #D2D2D7;
+}
+.promoteCode{
+  position: fixed;
+  top: 275rpx;
+}
+.promoteCodeImg{
+  width: 660rpx;
+  height: 360rpx;
+  margin-left: 45rpx;
+}
+.promoteCodeRefresh{
+  display: flex;
+  align-items: center;
+  height: 40rpx;
+  width: 100%;
+  justify-content: center;
+  margin-top: 25rpx;
+}
+.promoteCodeRefresh text{
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.promoteCodeRefresh image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 20rpx;
+}
+.promoteCodeButton{
+  margin-top: 65rpx;
+  display: flex;
+  justify-content: center;
+}
+.promoteCodeButton text:nth-child(1){
+  width: 300rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  line-height: 80rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  margin: 0 10rpx;
+}
+.promoteCodeButton text:nth-child(2){
+  margin: 0 10rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  background-color:rgba(255, 255, 255, 1);
+  color:  rgba(0, 129, 255, 1); 
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+}

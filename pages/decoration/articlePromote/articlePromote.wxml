@@ -1,0 +1,13 @@
+<!--pages/decoration/articlePromote/articlePromote.wxml-->
+<searchTitle titleList='{{titleList}}'/>
+<view class="articlePromoteList" bindtap="goUrl"  data-url="/pages/decoration/articleDetails/articleDetails">
+  <view class="articlePromoteImg"><image></image></view>
+  <view class="articlePromoteText">
+    <view>
+      <view class="articlePromoteTitle">标题文字</view>
+      <view class="articlePromoteCotent">副标副标题文</view>
+    </view>
+    <view class="articlePromoteDate">2020/05/30</view>
+  </view>
+</view>
+<view class="articlePromoteButton">发布</view>

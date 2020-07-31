@@ -1,0 +1,23 @@
+<!--pages/decoration/effectPictureChecklist/effectPictureChecklist.wxml-->
+<view style='height:{{windowHeight - 292}}rpx;'  class="generalSelectionBody">
+  <view class="generalSelectionlist">
+    <view 
+    wx:for='{{textList}}' 
+    wx:for-item='item' 
+    wx:for-index="textListIndex" 
+    wx:key='textListIndex' 
+    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+    {{item.name}}</view>
+  </view>
+  <view class="effectPictureChecklistData">
+    <view class="effectPictureChecklist"  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm'>
+      <view>油漆</view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+</view>
+<view class="generalSelectionlistText">
+  <view>请输入总价</view>
+  <view>辅材+人工的总价</view>
+  <view>确定</view>
+</view>

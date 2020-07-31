@@ -6,7 +6,7 @@
     wx:for-item='item' 
     wx:for-index="textListIndex" 
     wx:key='textListIndex' 
-    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
     {{item.name}}</view>
   </view>
   <view>
@@ -16,6 +16,10 @@
         <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
       </view>
     </view>
-    <slot></slot>
+    <slot name="before"></slot>
+    <scroll-view  scroll-y="true" style="height:100%">
+       <slot name="after"></slot>
+    </scroll-view>
+
   </view>
 </view>

@@ -1,0 +1,21 @@
+<!--pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm.wxml-->
+<view class="indexHeader">
+    <view class="searchInputView">
+      <icon class="icon-small" type="search" size="20"></icon>
+      <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+    </view>
+</view>
+<view>
+  <view class="effectPictureChecklistGmList">
+      <view class="effectPictureChecklistGmListImgData">
+          <view class="effectPictureChecklistGmListImg"><image></image></view>
+          <view class="effectPictureChecklistGmListText">
+            <view>名称</view>
+            <view>品牌: 圣像</view>
+            <view>型号: 123</view>
+          </view>
+      </view>
+      <view class="effectPictureChecklistGmListButton">选择</view>
+  </view>
+</view>
+<view  bindtap="goUrl"  data-url='/pages/decoration/effectPictureRelease/effectPictureRelease' class="effectPictureChecklistGmButton">辅材发布</view>

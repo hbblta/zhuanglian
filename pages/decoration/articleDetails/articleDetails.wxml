@@ -1,2 +1,21 @@
 <!--pages/decoration/articleDetails/articleDetails.wxml-->
-
+<view class="articleDetailsTitle">人间正道是沧桑人间正道是沧桑沧桑沧桑</view>
+<view class="articleDetailsUser">
+  <view><image></image></view>
+  <view>昵称</view>
+  <view>点击设置个性签名</view>
+</view>
+<image class="articleDetailsPoster"></image>
+<view class="articleDetailsText">文字尾号和我花卉大花金华看脚很快就花花卡接的很少防守打法很快就复合大师开发金华好文字尾号和我花卉大花金华看脚很快
+就花花卡接的很少防守打法很快就复合大师开发金华好文字尾号和我花卉大花金华看脚很快就花花卡接的很少防守打法很快就复合大师开</view>
+<view class="articleDetailsCompany">
+  <view>
+    <view class="articleDetailsCompanyText">公司名称</view>
+    <view class="articleDetailsCompanyButton">
+      <text>TA的微网</text>
+      <text>与TA联系</text>
+      <text>与TA微聊</text>
+    </view>
+  </view>
+  <view class="articleDetailsCompanyImg"><image></image></view>
+</view>

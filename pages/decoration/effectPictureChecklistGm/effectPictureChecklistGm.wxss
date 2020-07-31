@@ -1,0 +1,88 @@
+/* pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm.wxss */
+page{
+  background: #f7f7f7;
+}
+.indexHeader{
+  display: flex;
+  justify-content:space-around;
+  height: 100rpx;
+  align-items: center;
+  background: #FFFFFF;
+}
+.searchInputView{
+  display: flex;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 1);
+  padding-left: 15rpx;
+  width: 720rpx;
+  border-radius: 12rpx;
+}
+.searchInputView .searchInput{
+  width: 640rpx;
+  height: 76rpx;
+  border-radius: 12rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+  font-size: 28rpx;
+}
+.effectPictureChecklistGmList{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+  margin-top: 12rpx;
+  padding-left: 15rpx;
+  padding-right: 20rpx;
+  width: 715rpx;
+  background: #FFFFFF;
+}
+.effectPictureChecklistGmListImg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 35rpx;
+}
+.effectPictureChecklistGmListImg image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.effectPictureChecklistGmListImgData{
+  display: flex;
+}
+.effectPictureChecklistGmListText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  margin-bottom: 15rpx;
+}
+.effectPictureChecklistGmListText view:nth-child(2),.effectPictureChecklistGmListText view:nth-child(3){
+  color: #B6B8BC;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+.effectPictureChecklistGmListButton{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(191, 194, 204, 1);
+  margin-top: 120rpx;
+}
+.effectPictureChecklistGmButton{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}

@@ -1,1 +1,120 @@
 /* pages/decoration/articleDetails/articleDetails.wxss */
+page{
+  background: #f7f7f7;
+}
+.articleDetailsTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 40rpx;
+  font-family: PingFangSC-bold;
+  width: 670rpx;
+  font-weight: 550;
+  margin-left: 40rpx;
+  margin-top: 30rpx;
+}
+.articleDetailsUser{
+  height: 240rpx;
+  width: 690rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.articleDetailsUser ::before{
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: inline-block;
+  height: 200rpx;
+  top: 40rpx;
+  left: 0rpx;
+  width: 690rpx;
+  background: #FFFFFF;
+}
+.articleDetailsUser view:nth-child(1){
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+}
+.articleDetailsUser view:nth-child(1) image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #DDDDDD;
+}
+.articleDetailsUser view:nth-child(2){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  text-align: center;
+  font-weight: 550;
+  height: 66rpx;
+  line-height: 66rpx;
+}
+.articleDetailsUser  view:nth-child(3){
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-top: 1rpx solid rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+}
+.articleDetailsPoster{
+  width: 100%;
+  height: 320rpx;
+  margin-top: 25rpx;
+  background: #DDDDDD;
+}
+.articleDetailsText{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: SourceHanSansSC-regular;
+  margin-top: 20rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+}
+.articleDetailsCompany{
+  margin-top: 30rpx;
+  width: 670rpx;
+  margin-left: 25rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  height: 220rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+}
+.articleDetailsCompanyText{
+  color: rgba(48, 49, 51, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: 550;
+}
+.articleDetailsCompanyButton text{
+  display: inline-block;
+  width: 140rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin-right: 20rpx;
+  border-radius: 40rpx;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid rgba(0, 129, 255, 1);
+  margin-top: 30rpx;
+}
+.articleDetailsCompanyButton text:nth-child(1){
+  color: #FFFFFF;
+  background:rgba(0, 129, 255, 1);
+}
+.articleDetailsCompanyImg{
+  width: 170rpx;
+  height: 170rpx;
+}
+.articleDetailsCompanyImg image{
+  width: 170rpx;
+  height: 170rpx;
+  background: #DDDDDD;
+}

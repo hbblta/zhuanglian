@@ -1,0 +1,36 @@
+<!--pages/decoration/decorationCalculator/decorationCalculator.wxml-->
+<image class="decorationCalculatorTitleImg"></image>
+<view class="decorationCalculatorChangeTitleImg">
+    <view></view>
+    <view class="decorationCalculatorChangeTitleImgButton">
+      <image src="../../../image/icon/image.svg"></image>
+      <text>更换图片</text>
+    </view>
+</view>
+<view class="decorationCalculatorBroadcast">
+    <image src="../../../image/icon/volume.png"></image>
+    <text>手机号码139***6909用户免费获得报价</text>
+</view>
+<view class="decorationCalculatorBudget">
+    您家的装修预算<text>181521</text>元
+</view>
+<view class="decorationCalculatorSet">
+    <view  bindtap="goUrl"  data-url="/pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease" class="decorationCalculatorSetText">编辑</view>
+    <view class="decorationCalculatorSetInput">
+       <input placeholder="装修档次"></input>
+       <input placeholder="装修面积"></input>
+       <input placeholder="手机号：与微信手机绑定"></input>
+    </view>
+</view>
+<view class="decorationCalculatorPublic">
+  <view>关注关注***公众号获取报价</view>
+</view>
+<image class="decorationCalculatorTitleImg decorationCalculatorTitleImgTwo"></image>
+<view class="decorationCalculatorChangeTitleImg">
+    <view></view>
+    <view class="decorationCalculatorChangeTitleImgButton">
+      <image src="../../../image/icon/image.svg"></image>
+      <text>更换图片</text>
+    </view>
+</view>
+<view class="decorationCalculatorSetButton">保存</view>

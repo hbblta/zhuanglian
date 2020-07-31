@@ -1,0 +1,31 @@
+<!--pages/decoration/effectPicture/effectPicture.wxml-->
+<generalSelectionlist textList='{{textList}}'>
+  <scroll-view slot="before" scroll-x="true" class="materialOrderStatusList">
+    <view class="materialOrderStatus materialOrderStatusNow">全部</view>
+      <view  class="materialOrderStatus">上架</view>
+      <view  class="materialOrderStatus">下架</view>
+    <view  class="materialOrderStatus">上架</view>
+  </scroll-view>
+  <view slot="after" class="materialOrderScroll">
+      <view 
+      wx:for='{{list}}' 
+      wx:for-item='item' 
+      wx:for-index="listIndex" 
+      wx:key='listIndex' 
+      class="materialOrderList">
+        <view class="materialOrderListImg"><image></image></view>
+        <view class="materialOrderListText">
+          <view class="materialOrderListName">楼盘名称</view>
+          <view class="materialOrderListButton">
+            <text>上架</text>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+  </view>
+
+</generalSelectionlist>
+  <view class="effectPictureButton">
+    <view bindtap="goUrl"  data-url='/pages/decoration/effectPictureEdit/effectPictureEdit'>效果发布</view>
+    <view bindtap="goUrl"  data-url='/pages/decoration/realEstateEditor/realEstateEditor'>楼盘发布</view>
+  </view>

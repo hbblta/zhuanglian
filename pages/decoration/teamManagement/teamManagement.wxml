@@ -1,0 +1,30 @@
+<!--pages/decoration/teamManagement/teamManagement.wxml-->
+<generalSelectionlist textList='{{textList}}'>
+  <view class="materialOrderScroll" slot="after">
+      <view  
+      wx:for='{{list}}' 
+      wx:for-item='item' 
+      wx:for-index="listIndex" 
+      wx:key='listIndex' 
+      bindtap="goUrl"  
+      data-url='/pages/decoration/teamManagementDetails/teamManagementDetails'
+      class="materialOrderList">
+        <view class="materialOrderListImg"><image></image></view>
+        <view class="materialOrderListText">
+          <view class="materialOrderListName">
+            <view>姓名</view>
+            <view>职务: 首席设计师</view>
+          </view>
+          <view class="materialOrderListButton">
+            <text></text>
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+      <view class="materialOrderIncrease">
+        <image src="../../../image/icon/increase.svg"></image>
+        <view>添加新成员</view>
+      </view>
+  </view>
+</generalSelectionlist>
+<view class="materialOrderDefine">确定</view>

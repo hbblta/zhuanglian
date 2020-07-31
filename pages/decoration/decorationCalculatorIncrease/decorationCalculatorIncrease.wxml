@@ -1,0 +1,29 @@
+<!--pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease.wxml-->
+<view class="decorationCalculatorIncrease">
+  <view class="decorationCalculatorIncreaseInput">
+    <input placeholder="请输入名称"></input>
+  </view>
+  <view class="decorationCalculatorIncreaseText">
+    <view class="decorationCalculatorIncreaseTextPrice">
+      <text>请选择</text>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+    <view class="decorationCalculatorIncreaseUnit">元/平方</view>
+  </view>
+</view>
+<view class="decorationCalculatorIncrease">
+  <view class="decorationCalculatorIncreaseInput">
+    <input placeholder="请输入名称"></input>
+  </view>
+  <view class="decorationCalculatorIncreaseText">
+    <view class="decorationCalculatorIncreaseTextPrice">
+      <text>请选择</text>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+    <view class="decorationCalculatorIncreaseUnit">元/平方</view>
+  </view>
+</view>
+<view class="decorationCalculatorIncreaseMore">
+  <image src="../../../image/icon/increase.svg"></image>
+  <view>增加装修档次</view>
+</view>

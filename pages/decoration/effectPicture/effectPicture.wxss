@@ -1,0 +1,104 @@
+/* pages/decoration/effectPicture/effectPicture.wxss */
+.materialOrderScroll{
+  padding-bottom: 350rpx;
+}
+.materialOrderStatusList{
+  white-space: nowrap;  
+  height: 80rpx;
+  background: #FFFFFF;
+  margin-bottom: 15rpx;
+}
+.materialOrderStatus{
+  display: inline-block;
+  padding: 24rpx 16rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.materialOrderStatusNow{
+  color: rgba(0, 129, 255, 1);
+}
+.materialOrderList{
+  display: flex;
+  width: 470rpx;
+  height: 160rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  margin-bottom: 15rpx;
+  border-radius: 8rpx;
+}
+.materialOrderListImg{
+  width: 160rpx;
+  height: 160rpx;
+}
+.materialOrderListImg image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.materialOrderListText{
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 5%;
+}
+.materialOrderListName{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular
+}
+.materialOrderListButton{
+  width: 100%;
+  display: flex;
+  height: 50rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.materialOrderListButton text:nth-child(1){
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.materialOrderListButton text:nth-child(2){
+  display: block;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(191, 194, 204, 1);
+}
+.effectPictureButton{
+  display: flex;
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.effectPictureButton view{
+  width: 374rpx;
+  height: 98rpx;
+  border: solid 1rpx #0081FF;
+  line-height: 98rpx;
+  text-align: center;
+}
+.effectPictureButton view:nth-child(1){
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  background: #FFFFFF;
+  text-align: center;
+  font-family: Arial;
+}
+.effectPictureButton view:nth-child(2){
+  color: #FFFFFF;
+  background:rgba(0, 129, 255, 1) ;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}

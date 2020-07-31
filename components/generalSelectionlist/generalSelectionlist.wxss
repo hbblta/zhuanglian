@@ -6,6 +6,7 @@ page{
 .generalSelectionBody{
   display: flex;
   height: 100%;
+  overflow: hidden;
 }
 .generalSelectionlist{
   width: 200rpx;
@@ -13,7 +14,7 @@ page{
   background: #FFFFFF;
   margin-right: 18rpx;
 }
-.generalSelectionlist view{
+.generalSelectionlist .generalSelectionlistView{
   width: 200rpx;
   height: 70rpx;
   text-align: center;
@@ -29,6 +30,7 @@ page{
 }
 .searchInputViewBody{
   margin-top: 15rpx;
+  margin-bottom: 15rpx;
   background: #FFFFFF;
   padding: 12rpx;
   width: 486rpx;

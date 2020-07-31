@@ -36,12 +36,25 @@
       "pages": [
         "promoteCode/promoteCode",
         "articlePromote/articlePromote",
-        "articleDetails/articleDetails"
+        "articleDetails/articleDetails",
+        "decorationCalculator/decorationCalculator",
+        "decorationCalculatorIncrease/decorationCalculatorIncrease",
+        "effectPicture/effectPicture",
+        "teamManagement/teamManagement",
+        "effectPictureEdit/effectPictureEdit",
+        "effectPictureChecklist/effectPictureChecklist",
+        "effectPictureChecklistGm/effectPictureChecklistGm",
+        "effectPictureRelease/effectPictureRelease",
+        "realEstateEditor/realEstateEditor",
+        "realEstateEditorEdit/realEstateEditorEdit",
+        "teamManagementDetails/teamManagementDetails"
       ]
     },
     {
       "root": "pages/material/",
-      "pages": []
+      "pages": [
+        "test/test"
+      ]
     },
     {
       "root": "pages/ordinary/",

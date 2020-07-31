@@ -1,0 +1,97 @@
+/* pages/decoration/teamManagementDetails/teamManagementDetails.wxss */
+page{
+  background: #F7F7F7;
+}
+.teamManagementDetailsUser{
+  margin-top: 15rpx;
+  height: 160rpx;
+  display: flex;
+  padding: 20rpx 15rpx;
+  width: 720rpx;
+  background: #FFFFFF;
+}
+.teamManagementDetailsUserImg{
+  height: 160rpx;
+  width: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.teamManagementDetailsUserImg image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.teamManagementDetailsUserText{
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.teamManagementDetailsUserText view,.teamManagementDetailsResume view:nth-child(1),.teamManagementDetailsCaseText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.teamManagementDetailsResume view:nth-child(1){
+  margin-bottom: 15rpx;
+}
+.teamManagementDetailsResume{
+  width: 720rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+  padding: 20rpx 15rpx 40rpx;
+}
+.teamManagementDetailsResumeTwo{
+  padding-bottom: 0;
+  margin-bottom: 100rpx;
+}
+.teamManagementDetailsResume .teamManagementDetailsResumeText{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.teamManagementDetailsCase{
+  border-top: 1rpx solid #F7F7F7;
+  height: 160rpx;
+  display: flex;
+  padding: 20rpx 0rpx;
+  width: 720rpx;
+  background: #FFFFFF;
+
+}
+.teamManagementDetailsCaseText{
+  display: flex;
+  flex-direction: column;
+}
+.teamManagementDetailsCaseText view{
+  margin-bottom: 15rpx;
+}
+.teamManagementDetailsCaseText view:nth-child(2),.teamManagementDetailsCaseText view:nth-child(3){
+  color: #AFB1B5;
+  font-size: 24rpx;
+}
+.teamManagementDetailsButton{
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100rpx;
+  align-items: center;
+  width: 700rpx;
+  padding: 0 25rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #FFFFFF;
+}
+.teamManagementDetailsButton view{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(191, 194, 204, 1);
+  margin-left: 20rpx;
+}

@@ -1,0 +1,154 @@
+/* pages/decoration/effectPictureRelease/effectPictureRelease.wxss */
+page{
+  background: #f7f7f7;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-bottom: 70rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.effectPictureEditInput image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.effectPictureEditMainTitle image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.effectPictureEditMainList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.effectPictureEditMainListData{
+  width: 200rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}
+.effectPictureEditMainListData image{
+  height: 200rpx;
+  width: 200rpx;
+}
+.effectPictureEditMainListData input{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditInput{
+  margin-top: 15rpx;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 110rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditInput input{
+  width: 670rpx;
+  height: 110rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.effectPictureEditInput view{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+}
+.effectPictureReleaseSize{
+  display: flex;
+  flex-wrap: wrap;
+}
+.effectPictureReleaseSize view{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(0, 129, 255, 1);
+  margin-right: 40rpx;
+}
+.effectPictureReleaseAdd{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+  font-family: PingFangSC-regular;
+}
+.effectPictureReleaseAdd image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
+}
+.effectPictureEditEditor{
+  background: #F7F7F7;
+}
+.effectPictureEditButtonsTwo{
+  display: flex;
+  justify-content: space-between;
+  width: 750rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+.effectPictureRelease{
+  height: 100rpx;
+  width: 357rpx;
+  line-height: 100rpx;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  background: #0081FF;
+}
+.effectPictureEditButtons{
+  height: 100rpx;
+  width: 375rpx;
+  padding-right: 15rpx;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  justify-content: center;
+}
+.effectPictureEditButtons view{
+  color: #909399 ;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  height: 60rpx;
+  width: 156rpx;
+  background: #FFFFFF;
+  border: 1rpx solid rgba(0, 129, 255, 1);
+  border-radius: 40rpx;
+  line-height: 60rpx;
+  position: relative;
+}
+.effectPictureEditButtons view:nth-child(2){
+  position: relative;
+  left: -40rpx;
+}
+.effectPictureEditButtons .nowButtons{
+  color: rgba(255, 255, 255, 1)!important;
+  background: #0081FF!important;
+  z-index: 1!important;
+}

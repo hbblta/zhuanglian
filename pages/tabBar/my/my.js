@@ -73,67 +73,67 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration4.png',
         ordinaryTitle : '装修计算器',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/decorationCalculator/decorationCalculator'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration5.png',
         ordinaryTitle : '效果图管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/effectPicture/effectPicture'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration6.png',
         ordinaryTitle : '设计团队管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/teamManagement/teamManagement'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration7.png',
         ordinaryTitle : '分销团队管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration8.png',
         ordinaryTitle : '佣金管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration9.png',
         ordinaryTitle : '员工管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration10.png',
         ordinaryTitle : '客户管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration11.png',
         ordinaryTitle : '订单管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration12.png',
         ordinaryTitle : '合作管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration13.png',
         ordinaryTitle : '提成设置',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration14.png',
         ordinaryTitle : '排行榜单',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration15.png',
         ordinaryTitle : '施工管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration16.png',
         ordinaryTitle : '辅材管理',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/login/login'
       }
     ]
   },

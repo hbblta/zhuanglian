@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "generalSelectionlist": "/components/generalSelectionlist/generalSelectionlist"
+  }
+}

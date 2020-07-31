@@ -1,0 +1,67 @@
+<!--pages/decoration/teamManagementDetails/teamManagementDetails.wxml-->
+<view class="teamManagementDetailsUser">
+  <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+  <view class="teamManagementDetailsUserText">
+    <view>姓名</view>
+    <view>职务: 首席设计师</view>
+    <view>工作年限: 12年</view>
+    <view>排序: 1</view>
+  </view>
+</view>
+<view class="teamManagementDetailsResume">
+  <view>感悟</view>
+  <view class="teamManagementDetailsResumeText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
+</view>
+<view class="teamManagementDetailsResume">
+  <view>从业经历</view>
+  <view class="teamManagementDetailsResumeText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
+</view>
+<view class="teamManagementDetailsResume teamManagementDetailsResumeTwo">
+  <view>作品案例</view>
+  <view>
+    <view class="teamManagementDetailsCase">
+      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+      <view class="teamManagementDetailsCaseText">
+        <view>姓名</view>
+        <view>职务: 首席设计师</view>
+        <view>工作年限: 12年</view>
+      </view>
+    </view>
+    <view class="teamManagementDetailsCase">
+      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+      <view class="teamManagementDetailsCaseText">
+        <view>姓名</view>
+        <view>职务: 首席设计师</view>
+        <view>工作年限: 12年</view>
+      </view>
+    </view>
+    <view class="teamManagementDetailsCase">
+      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+      <view class="teamManagementDetailsCaseText">
+        <view>姓名</view>
+        <view>职务: 首席设计师</view>
+        <view>工作年限: 12年</view>
+      </view>
+    </view>
+    <view class="teamManagementDetailsCase">
+      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+      <view class="teamManagementDetailsCaseText">
+        <view>姓名</view>
+        <view>职务: 首席设计师</view>
+        <view>工作年限: 12年</view>
+      </view>
+    </view>
+    <view class="teamManagementDetailsCase">
+      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+      <view class="teamManagementDetailsCaseText">
+        <view>姓名</view>
+        <view>职务: 首席设计师</view>
+        <view>工作年限: 12年</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="teamManagementDetailsButton">
+  <view>删除</view>
+  <view>编辑</view>
+</view>

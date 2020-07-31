@@ -1,0 +1,91 @@
+/* pages/decoration/effectPictureChecklist/effectPictureChecklist.wxss */
+page{
+  background: #f7f7f7;
+  height: 100%;
+}
+.generalSelectionBody{
+  display: flex;
+  height: 76%;
+  overflow: hidden;
+}
+.generalSelectionlist{
+  width: 200rpx;
+  margin-top: 15rpx;
+  background: #FFFFFF;
+  margin-right: 18rpx;
+}
+.generalSelectionlist view{
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-family: Arial;
+  font-size: 28rpx;
+  color: #909399;
+}
+.generalSelectionlist .generalSelectionCurrent{
+  background: #0081FF;
+  color: #FFFFFF;
+  font-weight: 550;
+}
+.effectPictureChecklistData{
+  overflow: auto;
+}
+.effectPictureChecklist{
+  margin-top: 15rpx;
+  width: 475rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  background: #FFFFFF;
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.effectPictureChecklist view{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+}
+.effectPictureChecklist image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.generalSelectionlistText{
+  background: #FFFFFF;
+  height: 280rpx;
+  margin-top: 12rpx;
+}
+.generalSelectionlistText view:nth-child(1){
+  color: rgba(85, 85, 85, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  height: 84rpx;
+  line-height: 84rpx;
+  width: 710rpx;
+  margin-left: 20rpx;
+}
+.generalSelectionlistText view:nth-child(2){
+  background-color: rgba(247, 247, 247, 1);
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  width: 710rpx;
+  margin-left: 20rpx;
+}
+.generalSelectionlistText view:nth-child(3){
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  background: #0081FF;
+  margin-top: 32rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}

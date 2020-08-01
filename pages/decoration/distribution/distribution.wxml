@@ -1,0 +1,40 @@
+<!--pages/decoration/distribution/distribution.wxml-->
+<generalSelectionlist textList='{{textList}}'>
+  <view class="materialOrderScroll" slot="after">
+    <view
+      wx:for='{{list}}' 
+      wx:for-item='item' 
+      wx:for-index="listIndex" 
+      wx:key='listIndex' 
+    >
+      <view
+      bindtap="goUrl"  
+      data-url='/pages/decoration/distributionDetails/distributionDetails'
+      class="materialOrderList">
+        <view class="materialOrderListImg"><image></image></view>
+        <view class="materialOrderListText">
+          <view class="materialOrderListName">
+            <view>
+              <text>姓名</text>
+              <view>
+                <image src="../../../image/icon/pentagram.svg"></image>
+                <image src="../../../image/icon/pentagram.svg"></image>
+                <image src="../../../image/icon/pentagram.svg"></image>
+                <image src="../../../image/icon/pentagram.svg"></image>
+                <image src="../../../image/icon/pentagram.svg"></image>
+              </view>
+            </view>
+            <view>1555554555</view>
+            <view>管理员: 张三</view>
+            <view>加入时间: 2020/05/30</view>
+          </view>
+        </view>
+      </view>
+      <view class="materialOrderListButton">
+        <text></text>
+        <text>删除</text>
+      </view>
+    </view>
+  </view>
+</generalSelectionlist>
+

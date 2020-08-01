@@ -3,7 +3,6 @@
   width: 470rpx;
   background: #FFFFFF;
   padding: 20rpx;
-  margin-top:16rpx;
   margin-bottom: 16rpx;
 }
 .decorationName{

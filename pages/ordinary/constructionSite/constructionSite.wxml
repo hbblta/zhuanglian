@@ -1,27 +1,31 @@
 <!--pages/ordinary/constructionSite/constructionSite.wxml-->
 <generalSelectionlist textList='{{textList}}'>
-  <view class="constructionSiteDetaView">
-    <view class="constructionSiteDeta">
-      <text>2020/1/1</text>
-      —
-      <text>2020/5/20</text>
-      <image src="../../../image/icon/more.svg"></image>
-    </view>
-    <view class="constructionSiteDetaNum">数量: 22个</view>
-  </view>
-  <view class="constructionSiteList">
-    <view class="constructionSiteListMsg">
-      <view class="constructionSiteListMsgImg"><image></image></view>
-      <view class="constructionSiteListMsgText">
-        <view class="constructionSiteListName">
-            <text>姓名</text>
-            <text>水电</text>
-        </view>
-        <view class="constructionSiteListGray">1561626516</view>
-        <view class="constructionSiteListGray">成交时间: 2020/05/30</view>
-        <view class="constructionSiteListGray">项目经理: 张三</view>
-      </view>
-    </view>
-    <view class="onstructionSiteListCommunity">小区名称: 3浩5懂4001</view>
-  </view>
+	<view class="constructionSiteDetaView" slot='before'>
+		<view class="constructionSiteDeta">
+			<text>2020/1/1</text>
+			—
+			<text>2020/5/20</text>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+		<view class="constructionSiteDetaNum">数量: 22个</view>
+	</view>
+	<view slot='after'>
+		<view class="constructionSiteList">
+			<view class="constructionSiteListMsg">
+				<view class="constructionSiteListMsgImg">
+					<image></image>
+				</view>
+				<view class="constructionSiteListMsgText">
+					<view class="constructionSiteListName">
+						<text>姓名</text>
+						<text>水电</text>
+					</view>
+					<view class="constructionSiteListGray">1561626516</view>
+					<view class="constructionSiteListGray">成交时间: 2020/05/30</view>
+					<view class="constructionSiteListGray">项目经理: 张三</view>
+				</view>
+			</view>
+			<view class="onstructionSiteListCommunity">小区名称: 3浩5懂4001</view>
+		</view>
+	</view>
 </generalSelectionlist>

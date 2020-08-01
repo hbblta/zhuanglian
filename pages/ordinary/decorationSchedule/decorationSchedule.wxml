@@ -1,6 +1,6 @@
 <!--pages/ordinary/decorationSchedule/decorationSchedule.wxml-->
 <generalSelectionlist textList='{{textList}}'>
-  <view class="decorationList">
+  <view class="decorationList" slot='after'>
     <view class="decorationName">
       <text>装企名称</text>
       <text>待量房</text>

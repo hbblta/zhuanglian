@@ -8,6 +8,7 @@
   width: 100%;
   background: #FFFFFF;
   margin-top: 15rpx;
+  margin-bottom: 15rpx;
 }
 .materialOrderStatus{
   display: inline-block;
@@ -20,7 +21,7 @@
   color: rgba(0, 129, 255, 1);
 }
 .materalListAll{
-  margin-top: 16rpx;
+  margin-bottom: 15rpx;
   background: #FFFFFF;
 }
 .materalList{

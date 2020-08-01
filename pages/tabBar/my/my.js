@@ -88,7 +88,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration7.png',
         ordinaryTitle : '分销团队管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/distribution/distribution'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration8.png',

@@ -7,6 +7,7 @@
   height: 60rpx;
   padding: 15rpx;
   margin-top: 15rpx;
+  margin-bottom: 15rpx;
   background: #FFFFFF;
   border-radius: 8rpx;
 }
@@ -30,7 +31,6 @@
   font-family: PingFangSC-regular;
 }
 .constructionSiteList{
-  margin-top: 16rpx;
   background: #FFFFFF;
   padding: 15rpx;
 }

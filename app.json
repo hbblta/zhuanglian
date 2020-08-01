@@ -50,7 +50,9 @@
         "teamManagementDetails/teamManagementDetails",
         "personnelDetails/personnelDetails",
         "personnelDetailsSelect/personnelDetailsSelect",
-        "personnelDetailsAdd/personnelDetailsAdd"
+        "personnelDetailsAdd/personnelDetailsAdd",
+        "distribution/distribution",
+        "distributionDetails/distributionDetails"
       ]
     },
     {

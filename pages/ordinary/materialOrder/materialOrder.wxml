@@ -1,40 +1,47 @@
 <!--pages/ordinary/materialOrder/materialOrder.wxml-->
 <generalSelectionlist textList='{{textList}}'>
-  <view class="materialOrderScroll">
-    <scroll-view  scroll-x="true" class="materialOrderStatusList">
-        <view class="materialOrderStatus materialOrderStatusNow">全部</view>
-        <view  class="materialOrderStatus">待付款</view>
-        <view class="materialOrderStatus">全部</view>
-        <view  class="materialOrderStatus">待付款</view>
-        <view class="materialOrderStatus">全部</view>
-        <view  class="materialOrderStatus">待付款</view>
-        <view class="materialOrderStatus">全部</view>
-        <view  class="materialOrderStatus">待付款</view>
-        <view class="materialOrderStatus">全部</view>
-        <view  class="materialOrderStatus">待付款</view>
-    </scroll-view>
-    <view class="materalListAll">
-      <view class='materalList'>
-        <view class="materalListImg"><image></image></view>
-        <view>
-          <view class="materalListTitle">
-            <text>名称</text>
-            <text>待验收</text>
-          </view>
-          <view class="materalListData1">型号: 122</view>
-          <view class="materalListData1">规格: 100*100</view>
-          <view class="materalListData1">数量: 123</view>
-          <view class="materalListData2">会员价: ￥699</view>
-        </view>
-      </view>
-      <view class="materalListMeun">
-         <image src='../../../image/icon/moreMeun.svg'></image>
-         <view class="materalListMeunButton">
-           <view><picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">弃单</picker></view>
-           <view>确认收货</view>
-         </view>
-      </view>
-    </view>
-  </view>
+	<view class="materialOrderScroll" slot='before'>
+		<scroll-view scroll-x="true" class="materialOrderStatusList">
+			<view class="materialOrderStatus materialOrderStatusNow">全部</view>
+			<view class="materialOrderStatus">待付款</view>
+			<view class="materialOrderStatus">全部</view>
+			<view class="materialOrderStatus">待付款</view>
+			<view class="materialOrderStatus">全部</view>
+			<view class="materialOrderStatus">待付款</view>
+			<view class="materialOrderStatus">全部</view>
+			<view class="materialOrderStatus">待付款</view>
+			<view class="materialOrderStatus">全部</view>
+			<view class="materialOrderStatus">待付款</view>
+		</scroll-view>
+	</view>
+	<view class="materialOrderScroll" slot='after'>
+		<view class="materialOrderList">
+			<view class="materalListAll">
+				<view class='materalList'>
+					<view class="materalListImg">
+						<image></image>
+					</view>
+					<view>
+						<view class="materalListTitle">
+							<text>名称</text>
+							<text>待验收</text>
+						</view>
+						<view class="materalListData1">型号: 122</view>
+						<view class="materalListData1">规格: 100*100</view>
+						<view class="materalListData1">数量: 123</view>
+						<view class="materalListData2">会员价: ￥699</view>
+					</view>
+				</view>
+				<view class="materalListMeun">
+					<image src='../../../image/icon/moreMeun.svg'></image>
+					<view class="materalListMeunButton">
+						<view>
+							<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">弃单</picker>
+						</view>
+						<view>确认收货</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </generalSelectionlist>
-

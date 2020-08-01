@@ -1,0 +1,39 @@
+/* pages/decoration/personnelDetailsSelect/personnelDetailsSelect.wxss */
+page{
+  background: #f7f7f7;
+}
+.personnelDetailsSelectEntert{
+  width:710rpx;
+  padding: 20rpx;
+  height: 160rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.personnelDetailsSelectEntertTitle{
+  color: rgba(85, 85, 85, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.personnelDetailsSelectEntertInput input{
+  width: 710rpx;
+  background-color: rgba(247, 247, 247, 1);
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  height: 80rpx;
+  text-align: center;
+  font-family: Arial;
+  margin-top: 25rpx;
+}
+.personnelDetailsSelectList{
+  margin-top: 15rpx;
+}
+.personnelDetailsSelectList view{
+  width:710rpx;
+  padding:0 20rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-top: 1rpx solid #f7f7f7;
+  background: #FFFFFF;
+}

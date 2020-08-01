@@ -1,0 +1,9 @@
+<!--pages/decoration/personnelDetailsSelect/personnelDetailsSelect.wxml-->
+<view class="personnelDetailsSelectEntert">
+  <view class="personnelDetailsSelectEntertTitle">请选择职务</view>
+  <view  class="personnelDetailsSelectEntertInput"><input placeholder="如没有选择项目，可手动输入"></input></view>
+</view>
+<view class="personnelDetailsSelectList">
+  <view>设计师</view>
+  <view>设计师</view>
+</view>

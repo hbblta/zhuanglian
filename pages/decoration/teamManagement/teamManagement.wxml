@@ -23,7 +23,7 @@
       </view>
       <view class="materialOrderIncrease">
         <image src="../../../image/icon/increase.svg"></image>
-        <view>添加新成员</view>
+        <view bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>添加新成员</view>
       </view>
   </view>
 </generalSelectionlist>

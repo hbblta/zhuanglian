@@ -1,0 +1,80 @@
+<!--pages/decoration/personnelDetails/personnelDetails.wxml-->
+<view class="personnelDetailsAll">
+  <view class="personnelDetailsInput personnelDetailsHead">
+    <view class="personnelDetailsInputTitle">工作年限</view>
+    <view class="personnelDetailsInputContent">
+      <image class="personnelDetailsHeadeImg"></image>
+      <image class="personnelDetailsInputContentMore" src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+  <view class="personnelDetailsInput">
+    <view class="personnelDetailsInputTitle">姓名</view>
+    <view class="personnelDetailsInputContent">
+      <input value="张三"></input>
+      <image class="personnelDetailsInputContentMore"></image>
+    </view>
+  </view>
+  <view class="personnelDetailsInput">
+    <view class="personnelDetailsInputTitle">工作年限</view>
+    <view class="personnelDetailsInputContent">
+      <input value="2" type="number"></input>
+      <image class="personnelDetailsInputContentMore"></image>
+    </view>
+  </view>
+  <view class="personnelDetailsInput">
+    <view class="personnelDetailsInputTitle">职务(可选择/输入)</view>
+    <view class="personnelDetailsInputContent">
+      <input value="设计师"></input>
+      <image 
+      bindtap="goUrl"  
+      data-url='/pages/decoration/personnelDetailsSelect/personnelDetailsSelect' 
+      class="personnelDetailsInputContentMore" 
+      src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+  <view class="personnelDetailsInput">
+    <view class="personnelDetailsInputTitle">店铺内排序</view>
+    <view class="personnelDetailsInputContent">
+      <input value="1" type="number"></input>
+      <image class="personnelDetailsInputContentMore"></image>
+    </view>
+  </view>
+</view>
+<view class="personnelDetailsFeeling">
+  <view>感悟</view>
+  <textarea placeholder="输入文字"></textarea>
+</view>
+<view class="personnelDetailsFeeling">
+  <view>从业经历</view>
+  <textarea placeholder="输入文字"></textarea>
+</view>
+<view>
+  <view class="personnelDetailsAdd">
+    <view class="personnelDetailsAddTitle">作品案例</view>
+    <view class="personnelDetailsAddAddButton" bindtap="goUrl" data-url='/pages/decoration/personnelDetailsAdd/personnelDetailsAdd' >
+      <image src="../../../image/icon/increase.svg"></image>
+      <view>添加案例</view>
+    </view>
+  </view> 
+  <view class="personnelDetailsListAll">
+    <view class="personnelDetailsList">
+      <view class="personnelDetailsListImg"><image></image></view>
+      <view class="personnelDetailsListText">
+        <view>案例名称</view>
+        <view>面积：120平方</view>
+        <view>户型：三室一厅两卫</view>
+      </view>
+      <image class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
+    </view>
+    <view class="personnelDetailsList">
+      <view class="personnelDetailsListImg"><image></image></view>
+      <view class="personnelDetailsListText">
+        <view>案例名称</view>
+        <view>面积：120平方</view>
+        <view>户型：三室一厅两卫</view>
+      </view>
+      <image class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
+    </view>
+  </view>
+</view>
+<view class="personnelDetailsButton">确定</view>

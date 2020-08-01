@@ -62,6 +62,6 @@
   </view>
 </view>
 <view class="teamManagementDetailsButton">
+  <view  bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>编辑</view>
   <view>删除</view>
-  <view>编辑</view>
 </view>

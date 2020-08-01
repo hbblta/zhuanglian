@@ -47,7 +47,10 @@
         "effectPictureRelease/effectPictureRelease",
         "realEstateEditor/realEstateEditor",
         "realEstateEditorEdit/realEstateEditorEdit",
-        "teamManagementDetails/teamManagementDetails"
+        "teamManagementDetails/teamManagementDetails",
+        "personnelDetails/personnelDetails",
+        "personnelDetailsSelect/personnelDetailsSelect",
+        "personnelDetailsAdd/personnelDetailsAdd"
       ]
     },
     {

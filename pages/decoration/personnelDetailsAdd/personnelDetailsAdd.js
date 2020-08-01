@@ -1,4 +1,4 @@
-// pages/decoration/teamManagementDetails/teamManagementDetails.js
+// pages/decoration/personnelDetailsAdd/personnelDetailsAdd.js
 const app = getApp()
 Page({
 
@@ -6,21 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    decorationArray:{
+      textList: ['现代风格','现代风格','现代风格','现代风格'],
+      idList: [0,1,2,3]
+     }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '详情',
-    })
+
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

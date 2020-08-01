@@ -1,0 +1,137 @@
+/* pages/decoration/personnelDetails/personnelDetails.wxss */
+page{
+  background: #f7f7f7;
+}
+.personnelDetailsAll{
+  margin: 15rpx 0;
+}
+.personnelDetailsInput{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  width: 710rpx;
+  height: 110rpx;
+  padding: 0 20rpx; 
+  border-bottom: 1rpx solid #f7f7f7;
+}
+.personnelDetailsInputTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.personnelDetailsInputContent{
+  display: flex;
+  height: 110rpx;
+  align-items: center;
+}
+.personnelDetailsInputContent input{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  margin-right: 15rpx;
+  font-family: PingFangSC-regular;
+  width: 200rpx;
+  text-align: right;
+}
+.personnelDetailsInputContentMore{
+  width: 30rpx;
+  height: 30rpx;
+  padding: 40rpx 0;
+}
+.personnelDetailsHeadeImg{
+  width: 100rpx;
+  height: 100rpx;
+  background: #DDDDDD;
+  border-radius: 8rpx;
+  margin-right: 15rpx;
+}
+.personnelDetailsHead{
+  height: 180rpx;
+}
+.personnelDetailsFeeling{
+  height: 140rpx;
+  padding: 30rpx 20rpx;
+  width: 710rpx;
+  background: #FFFFFF;
+  margin-bottom: 15rpx;
+}
+.personnelDetailsFeeling view,.personnelDetailsAddTitle,.personnelDetailsListText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  font-weight: 550;
+}
+.personnelDetailsFeeling textarea{
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  height: 80rpx;
+  margin-top: 15rpx;
+  width: 710rpx;
+}
+.personnelDetailsAdd{
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  align-items: center;
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+}
+.personnelDetailsAddAddButton{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.personnelDetailsAddAddButton image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 12rpx;
+}
+.personnelDetailsAddAddButton view{
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.personnelDetailsList{
+  display: flex;
+  width: 710rpx;
+  height: 160rpx;
+  padding: 20rpx;
+  position: relative;
+  background: #FFFFFF;
+  border-top: 1rpx solid #f7f7f7;
+}
+.personnelDetailsListImg{
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+  margin-right: 30rpx;
+}
+.personnelDetailsListImg image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.personnelDetailsListText view:nth-child(2),.personnelDetailsListText view:nth-child(3){
+  font-size: 24rpx;  
+  color: #B7B9BC;
+  margin-top: 15rpx;
+}
+.personnelDetailsListDelete {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  width: 35rpx;
+  height: 35rpx;
+}
+.personnelDetailsButton{
+  margin-top: 40rpx;
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}

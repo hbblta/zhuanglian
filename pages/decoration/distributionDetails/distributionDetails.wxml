@@ -24,10 +24,98 @@
 </view>
 <view style='height:{{windowHeight - 315}}rpx;' class="generalSelectionBody">
 	<view class="generalSelectionlist">
-		<view wx:for='{{textList}}' wx:for-item='item' wx:for-index="textListIndex" wx:key='textListIndex' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+		<view 
+    bindtap="changeIndex"
+    wx:for='{{textList}}' 
+    wx:for-item='item'
+    data-index='{{index}}'
+    wx:key='index' 
+    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
 			{{item.name}}</view>
 	</view>
-	<view class="effectPictureChecklistData">
+	<view class="effectPictureChecklistData" wx:if='{{textListIndex == 0}}'>
+		<view class="constructionSiteDetaViewOne">
+			<view class="constructionSiteDetaNum">总数: 66人</view>
+			<view class="constructionSiteDetaNum">今日新增: 3人</view>
+		</view>
+		<view class="constructionSiteDetaView">
+			<view class="constructionSiteDeta">
+				<text>2020/1/1</text>
+				—
+				<text>2020/5/20</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+			<view class="constructionSiteDetaNum">数量: 22个</view>
+		</view>
+		<view class="distributionDetailsListAll">
+      <view class="distributionDetailsList">
+        <view class="distributionDetailsListHead"><image></image></view>
+        <view class="distributionDetailsListText">
+          <view>姓名</view>
+          <view>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+          </view>
+          <view>13854654646</view>
+          <view>加入时间: 202025445</view>
+        </view>
+      </view>
+    </view>
+	</view>
+  <view class="effectPictureChecklistData" wx:if='{{textListIndex == 1}}'>
+    <view class="searchInputViewBody">
+      <view class="searchInputView">
+        <icon class="icon-small" type="search" size="20"></icon>
+        <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+      </view>
+    </view>
+		<view class="constructionSiteDetaViewOne constructionSiteDetaViewTwo">
+			<view bindtap="changeCustomer" data-customertype="0" class="{{customerType == 0 ? 'constructionSiteDetaNumTwo' : ''}} constructionSiteDetaNum">直推客户</view>
+			<view bindtap="changeCustomer" data-customertype="1" class="{{customerType == 1 ? 'constructionSiteDetaNumTwo' : ''}} constructionSiteDetaNum">间推客户</view>
+		</view>
+		<view class="constructionSiteDetaViewOne">
+			<view class="constructionSiteDetaNum">总数: 66人</view>
+			<view class="constructionSiteDetaNum">今日新增: 3人</view>
+		</view>
+		<view class="constructionSiteDetaView">
+			<view class="constructionSiteDeta">
+				<text>2020/1/1</text>
+				—
+				<text>2020/5/20</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+			<view class="constructionSiteDetaNum">数量: 22个</view>
+		</view>
+		<view class="distributionDetailsListAll">
+      <view class="distributionDetailsList">
+        <view class="distributionDetailsListHead"><image></image></view>
+        <view class="distributionDetailsListText">
+          <view>姓名</view>
+          <view>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+          </view>
+          <view>13854654646</view>
+          <view>加入时间: 202025445</view>
+        </view>
+      </view>
+    </view>
+	</view>
+    <view class="effectPictureChecklistData" wx:if='{{textListIndex == 2}}'>
+    <view class="searchInputViewBody">
+      <view class="searchInputView">
+        <icon class="icon-small" type="search" size="20"></icon>
+        <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+      </view>
+    </view>
+		<view class="constructionSiteDetaViewOne constructionSiteDetaViewTwo">
+			<view bindtap="changeCustomer" data-customertype="0" class="{{customerType == 0 ? 'constructionSiteDetaNumTwo' : ''}} constructionSiteDetaNum">直推业绩</view>
+			<view bindtap="changeCustomer" data-customertype="1" class="{{customerType == 1 ? 'constructionSiteDetaNumTwo' : ''}} constructionSiteDetaNum">间推业绩</view>
+		</view>
 		<view class="constructionSiteDetaViewOne">
 			<view class="constructionSiteDetaNum">总数: 66人</view>
 			<view class="constructionSiteDetaNum">今日新增: 3人</view>

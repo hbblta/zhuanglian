@@ -4,8 +4,9 @@
     <view 
     wx:for='{{textList}}' 
     wx:for-item='item' 
-    wx:for-index="textListIndex" 
-    wx:key='textListIndex' 
+    wx:key='index' 
+    data-index="{{index}}"
+    bindtap="changeIndex"
     class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
     {{item.name}}</view>
   </view>

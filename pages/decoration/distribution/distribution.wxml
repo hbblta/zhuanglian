@@ -1,5 +1,5 @@
 <!--pages/decoration/distribution/distribution.wxml-->
-<generalSelectionlist textList='{{textList}}'>
+<generalSelectionlist textList='{{textList}}' bind:getList='getList'>
   <view class="materialOrderScroll" slot="after">
     <view
       wx:for='{{list}}' 

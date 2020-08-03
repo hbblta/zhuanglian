@@ -7,6 +7,7 @@ Page({
    */
   data: {
     list : 2,
+    generalData:{},
     textList : [
       {
         name : '分销团队',
@@ -61,7 +62,9 @@ Page({
   onUnload: function () {
 
   },
-
+  getList(e){
+    console.log(e.detail)
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

@@ -1,12 +1,14 @@
 // pages/decoration/distributionDetails/distributionDetails.js
 const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index:0,
+    textListIndex:0,
+    customerType:0,
     textList : [
       {
         name : 'TA的团队',
@@ -34,6 +36,16 @@ Page({
           windowHeight: (res.windowHeight * (750 / res.windowWidth))
         })
       },
+    })
+  },
+  changeIndex(e){
+    this.setData({
+      textListIndex : e.currentTarget.dataset.index
+    })
+  },
+  changeCustomer(e){
+    this.setData({
+      customerType : e.currentTarget.dataset.customertype
     })
   },
   goUrl(e){

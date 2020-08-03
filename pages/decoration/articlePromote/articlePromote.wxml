@@ -1,5 +1,5 @@
 <!--pages/decoration/articlePromote/articlePromote.wxml-->
-<searchTitle titleList='{{titleList}}'/>
+<searchTitle titleList='{{titleList}}' bind:getList='getList'/>
 <view class="articlePromoteList" bindtap="goUrl"  data-url="/pages/decoration/articleDetails/articleDetails">
   <view class="articlePromoteImg"><image></image></view>
   <view class="articlePromoteText">

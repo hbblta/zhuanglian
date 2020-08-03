@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    changeIndex(e){
+      this.setData({
+        textListIndex : e.currentTarget.dataset.index
+      })
+      this.triggerEvent('getList', {index:e.currentTarget.dataset.index})
+    }
   }
 })

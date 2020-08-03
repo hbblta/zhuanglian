@@ -8,6 +8,8 @@
 <scroll-view  scroll-x="true" class="materialOrderStatusList">
     <view 
     wx:for='{{titleList}}' 
-    wx:key='item' 
+    wx:key='index' 
+    data-index="{{index}}"
+    bindtap="changeIndex"
     class="materialOrderStatus {{textListIndex == index ? 'materialOrderStatusNow' : ''}}">{{item}}</view>
 </scroll-view>

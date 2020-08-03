@@ -52,7 +52,9 @@
         "personnelDetailsSelect/personnelDetailsSelect",
         "personnelDetailsAdd/personnelDetailsAdd",
         "distribution/distribution",
-        "distributionDetails/distributionDetails"
+        "distributionDetails/distributionDetails",
+        "secondaryManage/secondaryManage",
+        "rankingList/rankingList"
       ]
     },
     {

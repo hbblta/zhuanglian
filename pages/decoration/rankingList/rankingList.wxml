@@ -1,0 +1,20 @@
+<!--pages/decoration/rankingList/rankingList.wxml-->
+<view class="tab-top">
+    <view
+        wx:for="{{tabText}}" 
+        class="{{tabIndex == index?'active':''}}"
+        bindtap="tabChange"
+        data-index="{{index}}"
+        wx:key="*this">
+        {{item}}
+    </view>
+</view>
+
+<view class="orderkind">
+    <view>排行对象</view>
+    <view 
+        wx:key="*this"
+        wx:for="{{kindList}}">
+        <text>{{item}}</text><image></image>
+    </view>
+</view>

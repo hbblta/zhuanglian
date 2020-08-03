@@ -123,7 +123,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration14.png',
         ordinaryTitle : '排行榜单',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/rankingList/rankingList'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration15.png',
@@ -133,7 +133,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration16.png',
         ordinaryTitle : '辅材管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/secondaryManage/secondaryManage'
       }
     ]
   },

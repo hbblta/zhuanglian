@@ -1,0 +1,42 @@
+/* pages/decoration/rankingList/rankingList.wxss */
+.tab-top{
+  width: 100%;
+  box-sizing: border-box;
+  height: 100rpx;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+  padding: 0 106rpx 0 132rpx;
+}
+.tab-top view{
+  font-size: 28rpx;
+  color: #909399;
+  line-height: 98rpx;
+  height: 100%;
+}
+.tab-top view.active{
+  font-weight: 550;
+  color: #0081FF;
+}
+.orderkind{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20rpx 0 16rpx;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.orderkind>view{
+  height: 32rpx;
+  font-size: 24rpx;
+  color: #909399;
+  display: inline-flex;
+}
+.orderkind>view image{
+  width: 32rpx;
+  height: 32rpx;
+  background-color: red;
+  margin-left: 6rpx;
+}

@@ -118,7 +118,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration13.png',
         ordinaryTitle : '提成设置',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/percentageSet/percentageSet'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration14.png',
@@ -128,7 +128,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration15.png',
         ordinaryTitle : '施工管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/buildManage/buildManage'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration16.png',

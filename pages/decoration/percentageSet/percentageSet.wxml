@@ -1,0 +1,28 @@
+<!--pages/decoration/percentageSet/percentageSet.wxml-->
+<view class="setting"> 
+  <view class="set-list" 
+        wx:for="{{content}}" 
+        wx:key="num" 
+        wx:for-item="items" 
+        wx:for-index="num">
+      <view class="tip">
+        {{items.tip}}
+      </view>
+      <view 
+        wx:for="{{items.list}}" 
+        class="list"
+        data-index="{{index}}"
+        data-num="{{num}}"
+        bindtap="change"
+        wx:key="index">
+      <view>{{item.title}}</view>
+      <view>{{item.text}}</view>
+      <!-- css .setting .set-list .list>view:nth-child(3) -->
+      <view>></view>
+      </view>
+  </view>
+</view>
+<view style="height:150rpx"></view>
+<view class="fix-btn" bindtap="sure">
+  确定
+</view>

@@ -1,4 +1,8 @@
 /* pages/decoration/rankingList/rankingList.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
 .tab-top{
   width: 100%;
   box-sizing: border-box;
@@ -39,4 +43,76 @@
   height: 32rpx;
   background-color: red;
   margin-left: 6rpx;
+}
+.retail{
+  justify-content: flex-start;
+}
+.retail>view{
+  margin-right: 80rpx;
+}
+.scroll{
+  width: 100%;
+  height: calc(100% - 180rpx);
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  padding-top: 16rpx;  
+}
+
+.scroll .userList{
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 16rpx;
+  position: relative;
+  height: 200rpx;
+}
+.scroll .userList .number{
+  position: absolute;
+  color: #0081FF;
+  font-weight: 550;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  right: 16rpx;
+  top: 16rpx;
+}
+.scroll .userList .listInfo{
+  width: 100%;
+  height: 160rpx;
+  position: absolute;
+  top: 18rpx;
+  box-sizing: border-box;
+  padding:  0 16rpx;
+  display: flex;
+}
+.scroll .userList .listInfo>image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.scroll .userList .listInfo>.userInfo{
+  height: 160rpx;
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  color: #909399;
+  line-height: 24rpx;
+  justify-content: space-between;
+}
+.scroll .userList .listInfo>.userInfo>text:nth-child(1){
+  font-size: 28rpx;
+  color: #303133;
+  margin-bottom: 6rpx;
+}
+.scroll .userList .level{
+  position: absolute;
+  height: 36rpx;
+  display: flex;
+  right: 18rpx;
+  top: 60rpx;
+}
+.scroll .userList .level image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-left:10rpx;
 }

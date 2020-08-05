@@ -1,20 +1,60 @@
 <!--pages/decoration/rankingList/rankingList.wxml-->
 <view class="tab-top">
-    <view
-        wx:for="{{tabText}}" 
-        class="{{tabIndex == index?'active':''}}"
-        bindtap="tabChange"
-        data-index="{{index}}"
-        wx:key="*this">
-        {{item}}
-    </view>
+	<view wx:for="{{tabText}}" class="{{tabIndex == index?'active':''}}" bindtap="tabChange" data-index="{{index}}" wx:key="index">
+		{{item}}
+	</view>
 </view>
 
-<view class="orderkind">
-    <view>排行对象</view>
-    <view 
-        wx:key="*this"
-        wx:for="{{kindList}}">
-        <text>{{item}}</text><image></image>
-    </view>
+<!-- 员工排行榜排行条件 -->
+<view class="orderkind" wx:if="{{tabIndex==0}}">
+	<view>排行对象</view>
+	<view wx:key="index" wx:for="{{kindList}}" bindtap="personnelSort" data-index="{{index}}">
+		<text>{{item}}</text>
+		<image></image>
+	</view>
+</view>
+<!-- 分销排行榜排行条件 -->
+
+<view class="orderkind retail" wx:if="{{tabIndex==1}}">
+	<view wx:key="index" wx:for="{{retailList}}" bindtap="retailSort" data-index="{{index}}">
+		<text>{{item}}</text>
+		<image></image>
+	</view>
+</view>
+
+<view class="scroll">
+	<scroll-view style="height:100%" scroll-y="true">
+		<!-- 员工排行榜 -->
+		<view wx:if="{{tabIndex==0}}">
+			<view class="userList" wx:for="{{personnelList}}" wx:key="index">
+				<view class="number">第{{index+1}}名</view>
+				<view class="listInfo">
+					<image src="{{item.url}}"></image>
+					<view class="userInfo">
+						<text>{{item.name}}</text>
+						<text>{{item.phone}}</text>
+						<text>团队人数：{{item.tema}}人</text>
+						<text>加入时间：{{item.entryTime}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{tabIndex==1}}">
+			<view class="userList" wx:for="{{retailKingList}}" wx:key="index">
+				<view class="number">第{{index+1}}名</view>
+                <view class="level">
+                    <image wx:for="{{item.xing}}" wx:key="index" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2844955924,411403771&fm=26&gp=0.jpg"></image>
+                </view>
+				<view class="listInfo">
+					<image src="{{item.url}}"></image>
+					<view class="userInfo">
+						<text>{{item.name}}</text>
+						<text>{{item.phone}}</text>
+						<text>团队人数：{{item.tema}}人</text>
+						<text>加入时间：{{item.entryTime}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
 </view>

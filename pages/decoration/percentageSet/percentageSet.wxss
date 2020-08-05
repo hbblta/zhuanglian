@@ -1,0 +1,61 @@
+/* pages/decoration/percentageSet/percentageSet.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+.setting{
+  width: 700rpx;
+  border-radius: 8rpx;
+  box-shadow: 0px 4rpx 12rpx 0px rgba(232, 231, 231, 0.4);
+  background-color: #fff;
+  margin: 16rpx auto 0;
+  box-sizing: border-box;
+  padding: 0 14rpx;
+}
+.setting .set-list{
+  width: 100%;
+}
+.setting .set-list .tip{
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #f7f7f7;
+  line-height: 98rpx;
+  font-size: 32rpx;
+  font-weight: 550;
+  color: #303133;
+}
+.setting .set-list .list{
+  display: flex;
+  height: 100rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #f7f7f7;
+  align-items: center;
+}
+.setting .set-list .list>view:nth-child(1){
+  font-size: 28rpx;
+  color: #303133;
+}
+.setting .set-list .list>view:nth-child(2){
+  font-size: 24rpx;
+  color: #909399;
+  margin-left: 8rpx;
+}
+.setting .set-list .list>view:nth-child(3){
+  margin-left: auto;
+  font-size: 30rpx;
+  color: #BFC2CC;
+}
+.fix-btn{
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  background-color: #0081FF;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+}

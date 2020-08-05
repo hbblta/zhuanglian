@@ -55,7 +55,9 @@
         "distributionDetails/distributionDetails",
         "secondaryManage/secondaryManage",
         "rankingList/rankingList",
-        "commission/commission"
+        "commission/commission",
+        "percentageSet/percentageSet",
+        "buildManage/buildManage"
       ]
     },
     {

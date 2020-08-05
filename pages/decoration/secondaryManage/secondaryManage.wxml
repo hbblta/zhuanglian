@@ -5,7 +5,8 @@
 	<scroll-view style="height:100%" scroll-y="true">
 		<view 
       wx:for="{{listArr}}"
-      wx:key="*this"
+      data-index='{{index}}'
+      wx:key="index"
       class="manage-list">
       <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=13168071,2975128595&fm=26&gp=0.jpg"></image>
       <view class="listInfo">

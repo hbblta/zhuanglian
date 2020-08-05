@@ -93,7 +93,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration8.png',
         ordinaryTitle : '佣金管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/commission/commission'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration9.png',

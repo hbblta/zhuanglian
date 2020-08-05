@@ -54,7 +54,8 @@
         "distribution/distribution",
         "distributionDetails/distributionDetails",
         "secondaryManage/secondaryManage",
-        "rankingList/rankingList"
+        "rankingList/rankingList",
+        "commission/commission"
       ]
     },
     {

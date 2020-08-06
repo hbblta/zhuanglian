@@ -178,6 +178,8 @@ page{
   height: 160rpx;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  top: 18rpx;
 }
 .manageList .listInfo>image{
   width: 160rpx;
@@ -210,11 +212,40 @@ page{
   height: 40rpx;
   line-height: 40rpx;
 }
-.manageList .listInfo>view .tags>view:nth-child(1){
+.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(1){
   font-size: 28rpx;
   margin-right: 22rpx;
   color: #0081FF;
 }
+.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(2){
+  font-size: 28rpx;
+  color: #FF7200;
+}
 .manageList .listInfo>view .tags>view:nth-child(2){
   font-size: 28rpx;
+  color: #0081FF;
+}
+.manageList .listInfo>view .phone{
+  font-size: 24rpx;
+  color: #909399;
+  line-height: 24rpx;
+}
+.manageList .listInfo>view .develop{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  height: 32rpx;
+  color: #909399;
+}
+.manageList .listInfo>view .develop text{
+  color: #0081FF;
+}
+.manageList .listInfo>view .develop>view:nth-child(2){
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.manageList .listInfo>view .develop image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
 }

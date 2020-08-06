@@ -53,6 +53,14 @@
           待设计
         </view>
       </view>
+      <view class="phone">
+        <view>13216212336</view>
+        <view>加入时间：2020/05/30</view>
+      </view>
+      <view class="develop">
+          <view>开发人员：名称</view>
+          <view>跟单人员：<text>张三</text> <image src="../../../image/icon/more.svg"></image></view>
+      </view> 
     </view>
   </view>
 	<view class="btn">

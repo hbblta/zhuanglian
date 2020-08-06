@@ -1,7 +1,7 @@
 <!--pages/decoration/commission/commission.wxml-->
 <view class="commissionType">
-	<view class="nowCommissionType">分销提成</view>
-	<view>员工提成</view>
+	<view class="{{commissionType == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">分销提成</view>
+	<view class="{{commissionType == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">员工提成</view>
 </view>
 <view style='height:{{windowHeight - 100}}rpx;' class="generalSelectionBody">
 	<view class="generalSelectionlist">
@@ -18,7 +18,7 @@
 				<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
 			</view>
 		</view>
-    <view>
+    <view wx:if='{{commissionType == 0 }}'>
         <view class="commissionUser" wx:if='{{textListIndex == 0}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
           <view class="commissionUserImg"><image></image></view>
           <view class="commissionUserData">
@@ -35,12 +35,12 @@
             <view>已提现: 1984.54</view>
           </view>
         </view>
-        <view class="commissionUser" wx:if='{{textListIndex == 2}}'>
+        <view class="commissionUser" wx:if='{{textListIndex == 2}}' bindtap="goUrl"  data-url='/pages/decoration/notWithdrawn/notWithdrawn'>
           <view class="commissionUserImg"><image></image></view>
           <view class="commissionUserData">
             <view>姓名</view>
             <view>153216854641</view>
-            <view>为提现: 1984.54</view>
+            <view>未提现: 1984.54</view>
           </view>
         </view>
         <view class="commissionUser" wx:if='{{textListIndex == 3}}'>
@@ -57,6 +57,16 @@
             <view>姓名</view>
             <view>153216854641</view>
             <view>待确认提现: 1984.54</view>
+          </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="commissionUser"  bindtap="goUrl"  data-url='/pages/decoration/employeeWithdrawal/employeeWithdrawal'>
+          <view class="commissionUserImg"><image></image></view>
+          <view class="commissionUserData">
+            <view>姓名</view>
+            <view>153216854641</view>
+            <view>{{textListIndex == 0 ? '总佣金' : textListIndex == 1 ? '已付佣金' : '未付佣金'}}: 1984.54</view>
           </view>
         </view>
     </view>

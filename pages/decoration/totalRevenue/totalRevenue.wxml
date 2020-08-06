@@ -33,12 +33,15 @@
   <view class="totalRevenueHade">
     <view class="totalRevenueHadeImg"><image></image></view>
     <view class="totalRevenueHadeText">
-      <view class="totalRevenueHadeTextName">姓名</view>
-      <view>135613166</view>
-      <view class="totalRevenueHadeTextPrice">加入时间：2020/05/30</view>
       <view class="totalRevenueHadeTextPrice">
-        <text>待付提现: 895.00</text>
-        <text>待确认提现: 548.12</text>
+        <view class="totalRevenueHadeTextName">姓名</view>
+        <view class="totalRevenueHadeTextSpecial">佣金:  <text>452376.00</text></view>
+      </view>
+      <view>135613166</view>
+      <view>加入时间：2020/05/30</view>
+      <view class="totalRevenueHadeTextPrice">
+        <view class="totalRevenueHadeTextSpecial totalRevenueHadeTextSpecialOne">客源：<text>张三(下属)</text><image src="../../../image/icon/more.svg"></image></view>
+        <view class="totalRevenueHadeTextSpecial totalRevenueHadeTextSpecialOne">跟单人员：<text>张三</text><image src="../../../image/icon/more.svg"></image></view>
       </view>
     </view>
   </view>

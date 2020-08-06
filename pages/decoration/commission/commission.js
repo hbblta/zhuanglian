@@ -9,7 +9,8 @@ Page({
   data: {
     textListIndex:0,
     customerType:0,
-    textList : [
+    textList:[],
+    customerTypeList : [
       {
         name : '总佣金',
         price:888.76,
@@ -37,7 +38,26 @@ Page({
         id : 2
       },
     ],
-    windowHeight : 0
+    commissionTypeList:[
+      {
+        name : '总佣金',
+        price:888.76,
+        id : 0
+      },
+      {
+        name : '已付佣金',
+        price:8882.76,
+        id : 1
+      },
+      {
+        name : '未付佣金',
+        price:8828.76,
+        id : 2,
+        addStatus:true
+      },
+    ],
+    windowHeight : 0,
+    commissionType : 0
   },
 
   /**
@@ -54,12 +74,32 @@ Page({
     wx.setNavigationBarTitle({
       title: '佣金管理',
     })
+    this.setData({
+      textList : this.data.customerTypeList
+    })
   },
   changeIndex(e){
     this.setData({
       textListIndex : e.currentTarget.dataset.index
     })
     this.getList()
+  },
+  changeCommissionType(e){//更改佣金支付角色
+
+    if(e.currentTarget.dataset.commissiontype == 0){
+      this.setData({
+        textListIndex : 0,
+        commissionType : e.currentTarget.dataset.commissiontype,
+        textList : this.data.customerTypeList
+      })
+    }else{
+      this.setData({
+        textListIndex :  0,
+        commissionType : e.currentTarget.dataset.commissiontype,
+        textList : this.data.commissionTypeList
+      })
+    }
+
   },
   getList(){
     console.log(this.data.textListIndex)

@@ -1,0 +1,52 @@
+<!--pages/decoration/employeeWithdrawal/employeeWithdrawal.wxml-->
+<view style="height:15rpx"></view>
+<view class="materialOrderList">
+	<view class="materialOrderListImg">
+		<image></image>
+	</view>
+	<view class="materialOrderListText">
+		<view class="materialOrderListName">
+			<view>姓名</view>
+			<view>1555554555</view>
+			<view>总佣金: 21.00</view>
+			<view><text>已付佣金: 21.00</text><text>未付佣金: 2.10</text></view>
+		</view>
+	</view>
+</view>
+<view style='height:{{windowHeight - 315}}rpx;' class="generalSelectionBody">
+	<view class="generalSelectionlist">
+		<view bindtap="changeIndex" wx:for='{{textList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+			{{item.name}}</view>
+	</view>
+	<view class="effectPictureChecklistData">
+		<view class="constructionSiteDetaViewOne">
+			<view class="constructionSiteDetaNum constructionSiteDetaNumWeight">收入明细</view>
+			<view class="constructionSiteDetaNum">总收入：43242.00</view>
+		</view>
+		<view class="constructionSiteDetaView">
+			<view class="constructionSiteDeta">
+				<text>2020/1/1</text>
+				—
+				<text>2020/5/20</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+			<view class="constructionSiteDetaNum">收入：231.00</view>
+		</view>
+		<view class="distributionDetailsListAll" wx:for='{{list}}' wx:key='index' data-index='{{index}}'>
+			<view class="distributionDetailsList">
+				<view class="distributionDetailsListHead">
+					<image></image>
+				</view>
+				<view class="distributionDetailsListText">
+					<view><view>姓名</view><text>35984</text></view>
+					<view>13854654646</view>
+					<view>加入时间: 202025445</view>
+					<view>开发人员: 张三</view>
+					<view class="distributionDetailsListTextImg">设计师:<text>张三</text><image src="../../../image/icon/more.svg"></image></view>
+					<view class="distributionDetailsListTextImg">跟单人员: <text>张三</text><image src="../../../image/icon/more.svg"></image></view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="materialOrderListButton">支付佣金</view>

@@ -1,0 +1,49 @@
+<!--pages/decoration/notWithdrawn/notWithdrawn.wxml-->
+<view class="notWithdrawnHead">
+    <view class="notWithdrawnHeadImg"><image></image></view>
+    <view class="notWithdrawnHeadText">
+      <view>姓名</view>
+      <view>5165161355</view>
+    </view>
+</view>
+<view class="notWithdrawnForm">
+  <view class="notWithdrawnFormTitle">汇款信息</view>
+  <view class="notWithdrawnFormBody">
+    <view>户名</view>
+    <view>张三</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>开户行</view>
+    <view>中国银行</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>开户支行</view>
+    <view>中国银行金华支行</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>账号</view>
+    <view>28946456498</view>
+  </view>
+  <view class="notWithdrawnFormBody notWithdrawnFormBodyImg">
+    <view>微信收款码</view>
+    <view><image></image></view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>微信实名</view>
+    <view>张三</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>提现金额</view>
+    <view>990.54</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>申请时间</view>
+    <view>2020/05/05</view>
+  </view>
+  <view class="notWithdrawnFormBody">
+    <view>支付时间</view>
+    <view> </view>
+  </view>
+</view>
+<view style="height:200rpx"></view>
+<view class="notWithdrawnFormButton">确认支付</view>

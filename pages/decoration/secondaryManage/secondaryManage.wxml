@@ -20,6 +20,6 @@
 	</scroll-view>
 </view>
 
-<view class="bottom-btn">
+<view class="bottom-btn"  bindtap="goUrl"  data-url='/pages/decoration/auxiliaryRelease/auxiliaryRelease'>
 	辅材发布
 </view>

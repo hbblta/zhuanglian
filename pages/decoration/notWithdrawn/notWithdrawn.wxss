@@ -1,0 +1,79 @@
+/* pages/decoration/notWithdrawn/notWithdrawn.wxss */
+page{
+  background: #f7f7f7;
+}
+.notWithdrawnHead{
+  height: 160rpx;
+  width: 720rpx;
+  margin-top: 15rpx;
+  padding: 15rpx 20rpx;
+  background: #FFFFFF;
+  display: flex;
+}
+.notWithdrawnHeadImg{
+  height: 160rpx;
+  width: 160rpx;
+  background: #DDDDDD;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.notWithdrawnHeadImg image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.notWithdrawnHeadText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.notWithdrawnHeadText view:nth-child(2){
+  color: #A2A4A9 ;
+  font-size: 24rpx;
+  margin-top: 25rpx;
+  font-family: PingFangSC-regular;
+}
+.notWithdrawnForm{
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.notWithdrawnFormTitle{
+  height: 100rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-weight: 550;
+  line-height: 100rpx;
+}
+.notWithdrawnFormBody{
+  height: 40rpx;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular
+}
+.notWithdrawnFormBodyImg{
+  height: 160rpx;
+}
+.notWithdrawnFormBodyImg view image{
+  height: 160rpx;
+  width: 160rpx;
+  background: #DDDDDD;
+}
+.notWithdrawnFormButton{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(255, 255, 255, 0);
+}

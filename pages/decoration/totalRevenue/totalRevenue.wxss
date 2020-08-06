@@ -87,3 +87,23 @@ page{
   font-size: 24rpx;
   font-family: PingFangSC-regular;
 }
+.totalRevenueHadeTextSpecial{
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  height: 30rpx;
+}
+.totalRevenueHadeTextSpecial text{
+  color: #0081FF;
+  margin-left: 10rpx;
+}
+.totalRevenueHadeTextSpecialOne{
+  font-size: 24rpx;
+}
+.totalRevenueHadeTextSpecialOne text{
+  margin-right: 10rpx;
+}
+.totalRevenueHadeTextSpecial image{
+  width: 25rpx;
+  height: 25rpx;
+}

@@ -58,7 +58,10 @@
         "commission/commission",
         "percentageSet/percentageSet",
         "buildManage/buildManage",
-        "totalRevenue/totalRevenue"
+        "totalRevenue/totalRevenue",
+        "notWithdrawn/notWithdrawn",
+        "employeeWithdrawal/employeeWithdrawal",
+        "auxiliaryRelease/auxiliaryRelease"
       ]
     },
     {

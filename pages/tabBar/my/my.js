@@ -103,7 +103,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration10.png',
         ordinaryTitle : '客户管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/clientManage/clientManage'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration11.png',

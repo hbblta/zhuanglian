@@ -1,0 +1,220 @@
+/* pages/decoration/clientManage/clientManage.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+.searchInputViewBody{
+  width: 100%;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.searchInputViewBody .picker{
+  height: 76rpx;
+  display: inline-flex;
+  align-items: center;
+  color: #909399;
+  font-size: 28rpx;
+  line-height: 28rpx;
+}
+.searchInputViewBody .picker image{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+.searchInputView{
+  display: flex;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 1);
+  padding-left: 26rpx;
+  width: 540rpx;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+}
+.searchInputView .searchInput{
+  width: 430rpx;
+  height: 76rpx;
+  border-radius: 12rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+  font-size: 28rpx;
+  padding-left: 14rpx;
+}
+.searchInputView .place{
+  color: #BFC2CC;
+  font-size: 28rpx;
+}
+
+.fix-btn{
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  background-color: #0081FF;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.typesort{
+  box-sizing: border-box;
+  height: 80rpx;
+  display: flex;
+  width: 100%;
+  padding: 0 16rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #909399;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.typesort>view{
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.typesort image{
+  width: 24rpx;
+  height: 24rpx;
+  transform: rotate(90deg);
+  margin-left: 6rpx;
+  margin-top: 4rpx;
+}
+.personal{
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 16rpx 0;
+  padding: 0 20rpx;
+}
+.personal .peoplesum{
+  width: 100%;
+  height: 66rpx;
+  border-bottom: 2rpx solid #f7f7f7;
+  display: flex;
+  align-items: center;
+  color: #909399;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  display: inline-flex;
+}
+.personal .peoplesum>view:nth-child(2){
+  margin-left: 120rpx;
+}
+
+.personal .addpeople{
+  height: 72rpx;
+  display: flex;
+  align-items: center;
+  color: #909399;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  line-height: 24rpx;
+  justify-content: space-between;
+  padding-bottom: 18rpx;
+}
+.personal .addpeople>view{
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.personal .addpeople image{
+  width: 32rpx;
+  height: 32rpx;
+  transform: rotate(90deg);
+  margin-left: 12rpx;
+  margin-top: 4rpx;
+}
+
+.manageList{
+  width: 100%;
+  height: 290rpx;
+  position: relative;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+}
+.manageList .btn{
+  height: 84rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+ 
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+.manageList .btn>view{
+  border-top: 1px solid #f7f7f7;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.manageList .btn>view>view{
+  border: 1px solid #BFC2CC;
+  text-align: center;
+  line-height: 46rpx;
+  box-sizing: border-box;
+  height: 50rpx;
+  color: #909399;
+  font-size: 24rpx;
+  border-radius: 60rpx;
+  width: 140rpx;
+  margin-left: 20rpx;
+}
+.manageList .listInfo{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.manageList .listInfo>image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.manageList .listInfo>view{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.manageList .listInfo>view>view{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540rpx;
+}
+.manageList .listInfo>view .name{
+  height: 36rpx;
+  font-size: 28rpx;
+  color: #303133;
+  line-height: 28rpx;
+}
+.manageList .listInfo>view .name image{
+  width: 36rpx;
+  height: 36rpx; 
+}
+.manageList .listInfo>view .tags{
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.manageList .listInfo>view .tags>view:nth-child(1){
+  font-size: 28rpx;
+  margin-right: 22rpx;
+  color: #0081FF;
+}
+.manageList .listInfo>view .tags>view:nth-child(2){
+  font-size: 28rpx;
+}

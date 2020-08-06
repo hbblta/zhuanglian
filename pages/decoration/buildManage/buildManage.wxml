@@ -1,10 +1,15 @@
 <!--pages/decoration/effectPicture/effectPicture.wxml-->
 <generalSelectionlist textList='{{textList}}' bind:getList="getList">
   <scroll-view slot="before" scroll-x="true" class="materialOrderStatusList">
-    <view class="materialOrderStatus materialOrderStatusNow">全部</view>
-      <view  class="materialOrderStatus">上架</view>
-      <view  class="materialOrderStatus">下架</view>
-    <view  class="materialOrderStatus">上架</view>
+    	<view class="constructionSiteDetaView">
+			<view class="constructionSiteDeta">
+				<text>2020/1/1</text>
+				—
+				<text>2020/5/20</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+			<view class="constructionSiteDetaNum">数量: 22个</view>
+		</view>
   </scroll-view>
   <view slot="after" class="materialOrderScroll">
       <view 
@@ -26,6 +31,9 @@
         </view>
       </view>
   </view>
-
 </generalSelectionlist>
 
+<!-- 工地报备的安钮，只有装企老板可报备 -->
+<view class="fix-btn" bindtap="goto">
+  工地报备
+</view>

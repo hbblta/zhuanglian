@@ -10,7 +10,8 @@
 	<view>排行对象</view>
 	<view wx:key="index" wx:for="{{kindList}}" bindtap="personnelSort" data-index="{{index}}">
 		<text>{{item}}</text>
-		<image></image>
+		<image src="../../../image/icon/more.svg"></image>
+
 	</view>
 </view>
 <!-- 分销排行榜排行条件 -->
@@ -18,7 +19,7 @@
 <view class="orderkind retail" wx:if="{{tabIndex==1}}">
 	<view wx:key="index" wx:for="{{retailList}}" bindtap="retailSort" data-index="{{index}}">
 		<text>{{item}}</text>
-		<image></image>
+		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
 
@@ -42,9 +43,9 @@
 		<view wx:if="{{tabIndex==1}}">
 			<view class="userList" wx:for="{{retailKingList}}" wx:key="index">
 				<view class="number">第{{index+1}}名</view>
-                <view class="level">
-                    <image wx:for="{{item.xing}}" wx:key="index" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2844955924,411403771&fm=26&gp=0.jpg"></image>
-                </view>
+				<view class="level">
+					<image wx:for="{{item.xing}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
+				</view>
 				<view class="listInfo">
 					<image src="{{item.url}}"></image>
 					<view class="userInfo">

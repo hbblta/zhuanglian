@@ -41,8 +41,8 @@ page{
 .orderkind>view image{
   width: 32rpx;
   height: 32rpx;
-  background-color: red;
   margin-left: 6rpx;
+  transform: rotate(90deg);
 }
 .retail{
   justify-content: flex-start;

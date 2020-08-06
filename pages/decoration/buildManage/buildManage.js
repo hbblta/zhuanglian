@@ -77,6 +77,10 @@ Page({
       textIndex:e.detail.index
     })
   },
+  //跳转报备按钮
+  goto(){
+    app.goUrl('/pages/decoration/workreport/workreport')
+  },
 
   /**
    * 生命周期函数--监听页面加载

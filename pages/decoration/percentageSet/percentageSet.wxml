@@ -18,7 +18,7 @@
       <view>{{item.title}}</view>
       <view>{{item.text}}</view>
       <!-- css .setting .set-list .list>view:nth-child(3) -->
-      <view>></view>
+      <image src="../../../image/icon/more.svg"></image>
       </view>
   </view>
 </view>

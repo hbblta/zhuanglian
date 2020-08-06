@@ -42,10 +42,10 @@ page{
   color: #909399;
   margin-left: 8rpx;
 }
-.setting .set-list .list>view:nth-child(3){
+.setting .set-list .list>image:nth-child(3){
+  width: 32rpx;
+  height: 32rpx;
   margin-left: auto;
-  font-size: 30rpx;
-  color: #BFC2CC;
 }
 .fix-btn{
   position: fixed;

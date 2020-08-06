@@ -1,0 +1,69 @@
+<!--pages/decoration/clientManage/clientManage.wxml-->
+<view class="searchInputViewBody">
+	<view class="searchInputView">
+		<icon class="icon-small" type="search" size="20"></icon>
+		<input class="searchInput" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
+	</view>
+	<view class="picker">
+		<text>客户分配</text>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+</view>
+
+<view class="typesort">
+	<view wx:for="{{tabType}}" wx:key="index">
+		<text>{{item}}</text>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+</view>
+
+<view class="personal">
+	<view class="peoplesum">
+		<view>总数：66人</view>
+		<view>今日新增：3人</view>
+	</view>
+	<view class="addpeople">
+		<view>增加：22人</view>
+		<view>
+			<text>2020/1/1</text> — <text>2020/5/20</text>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+	</view>
+</view>
+
+<view class="manageList">
+  <view class="listInfo">
+    <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+    <view>
+      <view class="name">
+        <view>胡彬彬</view>
+        <view>
+          <image src="../../../image/icon/pentagram.svg"></image>
+          <image src="../../../image/icon/pentagram.svg"></image>
+          <image src="../../../image/icon/pentagram.svg"></image>
+          <image src="../../../image/icon/pentagram.svg"></image>
+        </view>
+      </view>
+      <view class="tags">
+        <view>
+          <text>精准</text>
+          <text>免费设计</text>
+        </view>
+        <view>
+          待设计
+        </view>
+      </view>
+    </view>
+  </view>
+	<view class="btn">
+		<view>
+			<view>删除</view>
+			<view>跟进</view>
+			<view>报单</view>
+		</view>
+	</view>
+</view>
+
+<view class="fix-btn" bindtap="goback">
+	报备客户
+</view>

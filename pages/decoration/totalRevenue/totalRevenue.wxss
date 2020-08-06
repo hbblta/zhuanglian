@@ -1,0 +1,89 @@
+/* pages/decoration/totalRevenue/totalRevenue.wxss */
+page{
+  background: #f7f7f7;
+}
+.totalRevenueHade{
+  display: flex;
+  height: 160rpx;
+  width: 710rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.totalRevenueHadeImg{
+  height: 160rpx;
+  width: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  background: #dddddd;
+}
+.totalRevenueHadeImg image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.totalRevenueHadeText{
+  display: flex;
+  height: 160rpx;
+  width: 500rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.totalRevenueHadeTextName{
+  font-size: 28rpx;
+  color: #555555;
+}
+.totalRevenueHadeTextPrice{
+  display: flex;
+  justify-content: space-between;
+}
+.constructionSiteDetaView{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 720rpx;
+  height: 50rpx;
+  padding: 15rpx;
+  margin-top: 1rpx;
+  margin-bottom: 15rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+.constructionSiteDetaViewOne{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 720rpx;
+  height: 35rpx;
+  padding: 15rpx;
+  margin-top: 15rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+.constructionSiteDetaNumOne{
+  color: #303133;
+  font-size: 28rpx;
+  font-weight: 550;
+  font-family: PingFangSC-regular;
+}
+.constructionSiteDeta{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.constructionSiteDeta image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+  transform: rotate(90deg);
+}
+.constructionSiteDetaNum{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}

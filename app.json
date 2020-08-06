@@ -57,7 +57,8 @@
         "rankingList/rankingList",
         "commission/commission",
         "percentageSet/percentageSet",
-        "buildManage/buildManage"
+        "buildManage/buildManage",
+        "totalRevenue/totalRevenue"
       ]
     },
     {

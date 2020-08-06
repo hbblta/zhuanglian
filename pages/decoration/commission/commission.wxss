@@ -29,14 +29,26 @@ page{
   background: #FFFFFF;
   margin-right: 18rpx;
 }
-.generalSelectionlist view{
+.generalSelectionlist .generalSelectionlistTitle{
   width: 200rpx;
-  height: 70rpx;
+  height: 120rpx;
   text-align: center;
-  line-height: 70rpx;
   font-family: Arial;
   font-size: 28rpx;
   color: #909399;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.generalSelectionlistTitle icon{
+  position: absolute;
+  right: 15rpx;
+  top: 15rpx;
+  background: #FF7200;
+  border-radius:50%;
+  width: 15rpx;
+  height: 15rpx;
 }
 .generalSelectionlist .generalSelectionCurrent{
   background: #0081FF;
@@ -45,85 +57,6 @@ page{
 }
 .effectPictureChecklistData{
   overflow: auto;
-}
-.constructionSiteDetaView{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 480rpx;
-  height: 60rpx;
-  padding: 15rpx;
-  margin-top: 1rpx;
-  margin-bottom: 15rpx;
-  background: #FFFFFF;
-  border-radius: 8rpx;
-}
-.constructionSiteDetaViewOne{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 480rpx;
-  height: 40rpx;
-  padding: 15rpx;
-  margin-top: 15rpx;
-  background: #FFFFFF;
-  border-radius: 8rpx;
-}
-.constructionSiteDeta{
-  display: flex;
-  align-items: center;
-  height: 60rpx;
-  color: rgba(144, 147, 153, 1);
-  font-size: 24rpx;
-  font-family: PingFangSC-regular;
-}
-.constructionSiteDeta image{
-  width: 30rpx;
-  height: 30rpx;
-  margin-left: 10rpx;
-  transform: rotate(90deg);
-}
-.constructionSiteDetaNum{
-  color: rgba(144, 147, 153, 1);
-  font-size: 24rpx;
-  font-family: PingFangSC-regular;
-}
-.distributionDetailsList{
-  height: 160rpx;
-  padding: 20rpx;
-  border-radius: 8rpx;
-  background: #FFFFFF;
-  display: flex;
-}
-.distributionDetailsListHead{
-  margin-right: 20rpx;
-  height: 160rpx;
-  width: 160rpx;
-  background: #DDDDDD;
-}
-.distributionDetailsListHead image{
-  height: 160rpx;
-  width: 160rpx;
-}
-.distributionDetailsListText{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 160rpx;
-}
-.distributionDetailsListText view{
-  color: rgba(144, 147, 153, 1);
-  font-size: 24rpx;
-  font-family: PingFangSC-regular;
-}
-.distributionDetailsListText view:nth-child(1){
-  color: rgba(48, 49, 51, 1);
-  font-size: 28rpx;
-  font-family: PingFangSC-regular;
-}
-.distributionDetailsListText view:nth-child(2) image{
-  width: 30rpx;
-  height: 30rpx;
 }
 .searchInputViewBody{
   margin-top: 15rpx;
@@ -147,9 +80,38 @@ page{
   font-family: PingFangSC-regular;
   font-size: 28rpx;
 }
-.constructionSiteDetaViewTwo{
-  justify-content: space-around;
+.commissionUser{
+  width: 480rpx;
+  display: flex;
+  padding: 20rpx 15rpx;
+  height: 160rpx;
+  margin-bottom: 15rpx;
+  background: #FFFFFF;
 }
-.constructionSiteDetaViewTwo .constructionSiteDetaNumTwo{
-  color: #0081FF;
+.commissionUserImg {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+  margin-right:20rpx;
+}
+.commissionUserImg image{
+  height: 160rpx;
+  height: 160rpx;
+}
+.commissionUserData{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160rpx;
+}
+.commissionUserData view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.commissionUserData view:nth-child(1){
+  color: #4C4D4F;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
 }

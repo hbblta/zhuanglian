@@ -1,0 +1,45 @@
+<!--pages/decoration/totalRevenue/totalRevenue.wxml-->
+<view class="totalRevenueHade">
+  <view class="totalRevenueHadeImg"><image></image></view>
+  <view class="totalRevenueHadeText">
+    <view class="totalRevenueHadeTextName">姓名</view>
+    <view>135613166</view>
+    <view class="totalRevenueHadeTextPrice">
+      <text>已提现: 2032.10</text>
+      <text>未提现: 542.15</text>
+    </view>
+    <view class="totalRevenueHadeTextPrice">
+      <text>待付提现: 895.00</text>
+      <text>待确认提现: 548.12</text>
+    </view>
+  </view>
+</view>
+<view>
+  <view class="constructionSiteDetaViewOne">
+    <view class="constructionSiteDetaNumOne">收入明细</view>
+    <view class="constructionSiteDetaNum">总收入：43242.00</view>
+  </view>
+  <view class="constructionSiteDetaView">
+    <view class="constructionSiteDeta">
+      <text>2020/1/1</text>
+      —
+      <text>2020/5/20</text>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+    <view class="constructionSiteDetaNum">收入：231.00</view>
+  </view>
+</view>
+<view>
+  <view class="totalRevenueHade">
+    <view class="totalRevenueHadeImg"><image></image></view>
+    <view class="totalRevenueHadeText">
+      <view class="totalRevenueHadeTextName">姓名</view>
+      <view>135613166</view>
+      <view class="totalRevenueHadeTextPrice">加入时间：2020/05/30</view>
+      <view class="totalRevenueHadeTextPrice">
+        <text>待付提现: 895.00</text>
+        <text>待确认提现: 548.12</text>
+      </view>
+    </view>
+  </view>
+</view>

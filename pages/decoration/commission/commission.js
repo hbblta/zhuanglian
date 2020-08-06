@@ -11,15 +11,29 @@ Page({
     customerType:0,
     textList : [
       {
-        name : 'TA的团队',
+        name : '总佣金',
+        price:888.76,
         id : 0
       },
       {
-        name : 'TA的客户',
+        name : '已提现',
+        price:8882.76,
         id : 1
       },
       {
-        name : 'TA的业绩',
+        name : '未提现',
+        price:8828.76,
+        id : 2,
+        addStatus:true
+      },
+      {
+        name : '待付提现',
+        price:88.76,
+        id : 2
+      },
+      {
+        name : '待确认提现',
+        price:88852.76,
         id : 2
       },
     ],
@@ -37,16 +51,18 @@ Page({
         })
       },
     })
+    wx.setNavigationBarTitle({
+      title: '佣金管理',
+    })
   },
   changeIndex(e){
     this.setData({
       textListIndex : e.currentTarget.dataset.index
     })
+    this.getList()
   },
-  changeCustomer(e){
-    this.setData({
-      customerType : e.currentTarget.dataset.customertype
-    })
+  getList(){
+    console.log(this.data.textListIndex)
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)

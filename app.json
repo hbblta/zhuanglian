@@ -61,6 +61,8 @@
         "totalRevenue/totalRevenue",
         "notWithdrawn/notWithdrawn",
         "employeeWithdrawal/employeeWithdrawal",
+        "workreport/workreport",
+        "clientManage/clientManage",
         "auxiliaryRelease/auxiliaryRelease"
       ]
     },

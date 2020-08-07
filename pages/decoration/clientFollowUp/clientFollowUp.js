@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    textList:['客户动态','客户动态','客户动态','客户动态'],
+    textListIndex:0
+  },
+  changeIndex(e){
+    this.setData({
+      textListIndex:e.currentTarget.dataset.index
+    })
   },
 
   /**

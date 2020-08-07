@@ -1,2 +1,26 @@
 <!--pages/decoration/clientFollowUp/clientFollowUp.wxml-->
-<text>pages/decoration/clientFollowUp/clientFollowUp.wxml</text>
+<view class="user">
+
+</view>
+
+<view class="scroll">
+ <view class="generalSelectionBody">
+  <view class="generalSelectionlist">
+    <view 
+    wx:for='{{textList}}' 
+    wx:for-item='item' 
+    wx:key='index' 
+    data-index="{{index}}"
+    bindtap="changeIndex"
+    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
+    {{item}}</view>
+  </view>
+  <view>
+    <view class="searchInputViewBody" style="height:100%">
+     
+    </view>
+  </view>
+</view>
+</view>
+
+<view class="bottom-btn"></view>

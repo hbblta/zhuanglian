@@ -4,7 +4,7 @@
 }
 .materialOrderStatusList{
   white-space: nowrap;  
-  height: 80rpx;
+  height: 90rpx;
   background: #FFFFFF;
   margin-bottom: 15rpx;
 }

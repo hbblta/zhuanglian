@@ -17,6 +17,8 @@
       wx:for-item='item' 
       wx:for-index="listIndex" 
       wx:key='listIndex' 
+      bindtap="goUrl"
+      data-url='/pages/decoration/constructionDetails/constructionDetails'
       class="materialOrderList">
         <view class="tip">{{textList[textIndex].name}}</view>
         <view class="materialOrderListImg"><image src="{{item.url}}"></image></view>

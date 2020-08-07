@@ -1,26 +1,11 @@
-// pages/decoration/clientManage/clientManage.js
-var app = getApp()
+// pages/decoration/orderListManage/orderListManage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabType:['客户类别','管理人员','客户来源','时间','星级']
-  },
-
-  //delete 
-  delete(e){
-    console.log('点击了删除')
-  },
-  //跟进
-  follow(e){
-    console.log('点击了跟进')
-    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp')
-  },
-  //报单
-  declaration(e){
-    app.goUrl('/pages/decoration/declaration/declaration')
+    tabType:['订单来源','管理人员','订单进度','时间','星级']
   },
 
   /**
@@ -28,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '客户管理'
+      title: '订单管理'
     })
   },
 

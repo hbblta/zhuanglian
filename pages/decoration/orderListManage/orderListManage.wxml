@@ -1,11 +1,11 @@
-<!--pages/decoration/clientManage/clientManage.wxml-->
+<!--pages/decoration/orderListManage/orderListManage.wxml-->
 <view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>
 		<input class="searchInput" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
 	</view>
 	<view class="picker">
-		<text>客户分配</text>
+		<text>订单分配</text>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
@@ -19,11 +19,11 @@
 
 <view class="personal">
 	<view class="peoplesum">
-		<view>总数：66人</view>
-		<view>今日新增：3人</view>
+		<view>总数：66单</view>
+		<view>今日新增：3单</view>
 	</view>
 	<view class="addpeople">
-		<view>增加：22人</view>
+		<view>增加：22单</view>
 		<view>
 			<text>2020/1/1</text> — <text>2020/5/20</text>
 			<image src="../../../image/icon/more.svg"></image>
@@ -66,7 +66,6 @@
 		<view>
 			<view bindtap="delete" data-index="{{index}}">删除</view>
 			<view bindtap="follow" data-item="{{item}}">跟进</view>
-			<view bindtap="declaration" data-item="{{item}}">报单</view>
 		</view>
 	</view>
 </view>

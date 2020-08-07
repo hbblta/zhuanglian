@@ -108,7 +108,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration11.png',
         ordinaryTitle : '订单管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/orderListManage/orderListManage'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration12.png',

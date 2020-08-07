@@ -64,7 +64,10 @@
         "workreport/workreport",
         "clientManage/clientManage",
         "auxiliaryRelease/auxiliaryRelease",
-        "constructionDetails/constructionDetails"
+        "constructionDetails/constructionDetails",
+        "declaration/declaration",
+        "orderListManage/orderListManage",
+        "clientFollowUp/clientFollowUp"
       ]
     },
     {

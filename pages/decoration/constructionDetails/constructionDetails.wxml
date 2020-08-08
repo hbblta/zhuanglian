@@ -1,2 +1,68 @@
 <!--pages/decoration/constructionDetails/constructionDetails.wxml-->
-<text>pages/decoration/constructionDetails/constructionDetails.wxml</text>
+<view style="height:15rpx"></view>
+<view class="materialOrderList">
+	<view class="materialOrderListImg">
+		<image></image>
+	</view>
+	<view class="materialOrderListText">
+		<view class="materialOrderListName">
+			<view>
+				<view>姓名</view>
+				<text>水电</text>
+			</view>
+			<view>1555554555</view>
+			<view>成交时间: 2020/05/30</view>
+			<view>小区名称：分业小区2幢2单元88室</view>
+		</view>
+	</view>
+</view>
+<view class="constructionDetailsPickerAll">
+  <view class="constructionDetailsPicker">
+    <view>项目经理</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+      <view class="constructionDetailsPickerData"><text>可多选</text><image src="../../../image/icon/more.svg"></image></view>
+    </picker>
+  </view>
+  <view class="constructionDetailsPicker">
+    <view>设计师</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+      <view class="constructionDetailsPickerData"><text> </text><image src="../../../image/icon/more.svg"></image></view>
+    </picker>
+  </view>
+  <view class="constructionDetailsPicker">
+    <view>跟单员</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+      <view class="constructionDetailsPickerData"><text>可多选</text><image src="../../../image/icon/more.svg"></image></view>
+    </picker>
+  </view>
+  <view class="constructionDetailsSelecte">
+    <view>业主是否可见</view>
+    <view class="constructionDetailsSelecteImg">
+      <view><text>是</text><image src="../../../image/icon/Selecte.svg"></image></view>
+      <view><text>否</text><image src="../../../image/icon/selected.svg"></image></view>
+    </view>
+  </view>
+</view>
+<view class="constructionDetailsSchedule">
+  <view class="schedule"><view style="width:{{scheduleNum}}" class="scheduleDetails"></view></view>
+  <view class="scheduleTextList">
+    <view class="scheduleText">
+      <text 
+        wx:for='{{scheduleList}}' 
+        wx:for-item='item' 
+        data-index='{{index}}'
+        wx:key='index' 
+      >{{item.name}}</text>
+    </view>
+      <view class="scheduleTextBlueList" style="width:{{scheduleNum}}">
+        <view class="scheduleText scheduleTextBlue">
+          <text 
+            wx:for='{{scheduleList}}' 
+            wx:for-item='item' 
+            data-index='{{index}}'
+            wx:key='index' 
+          >{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>

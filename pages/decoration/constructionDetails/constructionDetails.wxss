@@ -1,1 +1,165 @@
 /* pages/decoration/constructionDetails/constructionDetails.wxss */
+page{
+  background: #f7f7f7;
+}
+.materialOrderList{
+  display: flex;
+  width: 710rpx;
+  height: 160rpx;
+  padding: 20rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+}
+.materialOrderListImg{
+  width: 160rpx;
+  height: 160rpx;
+}
+.materialOrderListImg image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+}
+.materialOrderListText{
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 5%;
+}
+.materialOrderListName{
+  display: flex;
+  height: 160rpx;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.materialOrderListName view{
+  color: #A7A9AE;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular
+}
+.materialOrderListName view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  display: flex;
+  font-weight: 550;
+  justify-content: space-between;
+}
+.materialOrderListName view:nth-child(1) text{
+  color: #0081FF;
+}
+.constructionDetailsPickerAll{
+  margin-top: 15rpx;
+}
+.constructionDetailsPicker{
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  height: 80rpx;
+  font-weight: 550;
+  align-items: center;
+  border-bottom:1rpx solid #f7f7f7;
+}
+.constructionDetailsPickerData{
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+.constructionDetailsPickerData image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.constructionDetailsSelecte{
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+  border-top: 15rpx solid #f7f7f7;
+  border-bottom: 15rpx solid #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  align-items: center;
+  font-weight: 550;
+}
+.constructionDetailsSelecteImg view,.constructionDetailsSelecteImg{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+}
+.constructionDetailsSelecteImg view{
+  margin-right:25rpx;
+}
+.constructionDetailsSelecteImg view image{
+  height: 35rpx;
+  width: 35rpx;
+  margin-left: 10rpx;
+}
+.constructionDetailsSchedule{
+  width: 710rpx;
+  height: 70rpx;
+  background: #FFFFFF;
+  padding: 40rpx 20rpx 30rpx;
+}
+.schedule{
+  width: 710rpx;
+  height: 10rpx;
+  background: #f7f7f7;
+  border-radius: 2rpx;
+}
+.scheduleDetails{
+  background: #4FA3FB;
+  width: 0%;
+  height: 10rpx;
+  border-radius: 2rpx;
+  position: relative;
+  transition:all 1.5s ease .5s;
+}
+.scheduleDetails::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 15rpx solid transparent;
+  border-bottom-color: #4FA3FB;
+  border-top-width: 0;
+  position: absolute;
+  right: -15rpx;
+  top: 20rpx;
+}
+.scheduleTextList{
+  margin-top: 40rpx;
+  position: relative;
+}
+.scheduleText{
+  width: 710rpx;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(133, 133, 133, 1);
+  font-size: 20rpx;
+  font-family: PingFangSC-regular;
+  position: absolute;
+  z-index: 1;
+}
+.scheduleTextBlueList{
+  overflow: hidden;
+  width: 0%;
+  transition:all 1.5s ease .5s;
+}
+.scheduleTextBlue{
+  color: #4FA3FB;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  white-space:nowrap;
+}

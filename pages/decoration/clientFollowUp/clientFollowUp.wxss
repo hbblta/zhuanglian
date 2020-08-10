@@ -250,4 +250,5 @@ page{
 .searchInputViewBody .clientList>view{
   width: 100%;
   height: 140rpx;
+  
 }

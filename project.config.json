@@ -76,6 +76,13 @@
 					"id": -1,
 					"name": "排行榜单",
 					"pathName": "pages/decoration/rankingList/rankingList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/decoration/clientFollowUp/clientFollowUp",
+					"pathName": "pages/decoration/clientFollowUp/clientFollowUp",
 					"scene": null
 				}
 			]

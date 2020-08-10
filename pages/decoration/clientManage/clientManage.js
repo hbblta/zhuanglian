@@ -28,7 +28,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '客户管理'
+      title: '客户详情'
     })
   },
 

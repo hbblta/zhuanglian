@@ -1,26 +1,113 @@
 <!--pages/decoration/clientFollowUp/clientFollowUp.wxml-->
 <view class="user">
-
+	<view class="manageList">
+		<view class="listInfo">
+			<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+			<view>
+				<view class="name">
+					<view>胡彬彬</view>
+					<view>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+					</view>
+				</view>
+				<view class="tags">
+					<view>
+						<text>精准</text>
+						<text>免费设计</text>
+					</view>
+					<view>
+						待设计
+					</view>
+				</view>
+				<view class="phone">
+					<view>13216212336</view>
+					<view>加入时间：2020/05/30</view>
+				</view>
+				<view class="develop">
+					<view>开发人员：名称</view>
+					<view>跟单人员：<text>张三</text>
+						<image src="../../../image/icon/more.svg"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
 
 <view class="scroll">
- <view class="generalSelectionBody">
-  <view class="generalSelectionlist">
-    <view 
-    wx:for='{{textList}}' 
-    wx:for-item='item' 
-    wx:key='index' 
-    data-index="{{index}}"
-    bindtap="changeIndex"
-    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
-    {{item}}</view>
-  </view>
-  <view>
-    <view class="searchInputViewBody" style="height:100%">
-     
-    </view>
-  </view>
-</view>
+	<view class="generalSelectionBody">
+		<view class="generalSelectionlist">
+			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
+				{{item}}</view>
+		</view>
+		<view>
+			<view class="searchInputViewBody" style="height:100%">
+				<scroll-view scroll-y="true" style="height:100%">
+					<view class="clientAction" wx:if="{{textListIndex==0}}">
+						<view>
+							<view class="titleTime">2019年</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+						</view>
+            	<view>
+							<view class="titleTime">2019年</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+							<view class="list">
+								<view class="tip">访问房源</view>
+								<view class="info">
+									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
+									<view class="name">我是大哥大</view>
+								</view>
+							</view>
+						</view>
+					</view>
+
+          <view wx:if="{{textListIndex==1}}">
+            <view class="clientList">
+              <view>
+              
+              </view>
+            </view>
+          </view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
 </view>
 
 <view class="bottom-btn"></view>

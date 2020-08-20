@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    textList:['客户动态','客户动态','客户动态','客户动态'],
+    textList:['客户动态','TA的订单','TA的跟进'],
     textListIndex:0
   },
   changeIndex(e){

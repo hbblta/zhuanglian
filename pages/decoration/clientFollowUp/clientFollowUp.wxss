@@ -4,6 +4,116 @@ page{
   border-top: 1px solid transparent;
   box-sizing: border-box;
 }
+
+
+.manageList{
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.manageList .btn>view{
+  border-top: 1px solid #f7f7f7;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.manageList .btn>view>view{
+  border: 1px solid #BFC2CC;
+  text-align: center;
+  line-height: 46rpx;
+  box-sizing: border-box;
+  height: 50rpx;
+  color: #909399;
+  font-size: 24rpx;
+  border-radius: 60rpx;
+  width: 140rpx;
+  margin-left: 20rpx;
+}
+.manageList .listInfo{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 18rpx;
+}
+.manageList .listInfo>image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.manageList .listInfo>view{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.manageList .listInfo>view>view{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540rpx;
+}
+.manageList .listInfo>view .name{
+  height: 36rpx;
+  font-size: 28rpx;
+  color: #303133;
+  line-height: 28rpx;
+}
+.manageList .listInfo>view .name image{
+  width: 36rpx;
+  height: 36rpx; 
+}
+.manageList .listInfo>view .tags{
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(1){
+  font-size: 28rpx;
+  margin-right: 22rpx;
+  color: #0081FF;
+}
+.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(2){
+  font-size: 28rpx;
+  color: #FF7200;
+}
+.manageList .listInfo>view .tags>view:nth-child(2){
+  font-size: 28rpx;
+  color: #0081FF;
+}
+.manageList .listInfo>view .phone{
+  font-size: 24rpx;
+  color: #909399;
+  line-height: 24rpx;
+}
+.manageList .listInfo>view .develop{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  height: 32rpx;
+  color: #909399;
+}
+.manageList .listInfo>view .develop text{
+  color: #0081FF;
+}
+.manageList .listInfo>view .develop>view:nth-child(2){
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+.manageList .listInfo>view .develop image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+  margin-top: 4rpx;
+}
 .user{
   width: 100%;
   height: 200rpx;
@@ -65,4 +175,80 @@ page{
   height: 100rpx;
   background-color: #fff;
   margin-top: 16rpx;
+}
+.searchInputViewBody .clientAction{
+  box-sizing: border-box;
+  padding: 0 26rpx;
+  padding-bottom: 30rpx;
+}
+.searchInputViewBody .clientAction .titleTime{
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #0081FF;
+  line-height: 80rpx;
+}
+.searchInputViewBody .clientAction .list{
+    width: 400rpx;
+    margin-left: 70rpx;
+    height: 220rpx;
+    position: relative;
+}
+.searchInputViewBody .clientAction .list .tip{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #101010;
+  font-weight: 550;
+}
+.searchInputViewBody .clientAction .list .info{
+  width: 100%;
+  height: 110rpx;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.searchInputViewBody .clientAction .list .info image{
+  width: 150rpx;
+  height: 110rpx;
+  border-radius: 8rpx;
+  margin-right: 32rpx;
+}
+.searchInputViewBody .clientAction .list .info .name{
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color:#909399;
+}
+.searchInputViewBody .clientAction .list::before{
+  content: "";
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  background-color: #0081FF;
+  border-radius: 50%;
+  left: -80rpx;
+  top: 30rpx;
+}
+.searchInputViewBody .clientAction .list::after{
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 220rpx;
+  left: -66rpx;
+  top: 46rpx;
+  background-color: #0081FF;
+}
+.searchInputViewBody .clientAction>view{
+  position: relative;
+  margin-bottom: 50rpx;
+}
+
+.searchInputViewBody .clientList{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+.searchInputViewBody .clientList>view{
+  width: 100%;
+  height: 140rpx;
+  
 }

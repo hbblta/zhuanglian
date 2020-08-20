@@ -9,7 +9,7 @@ page{
   height: calc(100% - 200rpx);
   box-sizing: border-box;
   border-top: 16rpx solid #f7f7f7;
-  padding-bottom: 120rpx;
+  padding-bottom: 100rpx;
 }
 .manage-list{
   width: 100%;

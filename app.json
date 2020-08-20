@@ -67,7 +67,11 @@
         "constructionDetails/constructionDetails",
         "declaration/declaration",
         "orderListManage/orderListManage",
-        "clientFollowUp/clientFollowUp"
+        "clientFollowUp/clientFollowUp",
+        "constructionReport/constructionReport",
+        "constructionMessage/constructionMessage",
+        "employee/employee",
+        "employeeDetails/employeeDetails"
       ]
     },
     {

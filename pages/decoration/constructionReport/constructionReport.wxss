@@ -1,0 +1,108 @@
+/* pages/decoration/constructionReport/constructionReport.wxss */
+page{
+  background: #f7f7f7;
+}
+.personnelDetailsFeeling{
+  height: 200rpx;
+  padding: 30rpx 20rpx;
+  width: 710rpx;
+  background: #FFFFFF;
+  margin-bottom: 15rpx;
+}
+.personnelDetailsFeeling view{
+  color: rgba(48, 49, 51, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: 550;
+}
+.personnelDetailsFeeling textarea{
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  height: 80rpx;
+  margin-top: 15rpx;
+  width: 710rpx;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding: 0 25rpx 70rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  align-items: center;
+  background: #FFFFFF;
+}
+.effectPictureEditMainTitle view:nth-child(1){
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditMainTitle view:nth-child(2){
+  color: rgba(191, 194, 204, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditMainList{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.effectPictureEditMainListData{
+  width: 200rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}
+.effectPictureEditMainListData image{
+  height: 200rpx;
+  width: 200rpx;
+}
+.effectPictureEditMainListData input{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.constructionDetailsSelecte{
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+  margin: 15rpx 0 170rpx;
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  align-items: center;
+}
+.constructionDetailsSelecteImg view,.constructionDetailsSelecteImg{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+}
+.constructionDetailsSelecteImg view{
+  margin-right:25rpx;
+}
+.constructionDetailsSelecteImg view image{
+  height: 35rpx;
+  width: 35rpx;
+  margin-left: 10rpx;
+}
+.constructionReportButton{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

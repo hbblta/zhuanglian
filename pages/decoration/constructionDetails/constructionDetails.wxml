@@ -66,3 +66,33 @@
     </view>
   </view>
 </view>
+<view class="report" bindtap="goUrl"  data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
+<view class="progressDetails">
+  <view class="progressDetailsTitle">
+    <view>油漆</view>
+    <view>未完工</view>
+  </view>
+  <view class="progressDetailsDate">
+    <view>2019/18616/41861</view>
+    <view>汇报人: 张三</view>
+  </view>
+  <view>
+    <view class="progressDetailsImg">
+      <view><image></image></view>
+      <view><image></image></view>
+      <view><image></image></view>
+      <view><image></image></view>
+    </view>
+    <view class="progressDetailsText"><text>总结</text>: 暗示哦多少i等哈死哦大海哦哈似乎都啊烧死的后i啊是哦啊四月的佛啊是</view>
+  </view>
+  <view>
+    <view class="progressDetailsImg">
+      <view><image></image></view>
+      <view><image></image></view>
+      <view><image></image></view>
+      <view><image></image></view>
+    </view>
+    <view class="progressDetailsText"><text>总结</text>: 暗示哦多少i等哈死哦大海哦哈似乎都啊烧死的后i啊是哦啊四月的佛啊是</view>
+  </view>
+  <view class="progressDetailsButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view>
+</view>

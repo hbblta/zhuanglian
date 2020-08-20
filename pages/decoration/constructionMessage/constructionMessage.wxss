@@ -1,0 +1,72 @@
+/* pages/decoration/constructionMessage/constructionMessage.wxss */
+page{
+  background: #f7f7f7;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding: 0 25rpx 70rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  align-items: center;
+  background: #FFFFFF;
+}
+.effectPictureEditMainTitle view:nth-child(1){
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditMainTitle view:nth-child(2){
+  color: rgba(191, 194, 204, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditMainList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.effectPictureEditMainListData{
+  width: 200rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}
+.effectPictureEditMainListData image{
+  height: 200rpx;
+  width: 200rpx;
+}
+.effectPictureEditInput{
+  margin-top: 15rpx;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 110rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditInput input{
+  width: 670rpx;
+  height: 110rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.constructionReportButton{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

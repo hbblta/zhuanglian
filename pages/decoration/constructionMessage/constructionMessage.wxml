@@ -1,0 +1,21 @@
+<!--pages/decoration/constructionMessage/constructionMessage.wxml-->
+<view>
+  <view class="effectPictureEditMain effectPictureEditMainOne">
+    <view class="effectPictureEditMainTitle">
+      <view>图片上传</view>
+      <view>4/9</view>
+    </view>
+    <view>
+      <view class="effectPictureEditMainList">
+        <view class="effectPictureEditMainListData">
+        <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+        </view>
+        <view class="effectPictureEditMainListData">
+        <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="effectPictureEditInput"><input placeholder="输入文字"></input></view>
+</view>
+<view class="constructionReportButton">确定</view>

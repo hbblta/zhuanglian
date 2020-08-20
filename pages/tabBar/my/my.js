@@ -98,7 +98,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration9.png',
         ordinaryTitle : '员工管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/employee/employee'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration10.png',

@@ -1,0 +1,51 @@
+<!--pages/decoration/constructionReport/constructionReport.wxml-->
+<view style="height:15rpx"></view>
+<view class="personnelDetailsFeeling">
+  <view>总结</view>
+  <textarea placeholder="输入文字"></textarea>
+</view>
+<view class="effectPictureEditMain effectPictureEditMainOne">
+  <view class="effectPictureEditMainTitle">
+    <view>图片上传</view>
+    <view>4/9</view>
+  </view>
+  <view>
+    <view class="effectPictureEditMainList">
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view style="height:15rpx"></view>
+<view class="personnelDetailsFeeling">
+  <view>计划</view>
+  <textarea placeholder="输入文字"></textarea>
+</view>
+<view class="effectPictureEditMain effectPictureEditMainOne">
+  <view class="effectPictureEditMainTitle">
+    <view>图片上传</view>
+    <view>4/9</view>
+  </view>
+  <view>
+    <view class="effectPictureEditMainList">
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="constructionDetailsSelecte">
+  <view>是否完工</view>
+  <view class="constructionDetailsSelecteImg">
+    <view><text>是</text><image src="../../../image/icon/Selecte.svg"></image></view>
+    <view><text>否</text><image src="../../../image/icon/selected.svg"></image></view>
+  </view>
+</view>
+<view class="constructionReportButton">提交</view>

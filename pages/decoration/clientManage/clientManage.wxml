@@ -4,7 +4,7 @@
 		<icon class="icon-small" type="search" size="20"></icon>
 		<input class="searchInput" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
 	</view>
-	<view class="picker">
+	<view class="picker" bindtap="goUrl"  data-url='/pages/decoration/assignCustomers/assignCustomers'>
 		<text>客户分配</text>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>

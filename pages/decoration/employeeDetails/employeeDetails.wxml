@@ -1,34 +1,80 @@
 <!--pages/decoration/employeeDetails/employeeDetails.wxml-->
 <view style="height:15rpx"></view>
 <view class="employeeDetailsUser">
-  <view class="employeeDetailsUserImg"><image></image></view>
-  <view class="employeeDetailsUserText">
-    <view>姓名</view>
-    <view>15616156342</view>
-    <view>加入时间: 2020?04?4</view>
-  </view>
+	<view class="employeeDetailsUserImg">
+		<image></image>
+	</view>
+	<view class="employeeDetailsUserText">
+		<view>姓名</view>
+		<view>15616156342</view>
+		<view>加入时间: 2020?04?4</view>
+	</view>
 </view>
-<view class="constructionDetailsPickerAll">
-  <view class="constructionDetailsPicker">
-    <view>TA的上级</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text>姓名</text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="constructionDetailsPicker">
-    <view>TA的下级</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text>姓名/姓名</text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="constructionDetailsPicker">
-    <view>TA的身份</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text>请选择</text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
+<view wx:if='{{!employeePay}}'>
+	<view class="constructionDetailsPickerAll">
+		<view class="constructionDetailsPicker">
+			<view>TA的上级</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>姓名</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="constructionDetailsPicker">
+			<view>TA的下级</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>姓名/姓名</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="constructionDetailsPicker">
+			<view>TA的身份</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>请选择</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view class="employeeDetailsButton">
+		<view>驳回</view>
+		<view bindtap="changeEmployeePay">通过</view>
+	</view>
 </view>
-<view class="employeeDetailsButton">
-  <view>驳回</view>
-  <view>通过</view>
+<view wx:if='{{employeePay}}'>
+	<view class="employeeFeatures">
+		<view class="employeeFeaturesTitle">员工功能</view>
+		<view class="employeeFeaturesListAll">
+			<view class="employeeFeaturesList">
+				<image src="../../../image/icon/employee1.png"></image>
+				<view>客户管理</view>
+			</view>
+			<view class="employeeFeaturesList">
+				<image src="../../../image/icon/employee2.png"></image>
+				<view>下属管理</view>
+			</view>
+			<view class="employeeFeaturesList">
+				<image src="../../../image/icon/employee3.png"></image>
+				<view>订单管理</view>
+			</view>
+			<view class="employeeFeaturesList">
+				<image src="../../../image/icon/employee4.png"></image>
+				<view>店铺推广</view>
+			</view>
+		</view>
+	</view>
+	<view class="employeeFeaturesTerms">
+		<image src="../../../image/icon/Selecte.svg"></image>
+		<!-- <image src="../../../image/icon/selected.svg"></image> -->
+		<view>已同意<text>服务条款</text>虚拟产品，支付后不退开通费</view>
+	</view>
+  <view class="employeeFeaturesButton">
+    <view class="employeeFeaturesText">
+      <text>订单价格</text>
+      <text>￥99</text>
+      <text>￥299</text>
+    </view>
+    <view class="employeeFeaturesPay">立即支付</view>
+  </view>
 </view>

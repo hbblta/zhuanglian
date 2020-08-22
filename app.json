@@ -71,7 +71,8 @@
         "constructionReport/constructionReport",
         "constructionMessage/constructionMessage",
         "employee/employee",
-        "employeeDetails/employeeDetails"
+        "employeeDetails/employeeDetails",
+        "assignCustomers/assignCustomers"
       ]
     },
     {

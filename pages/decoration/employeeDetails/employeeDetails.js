@@ -9,6 +9,7 @@ Page({
       textList: ['张三','李四','王二','码字'],
       idList: [0,1,2,3]
      },
+     employeePay: false
   },
 
   /**
@@ -19,6 +20,11 @@ Page({
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+  },
+  changeEmployeePay(){
+    this.setData({
+      employeePay : true
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

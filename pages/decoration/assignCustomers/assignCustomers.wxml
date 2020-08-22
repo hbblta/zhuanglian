@@ -1,0 +1,60 @@
+<!--pages/decoration/assignCustomers/assignCustomers.wxml-->
+<view>
+  <view class="assignCustomersList"
+    wx:if='{{!customersType}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' >
+    <view class="assignCustomersSelecte"><image src="../../../image/icon/selecte.svg"></image></view>
+    <view class="assignCustomersData">
+      <view class="assignCustomersDataImg"><image></image></view>
+      <view class="assignCustomersDataText">
+        <view class="assignCustomersDataName">
+           <view>姓名</view>
+           <view>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+           </view>
+        </view>
+        <view class="assignCustomersDataPhone">
+          <view>1561641561</view>
+          <view>未分配</view>
+        </view>
+        <view class="assignCustomersDataDate">加入时间: 2020/05/05</view>
+      </view>
+    </view>
+  </view>
+    <view class="assignCustomersList"
+    wx:if='{{customersType}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' >
+    <view class="assignCustomersSelecte"><image src="../../../image/icon/selecte.svg"></image></view>
+    <view class="assignCustomersData">
+      <view class="assignCustomersDataImg"><image></image></view>
+      <view class="assignCustomersDataText">
+        <view class="assignCustomersDataName">
+           <view>姓名</view>
+           <view>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+            <image src="../../../image/icon/pentagram.svg"></image>
+           </view>
+        </view>
+        <view class="assignCustomersDataPhone">
+          <view>1561641561</view>
+          <view> </view>
+        </view>
+        <view class="assignCustomersDataDate"> </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="floatingButton" bindtap="changeCustomers">分配</view>

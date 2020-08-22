@@ -1,29 +1,12 @@
-// pages/decoration/clientManage/clientManage.js
-var app = getApp()
+// pages/decoration/assignCustomers/assignCustomers.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabType:['客户类别','管理人员','客户来源','时间','星级']
-  },
-  goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
-  },
-  //delete 
-  delete(e){
-    console.log('点击了删除')
-  },
-  //跟进
-
-  follow(e){
-    console.log('点击了跟进')
-    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp')
-  },
-  //报单
-  declaration(e){
-    app.goUrl('/pages/decoration/declaration/declaration')
+    list:5,
+    customersType:false
   },
 
   /**
@@ -31,10 +14,16 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '客户详情'
+      title: '客户分配',
     })
   },
-
+  changeCustomers(){
+    var that = this
+    console.log(that.data.customersType)
+    this.setData({
+      customersType : !that.data.customersType
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

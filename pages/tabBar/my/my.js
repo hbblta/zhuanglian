@@ -142,6 +142,26 @@ Page({
         ordinaryTitle : '我的店铺',
         ordinaryUrl : '/pages/material/login/login'
       },
+      {
+        ordinaryIcon : '../../../image/icon/decoration3.png',
+        ordinaryTitle : '文章引流',
+        ordinaryUrl : '/pages/material/articlePromote/articlePromote'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration10.png',
+        ordinaryTitle : '客户管理',
+        ordinaryUrl : '/pages/material/clientManage/clientManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration11.png',
+        ordinaryTitle : '订单管理',
+        ordinaryUrl : '/pages/material/orderListManage/orderListManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration12.png',
+        ordinaryTitle : '合作管理',
+        ordinaryUrl : '/pages/material/cooperative/cooperative'
+      },
     ]
   },
 

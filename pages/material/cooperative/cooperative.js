@@ -1,4 +1,4 @@
-// pages/decoration/orderListManage/orderListManage.js
+// pages/material/cooperative/cooperative.js
 const app = getApp()
 Page({
 
@@ -6,7 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabType:['订单来源','管理人员','订单进度','时间','星级']
+    textListIndex:0,
+    commissiontype:0,
+    textList:[
+      {
+        name : '合作装企',
+        id: 0
+      },
+      {
+        name : '合作发起',
+        id: 1
+      },
+      {
+        name : '装企分配',
+        id: 2
+      },
+    ],
   },
 
   /**
@@ -14,17 +29,21 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '订单管理'
+      title: '合作管理',
+    })
+  },
+  changeIndex(e){
+    this.setData({
+      textListIndex : e.currentTarget.dataset.index
+    })
+  },
+  changeCommissionType(e){
+    this.setData({
+      commissiontype : e.currentTarget.dataset.commissiontype
     })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
-  },
-  delete(e){
-    console.log('删除')
-  },
-  follow(e){
-    console.log('跟进')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

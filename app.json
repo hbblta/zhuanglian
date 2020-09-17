@@ -86,7 +86,11 @@
     {
       "root": "pages/material/",
       "pages": [
-        "login/login"
+        "login/login",
+        "articlePromote/articlePromote",
+        "clientManage/clientManage",
+        "orderListManage/orderListManage",
+        "cooperative/cooperative"
       ]
     },
     {

@@ -1,31 +1,25 @@
-// pages/decoration/orderListManage/orderListManage.js
-const app = getApp()
+// pages/material/clientManage/clientManage.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabType:['订单来源','管理人员','订单进度','时间','星级']
+    tabType:['客户类别','管理人员','客户来源','星级']
   },
-
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '订单管理'
+      title: '客户管理'
     })
   },
-  goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
-  },
-  delete(e){
-    console.log('删除')
-  },
-  follow(e){
-    console.log('跟进')
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

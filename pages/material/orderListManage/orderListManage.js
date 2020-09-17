@@ -1,4 +1,4 @@
-// pages/decoration/orderListManage/orderListManage.js
+// pages/material/orderListManage/orderListManage.js
 const app = getApp()
 Page({
 
@@ -25,6 +25,7 @@ Page({
   },
   follow(e){
     console.log('跟进')
+    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

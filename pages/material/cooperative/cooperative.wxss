@@ -1,0 +1,164 @@
+/* pages/material/cooperative/cooperative.wxss */
+page{
+  background: #f7f7f7;
+  height: 100%;
+}
+.searchInputViewBody{
+  background: #FFFFFF;
+  padding: 15rpx;
+  width: 720rpx;
+  display: flex;
+}
+.searchInputView{
+  display: flex;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 1);
+  padding-left: 20rpx;
+  width: 520rpx;
+  border-radius: 12rpx;
+  border-top: 1rpx solid #f7f7f7;
+}
+.searchInputView .searchInput{
+  width: 520rpx;
+  height: 76rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+  font-size: 28rpx;
+}
+.searchType{
+  display: flex;
+  width: 180rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.searchType view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.searchType image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.commissionType{
+  height: 70rpx;
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  align-items: center;
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  width: 510rpx;
+  margin-top: 15rpx;
+}
+.commissionType .alls{
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 24rpx;
+}
+.commissionType .alls>view{
+  color: #909399;
+  font-size: 24rpx;
+}
+.commissionType .alls>image{
+  width: 24rpx;
+  height: 24rpx;
+  transform: rotate(90deg);
+}
+.commissionType .nowCommissionType{
+  color: #0081FF;
+  font-weight: 550;
+}
+.generalSelectionBody{
+  display: flex;
+  height: calc(100% - 106rpx);
+  overflow: hidden;
+}
+.generalSelectionlist{
+  width: 200rpx;
+  margin-top: 15rpx;
+  background: #FFFFFF;
+  margin-right: 18rpx;
+}
+.generalSelectionlist .generalSelectionlistTitle{
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  font-family: Arial;
+  font-size: 28rpx;
+  color: #909399;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+}
+.generalSelectionlistTitle icon{
+  position: absolute;
+  right: 15rpx;
+  top: 15rpx;
+  background: #FF7200;
+  border-radius:50%;
+  width: 15rpx;
+  height: 15rpx;
+}
+.generalSelectionlist .generalSelectionCurrent{
+  background: #0081FF;
+  color: #FFFFFF;
+  font-weight: 550;
+}
+.effectPictureChecklistData{
+  overflow: auto;
+}
+.commissionUser{
+  width: 480rpx;
+  display: flex;
+  padding: 20rpx 15rpx;
+  height: 160rpx;
+  margin-top: 15rpx;
+  background: #FFFFFF;
+}
+.commissionUserImg {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+  margin-right:20rpx;
+}
+.commissionUserImg image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.commissionUserData{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160rpx;
+}
+.commissionUserData view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.commissionUserData view:nth-child(1){
+  color: #4C4D4F;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.commissionSuer{
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 60rpx;
+  color: rgba(0, 129, 255, 1) !important;
+  font-size: 20rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1rpx solid rgba(0, 129, 255, 1);
+  width: 120rpx;
+  margin-left: 170rpx;
+}

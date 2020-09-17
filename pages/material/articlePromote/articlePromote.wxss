@@ -1,0 +1,61 @@
+/* pages/material/articlePromote/articlePromote.wxss */
+page{
+  background: #F7f7f7;
+}
+.articlePromoteList{
+  display: flex;
+  margin-top: 15rpx;
+  background: #FFFFFF;
+  width: 720px;
+  padding: 20rpx 15rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+}
+.articlePromoteImg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.articlePromoteImg image{
+  width: 160rpx;
+  height: 160rpx;
+  background: #DDDDDD;
+  border-radius: 8rpx;
+}
+.articlePromoteText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160rpx;
+  width: 530rpx;
+}
+.articlePromoteTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.articlePromoteCotent{
+  color: #9FA1A6;
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.articlePromoteDate{
+  color: #9FA1A6;
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.articlePromoteButton{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(255, 255, 255, 0);
+}

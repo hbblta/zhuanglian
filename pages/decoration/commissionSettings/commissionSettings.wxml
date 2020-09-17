@@ -1,0 +1,39 @@
+<!--pages/decoration/commissionSettings/commissionSettings.wxml-->
+<view class="decorationStaffInput">
+	<view>
+		<input placeholder="分销直推提成（姓名）" value="{{name}}" bindinput="getNameValue"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+	<view>
+		<input placeholder="分销直推提成（姓名）"></input>
+		<text>元</text>
+	</view>
+</view>
+
+<view class="floatingButton" bindtap="goback">
+	提交
+</view>

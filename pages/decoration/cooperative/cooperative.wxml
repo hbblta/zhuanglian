@@ -1,0 +1,65 @@
+<!--pages/decoration/cooperative/cooperative.wxml-->
+<view class="searchInputViewBody">
+	<view class="searchInputView">
+		<icon class="icon-small" type="search" size="20"></icon>
+		<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+	</view>
+  <view class="searchType">
+    <view>区域</view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+
+<view  class="generalSelectionBody">
+	<view class="generalSelectionlist">
+		<view bindtap="changeIndex" wx:for='{{textList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistTitle">{{item.name}}</view>
+	</view>
+	<view class="effectPictureChecklistData">
+    <view wx:if='{{textListIndex == 0}}'>
+      <view class="commissionType" >
+        <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">我发起的</view>
+        <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">TA发起的</view>
+      </view>
+      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeDetails/cooperativeDetails'>
+        <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUserData">
+          <view>公司名称</view>
+          <view>品牌: 圣像</view>
+          <view>品类: 文字</view>
+          <view>到期时间: 2020/051/056</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{textListIndex == 1}}'>
+      <view class="commissionType" >
+        <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">待审核</view>
+        <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">已放弃</view>
+      </view>
+      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeConfirm/cooperativeConfirm'>
+        <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUserData">
+          <view>公司名称</view>
+          <view>品牌: 圣像</view>
+          <view>品类: 文字</view>
+          <view class="commissionSuer">确认合作</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{textListIndex == 2}}'>
+      <view class="commissionType" >
+        <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">待发起</view>
+        <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">确认中</view>
+        <view class="{{commissiontype == 2 ? 'nowCommissionType' : ''}}" data-commissiontype='2' bindtap="changeCommissionType">未通过</view>
+      </view>
+      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+        <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUserData">
+          <view>公司名称</view>
+          <view>品牌: 圣像</view>
+          <view>品类: 文字</view>
+          <view class="commissionSuer">发起合作</view>
+        </view>
+      </view>
+    </view>
+	</view>
+</view>

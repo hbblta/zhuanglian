@@ -31,7 +31,7 @@
 	</view>
 </view>
 <view class="manageList">
-  <view class="listInfo">
+  <view class="listInfo" bindtap="follow" data-item="{{item}}">
     <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
     <view>
       <view class="name">
@@ -71,6 +71,6 @@
 	</view>
 </view>
 <view style="height:120rpx"></view>
-<view class="fix-btn" bindtap="goback">
+<view class="fix-btn"  bindtap="goUrl"  data-url='/pages/decoration/reportClient/reportClient'>
 	报备客户
 </view>

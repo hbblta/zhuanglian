@@ -213,14 +213,10 @@ page{
   height: 40rpx;
   line-height: 40rpx;
 }
-.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(1){
-  font-size: 28rpx;
-  margin-right: 22rpx;
-  color: #0081FF;
-}
-.manageList .listInfo>view .tags>view:nth-child(1) text:nth-child(2){
-  font-size: 28rpx;
-  color: #FF7200;
+.manageList .listInfo>view .tags>view:nth-child(1){
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
 }
 .manageList .listInfo>view .tags>view:nth-child(2){
   font-size: 28rpx;

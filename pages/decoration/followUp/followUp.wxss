@@ -1,3 +1,4 @@
+/* pages/decoration/followUp/followUp.wxss */
 page{
   height: 100%;
   background: #f7f7f7;
@@ -167,7 +168,7 @@ page{
 .scroll{
   width: 100%;
   box-sizing: border-box;
-  height: calc(100% - 350rpx);
+  height: calc(100% - 332rpx);
 }
 .searchInputViewBody .clientAction{
   box-sizing: border-box;
@@ -294,13 +295,23 @@ page{
   border-bottom: 1rpx solid #f7f7f7;
 }
 .clientReportListTitle{
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  height: 75rpx;
+  line-height: 80rpx;
+}
+.followUpTitle{
   display: flex;
   justify-content: space-between;
-  color: rgba(144, 147, 153, 1);
-  font-size: 24rpx;
+  color: rgba(191, 194, 204, 1);
+  font-size: 28rpx;
   font-family: PingFangSC-regular;
-  height: 80rpx;
+  height: 75rpx;
   align-items: center;
+}
+.followUpTitle text:nth-child(1){
+  color: #303133;
 }
 .clientReportListImg{
   display: flex;
@@ -320,19 +331,25 @@ page{
   width: 140rpx;
   height: 140rpx;
 }
-.clientReportListText{
-  margin-top:20rpx;
-  color: rgba(48, 49, 51, 1);
-  font-size: 28rpx;
-  font-family: PingFangSC-regular;
+.clientReportInput{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110rpx;
+  background-color: #FFFFFF;
+  margin-top: 15rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
-.clientReportListButton{
-  height: 80rpx;
-  line-height: 80rpx;
-  background-color: rgba(247, 247, 247, 1);
-  color: rgba(144, 147, 153, 1);
+.clientReportInput image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.clientReportInput input{
+  width: 455rpx;
+  height: 110rpx;
+  border-radius: 8rpx;
   font-size: 28rpx;
-  text-align: center;
   font-family: Arial;
-  margin-top: 25rpx;
 }

@@ -1,0 +1,77 @@
+<!--pages/decoration/followUp/followUp.wxml-->
+<view class="user">
+	<view class="manageList">
+		<view class="listInfo">
+			<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+			<view>
+				<view class="name">
+					<view>胡彬彬</view>
+					<view>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+						<image src="../../../image/icon/pentagram.svg"></image>
+					</view>
+				</view>
+				<view class="phone">
+					<view>13216212336</view>
+					<view>加入时间：2020/05/30</view>
+				</view>
+				<view class="develop">
+					<view>开发人员：<text>张三</text>
+						<image src="../../../image/icon/more.svg"></image>
+					</view>
+					<view>跟单人员：<text>张三</text>
+						<image src="../../../image/icon/more.svg"></image>
+					</view>
+				</view>
+				<view class="develop">
+					<view>设计师: <text>张三</text>
+						<image src="../../../image/icon/more.svg"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="scroll">
+	<view class="generalSelectionBody">
+		<view class="generalSelectionlist">
+			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
+				{{item}}</view>
+		</view>
+		<view>
+			<view class="searchInputViewBody" style="height:100%">
+				<scroll-view scroll-y="true" style="height:100%">
+					<view>
+						<view>
+							<view class="clientReportButton" bindtap="goUrl" data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
+							<view class="clientReportList">
+								<view class="clientReportListTitle">待量房</view>
+								<view class="followUpTitle"><text>图片上传</text><text>4/8</text></view>
+								<view class="clientReportListImg">
+									<view>
+										<image></image>
+									</view>
+									<view>
+										<image></image>
+									</view>
+									<view>
+										<image src="../../../image/icon/pushImg.png"></image>
+									</view>
+								</view>
+							</view>
+              <view class='clientReportInput'><input placeholder="请填写文字"></input></view>
+              <view class='clientReportInput'>
+                <input placeholder="计划完成时间" disabled></input>
+                <image src="../../../image/icon/more.svg"></image>
+              </view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="floatingButton">确定</view>

@@ -1,31 +1,26 @@
-// pages/decoration/employeeDetails/employeeDetails.js
+// pages/decoration/cooperativeCost/cooperativeCost.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    decorationArray:{
-      textList: ['张三','李四','王二','码字'],
-      idList: [0,1,2,3]
-     },
-     employeePay: false,
-     featuresListImg:[
+    featuresListImg:[
       {
         imgUrl:'../../../image/icon/employee1.png',
         name:'客户管理'
       },
       {
         imgUrl:'../../../image/icon/employee2.png',
-        name:'下属管理'
+        name:'客户管理'
       },
       {
         imgUrl:'../../../image/icon/employee3.png',
-        name:'订单管理'
+        name:'客户管理'
       },
       {
         imgUrl:'../../../image/icon/employee4.png',
-        name:'店铺推广'
+        name:'客户管理'
       },
     ]
   },
@@ -34,16 +29,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-  },
-  changeEmployeePay(){
-    this.setData({
-      employeePay : true
+    wx.setNavigationBarTitle({
+      title: '合作开通服务费',
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

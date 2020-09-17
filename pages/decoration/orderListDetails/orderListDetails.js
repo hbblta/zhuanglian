@@ -1,4 +1,5 @@
-// pages/decoration/employeeDetails/employeeDetails.js
+// pages/decoration/orderListDetails/orderListDetails.js
+const app = getApp()
 Page({
 
   /**
@@ -9,25 +10,38 @@ Page({
       textList: ['张三','李四','王二','码字'],
       idList: [0,1,2,3]
      },
-     employeePay: false,
-     featuresListImg:[
-      {
-        imgUrl:'../../../image/icon/employee1.png',
-        name:'客户管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee2.png',
-        name:'下属管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee3.png',
-        name:'订单管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee4.png',
-        name:'店铺推广'
-      },
-    ]
+     list:[
+       {
+         status:true,
+         name:'接单',
+         date:'15165/05'
+       },
+       {
+         status:true,
+         name:'量房',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'接单',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'设计',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'报价',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'报价',
+         date:'15165/05'
+       },
+     ]
   },
 
   /**
@@ -39,10 +53,8 @@ Page({
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
   },
-  changeEmployeePay(){
-    this.setData({
-      employeePay : true
-    })
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

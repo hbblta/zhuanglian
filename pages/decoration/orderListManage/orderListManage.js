@@ -1,4 +1,5 @@
 // pages/decoration/orderListManage/orderListManage.js
+const app = getApp()
 Page({
 
   /**
@@ -16,7 +17,9 @@ Page({
       title: '订单管理'
     })
   },
-
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

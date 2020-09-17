@@ -1,11 +1,12 @@
 // pages/decoration/clientFollowUp/clientFollowUp.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    textList:['客户动态','TA的订单','TA的跟进'],
+    textList:['客户动态','客户统计','TA的订单','TA的跟进'],
     textListIndex:0
   },
   changeIndex(e){
@@ -19,10 +20,12 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '跟进'
+      title: '客户详情'
     })
   },
-
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

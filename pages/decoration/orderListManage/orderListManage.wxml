@@ -31,7 +31,7 @@
 	</view>
 </view>
 <view class="manageList">
-  <view class="listInfo">
+  <view class="listInfo"  bindtap="goUrl"  data-url='/pages/decoration/orderListDetails/orderListDetails'>
     <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
     <view>
       <view class="name">
@@ -45,8 +45,7 @@
       </view>
       <view class="tags">
         <view>
-          <text>精准</text>
-          <text>免费设计</text>
+          <text>来源: 报备</text>
         </view>
         <view>
           待设计
@@ -68,8 +67,4 @@
 			<view bindtap="follow" data-item="{{item}}">跟进</view>
 		</view>
 	</view>
-</view>
-<view style="height:120rpx"></view>
-<view class="fix-btn" bindtap="goback">
-	报备客户
 </view>

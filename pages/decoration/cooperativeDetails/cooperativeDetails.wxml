@@ -1,0 +1,56 @@
+<!--pages/decoration/cooperativeDetails/cooperativeDetails.wxml-->
+<view class="materialOrderList">
+	<view class="materialOrderListImg">
+		<image></image>
+	</view>
+	<view class="materialOrderListText">
+		<view class="materialOrderListName">
+			<view>姓名</view>
+			<view>商家地址: 文字</view>
+			<view>
+        <view>商家电话: 15864641654</view>
+		    <image src="../../../image/icon/more.svg"></image>
+      </view>
+		</view>
+	</view>
+</view>
+<view class="generalSelectionBody">
+	<view class="generalSelectionlist">
+		<view bindtap="changeIndex" wx:for='{{textList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
+			<view>{{item.name}}</view>
+			<view>{{item.num}}</view>
+		</view>
+	</view>
+	<view class="effectPictureChecklistData">
+		<view class="constructionSiteDetaViewOne">
+			<view class="constructionSiteDeta">
+				<text>2020/1/1</text>
+				—
+				<text>2020/5/20</text>
+			</view>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+		<view class="constructionSiteDetaViewOne">
+			<view class="constructionSiteDetaNum">订单数: 66单</view>
+			<view class="constructionSiteDetaNum">成交客: 3人</view>
+		</view>
+		<view class="distributionDetailsListAll">
+			<view class="distributionDetailsList"
+        wx:for='{{list}}' 
+        wx:for-item='item' 
+        data-index='{{index}}'
+        wx:key='index' 
+      >
+				<view class="distributionDetailsListHead">
+					<image></image>
+				</view>
+				<view class="distributionDetailsListText">
+					<view>姓名</view>
+					<view>418545645</view>
+					<view>成交额: 56</view>
+					<view>加入时间: 202025445</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

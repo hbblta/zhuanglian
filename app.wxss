@@ -1,14 +1,5 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
-/* 蓝色浮动确定按钮 */
+/* 蓝色浮动确定按钮样式*/
 .floatingButton{
   width: 100%;
   height: 100rpx;
@@ -21,4 +12,199 @@
   position: fixed;
   bottom: 0;
   left: 0;
+}
+.floatingSelectButton{
+  width: 100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 0;
+}
+.floatingSelectButton view:nth-child(1){
+  width: 375rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #FFFFFF;
+  color:rgba(0, 129, 255, 1);
+  border: 1rpx solid rgba(0, 129, 255, 1);
+}
+.floatingSelectButton view:nth-child(2){
+  width: 375rpx;
+  height: 100rpx;
+  color : #FFFFFF;
+  line-height: 100rpx;
+  background:rgba(0, 129, 255, 1);
+}
+/* 简陋信息右侧更多样式 */
+.moreTitleData{
+  padding: 19rpx 20rpx 20rpx;
+  height: 160rpx;
+  background: #FFFFFF;
+  display: flex;
+  border-top: 1rpx solid #f7f7f7;
+}
+.moreTitleData>view:nth-child(1){
+  height: 160rpx;
+  width: 160rpx;
+  background: #DDDDDD;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+} 
+.moreTitleData>view:nth-child(1) image{
+  height: 160rpx;
+  width: 160rpx;
+}
+.moreTitleData>view:nth-child(2){
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.moreTitleData>view:nth-child(2)>view view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  height: 40rpx;
+}
+.moreTitleData>view:nth-child(2) view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-weight: 550;
+  font-family: PingFangSC-bold;
+}
+.moreTitleData>view:nth-child(2)>view image{
+  height: 35rpx;
+  width: 35rpx;
+  margin-left: 10rpx;
+}
+/* 选择框样式 */
+checkbox .wx-checkbox-input{
+  border-radius: 50%;
+  border:1rpx solid #D3D3D8;
+  width: 40rpx;
+  height: 40rpx;
+  background: #FFFFFF;
+}
+/* 展示功能列表样式 (1)*/
+.featuresList{
+  margin-left: 25rpx;
+  padding:15rpx;
+  width: 670rpx;
+  background: #FFFFFF;
+  margin-top: 15rpx;
+}
+.featuresList>view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.featuresList>view:nth-child(2){
+  display: flex;
+  margin: 35rpx 0;
+  justify-content: space-between;
+}
+.featuresList>view:nth-child(2) view{
+  width: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(48, 49, 51, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.featuresList>view:nth-child(2) image{
+  width: 60rpx;
+  height: 60rpx;
+}
+/* 展示功能列表一般附带的条款协议样式 (2)*/
+.featuresProtocol{
+  display: flex;
+  align-items: center;
+  width: 700rpx;
+  margin-left: 25rpx;
+  margin-top: 15rpx;
+}
+.featuresProtocol view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.featuresProtocol view text{
+  color: #FD913A;
+}
+/* 展示功能列表一般附带的支付按钮 (3)*/
+.featuresPay{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 100rpx;
+  display: flex;
+  width: 100%;
+}
+.featuresPay>view:nth-child(1){
+  width: 410rpx;
+  padding-left: 20rpx;
+  display: flex;
+  height: 100rpx;
+  background: #FFFFFF;
+  align-items: center;
+  justify-content: space-around;
+}
+.featuresPay>view:nth-child(1)>text:nth-child(1){
+  color: rgba(85, 85, 85, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.featuresPay>view:nth-child(1) text text{
+  color: rgba(255, 114, 0, 1);
+  font-size: 36rpx;
+  font-weight: 550;
+  font-family: PingFangSC-regular;
+}
+.featuresPay>view:nth-child(1)>text:nth-child(2){
+  color: rgba(133, 133, 133, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+  text-decoration:line-through;
+}
+.featuresPay>view:nth-child(2){
+  width: 320rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  text-align: center;
+  font-family: Arial;
+  font-weight: 550;
+}
+/* 普通浮动按钮列表 */
+.floatingButtonList{
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  margin-top: 16rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.floatingButtonList view{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1rpx solid rgba(191, 194, 204, 1);
+  margin-right: 20rpx;
 }

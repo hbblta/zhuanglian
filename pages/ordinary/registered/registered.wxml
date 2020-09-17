@@ -1,0 +1,8 @@
+<!--pages/ordinary/registered/registered.wxml-->
+<view class="registeredTab"><text>账号登录</text><text bindtap="setRegistered">微信登录</text><view></view></view>
+<view class="registeredFrom">
+  <view class="registeredInput"><input placeholder="账号: 请输入账号" placeholder-style="color:#FFFFFF;"></input></view>
+  <view class="registeredInput"><input placeholder="密码: 请输入密码" placeholder-style="color:#FFFFFF;"></input></view>
+  <view class="registeredButton" bindtap="setRegistered">登录</view>
+  <view class="forgetPassword">忘记密码</view>
+</view>

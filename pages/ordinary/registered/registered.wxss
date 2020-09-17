@@ -1,0 +1,63 @@
+/* pages/ordinary/registered/registered.wxss */
+page{
+  background: #0081FF;
+}
+.registeredTab{
+  padding-top: 88rpx;
+  padding-bottom: 30rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+}
+.registeredTab view{
+  border-bottom: 18rpx #3FA0FF solid;
+  border-left: 15rpx transparent solid;
+  border-right: 15rpx transparent solid;
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translate(-50%,0);
+  left: 25%;
+  bottom: 0rpx;
+}
+.registeredFrom{
+  margin-left: 50rpx;
+  width: 570rpx;
+  padding: 100rpx 40rpx 25rpx;
+  background: rgba(255, 255, 255, .35);
+  border-radius: 16rpx;
+}
+.registeredInput{
+  padding: 50rpx 0;
+  display: flex;
+  border-bottom: 1rpx solid #FFFFFF;
+}
+.registeredInput input{
+  color: rgba(255, 255, 255);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.registeredButton{
+  height: 76rpx;
+  border-radius: 40rpx;
+  background-color: rgba(0, 129, 255, 1);
+  box-shadow: 0px 2rpx 6rpx 0px rgba(104, 177, 247, 1);
+  width: 100%;
+  text-align: center;
+  line-height: 76rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 100rpx;
+}
+.forgetPassword{
+  width: 100%;
+  text-align: right;
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-top: 36rpx;
+}

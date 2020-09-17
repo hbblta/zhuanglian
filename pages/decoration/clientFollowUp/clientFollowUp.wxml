@@ -71,43 +71,61 @@
 								</view>
 							</view>
 						</view>
-            	<view>
-							<view class="titleTime">2019年</view>
-							<view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
+					</view>
+
+					<view wx:if="{{textListIndex==1}}">
+						<view class="clientList">
+							<view><text>访问次数</text><text>55</text></view>
+							<view><text>转发次数</text><text>55</text></view>
+							<view><text>访问总时长（分）</text><text>55</text></view>
+							<view><text>收藏效果（款）</text><text>55</text></view>
+							<view><text>下单次数</text><text>55</text></view>
+							<view><text>成交次数</text><text>55</text></view>
+						</view>
+					</view>
+
+					<view wx:if="{{textListIndex==2}}">
+						<view>
+							<view class="clientOrder">
+								<view class="clientOrderText">
+									<view>小区名称</view>
+									<view>订单状态: 量房</view>
+									<view>时间: 2020/05/05</view>
 								</view>
-							</view>
-							<view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
-								</view>
-							</view>
-							<view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
-								</view>
+								<image class="clientOrderMore" src="../../../image/icon/more.svg"></image>
 							</view>
 						</view>
 					</view>
 
-          <view wx:if="{{textListIndex==1}}">
-            <view class="clientList">
-              <view>
-              
-              </view>
-            </view>
-          </view>
+					<view wx:if="{{textListIndex==3}}">
+						<view>
+							<view class="clientReportButton" bindtap="goUrl"  data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
+							<view class="clientReportList">
+								<view class="clientReportListTitle"><text>20556455416</text><text>汇报人: 张三</text></view>
+								<view class="clientReportListImg">
+									<view>
+										<image></image>
+									</view>
+									<view>
+										<image></image>
+									</view>
+									<view>
+										<image></image>
+									</view>
+								</view>
+								<view class="clientReportListText">文字文字文字文字文字文字文字文字文字文字文字</view>
+								<view class="clientReportListButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view>
+							</view>
+						</view>
+					</view>
 				</scroll-view>
 			</view>
 		</view>
 	</view>
 </view>
-
-<view class="bottom-btn"></view>
+<view class="floatingButton" wx:if="{{textListIndex==3}}">报单</view>
+<view wx:else class="floatingButtonList">
+	<view>删除</view>
+	<view>跟进</view>
+	<view>报单</view>
+</view>

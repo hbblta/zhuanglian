@@ -113,7 +113,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration12.png',
         ordinaryTitle : '合作管理',
-        ordinaryUrl : '/pages/decoration/login/login'
+        ordinaryUrl : '/pages/decoration/cooperative/cooperative'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration13.png',

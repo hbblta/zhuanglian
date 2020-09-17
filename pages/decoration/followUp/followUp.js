@@ -1,48 +1,30 @@
-// pages/decoration/employeeDetails/employeeDetails.js
+// pages/decoration/followUp/followUp.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    decorationArray:{
-      textList: ['张三','李四','王二','码字'],
-      idList: [0,1,2,3]
-     },
-     employeePay: false,
-     featuresListImg:[
-      {
-        imgUrl:'../../../image/icon/employee1.png',
-        name:'客户管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee2.png',
-        name:'下属管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee3.png',
-        name:'订单管理'
-      },
-      {
-        imgUrl:'../../../image/icon/employee4.png',
-        name:'店铺推广'
-      },
-    ]
+    textList:['全部','接单','待量房','设计','报价','成交','付佣金'],
+    textListIndex:0
+  },
+  changeIndex(e){
+    this.setData({
+      textListIndex:e.currentTarget.dataset.index
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-  },
-  changeEmployeePay(){
-    this.setData({
-      employeePay : true
+    wx.setNavigationBarTitle({
+      title: '客户详情'
     })
+  },
+  goUrl(e){
+    app.goUrl(e.currentTarget.dataset.url)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

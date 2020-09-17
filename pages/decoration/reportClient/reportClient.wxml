@@ -1,0 +1,30 @@
+<!--pages/decoration/reportClient/reportClient.wxml-->
+<view class="decorationStaffInput">
+	<view>
+		<input placeholder="姓名" value="{{name}}" bindinput="getNameValue"></input>
+	</view>
+	<view>
+		<input placeholder="电话"></input>
+	</view>
+	<view>
+		<input placeholder="小区"></input>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<input placeholder="面积"></input>
+	</view>
+	<view>
+		<input placeholder="风格"></input>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<input placeholder="预算"></input>
+	</view>
+	<view>
+		<input placeholder="跟单人"></input>
+	</view>
+</view>
+
+<view class="fix-btn" bindtap="goback">
+	报备
+</view>

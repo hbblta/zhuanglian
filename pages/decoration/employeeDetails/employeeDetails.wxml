@@ -43,38 +43,24 @@
 	</view>
 </view>
 <view wx:if='{{employeePay}}'>
-	<view class="employeeFeatures">
-		<view class="employeeFeaturesTitle">员工功能</view>
-		<view class="employeeFeaturesListAll">
-			<view class="employeeFeaturesList">
-				<image src="../../../image/icon/employee1.png"></image>
-				<view>客户管理</view>
-			</view>
-			<view class="employeeFeaturesList">
-				<image src="../../../image/icon/employee2.png"></image>
-				<view>下属管理</view>
-			</view>
-			<view class="employeeFeaturesList">
-				<image src="../../../image/icon/employee3.png"></image>
-				<view>订单管理</view>
-			</view>
-			<view class="employeeFeaturesList">
-				<image src="../../../image/icon/employee4.png"></image>
-				<view>店铺推广</view>
+	<view class="featuresList">
+		<view>员工功能</view>
+		<view class="featuresListAll">
+			<view wx:for='{{featuresListImg}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
+				<image src="{{item.imgUrl}}"></image>
+				<view>{{item.name}}</view>
 			</view>
 		</view>
 	</view>
-	<view class="employeeFeaturesTerms">
-		<image src="../../../image/icon/Selecte.svg"></image>
-		<!-- <image src="../../../image/icon/selected.svg"></image> -->
+	<view class="featuresProtocol">
+		<checkbox></checkbox>
 		<view>已同意<text>服务条款</text>虚拟产品，支付后不退开通费</view>
 	</view>
-  <view class="employeeFeaturesButton">
-    <view class="employeeFeaturesText">
-      <text>订单价格</text>
-      <text>￥99</text>
-      <text>￥299</text>
-    </view>
-    <view class="employeeFeaturesPay">立即支付</view>
+</view>
+<view class="featuresPay">
+  <view>
+    <text>订单价格<text>￥32399</text></text>
+    <text>￥29923</text>
   </view>
+  <view>立即支付</view>
 </view>

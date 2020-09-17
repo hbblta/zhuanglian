@@ -72,7 +72,15 @@
         "constructionMessage/constructionMessage",
         "employee/employee",
         "employeeDetails/employeeDetails",
-        "assignCustomers/assignCustomers"
+        "assignCustomers/assignCustomers",
+        "cooperative/cooperative",
+        "cooperativeDetails/cooperativeDetails",
+        "cooperativeConfirm/cooperativeConfirm",
+        "cooperativeCost/cooperativeCost",
+        "reportClient/reportClient",
+        "orderListDetails/orderListDetails",
+        "commissionSettings/commissionSettings",
+        "followUp/followUp"
       ]
     },
     {
@@ -100,7 +108,8 @@
         "decorationBossBuy/decorationBossBuy",
         "decorationStaff/decorationStaff",
         "materialRegistration/materialRegistration",
-        "materialStaff/materialStaff"
+        "materialStaff/materialStaff",
+        "registered/registered"
       ]
     }
   ],

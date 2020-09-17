@@ -1,0 +1,31 @@
+/* pages/decoration/commissionSettings/commissionSettings.wxss */
+.applicationBk{
+  width: 100%;
+  height: 240rpx;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
+.decorationStaffInput>view{
+  position: relative;
+}
+.decorationStaffInput>view text{
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  position: absolute;
+  right: 48rpx;
+  top: 24rpx;
+}
+.decorationStaffInput input{
+  margin-top: 30rpx;
+  width: 640rpx;
+  margin-left: 25rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+}

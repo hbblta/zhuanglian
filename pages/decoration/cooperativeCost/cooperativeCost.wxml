@@ -1,0 +1,40 @@
+<!--pages/decoration/cooperativeCost/cooperativeCost.wxml-->
+<view>
+	<view class="featuresList">
+		<view>员工功能</view>
+		<view class="featuresListAll">
+			<view wx:for='{{featuresListImg}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
+				<image src="{{item.imgUrl}}"></image>
+				<view>{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="featuresProtocol">
+		<checkbox></checkbox>
+		<view>已同意<text>服务条款</text>,虚拟产品支付后不退开通费</view>
+	</view>
+  <view class="cooperativeCost">
+    <view>开通品牌</view>
+    <view class="cooperativeCostList">
+      <view>
+        <checkbox></checkbox>
+        <text>名称</text>
+      </view>
+      <view>
+        <checkbox></checkbox>
+        <text>名称</text>
+      </view>
+      <view>
+        <checkbox></checkbox>
+        <text>名称</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="featuresPay">
+  <view>
+    <text>订单价格<text>￥32399</text></text>
+    <text>￥29923</text>
+  </view>
+  <view>立即支付</view>
+</view>

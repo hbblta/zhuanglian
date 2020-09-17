@@ -4,10 +4,10 @@ App({
 
   },
   goUrl: function (url) { //封装跳转，验证登录，传输监听数据
-    if (!this.globalData.userData.name) {
-      console.log('未登录')
-      url = '/pages/ordinary/registered/registered'
-    }
+    // if (!this.globalData.userData.name) {
+    //   console.log('未登录')
+    //   url = '/pages/ordinary/registered/registered'
+    // }
     wx.navigateTo({
       url: url,
       // events: {
@@ -81,7 +81,7 @@ App({
     httpUrl:'https://api.dlkj369.com',
     userData: {
       // platform : true
-      userType: 2
+      userType: 1
     }
   }
 })

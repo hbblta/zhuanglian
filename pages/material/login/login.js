@@ -1,4 +1,4 @@
-// pages/material/test/test.js
+// pages/material/login/login.js
 Page({
 
   /**

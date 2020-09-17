@@ -135,6 +135,13 @@ Page({
         ordinaryTitle : '辅材管理',
         ordinaryUrl : '/pages/decoration/secondaryManage/secondaryManage'
       }
+    ],
+    materialFeaturesList:[
+      {
+        ordinaryIcon : '../../../image/icon/decoration1.png',
+        ordinaryTitle : '我的店铺',
+        ordinaryUrl : '/pages/material/login/login'
+      },
     ]
   },
 

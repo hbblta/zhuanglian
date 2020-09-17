@@ -86,7 +86,7 @@
     {
       "root": "pages/material/",
       "pages": [
-        "test/test"
+        "login/login"
       ]
     },
     {

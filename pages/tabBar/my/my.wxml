@@ -53,7 +53,21 @@
   </view>
 </view>
 
-<view class="myFeaturesList">
+<view class="myFeaturesList"  wx:if='{{userData.userType == 1}}'>
+  <view 
+  class="myFeatures"  
+  bindtap="goUrl"
+  data-url='{{item.ordinaryUrl}}'
+  wx:for='{{materialFeaturesList}}' 
+  wx:for-item='item' 
+  wx:for-index="index" 
+  wx:key='index'>
+    <image src='{{item.ordinaryIcon}}'></image>
+    <view>{{item.ordinaryTitle}}</view>
+  </view>
+</view>
+
+<view class="myFeaturesList"  wx:if='{{userData.userType == 2}}'>
   <view 
   class="myFeatures"  
   bindtap="goUrl"
@@ -66,6 +80,8 @@
     <view>{{item.ordinaryTitle}}</view>
   </view>
 </view>
+
+
 
 <view class="myFooterText">
   关注公众号，随时收到信息

@@ -1,0 +1,84 @@
+<!--pages/decoration/employee/employee.wxml-->
+<view class="commissionType">
+	<view class="{{commissionType == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">全部员工</view>
+	<view class="{{commissionType == 1 ? 'nowCommissionType' : 'jiaobiao'}}" data-commissiontype='1' bindtap="changeCommissionType">待审员工</view>
+</view>
+<view class="searchInputViewBody">
+	<view class="searchInputView">
+		<icon class="icon-small" type="search" size="20"></icon>
+		<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+	</view>
+  <view class="searchType">
+    <view>全部</view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<view class="employeeListAll">
+  <scroll-view style="height:100%" scroll-y>
+    <view class="employeeListData"
+    wx:if='{{commissionType == 0}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' >
+      <view class="employeeList">
+        <view class="employeeImg"><image></image></view>
+        <view class="employeeText">
+          <view class="employeeTextFlex employeeName">
+            <view>姓名</view>
+            <view>设计师</view>
+          </view>
+          <view class="employeeTextFlex employeePhone">
+            <view>62165465154</view>
+            <view class="employeePentagram">
+              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image>
+            </view>
+          </view>
+          <view class="employeeTextFlex employeePhone">
+            <view>加入时间: 2020/05/05</view>
+            <view>个人业绩 <image src="../../../image/icon/more.svg"></image></view>
+          </view>
+        </view>
+      </view>
+      <view class="employeeDelete">
+        <view>删除</view>
+      </view>
+    </view>
+   <view class="employeeListData"
+    wx:if='{{commissionType == 1}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    bindtap="goUrl"  data-url='/pages/material/employeeDetails/employeeDetails'
+    wx:key='index' >
+      <view class="employeeList">
+        <view class="employeeImg"><image></image></view>
+        <view class="employeeText">
+          <view class="employeeTextFlex employeeName">
+            <view>姓名</view>
+            <view> </view>
+          </view>
+          <view class="employeeTextFlex employeePhone">
+            <view>13216212336</view>
+            <view class="employeePentagram">
+              <!-- <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg"></image> -->
+            </view>
+          </view>
+          <view class="employeeTextFlex employeePhone">
+            <view>加入时间: 2020/05/05</view>
+            <view> </view>
+          </view>
+        </view>
+      </view>
+      <view class="employeeDelete">
+        <view>删除</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

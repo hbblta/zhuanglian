@@ -1,0 +1,65 @@
+<!--pages/decoration/employeeDetails/employeeDetails.wxml-->
+<view style="height:15rpx"></view>
+<view class="employeeDetailsUser">
+	<view class="employeeDetailsUserImg">
+		<image></image>
+	</view>
+	<view class="employeeDetailsUserText">
+		<view>姓名</view>
+		<view>15616156342</view>
+		<view>加入时间: 2020?04?4</view>
+	</view>
+</view>
+<view wx:if='{{!employeePay}}'>
+	<view class="constructionDetailsPickerAll">
+		<view class="constructionDetailsPicker">
+			<view>TA的上级</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>请选择</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="constructionDetailsPicker">
+			<view>TA的下级</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>请选择</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="constructionDetailsPicker">
+			<view>TA的身份</view>
+			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+				<view class="constructionDetailsPickerData"><text>请选择</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view class="employeeDetailsButton">
+		<view>驳回</view>
+		<view bindtap="changeEmployeePay">通过</view>
+	</view>
+</view>
+<view wx:if='{{employeePay}}'>
+	<view class="featuresList">
+		<view>员工功能</view>
+		<view class="featuresListAll">
+			<view wx:for='{{featuresListImg}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
+				<image src="{{item.imgUrl}}"></image>
+				<view>{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="featuresProtocol">
+		<checkbox></checkbox>
+		<view>已同意<text>服务条款</text>虚拟产品，支付后不退开通费</view>
+	</view>
+</view>
+<view class="featuresPay">
+  <view>
+    驳回
+  </view>
+  <view>通过</view>
+</view>

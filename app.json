@@ -90,7 +90,12 @@
         "articlePromote/articlePromote",
         "clientManage/clientManage",
         "orderListManage/orderListManage",
-        "cooperative/cooperative"
+        "cooperative/cooperative",
+        "employee/employee",
+        "employeeDetails/employeeDetails",
+        "rankingList/rankingList",
+        "shopManage/shopManage",
+        "auxiliaryRelease/auxiliaryRelease"
       ]
     },
     {

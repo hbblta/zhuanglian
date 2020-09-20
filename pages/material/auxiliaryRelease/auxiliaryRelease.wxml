@@ -1,0 +1,56 @@
+<!--pages/decoration/auxiliaryRelease/auxiliaryRelease.wxml-->
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle">图片上传</view>
+  <view>
+    <view class="effectPictureEditMainList">
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+      <view class="effectPictureEditMainListData">
+       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle"><text>品类规格</text><image src="../../../image/icon/moreBack.svg"></image></view>
+  <view class="effectPictureReleaseSize">
+    <view>100*1010</view>
+    <view>100*1010</view>
+  </view>
+</view>
+<view class="effectPictureReleaseAdd"><image src="../../../image/icon/increase.svg"></image><view>添加类目</view></view>
+<view class="effectPictureEditInput">
+    <input placeholder="商品类别" disabled="true"></input>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view><image src="../../../image/icon/more.svg"></image></view>
+    </picker>
+</view>
+<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle"><text>商品描述</text><image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image></view>
+  <view class="effectPictureEditEditor">
+    <editor
+      id="editor"
+      class="ql-container"
+      placeholder="{{placeholder}}"
+      showImgSize
+      showImgToolbar
+      showImgResize
+      bindstatuschange="onStatusChange"
+      read-only="{{readOnly}}"
+      bindready="onEditorReady">
+    </editor>
+  </view>
+</view>
+<view class="effectPictureEditButtonsTwo">
+  <view class="effectPictureEditButtons">
+    <view>下架</view>
+    <view class="nowButtons">上架</view>
+  </view>
+  <view class="effectPictureRelease">发布</view>
+</view>
+
+

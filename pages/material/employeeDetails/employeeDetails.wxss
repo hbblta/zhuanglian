@@ -1,0 +1,87 @@
+/* pages/decoration/employeeDetails/employeeDetails.wxss */
+page{
+  background: #f7f7f7;
+}
+.employeeDetailsUser{
+  display: flex;
+  height: 160rpx;
+  background: #FFFFFF;
+  padding: 20rpx 15rpx;
+  width: 720rpx;
+}
+.employeeDetailsUserImg{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+  margin-right: 20rpx;
+}
+.employeeDetailsUserText{
+  display: flex;
+  flex-direction: column;
+  height: 160rpx;
+  justify-content: space-between;
+}
+.employeeDetailsUserText view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.employeeDetailsUserText view:nth-child(2),.employeeDetailsUserText view:nth-child(3){
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.constructionDetailsPickerAll{
+  margin-top: 15rpx;
+}
+.constructionDetailsPicker{
+  width: 720rpx;
+  padding: 0 15rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  height: 110rpx;
+  align-items: center;
+  border-bottom:1rpx solid #f7f7f7;
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.constructionDetailsPickerData{
+  display: flex;
+  height: 110rpx;
+  color: rgba(144, 147, 153, 1);
+  align-items: center;
+}
+.constructionDetailsPickerData image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.employeeDetailsButton{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 750rpx;
+  display: flex;
+}
+.employeeDetailsButton view{
+  width: 50%;
+  border: 1rpx solid #0081FF;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+.employeeDetailsButton view:nth-child(1){
+  background: #FFFFFF;
+  color:#0081FF;
+}
+.employeeDetailsButton view:nth-child(2){
+  background: #0081FF;
+  color:#FFFFFF;
+}
+.featuresPay>view:nth-child(1){
+  width: 50%;
+  color: #43A1FF;
+}

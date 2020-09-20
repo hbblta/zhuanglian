@@ -162,6 +162,21 @@ Page({
         ordinaryTitle : '合作管理',
         ordinaryUrl : '/pages/material/cooperative/cooperative'
       },
+      {
+        ordinaryIcon : '../../../image/icon/decoration9.png',
+        ordinaryTitle : '员工管理',
+        ordinaryUrl : '/pages/material/employee/employee'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration14.png',
+        ordinaryTitle : '排行榜单',
+        ordinaryUrl : '/pages/material/rankingList/rankingList'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration16.png',
+        ordinaryTitle : '商品管理',
+        ordinaryUrl : '/pages/material/shopManage/shopManage'
+      }
     ]
   },
 

@@ -1,0 +1,157 @@
+/* pages/material/employee/employee.wxss */
+page{
+  background: #f7f7f7;
+  height: 100%;
+}
+.commissionType{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  align-items: center;
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  width: 100%;
+}
+.commissionType>view{
+  position: relative;
+}
+.commissionType .jiaobiao::after{
+  content: "";
+  position: absolute;
+  background: #FF7200;
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  top: 0;
+  right: -30rpx;
+}
+.commissionType .nowCommissionType{
+  color: #0081FF;
+  font-weight: 550;
+}
+.searchInputViewBody{
+  background: #FFFFFF;
+  padding: 15rpx;
+  width: 720rpx;
+  display: flex;
+}
+.searchInputView{
+  display: flex;
+  align-items: center;
+  background-color: rgba(247, 247, 247, 1);
+  padding-left: 20rpx;
+  width: 520rpx;
+  border-radius: 12rpx;
+  border-top: 1rpx solid #f7f7f7;
+}
+.searchInputView .searchInput{
+  width: 520rpx;
+  height: 76rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-family: PingFangSC-regular;
+  font-size: 28rpx;
+}
+.searchType{
+  display: flex;
+  width: 180rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+.searchType view{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.searchType image{
+  width: 35rpx;
+  height: 35rpx;
+  transform: rotate(90deg);
+}
+.employeeListData{
+  margin-top: 15rpx;
+}
+.employeeList{
+  display: flex;
+  background: #FFFFFF;
+  width: 720rpx;
+  padding: 20rpx 15rpx;
+}
+.employeeListAll{
+  height: calc(100% - 206rpx);
+}
+.employeeImg{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #DDDDDD;
+  margin-right: 20rpx;
+}
+.employeeImg image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.employeeText{
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+}
+.employeeTextFlex{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.employeeName view:nth-child(1){
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.employeeName view:nth-child(2){
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.employeePentagram{
+  display: flex;
+}
+.employeePentagram image{
+  width: 30rpx;
+  height:30rpx;
+}
+.employeePhone{
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.employeePhone image{
+  width: 24rpx;
+  height: 24rpx;
+  position: relative;
+  top: 4rpx;
+}
+.employeeDelete{
+  border-top: 1rpx solid #f7f7f7;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 90rpx;
+  align-items: center;
+  display: flex;
+  background: #FFFFFF;
+  width: 720rpx;
+  padding: 0 15rpx;
+}
+.employeeDelete view{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 1px solid rgba(191, 194, 204, 1);
+}

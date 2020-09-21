@@ -1,4 +1,4 @@
-// pages/material/orderListManage/orderListManage.js
+// pages/decoration/orderListDetails/orderListDetails.js
 const app = getApp()
 Page({
 
@@ -6,26 +6,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabType:['订单来源','管理人员','订单进度','时间','星级']
+    decorationArray:{
+      textList: ['张三','李四','王二','码字'],
+      idList: [0,1,2,3]
+     },
+     list:[
+       {
+         status:true,
+         name:'进行中',
+         date:'15165/05'
+       },
+       {
+         status:true,
+         name:'进行中',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'接单',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'设计',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'报价',
+         date:'15165/05'
+       },
+       {
+         status:false,
+         name:'报价',
+         date:'15165/05'
+       },
+     ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '订单管理'
-    })
+
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
-  },
-  delete(e){
-    console.log('删除')
-  },
-  follow(e){
-    console.log('跟进')
-    app.goUrl('/pages/material/clientFollowUp/clientFollowUp')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

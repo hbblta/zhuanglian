@@ -1,0 +1,84 @@
+<!--pages/decoration/orderListDetails/orderListDetails.wxml-->
+<view class="manageList">
+	<view class="listInfo" bindtap="goUrl" data-url='/pages/decoration/orderListDetails/orderListDetails'>
+		<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+		<view>
+			<view class="name">
+				<view>胡彬彬</view>
+				<view>
+					<image src="../../../image/icon/pentagram.svg"></image>
+					<image src="../../../image/icon/pentagram.svg"></image>
+					<image src="../../../image/icon/pentagram.svg"></image>
+					<image src="../../../image/icon/pentagram.svg"></image>
+				</view>
+			</view>
+			<view class="phone">
+				<view>13216212336</view>
+				<view>加入时间：2020/05/30</view>
+			</view>
+			<view class="develop">
+				<view>开发人员：名称</view>
+				<view>跟单人员：<text>张三</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="constructionDetailsPickerAll">
+	<view class="constructionDetailsPicker">
+		<view>设计师(主案)</view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+			<view class="constructionDetailsPickerData"><text> </text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+	<view class="constructionDetailsPicker">
+		<view>设计师助理</view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+			<view class="constructionDetailsPickerData"><text>可多选</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+	<view class="constructionDetailsPicker">
+		<view>跟单员</view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+			<view class="constructionDetailsPickerData"><text>可多选</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+	<view class="constructionDetailsPicker">
+		<view>TA的预定</view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+			<view class="constructionDetailsPickerData"><text></text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+</view>
+<view class="orderListSchedule">
+	<view class="orderListScheduleTitle">
+		<view>进度</view>
+		<view>分享用户</view>
+	</view>
+	<view>
+		<view class="orderListScheduleList {{item.status ? '' : 'orderListScheduleListTwo'}}" wx:for='{{list}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
+			<view class="orderListScheduleListTitle">
+				<view>计划: {{item.date}},实际: 4月8日</view>
+				<view bindtap="goUrl" data-url="{{item.status ? '/pages/decoration/followUp/followUp' : '/pages/decoration/commissionSettings/commissionSettings'}}">{{item.name}}</view>
+			</view>
+			<view class="orderListScheduleListBody">
+				<view></view>
+				<text>详情</text>
+        <text>回报></text>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="floatingButtonList">
+	<view>跟进</view>
+	<view>删除</view>
+</view>

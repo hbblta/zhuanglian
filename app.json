@@ -95,7 +95,9 @@
         "employeeDetails/employeeDetails",
         "rankingList/rankingList",
         "shopManage/shopManage",
-        "auxiliaryRelease/auxiliaryRelease"
+        "auxiliaryRelease/auxiliaryRelease",
+        "orderListDetails/orderListDetails",
+        "clientFollowUp/clientFollowUp"
       ]
     },
     {

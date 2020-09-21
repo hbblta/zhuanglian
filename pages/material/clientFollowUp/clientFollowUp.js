@@ -1,4 +1,4 @@
-// pages/material/orderListManage/orderListManage.js
+// pages/decoration/clientFollowUp/clientFollowUp.js
 const app = getApp()
 Page({
 
@@ -6,7 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabType:['订单来源','管理人员','订单进度','时间','星级']
+    textList:['全部','接单','TA的订单','待到店','成交','发货','安装','验收','完成','弃单'],
+    textListIndex:0
+  },
+  changeIndex(e){
+    this.setData({
+      textListIndex:e.currentTarget.dataset.index
+    })
   },
 
   /**
@@ -14,18 +20,11 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '订单管理'
+      title: '客户详情'
     })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
-  },
-  delete(e){
-    console.log('删除')
-  },
-  follow(e){
-    console.log('跟进')
-    app.goUrl('/pages/material/clientFollowUp/clientFollowUp')
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

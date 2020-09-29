@@ -1,88 +1,72 @@
 <!--pages/tabBar/my/my.wxml-->
-<view class="myHeader" wx:if='{{userData.userType == 1}}'>
-  <view class="myUserMsg">
-    <view class="myUserDate">
-      <image class="myUserImg"></image>
-      <text class="myUserName">名称</text>
-    </view>
-    <view class="myUserButton">
-      登录
-    </view>
-  </view>
+<view class="myHeader" wx:if='{{!userData.NickName}}'>
+	<view class="myUserMsg">
+		<view class="myUserDate">
+			<image class="myUserImg"></image>
+			<text class="myUserName">名称</text>
+		</view>
+		<view class="myUserButton">
+			登录
+		</view>
+	</view>
 </view>
-<view class="myHeader" wx:if='{{userData.userType == 2}}'>
-  <view class="myUserMsgTwo">
-    <view class="myUserDate">
-      <image class="myUserImg"></image>
-      <view>
-          <view class="myUserName">名称</view>
-          <view class="myUserNameTwo">装修公司</view>
-          <view class="myUserNameTwo">有效期：2020/1/1— 2020/5/20</view>
-      </view>
-    </view>
-    <view>
-      <view class="myUserButton">
-        登录
-      </view>
-      <view class="myUserButtonMore">
-        续费
-      </view>
-    </view>
-  </view>
-</view>
-
-<view class="myManager" bindtap="goUrl"  data-url="{{userData.platform ? '/pages/ordinary/managerTrue/managerTrue' : '/pages/ordinary/platformManager/platformManager'}}">
-  <view class="myManagerText">
-    <image src="../../../image/icon/crown.png"></image>
-    <text>{{userData.platform ? '我是《装联客易》服务经理' : '审请《装联客易》服务经理'}}</text>
-  </view>
-  <image class="myMangerMore" src="../../../image/icon/more.svg"></image>
+<view class="myHeader" wx:if='{{userData.NickName}}'>
+	<view class="myUserMsgTwo">
+		<view class="myUserDate">
+			<image class="myUserImg"></image>
+			<view>
+				<view class="myUserName">{{userData.NickName}}</view>
+				<view class="myUserNameTwo">职位</view>
+				<view class="myUserNameTwo">有效期：2020/1/1— 2020/5/20 写死的</view>
+			</view>
+		</view>
+		<view>
+			<view class="myUserButton">
+				登录
+			</view>
+			<view class="myUserButtonMore">
+				续费
+			</view>
+		</view>
+	</view>
 </view>
 
+<view class="myManager" bindtap="goUrl" data-url="{{userData.UserType == 33 ? '/pages/ordinary/managerTrue/managerTrue' : '/pages/ordinary/platformManager/platformManager'}}">
+	<view class="myManagerText">
+		<image src="../../../image/icon/crown.png"></image>
+		<text>{{userData.UserType == 33 ? '我是《装联客易》服务经理' : '审请《装联客易》服务经理'}}</text>
+	</view>
+	<image class="myMangerMore" src="../../../image/icon/more.svg"></image>
+</view>
+
+<!-- 通用功能 -->
 <view class="myFeaturesList">
-  <view 
-  class="myFeatures"  
-  bindtap="goUrl"
-  data-url='{{item.ordinaryUrl}}'
-  wx:for='{{userFeaturesList}}' 
-  wx:for-item='item' 
-  wx:for-index="index" 
-  wx:key='index'>
-    <image src='{{item.ordinaryIcon}}'></image>
-    <view>{{item.ordinaryTitle}}</view>
-  </view>
+	<view class="myFeatures" bindtap="goUrl" data-url='{{item.ordinaryUrl}}' wx:for='{{userFeaturesList}}' wx:for-item='item' wx:for-index="index" wx:key='index'>
+		<image src='{{item.ordinaryIcon}}'></image>
+		<view>{{item.ordinaryTitle}}</view>
+	</view>
 </view>
 
-<view class="myFeaturesList"  wx:if='{{userData.userType == 1}}'>
-  <view 
-  class="myFeatures"  
-  bindtap="goUrl"
-  data-url='{{item.ordinaryUrl}}'
-  wx:for='{{materialFeaturesList}}' 
-  wx:for-item='item' 
-  wx:for-index="index" 
-  wx:key='index'>
-    <image src='{{item.ordinaryIcon}}'></image>
-    <view>{{item.ordinaryTitle}}</view>
-  </view>
+<!-- 装企功能 -->
+<view class="myFeaturesList" wx:if='{{userData.UserType == 3}}'>
+	<view class="myFeatures" bindtap="goUrl" data-url='{{item.ordinaryUrl}}' wx:for='{{decorationFeaturesList}}' wx:for-item='item' wx:for-index="index" wx:key='index'>
+		<image src='{{item.ordinaryIcon}}'></image>
+		<view>{{item.ordinaryTitle}}</view>
+	</view>
 </view>
 
-<view class="myFeaturesList"  wx:if='{{userData.userType == 2}}'>
-  <view 
-  class="myFeatures"  
-  bindtap="goUrl"
-  data-url='{{item.ordinaryUrl}}'
-  wx:for='{{decorationFeaturesList}}' 
-  wx:for-item='item' 
-  wx:for-index="index" 
-  wx:key='index'>
-    <image src='{{item.ordinaryIcon}}'></image>
-    <view>{{item.ordinaryTitle}}</view>
-  </view>
+<!-- 材料商功能 -->
+<view class="myFeaturesList" wx:if='{{userData.UserType == 5}}'>
+	<view class="myFeatures" bindtap="goUrl" data-url='{{item.ordinaryUrl}}' wx:for='{{materialFeaturesList}}' wx:for-item='item' wx:for-index="index" wx:key='index'>
+		<image src='{{item.ordinaryIcon}}'></image>
+		<view>{{item.ordinaryTitle}}</view>
+	</view>
 </view>
+
+
 
 
 
 <view class="myFooterText">
-  关注公众号，随时收到信息
+	关注公众号，随时收到信息
 </view>

@@ -12,6 +12,17 @@ page{
   justify-content: space-around;
   position: relative;
 }
+.registeredTab button{
+  padding: 0;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  font-weight:400;
+  background: #0081FF;
+  width: 120rpx !important;
+}
 .registeredTab view{
   border-bottom: 18rpx #3FA0FF solid;
   border-left: 15rpx transparent solid;

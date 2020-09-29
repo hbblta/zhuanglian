@@ -6,13 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    code: ''//微信登录code
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     wx.setNavigationBarTitle({
       title: '登录',
     })
@@ -20,8 +21,55 @@ Page({
       backgroundColor: '#0081FF',
       frontColor: '#ffffff'
     })
+    wx.login({
+      success: res => {
+        console.log(res.code)
+        that.setData({
+          code : res.code
+        })
+      }
+    })
   },
-  setRegistered(){
+  bindGetUserInfo(e){
+      let data = {
+        encryptedData: e.detail.encryptedData,
+        code: this.data.code,
+        signature: e.detail.signature,
+        iv: e.detail.iv,
+        commendId: null,
+        shopId: null
+      }
+      var userToken = {
+        userName: 'decoration',
+        password: 'decoration'
+      }
+      wx.showLoading({
+        title: '登录中',
+        mask: true,
+      })
+      app.ajaxToken('/account/gettoken', userToken, 'post').then(res => {
+        app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
+        app.ajaxToken('/account/register', data, 'post').then(ress => {
+          app.setGlobalData({
+            userData: ress.data
+          })
+          wx.setStorage({
+            data: ress.data,
+            key: 'userData',
+          })
+          wx.hideLoading()
+          wx.showToast({
+            title: '登录成功',
+          })
+          setTimeout((res)=>{
+            wx.navigateBack({
+              delta: 1
+            })
+          },1000)
+        })
+      })
+  },
+  setRegistered(e){
     var that = this
     // 获取用户信息
     let data = {
@@ -33,47 +81,31 @@ Page({
       shopId: ''
     }
     // 登录
-    console.log(1)
-    wx.login({
+    data.code = res.code
+    wx.getUserInfo({
       success: res => {
-        console.log(2)
-        data.code = res.code
-        wx.getUserInfo({
-          success: res => {
-            console.log(3)
-            data.encryptedData = res.encryptedData
-            data.signature = res.signature
-            data.iv = res.iv
-            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-            // 所以此处加入 callback 以防止这种情况
-            if (this.userInfoReadyCallback) {
-              this.userInfoReadyCallback(res)
-            }
-            var userToken = {
-              userName: 'decoration',
-              password: 'decoration'
-            }
-            wx.showLoading({
-              title: '登录中',
-              mask: true,
+        var userToken = {
+          userName: 'decoration',
+          password: 'decoration'
+        }
+        wx.showLoading({
+          title: '登录中',
+          mask: true,
+        })
+        app.ajaxToken('/v1.0/account/gettoken', userToken, 'post').then(res => {
+          app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
+          app.ajaxToken('/v1.0/account/register', data, 'post').then(ress => {
+            app.setGlobalData({
+              userData: ress.data
             })
-            app.ajaxToken('/v1.0/account/gettoken', userToken, 'post').then(res => {
-              app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
-              app.ajaxToken('/v1.0/account/register', data, 'post').then(ress => {
-                app.setGlobalData({
-                  userData: ress.data
-                })
-                wx.hideLoading()
-                wx.navigateBack({
-                  delta: 1
-                })
-              })
+            wx.hideLoading()
+            wx.navigateBack({
+              delta: 1
             })
-          }
+          })
         })
       }
     })
-
 
     // app.setGlobalData({
     //   userData : {

@@ -1,13 +1,21 @@
 //app.js
 App({
   onLaunch: function () {
-
+    var that = this
+    wx.getStorage({//获取缓存用户数据
+      key: 'userData',
+      success:function(res){
+        that.setGlobalData({
+          userData: res.data
+        })
+      }
+    })
   },
   goUrl: function (url) { //封装跳转，验证登录，传输监听数据
-    // if (!this.globalData.userData.name) {
-    //   console.log('未登录')
-    //   url = '/pages/ordinary/registered/registered'
-    // }
+    if (!this.globalData.userData.NickName) {
+      console.log('未登录')
+      url = '/pages/ordinary/registered/registered'
+    }
     wx.navigateTo({
       url: url,
       // events: {
@@ -68,7 +76,15 @@ App({
           "Authorization": that.globalData.Authorization
         },
         success: function (res) {
-          resolve(res.data);
+          if(res.data.status == 0){
+            resolve(res.data);
+          }else{
+            wx.showToast({
+              icon:'none',
+              title: `接口状态:${res.data.status},错误信息:${res.data.title}`,
+            })
+            return
+          }
         },
         fail: function (res) {
           reject(res);
@@ -78,10 +94,9 @@ App({
   },
   globalData: {
     Authorization:'',//通用令牌
-    httpUrl:'https://api.dlkj369.com',
+    httpUrl:'https://api.dlkj369.com/api/v1.0',
     userData: {
       // platform : true
-      userType: 1
     }
   }
 })

@@ -33,5 +33,5 @@
     <text>￥{{decorationBossBuyList[swiperIndex].Amount}}</text>
     <!-- <text>￥6999</text>   -->
   </view>
-  <view class="decorationBossBuyPay"  open-type="getUserInfo" bindgetuserinfo='payButton'>立即支付</view>
+  <button class="decorationBossBuyPay"  open-type="getUserInfo" bindgetuserinfo='payButton'>立即支付</button>
 </view>

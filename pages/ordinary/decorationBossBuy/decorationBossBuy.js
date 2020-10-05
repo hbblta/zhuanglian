@@ -12,13 +12,15 @@ Page({
     swiperIndex:0, 
     selecteUser:true,//用户协议
     userData:{},
-    company:'',//公司名称
+    company:'',//公司名称,
+    code:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     wx.setNavigationBarTitle({
       title: '注册'
     })
@@ -32,6 +34,13 @@ Page({
       this.setData({
         decorationBossBuyList : res.data
       })
+    })
+    wx.login({
+      success: res => {
+        that.setData({
+          code : res.code
+        })
+      }
     })
     // app.ajaxToken('/common/getareajson', '', 'get').then(res => {//获取价格列表
     //   res.data.forEach(data => {
@@ -88,6 +97,9 @@ Page({
       costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
       companyName : this.data.company,
       areaId : 3509,
+      encryptedData:e.detail.encryptedData,
+      iv : e.detail.iv,
+      code:this.data.code
     }
     app.ajaxToken('/user/registershop', data, 'post').then(res => {//获取价格列表
       console.log(res)

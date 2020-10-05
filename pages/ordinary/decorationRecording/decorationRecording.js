@@ -1,10 +1,17 @@
 // pages/ordinary/decorationRecording/decorationRecording.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    fromData:{
+      from : 0,
+      size : 20,
+      name : ''
+     },
+     totalCount:0,
      list:[
        {
         imgUrl : '',
@@ -35,7 +42,18 @@ Page({
       title: '装修公司'
     })
   },
-
+  getList(){
+    var that = this
+    app.ajaxToken('information/search/category',this.data.fromData,'get').then(res=>{
+      if(that.data.fromData.from < res.data.totalCount){
+        that.setData({
+          list : this.data.list.concat(res.data.items),
+          totalCount : res.data.totalCount,
+          'fromData.from' : that.data.fromData.from + that.data.fromData.size
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

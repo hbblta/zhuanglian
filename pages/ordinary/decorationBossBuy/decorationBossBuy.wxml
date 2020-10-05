@@ -1,11 +1,14 @@
 <!--pages/ordinary/decorationBossBuy/decorationBossBuy.wxml-->
 <view class="decorationBossBuyTitle">
     <view class="decorationBossBuyTitleName">
-      <image></image>
-      <view>公司名称</view>
+      <image src="{{userData.Avatar}}"></image>
+      <view><input placeholder="请输入公司名称" bindinput="companyInput" type="text"/></view>
     </view>
     <view class="decorationBossBuyTitleMore">
-      <view>区域</view>
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange"  value="{{multiIndex}}" range="{{multiArray}}">
+        <!-- <view>{{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}</view> -->
+        <view>北京</view>
+      </picker>
       <image src="../../../image/icon/more.svg"></image>
     </view>
 </view>
@@ -14,21 +17,21 @@
   previous-margin='140rpx'
   next-margin='140rpx'
   circular='true'>
-    <swiper-item wx:for="{{decorationBossBuyList}}" wx:key="item.type">
-       <image class="decorationBossBuyListImg {{swiperIndex == index ? 'decorationBossBuyListImgNow' : ''}}" src="{{item.img}}"></image>
+    <swiper-item  wx:for="{{decorationBossBuyList}}" wx:key="item.type">
+       <image class="decorationBossBuyListImg {{swiperIndex == index ? 'decorationBossBuyListImgNow' : ''}}" src="{{item.ImageUrl}}"></image>
     </swiper-item>
 </swiper>
 <image class="decorationBossBuyTitleImg" src="../../../image/testImg/decorationBossBuy2.png"></image>
 <image class="decorationBossBuyMsgImg" src="../../../image/testImg/decorationBossBuy3.png"></image>
 <view class="decorationBossBuyTerms">
-  <image src="../../../image/icon/selecte.svg"></image>
+  <image bindtap="selecteChange" src="{{selecteUser ? '../../../image/icon/selected.svg' : '../../../image/icon/selecte.svg'}}"></image>
   <text>用户注册表示已同意<text style="color:#FD9643">服务条款</text> 虚拟产品,支付后不退开通费</text>
 </view>
 <view class="decorationBossBuyButton">
   <view class="decorationBossBuyPrice">
     <text>订单价格</text>
-    <text>￥699</text>
-    <text>￥6999</text>  
+    <text>￥{{decorationBossBuyList[swiperIndex].Amount}}</text>
+    <!-- <text>￥6999</text>   -->
   </view>
-  <view class="decorationBossBuyPay">立即支付</view>
+  <view class="decorationBossBuyPay"  open-type="getUserInfo" bindgetuserinfo='payButton'>立即支付</view>
 </view>

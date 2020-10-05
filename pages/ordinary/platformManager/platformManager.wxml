@@ -6,7 +6,6 @@
     <input placeholder="申请人"></input>
     <input placeholder="申请人电话"></input>
     <input placeholder="申请区域"></input>
-    <input placeholder="店码"></input>
   </view>
   <view class="privacyPolicy" bindtap="submitPlatforms">
     <!-- <image src="../../../image/icon/selecte.svg"></image> -->

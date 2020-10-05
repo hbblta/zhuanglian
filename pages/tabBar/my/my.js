@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nowUserType : {},
     userFeaturesList : [
       {
         ordinaryIcon : '../../../image/icon/ordinary1.png',
@@ -178,58 +179,10 @@ Page({
         ordinaryUrl : '/pages/material/shopManage/shopManage'
       }
     ],//材料商功能
-    userTypeFeatures: [
-      {
-        userType : 1,
-        typeFc : function () {
-          console.log('普通会员')
-        }
-      },
-      {
-        userType : 2,
-        typeFc : function (that) {
-          that.data.userFeaturesList.splice(8,1)
-          that.setData({
-            userFeaturesList : that.data.userFeaturesList
-          })
-          console.log('装企店主')
-        }
-      },
-      {
-        userType : 4,
-        typeFc : function () {
-          console.log('材料商店主')
-        }
-      },
-      {
-        userType : 8,
-        typeFc : function () {
-          console.log('装企员工')
-        }
-      },
-      {
-        userType : 16,
-        typeFc : function () {
-          console.log('材料商员工')
-        }
-      },
-      {
-        userType : 32,
-        typeFc : function () {
-          console.log('服务经理')
-        }
-      },
-      {
-        userType : 64,
-        typeFc : function () {
-          console.log('装企分销员')
-        }
-      },
-
-    ]
   },
 
   goUrl(e){
+    console.log(e.currentTarget.dataset.url)
     app.goUrl(e.currentTarget.dataset.url)
   },
   /**
@@ -241,29 +194,28 @@ Page({
       this.setData({
         userData : app.globalData.userData
       })
-      that.changeFeatures(app.globalData.userData.UserType)
     })
-    if(wx.getStorageSync('userData')){
+    app.$watch('nowUserType', (val, old) => {//my页面监听用户会员类型
+      this.setData({
+        nowUserType : app.globalData.nowUserType
+      })
+    })
+    if(wx.getStorageSync('userData')){//有本地缓存，不会触发监听，需要手动判断储存用户数据
       this.setData({
         userData : app.globalData.userData
       })
-      that.changeFeatures(app.globalData.userData.UserType)
     }
-  },
-  changeFeatures(type){//更改注册角色功能
-    // userType:{
-    //   普通会员 : 1,
-    //   装企店主 : 2,
-    //   材料商店主 : 4,
-    //   装企员工 : 8,
-    //   材料商员工 : 16,
-    //   服务经理 : 32,
-    //   装企分销员 : 64,
-    // }
-    var arr = this.data.userTypeFeatures.filter((v,i,arrs)=>{
-      if((type & v.userType) == v.userType) arrs[i].typeFc(this)
+    this.setData({//初始化用户会员类型
+      nowUserType : app.globalData.nowUserType
     })
-    return arr
+  },
+  changeFeatures(){//更改注册角色功能
+      if(this.data.nowUserType.type2 || this.data.nowUserType.type2 ||this.data.nowUserType.type2 ||this.data.nowUserType.type2){
+        this.data.userFeaturesList.splice(8,1)
+        this.setData({
+          userFeaturesList : this.data.userFeaturesList
+        })
+      }
   },
   onTabItemTap(item) {
     wx.setNavigationBarTitle({

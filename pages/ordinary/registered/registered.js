@@ -23,7 +23,6 @@ Page({
     })
     wx.login({
       success: res => {
-        console.log(res.code)
         that.setData({
           code : res.code
         })
@@ -50,22 +49,17 @@ Page({
       app.ajaxToken('/account/gettoken', userToken, 'post').then(res => {
         app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
         app.ajaxToken('/account/register', data, 'post').then(ress => {
-          app.setGlobalData({
-            userData: ress.data
-          })
-          wx.setStorage({
-            data: ress.data,
-            key: 'userData',
-          })
           wx.hideLoading()
           wx.showToast({
             title: '登录成功',
           })
-          setTimeout((res)=>{
-            wx.navigateBack({
-              delta: 1
-            })
-          },1000)
+          app.setUserInfo(ress.data.UserID,()=>{
+            setTimeout((res)=>{
+              wx.navigateBack({
+                delta: 1
+              })
+            },1000)
+          })
         })
       })
   },
@@ -106,12 +100,6 @@ Page({
         })
       }
     })
-
-    // app.setGlobalData({
-    //   userData : {
-    //     name : '三七'
-    //   }
-    // })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

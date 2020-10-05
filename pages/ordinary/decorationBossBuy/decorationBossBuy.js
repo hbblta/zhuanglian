@@ -1,34 +1,18 @@
 // pages/ordinary/decorationBossBuy/decorationBossBuy.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    decorationBossBuyList:[
-      {
-        name : '1年VIP',
-        type:1,
-        oldPrice:6999,
-        nowPrice:699,
-        img:'../../../image/testImg/decorationBossBuy1.png',
-      },
-      {
-        name : '1年VIP',
-        type:2,
-        oldPrice:6999,
-        nowPrice:699,
-        img:'../../../image/testImg/decorationBossBuy1.png',
-      },
-      {
-        name : '1年VIP',
-        type:3,
-        oldPrice:6999,
-        nowPrice:699,
-        img:'../../../image/testImg/decorationBossBuy1.png',
-      }
-    ],
-    swiperIndex:0
+    multiArray: [[['全国','全国','全国'],['全国','全国','全国']],['全国','全国','全国']],
+    multiIndex: [0, 0, 0],
+    decorationBossBuyList:[],//价格列表
+    swiperIndex:0, 
+    selecteUser:true,//用户协议
+    userData:{},
+    company:'',//公司名称
   },
 
   /**
@@ -38,14 +22,76 @@ Page({
     wx.setNavigationBarTitle({
       title: '注册'
     })
+    this.setData({
+      userData : app.globalData.userData
+    })
+    var data = {
+      costType : options.costType
+    }
+    app.ajaxToken('/common/getcostsettings', data, 'get').then(res => {//获取价格列表
+      this.setData({
+        decorationBossBuyList : res.data
+      })
+    })
+    // app.ajaxToken('/common/getareajson', '', 'get').then(res => {//获取价格列表
+    //   res.data.forEach(data => {
+    //     console.log()
+    //   });
+    // })
   },
-  nowChange(e){
+  nowChange(e){//swiper动态改变
     console.log(e)
     if(e.detail.source){
       this.setData({
         swiperIndex : e.detail.current
       })
+    }else{
+      this.setData({
+        swiperIndex : e.currentTarget.dataset.current
+      })
     }
+  },
+  selecteChange(){//用户协议
+    this.setData({
+      selecteUser : !this.data.selecteUser
+    })
+  },
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  companyInput:function(e){//company记录
+    this.setData({
+      company:e.detail.value
+    })
+  },
+  payButton(e){
+    console.log(e)
+    if(this.data.company == ''){
+      wx.showToast({
+        title: '请填写公司名称',
+        icon :'none'
+      })
+      return
+    }
+    if(!this.data.selecteUser){
+      wx.showToast({
+        title: '请勾选用户条款',
+        icon :'none'
+      })
+      return
+    }
+    var data = {
+      userId : this.data.userData.UserID,
+      costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
+      companyName : this.data.company,
+      areaId : 3509,
+    }
+    app.ajaxToken('/user/registershop', data, 'post').then(res => {//获取价格列表
+      console.log(res)
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,7 +1,9 @@
 <!--pages/ordinary/decorationRecording/decorationRecording.wxml-->
-<decorationRecordingList  
-item='{{item}}'
-wx:for='{{list}}' 
-wx:for-item='item' 
-wx:for-index="index" 
-wx:key='index'/>
+<scroll-view scroll-y="true" style="height:100%" bindscrolltolower="getList">
+    <decorationRecordingList  
+    item='{{item}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    wx:for-index="index" 
+    wx:key='index'/>
+</scroll-view>

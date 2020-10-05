@@ -29,7 +29,7 @@
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": false,
+    "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
@@ -82,6 +82,13 @@
           "id": -1,
           "name": "pages/decoration/clientFollowUp/clientFollowUp",
           "pathName": "pages/decoration/clientFollowUp/clientFollowUp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/ordinary/login/login",
+          "pathName": "pages/ordinary/login/login",
           "scene": null
         }
       ]

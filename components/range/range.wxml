@@ -1,0 +1,14 @@
+<!--components/range/range.wxml-->
+<picker 
+      mode="multiSelector" 
+      value="{{multiIndex}}"
+      range="{{multiArray}}"
+      bindchange="bindchange"
+      bindcolumnchange="bindMultiPickerChange"
+    >
+        <view class="picker">
+          <view>{{name}}</view>
+          <image src="../../image/icon/more.svg"></image>
+        </view>
+    </picker>
+

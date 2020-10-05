@@ -13,7 +13,10 @@ Page({
     selecteUser:true,//用户协议
     userData:{},
     company:'',//公司名称,
-    code:''
+    code:'',
+  },
+  changearea(e){
+    console.log(e,'当前选择')
   },
 
   /**
@@ -42,11 +45,14 @@ Page({
         })
       }
     })
-    // app.ajaxToken('/common/getareajson', '', 'get').then(res => {//获取价格列表
-    //   res.data.forEach(data => {
-    //     console.log()
-    //   });
-    // })
+  
+  
+  },
+ 
+  showrange(){
+    this.setData({
+      showrange:true
+    })
   },
   nowChange(e){//swiper动态改变
     console.log(e)
@@ -65,12 +71,7 @@ Page({
       selecteUser : !this.data.selecteUser
     })
   },
-  bindMultiPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      multiIndex: e.detail.value
-    })
-  },
+  
   companyInput:function(e){//company记录
     this.setData({
       company:e.detail.value
@@ -116,7 +117,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**

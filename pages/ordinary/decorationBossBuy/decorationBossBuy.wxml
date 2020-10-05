@@ -4,13 +4,10 @@
       <image src="{{userData.Avatar}}"></image>
       <view><input placeholder="请输入公司名称" bindinput="companyInput" type="text"/></view>
     </view>
-    <view class="decorationBossBuyTitleMore">
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange"  value="{{multiIndex}}" range="{{multiArray}}">
-        <!-- <view>{{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}{{multiArray[2][multiIndex[2]]}}</view> -->
-        <view>北京</view>
-      </picker>
-      <image src="../../../image/icon/more.svg"></image>
-    </view>
+      <view class="decorationBossBuyTitleMore" bindtap="showrange">
+         <range bind:changearea="changearea"></range>
+      </view>
+
 </view>
 <swiper 
   bindchange='nowChange'

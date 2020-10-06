@@ -4,10 +4,9 @@
       <image src="{{userData.Avatar}}"></image>
       <view><input placeholder="请输入公司名称" bindinput="companyInput" type="text"/></view>
     </view>
-      <view class="decorationBossBuyTitleMore" bindtap="showrange">
+    <view class="decorationBossBuyTitleMore" bindtap="showrange">
          <range bind:changearea="changearea"></range>
-      </view>
-
+    </view>
 </view>
 <swiper 
   bindchange='nowChange'
@@ -30,5 +29,7 @@
     <text>￥{{decorationBossBuyList[swiperIndex].Amount}}</text>
     <!-- <text>￥6999</text>   -->
   </view>
-  <button class="decorationBossBuyPay"  open-type="getUserInfo" bindgetuserinfo='payButton'>立即支付</button>
+
+  <button wx:if="{{!userData.Mobile}}" class="decorationBossBuyPay"  open-type="getPhoneNumber" bindgetphonenumber='payButton'>立即支付</button>
+  <button wx:if="{{userData.Mobile}}" class="decorationBossBuyPay"  bindtap="payButton">立即支付</button>
 </view>

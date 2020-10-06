@@ -96,7 +96,7 @@ page{
 }
 .decorationBossBuyPrice text:nth-child(1){
   color: rgba(85, 85, 85, 1);
-  font-size: 38rpx;
+  /* font-size: 38rpx; */
   font-family: PingFangSC-regular;
   margin-left: 20rpx;
 }

@@ -19,6 +19,34 @@ App({
       }
     })
   },
+  pay(data){//支付，并更新用户数据
+    var that = this
+    wx.requestPayment({
+      nonceStr: data.nonceStr,
+      package: data.package,
+      paySign: data.paySign,
+      signType: data.signType,
+      timeStamp: data.timeStamp,
+      success(res){
+        that.setUserInfo(that.globalData.userData.UserID,()=>{
+          wx.showToast({
+            title: '支付成功',
+          })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 1,
+            })
+          },1000)
+        })
+      },
+      fail (res) { 
+        wx.showToast({
+          title: '支付失败',
+          icon:'none'
+        })
+      }
+    })
+  },
   setUserInfo(UserID,success){//保存公用方法
     var that = this
     this.ajaxToken('/account/getuserinfo', {userId:UserID}, 'get',).then(res => {
@@ -113,7 +141,7 @@ App({
             wx.hideLoading()
             wx.showToast({
               icon:'none',
-              title: `接口状态:${res.data.status},错误信息:${res.data.title}`,
+              title: `接口状态:${res.data.status},错误信息:${res.data.msg}`,
             })
             return
           }

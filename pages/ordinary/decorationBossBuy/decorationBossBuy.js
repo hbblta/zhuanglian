@@ -6,17 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    multiArray: [[['全国','全国','全国'],['全国','全国','全国']],['全国','全国','全国']],
+    multiArray: [],
     multiIndex: [0, 0, 0],
+    areaId : '',
     decorationBossBuyList:[],//价格列表
     swiperIndex:0, 
     selecteUser:true,//用户协议
     userData:{},
     company:'',//公司名称,
     code:'',
-  },
-  changearea(e){
-    console.log(e,'当前选择')
   },
 
   /**
@@ -45,17 +43,13 @@ Page({
         })
       }
     })
-  
-  
   },
- 
-  showrange(){
+  changearea(e){
     this.setData({
-      showrange:true
+      areaId : e.detail.id
     })
   },
   nowChange(e){//swiper动态改变
-    console.log(e)
     if(e.detail.source){
       this.setData({
         swiperIndex : e.detail.current
@@ -71,14 +65,19 @@ Page({
       selecteUser : !this.data.selecteUser
     })
   },
-  
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
   companyInput:function(e){//company记录
     this.setData({
       company:e.detail.value
     })
   },
   payButton(e){
-    console.log(e)
+    var that = this
     if(this.data.company == ''){
       wx.showToast({
         title: '请填写公司名称',
@@ -93,17 +92,41 @@ Page({
       })
       return
     }
-    var data = {
-      userId : this.data.userData.UserID,
-      costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
-      companyName : this.data.company,
-      areaId : 3509,
-      encryptedData:e.detail.encryptedData,
-      iv : e.detail.iv,
-      code:this.data.code
+    if(!this.data.areaId){
+      wx.showToast({
+        title: '请选择区域',
+        icon :'none'
+      })
+      return
     }
-    app.ajaxToken('/user/registershop', data, 'post').then(res => {//获取价格列表
-      console.log(res)
+    var data = {}
+    if(!this.data.userData.Mobile){
+      if (!e.detail.encryptedData) {
+        wx.showToast({
+          title: '请授权手机号',
+          icon: 'none'
+        })
+        return
+      }
+      var data = {
+        userId : this.data.userData.UserID,
+        costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
+        companyName : this.data.company,
+        areaId : this.data.areaId,
+        encryptedData:e.detail.encryptedData,
+        iv : e.detail.iv,
+        code:this.data.code
+      }
+    }else{
+      var data = {
+        userId : this.data.userData.UserID,
+        costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
+        companyName : this.data.company,
+        areaId : this.data.areaId,
+      }
+    }
+    app.ajaxToken('/user/registershop', data, 'post').then(res => {
+      app.pay(res.data)
     })
   },
   /**
@@ -117,7 +140,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**

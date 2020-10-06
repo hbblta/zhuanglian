@@ -21,12 +21,12 @@
 			</view>
 		</view>
 		<view>
-			<!-- <view class="myUserButton"  bindtap="goUrl">
+			<view class="myUserButton"  bindtap="goUrl" data-url="">
 				设置
-			</view> -->
-			<!-- <view class="myUserButtonMore">
+			</view>
+			<view class="myUserButtonMore" bindtap="goUrl" data-url="/pages/ordinary/login/login">
 				续费
-			</view> -->
+			</view>
 		</view>
 	</view>
 </view>

@@ -28,7 +28,7 @@ Component({
   data: {
     multiArray: [],
     multiIndex: [0, 0, 0],
-    name:'北京'
+    name:'区域'
   },
 
   /**
@@ -100,8 +100,11 @@ Component({
         var id = arr[index[0]].children[index[1]].value
       }
       var namearr = this.data.multiArray
+      // this.setData({
+      //   name:namearr[0][index[0]] + namearr[1][index[1]] + namearr[2][index[2]]
+      // })
       this.setData({
-        name:namearr[0][index[0]] + namearr[1][index[1]] + namearr[2][index[2]]
+        name:namearr[2][index[2]]
       })
       var obj = {}
       obj.id = id

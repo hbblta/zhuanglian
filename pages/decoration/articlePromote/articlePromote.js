@@ -13,7 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      ShopID:app.globalData.userData.ShopID
+    })
+    this.getInfo()
+  },
+  getInfo(){
+    app.ajaxToken('/shop/addcustomercategory/'+this.data.ShopID,{shopId:this.data.ShopID},'post').then(res => {//获取文章列表
+      console.log(res)
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)

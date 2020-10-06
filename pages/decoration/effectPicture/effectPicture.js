@@ -27,6 +27,7 @@ Page({
       title: '效果图管理'
     })
   },
+
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },

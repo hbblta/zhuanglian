@@ -1,5 +1,5 @@
 <!--pages/decoration/secondaryManage/secondaryManage.wxml-->
-<searchTitle titleList='{{titleList}}' />
+<searchTitle titleList='{{titleList}}' bind:getList='getLists'/>
 
 <view class="scroll">
 	<scroll-view style="height:100%" scroll-y="true">

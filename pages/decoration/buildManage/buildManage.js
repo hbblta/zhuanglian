@@ -70,12 +70,15 @@ Page({
         id: 0
       },
     ],
+    page:1,
+    pagesize:10
   },
   //当前tab选项
   getList(e){
     this.setData({
       textIndex:e.detail.index
     })
+    console.log(e,this.data.textList)
   },
   //跳转报备按钮
   goto(){
@@ -88,6 +91,25 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '施工管理'
+    })
+    this.getManageList()
+  },
+  getManageList(){
+    app.ajaxToken('/shop/getconstructionstat/' + app.globalData.userData.ShopID,{}, 'get').then(res => {
+      var arr = res.data.States
+      for(let i in arr){
+        arr[i].name = arr[i].StateName
+      }
+      if(res.status == 0){
+        this.setData({
+          textList:arr
+        })
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
     })
   },
   goUrl(e) {

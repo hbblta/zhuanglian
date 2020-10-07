@@ -4,27 +4,34 @@
 		<input placeholder="姓名" value="{{name}}" bindinput="getNameValue"></input>
 	</view>
 	<view>
-		<input placeholder="电话"></input>
+		<input placeholder="电话" maxlength="11" value="{{phone}}" bindinput="getPhoneValue"></input>
 	</view>
 	<view>
-		<input placeholder="小区"></input>
+		<range class="range" bind:changearea="changearea"></range>
+		<input placeholder="地区" disabled="true" value="{{area}}"></input>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 	<view>
-		<input placeholder="小区详细地址"></input>
+		<input placeholder="小区详细地址" value="{{address}}" bindinput="getAddressValue"></input>
 	</view>
-	<view>
-		<input placeholder="项目经理"></input>
-		<image src="../../../image/icon/more.svg"></image>
-	</view>
-	<view>
-		<input placeholder="设计师"></input>
-		<image src="../../../image/icon/more.svg"></image>
-	</view>
-	<view>
-		<input placeholder="跟单人"></input>
-		<image src="../../../image/icon/more.svg"></image>
-	</view>
+	<picker bindchange="bindPickerChange" value="{{objectIndex}}" range="{{objectArray}}" range-key="name">
+		<view class="pickers">
+			<input placeholder="项目经理" disabled="true" value="{{value1}}"></input>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+	</picker>
+	<picker bindchange="bindPickerChange2" value="{{objectIndex2}}" range="{{objectArray2}}" range-key="name">
+		<view class="pickers">
+			<input placeholder="设计师" disabled="true" value="{{value2}}"></input>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+	</picker>
+	<picker bindchange="bindPickerChange3" value="{{objectIndex3}}" range="{{objectArray3}}" range-key="name">
+		<view class="pickers">
+			<input placeholder="跟单人" disabled="true" value="{{value3}}"></input>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+	</picker>
 </view>
 
 <view class="fix-btn" bindtap="goback">

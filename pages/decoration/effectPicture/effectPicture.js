@@ -17,14 +17,94 @@ Page({
         id : 1
       },
     ],
+    //当前的tabIndex
+    tabIndex:0,
+    //楼盘 page
+    page:1,
+    pagesize:10,
+    keyword:'',
+    //效果 page
+    page2:1,
+    pagesize2:10,
+    keyword2:'',
+    //类别 默认全部
+    ground:'',
+    groundIndex:0
   },
+  getList(e){
+    this.setData({
+      tabIndex:e.detail.index,
+      groundIndex:0,
+      ground:'',
+      keyword:'',
+      keyword2:'',
+      page:1,
+      page2:1,
+      pagesize2:10,
+      pagesize:10
+    })
+    if(e.detail.index == 0){
+      this.getlp()
+    }
+    if(e.detail.index == 1){
+      this.getxg()
+    }
 
+  },
+  act(e){
+    var index = e.currentTarget.dataset.index
+    var ground = ''
+    if(index){
+      if(index == 1){
+        ground='1'
+      }
+      if(index == 2){
+        ground='0'
+      }
+    }
+    this.setData({
+      groundIndex:index,
+      ground
+    })
+    if(this.data.tabIndex){
+      this.getxg(ground)
+    }else{
+      this.getlp(ground)
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '效果图管理'
+    }) 
+    this.getlp()
+  },
+  //楼盘案例列表 初始化
+  getlp(ground){
+    var data = {
+      page:this.data.page,
+      pagesize:this.data.pagesize,
+      keyword:this.data.keyword
+    }
+    if(ground)data.ground=ground
+    app.ajaxToken('/shop/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
+  },
+  //楼盘列表 参数化
+
+  //效果案例
+  getxg(ground){
+    var data = {
+      page:this.data.page2,
+      pagesize:this.data.pagesize2,
+      keyword:this.data.keyword
+    }
+    if(ground)data.ground=ground
+    app.ajaxToken('/shop/geteffectlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
     })
   },
 

@@ -8,10 +8,11 @@
 				<text>2020/5/20</text>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
-			<view class="constructionSiteDetaNum">数量: 22个</view>
+			<view class="constructionSiteDetaNum">数量: {{total}}个</view>
 		</view>
   </scroll-view>
   <view slot="after" class="materialOrderScroll">
+      <view wx:if="{{!list.length}}">暂无数据</view>
       <view 
       wx:for='{{list}}' 
       wx:for-item='item' 
@@ -21,15 +22,15 @@
       data-url='/pages/decoration/constructionDetails/constructionDetails'
       class="materialOrderList">
         <view class="tip">{{textList[textIndex].name}}</view>
-        <view class="materialOrderListImg"><image src="{{item.url}}"></image></view>
+        <view class="materialOrderListImg"><image src="{{item.Avatar}}"></image></view>
         <view class="materialOrderListText">
-          <view>{{item.name}}</view>
-          <view>{{item.phone}}</view>
-          <view>成交时间：{{item.entryTime}}</view>
+          <view>{{item.RealName}}</view>
+          <view>{{item.Mobile}}</view>
+          <view>成交时间：{{item.AddDate}}</view>
           <view>项目经理：{{item.name}}</view>
         </view>
         <view class="home">
-          <view>小区名称：分业小区2幢2单元88室</view>
+          <view>地区名称：{{item.AreaStr}}</view>
         </view>
       </view>
   </view>

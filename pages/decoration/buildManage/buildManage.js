@@ -19,66 +19,71 @@ Page({
     ],
     //当前左边tab项
     textIndex:0,
-    textList: [{
-        name: '全部',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '交底',
-        length: 3,
-        id: 0
-      },
-      {
-        name: '泥工',
-        length: 1,
-        id: 0
-      },
-      {
-        name: '全部',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部（10）',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部（10）',
-        length: 10,
-        id: 0
-      },
-      {
-        name: '全部（10）',
-        length: 10,
-        id: 0
-      },
+    textList: [
     ],
     page:1,
-    pagesize:10
+    pagesize:10,
+    //关键词
+    keyword:'',
+    //当前返回的数据条数
+    total:0
+  },
+  //得到左边的tab列表
+  getManageList(){
+    app.ajaxToken('/shop/getconstructionstat/' + app.globalData.userData.ShopID,{}, 'get').then(res => {
+      var arr = res.data.States
+      for(let i in arr){
+        arr[i].name = arr[i].StateName
+      }
+      if(res.status == 0){
+        this.setData({
+          textList:arr
+        })
+        //初始化获取用户
+        this.getUser(arr[this.data.textIndex].State)
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
+    })
+  },
+  //得到右边的客户列表 初始化
+  getUser(state){
+    var data = {}
+    //关键字
+    data.keyword = this.data.keyword
+    data.state = this.data.textList[this.data.textIndex].State
+    data.page = this.data.page
+    data.pagesize = this.data.pagesize
+    app.ajaxToken('/shop/getconstructionlist/'+app.globalData.userData.ShopID,data,'get').then( res =>{
+      console.log(res)
+      if(res.status == 0){
+        this.setData({
+          total:res.totalitem,
+          list:res.data
+        })
+      }else{
+        wx.showToast({
+          title:res.msg,
+          icon:'none'
+        })
+      }
+    })
   },
   //当前tab选项
   getList(e){
+    var index = e.detail.index
+    //初始化搜索参数
     this.setData({
-      textIndex:e.detail.index
+      textIndex:index,
+      page:1,
+      pagesize:10,
+      total:0,
+      keyword:''
     })
-    console.log(e,this.data.textList)
+    this.getUser(this.data.textList[index].State)
   },
   //跳转报备按钮
   goto(){
@@ -92,26 +97,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '施工管理'
     })
-    this.getManageList()
   },
-  getManageList(){
-    app.ajaxToken('/shop/getconstructionstat/' + app.globalData.userData.ShopID,{}, 'get').then(res => {
-      var arr = res.data.States
-      for(let i in arr){
-        arr[i].name = arr[i].StateName
-      }
-      if(res.status == 0){
-        this.setData({
-          textList:arr
-        })
-      }else{
-        wx.showToast({
-          title: res.msg,
-          icon:'none'
-        })
-      }
-    })
-  },
+  
   goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
   },
@@ -126,7 +113,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getManageList()
   },
 
   /**

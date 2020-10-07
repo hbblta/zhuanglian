@@ -4,8 +4,8 @@
       <image src="{{userData.Avatar}}"></image>
       <view><input placeholder="请输入公司名称" bindinput="companyInput" type="text"/></view>
     </view>
-    <view class="decorationBossBuyTitleMore" bindtap="showrange">
-         <range bind:changearea="changearea"></range>
+    <view class="decorationBossBuyTitleMore">
+         <range bind:changearea="changearea" type='1'></range>
     </view>
 </view>
 <swiper 

@@ -8,7 +8,7 @@
     >
         <view class="picker">
           <view>{{name}}</view>
-          <image src="../../image/icon/more.svg"></image>
+          <image wx:if="{{type == 1}}" src="../../image/icon/more.svg"></image>
         </view>
     </picker>
 

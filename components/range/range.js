@@ -5,9 +5,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    rangeshow: {
-      type: Boolean,
-      value: false
+    type: {
+      type: Number,
+      value: 0
     }
   },
   lifetimes: {
@@ -28,7 +28,7 @@ Component({
   data: {
     multiArray: [],
     multiIndex: [0, 0, 0],
-    name:'区域'
+    name:'申请区域'
   },
 
   /**

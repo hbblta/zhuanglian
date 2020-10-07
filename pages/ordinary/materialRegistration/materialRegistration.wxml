@@ -1,16 +1,16 @@
 <!--pages/ordinary/materialRegistration/materialRegistration.wxml-->
 <view class="decorationStaffInput">
-    <input placeholder="商铺名称"></input>
-    <input placeholder="经营品牌(可多填写)"></input>
-    <input placeholder="注册人"></input>
-    <input placeholder="注册人电话"></input>
-    <input placeholder="申请区域"></input>
+    <input placeholder="商铺名称" bindinput="updateInput" data-key='companyName'></input>
+    <input placeholder="经营品牌(可多填写)" bindinput="updateInput" data-key='brandName'></input>
+    <input placeholder="注册人" bindinput="updateInput" data-key='realName'></input>
+    <view class="{{fromData.areaId ? 'decorationStafColol' : ''}}"><range bind:changearea="changearea"></range></view>
 </view>
 <view class="decorationStaffPact">
-  <image src="../../../image/icon/selecte.svg"></image>
+  <image bindtap="selecteChange" src="{{selecteUser ? '../../../image/icon/selected.svg' : '../../../image/icon/selecte.svg'}}"></image>
   <text>我已阅读并同意</text>
   <text>《会员服务协议及隐私保密协议》</text>
 </view>
-<view class="decorationStaffButton">提交申请</view>
+<button class="decorationStaffButton" wx:if="{{!userData.Mobile}}"   open-type="getPhoneNumber" bindgetphonenumber='submit'>提交申请</button>
+<button class="decorationStaffButton" wx:if="{{userData.Mobile}}"   bindtap="submit">提交申请</button>
 <image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>
 

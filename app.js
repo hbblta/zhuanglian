@@ -2,9 +2,9 @@
 App({
   onLaunch: function () {
     var that = this
-    wx.getStorage({//获取缓存用户数据
+    wx.getStorage({ //获取缓存用户数据
       key: 'userData',
-      success:function(res){
+      success: function (res) {
         that.setGlobalData({
           userData: res.data
         })
@@ -14,42 +14,46 @@ App({
         }
         that.ajaxToken('/account/gettoken', userToken, 'post').then(ress => {
           that.globalData.Authorization = `${ress.data.type+' '+ress.data.token}`
-          that.setUserInfo(res.data.UserID,()=>{console.log('获取缓存,刷新toekn,自动登录成功')})
+          that.setUserInfo(res.data.UserID, () => {
+            console.log('获取缓存,刷新toekn,自动登录成功')
+          })
         })
       }
     })
   },
-  pay(data){//支付，并更新用户数据
+  pay(data) { //支付，并更新用户数据
     var that = this
     wx.requestPayment({
       nonceStr: data.nonceStr,
       package: data.package,
       paySign: data.paySign,
-      signType: data.signType,
+      signType: data.signType,
       timeStamp: data.timeStamp,
-      success(res){
-        that.setUserInfo(that.globalData.userData.UserID,()=>{
+      success(res) {
+        that.setUserInfo(that.globalData.userData.UserID, () => {
           wx.showToast({
             title: '支付成功',
           })
-          setTimeout(()=>{
+          setTimeout(() => {
             wx.navigateBack({
-              delta: 1,
+              delta: 2,
             })
-          },1000)
+          }, 1000)
         })
       },
-      fail (res) { 
+      fail(res) {
         wx.showToast({
           title: '支付失败',
-          icon:'none'
+          icon: 'none'
         })
       }
     })
   },
-  setUserInfo(UserID,success){//保存公用方法
+  setUserInfo(UserID, success) { //保存用户数据
     var that = this
-    this.ajaxToken('/account/getuserinfo', {userId:UserID}, 'get',).then(res => {
+    this.ajaxToken('/account/getuserinfo', {
+      userId: UserID
+    }, 'get', ).then(res => {
       that.setGlobalData({
         userData: res.data
       })
@@ -58,11 +62,11 @@ App({
         key: 'userData',
       })
       var changeTypeList = JSON.parse(JSON.stringify(that.globalData.nowUserType))
-      for(let i in that.globalData.userTypeList){
-          if((res.data.UserType & that.globalData.userTypeList[i].userTypeId) == that.globalData.userTypeList[i].userTypeId){
-            console.log(that.globalData.userTypeList[i].typeName)
-            changeTypeList[that.globalData.userTypeList[i].typeKey] = true
-           }
+      for (let i in that.globalData.userTypeList) {
+        if ((res.data.UserType & that.globalData.userTypeList[i].userTypeId) == that.globalData.userTypeList[i].userTypeId) {
+          console.log(that.globalData.userTypeList[i].typeName)
+          changeTypeList[that.globalData.userTypeList[i].typeKey] = true
+        }
       }
       that.setGlobalData({
         nowUserType: changeTypeList
@@ -70,7 +74,7 @@ App({
       success()
     })
   },
-  goUrl: function (url) { //封装跳转，验证登录，传输监听数据
+  goUrl(url) { //封装跳转，验证登录，传输监听数据
     if (!this.globalData.userData.NickName) {
       console.log('未登录')
       url = '/pages/ordinary/registered/registered'
@@ -123,7 +127,7 @@ App({
       })
     }
   },
-  ajaxToken(url,data,type) {//promise简易封装预请求
+  ajaxToken(url, data, type) { //promise简易封装预请求
     var that = this;
     return new Promise(function (resolve, reject) {
       wx.request({
@@ -135,12 +139,12 @@ App({
           "Authorization": that.globalData.Authorization
         },
         success: function (res) {
-          if(res.data.status == 0){
+          if (res.data.status == 0) {
             resolve(res.data);
-          }else{
+          } else {
             wx.hideLoading()
             wx.showToast({
-              icon:'none',
+              icon: 'none',
               title: `接口状态:${res.data.status},错误信息:${res.data.msg}`,
             })
             return
@@ -149,7 +153,7 @@ App({
         fail: function (res) {
           wx.hideLoading()
           wx.showToast({
-            icon:'none',
+            icon: 'none',
             title: JSON.stringify(res),
           })
           reject(res);
@@ -158,63 +162,63 @@ App({
     });
   },
   globalData: {
-    Authorization:'',//通用令牌
-    httpUrl:'https://api.dlkj369.com/api/v1.0',
+    Authorization: '', //通用令牌
+    httpUrl: 'https://api.dlkj369.com/api/v1.0',
     userData: {},
-    nowUserType:{
-      type1 : true,//普通会员
-      type2 : false,//装企店主
-      type3 : false,//材料商店主
-      type4 : false,//装企员工
-      type5 : false,//材料商员工
-      type6 : false,//服务经理
-      type7 : false,//装企分销员
+    nowUserType: {
+      type1: true, //普通会员
+      type2: false, //装企店主
+      type3: false, //材料商店主
+      type4: false, //装企员工
+      type5: false, //材料商员工
+      type6: false, //服务经理
+      type7: false, //装企分销员
     },
-    userTypeList : [ //用户类型数据
+    userTypeList: [ //用户类型数据
       {
-        userTypeId : 1,
-        typeName : '普通会员',
-        typeKey :  'type1'
+        userTypeId: 1,
+        typeName: '普通会员',
+        typeKey: 'type1'
       },
       {
-        userTypeId : 2,
-        typeName : '装企店主',
-        typeKey :  'type2'
+        userTypeId: 2,
+        typeName: '装企店主',
+        typeKey: 'type2'
       },
       {
-        userTypeId : 4,
-        typeName : '材料商店主',
-        typeKey :  'type3'
+        userTypeId: 4,
+        typeName: '材料商店主',
+        typeKey: 'type3'
       },
       {
-        userTypeId : 8,
-        typeName : '装企员工',
-        typeKey :  'type4'
+        userTypeId: 8,
+        typeName: '装企员工',
+        typeKey: 'type4'
       },
       {
-        userTypeId : 16,
-        typeName : '材料商员工',
-        typeKey :  'type5'
+        userTypeId: 16,
+        typeName: '材料商员工',
+        typeKey: 'type5'
       },
       {
-        userTypeId : 32,
-        typeName : '服务经理',
-        typeKey :  'type6'
+        userTypeId: 32,
+        typeName: '服务经理',
+        typeKey: 'type6'
       },
       {
-        userTypeId : 64,
-        typeName : '装企分销员',
-        typeKey :  'type7'
+        userTypeId: 64,
+        typeName: '装企分销员',
+        typeKey: 'type7'
       },
     ]
   }
 })
-      // userType:{
-      //   普通会员 : 1,
-      //   装企店主 : 2,
-      //   材料商店主 : 4,
-      //   装企员工 : 8,
-      //   材料商员工 : 16,
-      //   服务经理 : 32,
-      //   装企分销员 : 64,
-      // }
+// userType:{
+//   普通会员 : 1,
+//   装企店主 : 2,
+//   材料商店主 : 4,
+//   装企员工 : 8,
+//   材料商员工 : 16,
+//   服务经理 : 32,
+//   装企分销员 : 64,
+// }

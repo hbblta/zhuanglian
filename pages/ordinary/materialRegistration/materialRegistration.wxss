@@ -6,7 +6,7 @@
   z-index: -1;
   bottom: 0;
 }
-.decorationStaffInput input{
+.decorationStaffInput input,.decorationStaffInput>view{
   margin-top: 50rpx;
   width: 640rpx;
   margin-left: 25rpx;
@@ -17,6 +17,17 @@
   background-color: rgba(247, 247, 247, 1);
   font-size: 28rpx;
   font-family: Arial;
+}
+.decorationStaffInput>view view{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-size: 28rpx;
+  color: #808080;
+  font-family: Arial;
+}
+.decorationStafColol view{
+  color: #000000 !important;
 }
 .decorationStaffPact{
   margin-left: 25rpx;
@@ -43,7 +54,8 @@
 .decorationStaffButton{
   margin-left: 25rpx;
   margin-top: 50rpx;
-  width: 700rpx;
+  padding: 0;
+  width: 700rpx !important;
   height: 90rpx;
   line-height:90rpx;
   border-radius: 8rpx;

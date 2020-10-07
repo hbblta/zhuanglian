@@ -6,8 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    multiArray: [],
-    multiIndex: [0, 0, 0],
     areaId : '',
     decorationBossBuyList:[],//价格列表
     swiperIndex:0, 

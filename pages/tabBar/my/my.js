@@ -7,6 +7,7 @@ Page({
    */
   data: {
     nowUserType : {},
+    userData : {},
     userFeaturesList : [
       {
         ordinaryIcon : '../../../image/icon/ordinary1.png',
@@ -54,7 +55,6 @@ Page({
         ordinaryUrl : '/pages/ordinary/login/login'
       }
     ],//用户通用功能
-    userData : {},
     decorationFeaturesList:[
       {
         ordinaryIcon : '../../../image/icon/decoration1.png',
@@ -144,6 +144,11 @@ Page({
         ordinaryUrl : '/pages/material/login/login'
       },
       {
+        ordinaryIcon : '../../../image/icon/decoration2.png',
+        ordinaryTitle : '我的推广码',
+        ordinaryUrl : '/pages/decoration/promoteCode/promoteCode'
+      },
+      {
         ordinaryIcon : '../../../image/icon/decoration3.png',
         ordinaryTitle : '文章引流',
         ordinaryUrl : '/pages/material/articlePromote/articlePromote'
@@ -182,7 +187,6 @@ Page({
   },
 
   goUrl(e){
-    console.log(e.currentTarget.dataset.url)
     app.goUrl(e.currentTarget.dataset.url)
   },
   /**
@@ -199,6 +203,7 @@ Page({
       this.setData({
         nowUserType : app.globalData.nowUserType
       })
+      this.changeFeatures()
     })
     if(wx.getStorageSync('userData')){//有本地缓存，不会触发监听，需要手动判断储存用户数据
       this.setData({
@@ -208,10 +213,17 @@ Page({
     this.setData({//初始化用户会员类型
       nowUserType : app.globalData.nowUserType
     })
+    this.changeFeatures()
   },
   changeFeatures(){//更改注册角色功能
-      if(this.data.nowUserType.type2 || this.data.nowUserType.type2 ||this.data.nowUserType.type2 ||this.data.nowUserType.type2){
+      if(this.data.nowUserType.type2 || this.data.nowUserType.type3 ||this.data.nowUserType.type4 ||this.data.nowUserType.type5){
         this.data.userFeaturesList.splice(8,1)
+        this.setData({
+          userFeaturesList : this.data.userFeaturesList
+        })
+      }
+      if(this.data.nowUserType.type3){
+        this.data.userFeaturesList.splice(7,1)
         this.setData({
           userFeaturesList : this.data.userFeaturesList
         })

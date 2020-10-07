@@ -56,7 +56,7 @@ page{
   padding-right: 25rpx;
   height: 110rpx;
   background: #FFFFFF;
-  display: flex;
+  display: flex !important;
   align-items: center;
 }
 .effectPictureEditInput input{

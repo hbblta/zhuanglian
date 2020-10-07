@@ -1,0 +1,24 @@
+/* components/uploadimage/uploadimage.wxss */
+.uploadimageList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.uploadimageListData{
+  width: 200rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.uploadimageListData .showImg{
+  height: 200rpx;
+  width: 200rpx;
+}
+.delete{
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #ffffff;
+  border-radius: 50%;
+}

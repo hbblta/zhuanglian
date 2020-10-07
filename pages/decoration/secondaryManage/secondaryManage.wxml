@@ -8,12 +8,12 @@
       data-index='{{index}}'
       wx:key="index"
       class="manage-list">
-      <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=13168071,2975128595&fm=26&gp=0.jpg"></image>
+      <image src="{{item.ImageUrl[0]}}"></image>
       <view class="listInfo">
-           <view class="title">{{item.name}}</view>
-           <view>品牌：{{item.pinpai}}</view>
-           <view>型号：{{item.num}}</view>
-           <view class="{{item.statu?'statu':''}}">{{item.statu?'上架':'下架'}}</view>
+           <view class="title">{{item.MaterialName}}</view>
+           <view>品牌：{{item.Brand}}</view>
+           <view>型号：{{item.ModelNumber}}</view>
+           <view class="{{item.IsGround?'statu':''}}">{{item.IsGround?'上架':'下架'}}</view>
       </view>
       <view class="list-btn">删除</view>
 		</view>

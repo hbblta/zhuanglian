@@ -120,7 +120,8 @@
         "decorationStaff/decorationStaff",
         "materialRegistration/materialRegistration",
         "materialStaff/materialStaff",
-        "registered/registered"
+        "registered/registered",
+        "imageCropper/imageCropper"
       ]
     }
   ],

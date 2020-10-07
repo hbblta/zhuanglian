@@ -13,56 +13,7 @@ Page({
     //初始化索引
     index:0,
     //列表arr
-    listArr: [{
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 0
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 1
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 1
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 0
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 0
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 1
-      },
-      {
-        url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3941061157,1232986362&fm=26&gp=0.jpg',
-        name: '胡彬彬',
-        pinpai: '圣象',
-        num: '122',
-        statu: 0
-      }
-    ]
+    listArr: []
   },
 
   /**
@@ -72,7 +23,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '辅材管理',
     })
-    this.getList()
   },
   getLists(e){
     if(e.detail.index == this.data.index){
@@ -102,11 +52,12 @@ Page({
     data.pagesize = this.data.pagesize
     if (type) data.ground = type
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
-      console.log(res)
+     
       if(res.status == 0){
         this.setData({
           listArr:res.data
         })
+        console.log(this.data.listArr)
       }else{
         wx.showToast({
           title: res.msg,
@@ -129,7 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getList()
   },
 
   /**

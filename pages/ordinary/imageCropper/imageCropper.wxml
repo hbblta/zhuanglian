@@ -1,0 +1,14 @@
+<!--pages/ordinary/imageCropper/imageCropper.wxml-->
+<image-cropper 
+id="image-cropper" 
+limit_move="{{true}}" 
+disable_rotate="{{true}}" 
+width="{{width}}" 
+height="{{height}}" 
+imgSrc="{{src}}" 
+setCutCenter='{{true}}' 
+disable_ratio='{{true}}'
+bindload="cropperload" 
+bindimageload="loadimage" 
+bindtapcut="clickcut" ></image-cropper>
+<view bindtap="getImg" class="imageCropperButton">确定</view>

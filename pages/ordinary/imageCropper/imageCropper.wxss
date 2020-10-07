@@ -1,0 +1,16 @@
+/* pages/ordinary/imageCropper/imageCropper.wxss */
+.imageCropperButton{
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 140rpx;
+  height: 44rpx;
+  z-index: 1;
+  line-height: 44rpx;
+  border-radius: 40rpx;
+  background-color: rgba(0, 129, 255, 100);
+  color: rgba(255, 255, 255, 100);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+}

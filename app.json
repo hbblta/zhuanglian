@@ -80,7 +80,8 @@
         "reportClient/reportClient",
         "orderListDetails/orderListDetails",
         "commissionSettings/commissionSettings",
-        "followUp/followUp"
+        "followUp/followUp",
+        "articRelease/articRelease"
       ]
     },
     {

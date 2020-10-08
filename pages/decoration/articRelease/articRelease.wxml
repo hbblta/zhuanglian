@@ -1,0 +1,20 @@
+<!--pages/decoration/articRelease/articRelease.wxml-->
+<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle"><text>商品描述</text><image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image></view>
+  <view class="effectPictureEditEditor">
+    <editor
+      id="editor"
+      class="ql-container"
+      placeholder="{{placeholder}}"
+      showImgSize
+      showImgToolbar
+      showImgResize
+      bindinput='editorData'
+      bindstatuschange="onStatusChange"
+      read-only="{{readOnly}}"
+      bindready="onEditorReady">
+    </editor>
+  </view>
+  <view class="floatingButton">发布</view>
+</view>

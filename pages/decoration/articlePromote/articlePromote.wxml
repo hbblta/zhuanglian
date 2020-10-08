@@ -10,4 +10,4 @@
     <view class="articlePromoteDate">2020/05/30</view>
   </view>
 </view>
-<view class="articlePromoteButton">发布</view>
+<view class="articlePromoteButton" bindtap="goUrl" data-url="/pages/decoration/articRelease/articRelease">发布</view>

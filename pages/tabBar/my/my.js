@@ -59,7 +59,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration1.png',
         ordinaryTitle : '我的店铺',
-        ordinaryUrl : '/pages/ordinary/login/login'
+        ordinaryUrl : '/pages/decoration/myShop/myShop'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration2.png',
@@ -141,7 +141,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration1.png',
         ordinaryTitle : '我的店铺',
-        ordinaryUrl : '/pages/material/login/login'
+        ordinaryUrl : '/pages/decoration/myShop/myShop'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration2.png',

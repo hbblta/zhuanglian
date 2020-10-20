@@ -1,0 +1,26 @@
+<!--pages/decoration/myShop/myShop.wxml-->
+<view 
+      class="shopIocn">
+  <view
+      wx:for='{{shopTabList}}' 
+      wx:for-item='item' 
+      data-index='{{index}}'
+      wx:key='index' 
+      bindtap="changeIndex"
+  >
+    <image src="{{tabIndex == index ? item.changeIcon : item.iconUrl}}"></image>
+    <view class="{{tabIndex == index ? 'nowIcon' : ''}}">{{item.title}}</view>
+  </view>
+</view>
+<view wx:if="{{tabIndex == 0}}">
+  <searchHeader title='首页搜索'/>
+  <view class="swiperBox">
+		<swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)" indicator-active-color="rgba(255,255,255,1)">
+			<block wx:for="{{imgArr}}" wx:key="index">
+				<swiper-item>
+					<image src="{{item.imageUrl}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</view>

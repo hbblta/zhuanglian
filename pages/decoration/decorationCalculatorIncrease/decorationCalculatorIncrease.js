@@ -1,4 +1,5 @@
 // pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease.js
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +13,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    app.ajaxToken('/shop/getbudgets/'+app.globalData.userData.ShopID, '', 'get').then(res => {
+      console.log(res)
+      this.setData({
+        calaData : res.data
+      })
+    })
   },
 
   /**

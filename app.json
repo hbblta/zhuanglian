@@ -81,7 +81,8 @@
         "orderListDetails/orderListDetails",
         "commissionSettings/commissionSettings",
         "followUp/followUp",
-        "articRelease/articRelease"
+        "articRelease/articRelease",
+        "myShop/myShop"
       ]
     },
     {

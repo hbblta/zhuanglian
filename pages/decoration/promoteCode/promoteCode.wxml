@@ -1,12 +1,13 @@
 <!--pages/decoration/promoteCode/promoteCode.wxml-->
 <view class="promoteCode">
-  <image class="promoteCodeImg" src="../../../image/testImg/promoteCodeImg.png"></image>
-  <view class="promoteCodeRefresh">
+  <image wx:if="{{imgList.length}}" class="promoteCodeImg" src="{{imgList[imgIndex]}}"></image>
+  <image wx:if="{{!imgList.length}}" class="promoteCodeImg" src="../../../image/testImg/promoteCodeImg.png"></image>
+  <view class="promoteCodeRefresh" bindtap="imgChange">
     <text>换一张</text>
     <image src="../../../image/icon/refresh.svg"></image>
   </view>
   <view class="promoteCodeButton">
-    <text>保存图片</text>
-    <text>转发</text>
+    <text bindtap="saveImage">保存图片</text>
+    <text bindtap="shareImg">转发</text>
   </view>
 </view>

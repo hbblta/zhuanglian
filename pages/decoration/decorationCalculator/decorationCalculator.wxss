@@ -68,7 +68,7 @@ page{
   width: 700rpx;
   padding-left: 25rpx;
   padding-right: 25rpx;
-  height: 450rpx;
+  height: 300rpx;
 }
 .decorationCalculatorSetText{
   width: 700rpx;

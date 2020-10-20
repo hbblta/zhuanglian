@@ -1,23 +1,23 @@
 <!--pages/decoration/personnelDetails/personnelDetails.wxml-->
 <view class="personnelDetailsAll">
   <view class="personnelDetailsInput personnelDetailsHead">
-    <view class="personnelDetailsInputTitle">工作年限</view>
-    <view class="personnelDetailsInputContent">
-      <image class="personnelDetailsHeadeImg"></image>
+    <view class="personnelDetailsInputTitle">头像</view>
+    <view class="personnelDetailsInputContent" bindtap="upload">
+      <image class="personnelDetailsHeadeImg" src="{{src?src:''}}"></image>
       <image class="personnelDetailsInputContentMore" src="../../../image/icon/more.svg"></image>
     </view>
   </view>
   <view class="personnelDetailsInput">
     <view class="personnelDetailsInputTitle">姓名</view>
     <view class="personnelDetailsInputContent">
-      <input value="张三"></input>
+      <input value="{{name}}" bindinput="getName"></input>
       <image class="personnelDetailsInputContentMore"></image>
     </view>
   </view>
   <view class="personnelDetailsInput">
     <view class="personnelDetailsInputTitle">工作年限</view>
     <view class="personnelDetailsInputContent">
-      <input value="2" type="number"></input>
+      <input value="{{year}}" type="number" bindinput="getYear"></input>
       <image class="personnelDetailsInputContentMore"></image>
     </view>
   </view>

@@ -37,3 +37,17 @@ page{
   border-top: 1rpx solid #f7f7f7;
   background: #FFFFFF;
 }
+.materialOrderDefine{
+  width: 750rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+}

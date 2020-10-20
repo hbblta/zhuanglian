@@ -1,6 +1,6 @@
 /* pages/decoration/teamManagement/teamManagement.wxss */
 .materialOrderScroll{
-  padding-bottom: 350rpx;
+  height: calc(100% - 300rpx);
 }
 .materialOrderStatusList{
   white-space: nowrap;  

@@ -10,6 +10,10 @@ Component({
     textList: {
       type: Array,
       value: [],
+    },
+    keyword:{
+      type:String,
+      value:''
     }
   },
 
@@ -30,6 +34,9 @@ Component({
         textListIndex : e.currentTarget.dataset.index
       })
       this.triggerEvent('getList', {index:e.currentTarget.dataset.index})
+    },
+    inputValue(e){
+      this.triggerEvent('inputvalue',e.detail.value)
     }
   },
 })

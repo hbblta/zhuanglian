@@ -1,42 +1,42 @@
 <!--pages/decoration/effectPicture/effectPicture.wxml-->
-<generalSelectionlist textList='{{textList}}' bind:getList="getList">
-  <scroll-view slot="before" scroll-x="true" class="materialOrderStatusList">
-    	<view class="constructionSiteDetaView">
+<generalSelectionlist textList='{{textList}}' keyword="{{keyword}}" bind:getList="getList" bind:inputvalue="inputvalue">
+	<scroll-view slot="before" scroll-x="true" class="materialOrderStatusList">
+		<view class="constructionSiteDetaView">
 			<view class="constructionSiteDeta">
-				<text>2020/1/1</text>
+				<picker mode="date" bindchange="startchange">
+					<text>{{starttime?starttime:'开始时间'}}</text>
+				</picker>
 				—
-				<text>2020/5/20</text>
+				<picker mode="date" bindchange="endchange">
+					<text>{{endtime?endtime:'结束时间'}}</text>
+				</picker>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
 			<view class="constructionSiteDetaNum">数量: {{total}}个</view>
 		</view>
-  </scroll-view>
-  <view slot="after" class="materialOrderScroll">
-      <view wx:if="{{!list.length}}">暂无数据</view>
-      <view 
-      wx:for='{{list}}' 
-      wx:for-item='item' 
-      wx:for-index="listIndex" 
-      wx:key='listIndex' 
-      bindtap="goUrl"
-      data-url='/pages/decoration/constructionDetails/constructionDetails'
-      class="materialOrderList">
-        <view class="tip">{{textList[textIndex].name}}</view>
-        <view class="materialOrderListImg"><image src="{{item.Avatar}}"></image></view>
-        <view class="materialOrderListText">
-          <view>{{item.RealName}}</view>
-          <view>{{item.Mobile}}</view>
-          <view>成交时间：{{item.AddDate}}</view>
-          <view>项目经理：{{item.name}}</view>
-        </view>
-        <view class="home">
-          <view>地区名称：{{item.AreaStr}}</view>
-        </view>
-      </view>
-  </view>
+	</scroll-view>
+	<view slot="after" class="materialOrderScroll">
+		<scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
+      <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' bindtap="goUrl" data-url='/pages/decoration/constructionDetails/constructionDetails' class="materialOrderList">
+			<view class="tip">{{textList[textIndex].name}}</view>
+			<view class="materialOrderListImg">
+				<image src="{{item.Avatar}}"></image>
+			</view>
+			<view class="materialOrderListText">
+				<view>{{item.RealName}}</view>
+				<view>{{item.Mobile}}</view>
+				<view>成交时间：{{item.AddDate}}</view>
+				<view>项目经理：{{item.name}}</view>
+			</view>
+			<view class="home">
+				<view>地区名称：{{item.AreaStr}}</view>
+			</view>
+		</view>
+    </scroll-view>
+	</view>
 </generalSelectionlist>
 
 <!-- 工地报备的安钮，只有装企老板可报备 -->
 <view class="fix-btn" bindtap="goto">
-  工地报备
+	工地报备
 </view>

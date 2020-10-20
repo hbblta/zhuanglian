@@ -14,7 +14,7 @@
     <view class="searchInputViewBody">
       <view class="searchInputView">
         <icon class="icon-small" type="search" size="20"></icon>
-        <input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+        <input class="searchInput" type='text' value="{{keyword}}" bindinput="inputValue" confirm-type='search' placeholder='搜索' />
       </view>
     </view>
     <slot name="before"></slot>

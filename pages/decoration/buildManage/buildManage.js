@@ -6,16 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //开始 / 结束时间
+    starttime:'',
+    endtime:'',
     //渲染的list
     list:[
-      {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=910527016,2220695787&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3085552352,556493802&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3943584555,2366501618&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1877257905,591130638&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3842853828,78964374&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=978984144,3008825592&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1719075638,1065027568&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-      {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1829272418,1951610969&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'}
     ],
     //当前左边tab项
     textIndex:0,
@@ -27,6 +22,35 @@ Page({
     keyword:'',
     //当前返回的数据条数
     total:0
+  },
+  startchange(e){
+    this.setData({
+      starttime:e.detail.value
+    })
+    if(this.data.endtime){
+      this.setData({
+        list:[]
+      })
+      this.getUser()
+    }
+  },
+  endchange(e){
+    this.setData({
+      endtime:e.detail.value
+    })
+    if(this.data.starttime){
+      this.setData({
+        list:[]
+      })
+      this.getUser()
+    }
+  },
+  inputvalue(e){
+    this.setData({
+      keyword:e.detail,
+      list:[],
+    })
+    this.getUser()
   },
   //得到左边的tab列表
   getManageList(){
@@ -49,6 +73,18 @@ Page({
       }
     })
   },
+  //滚动条
+  scroll(e){
+    if(this.data.total<=this.data.page*10){
+      return
+    }
+    if(this.data.total>this.data.page*10){
+      this.setData({
+        page:this.data.page++
+      })
+      this.getUser()
+    }
+  },
   //得到右边的客户列表 初始化
   getUser(state){
     var data = {}
@@ -57,12 +93,14 @@ Page({
     data.state = this.data.textList[this.data.textIndex].State
     data.page = this.data.page
     data.pagesize = this.data.pagesize
+    data.begindate = this.data.starttime
+    data.enddate = this.data.endtime
     app.ajaxToken('/shop/getconstructionlist/'+app.globalData.userData.ShopID,data,'get').then( res =>{
       console.log(res)
       if(res.status == 0){
         this.setData({
           total:res.totalitem,
-          list:res.data
+          list:this.data.list.concat(res.data)
         })
       }else{
         wx.showToast({
@@ -81,7 +119,10 @@ Page({
       page:1,
       pagesize:10,
       total:0,
-      keyword:''
+      keyword:'',
+      endtime:'',
+      starttime:'',
+      list:[]
     })
     this.getUser(this.data.textList[index].State)
   },

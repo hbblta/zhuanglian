@@ -1,6 +1,6 @@
 /* pages/decoration/effectPicture/effectPicture.wxss */
 .materialOrderScroll{
-  padding-bottom: 350rpx;
+  height: calc(100% - 360rpx);
 }
 .materialOrderStatusList{
   white-space: nowrap;  

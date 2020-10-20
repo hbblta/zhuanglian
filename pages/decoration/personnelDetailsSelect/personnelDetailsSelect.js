@@ -5,7 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:''
+    name:'',
+    list:['设计师','实习设计师']
+  },
+  getName(e){
+    this.setData({
+      name:e.detail.value
+    })
+  },
+  active(e){
+    this.setData({
+      name:e.currentTarget.dataset.name
+    })
+  },
+  sure(){
+    let pages = getCurrentPages();
+    let current= pages[pages.length - 2];
+    current.setData({
+      sjs:this.data.name
+    })
+    wx.navigateBack()
   },
 
   /**

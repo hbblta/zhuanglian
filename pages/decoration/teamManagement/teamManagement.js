@@ -46,7 +46,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '团队管理'
     })
-    this.getUser()
   },
   //滚动条到底
   scroll(e){
@@ -77,7 +76,7 @@ Page({
   },
   
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
+    app.goUrl(e.currentTarget.dataset.url+'?type='+String(this.data.type))
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -90,7 +89,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUser()
   },
 
   /**

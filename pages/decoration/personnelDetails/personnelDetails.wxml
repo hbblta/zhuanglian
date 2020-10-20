@@ -24,7 +24,7 @@
   <view class="personnelDetailsInput">
     <view class="personnelDetailsInputTitle">职务(可选择/输入)</view>
     <view class="personnelDetailsInputContent">
-      <input value="设计师"></input>
+      <input value="{{sjs}}" bindinput="getSjs"></input>
       <image 
       bindtap="goUrl"  
       data-url='/pages/decoration/personnelDetailsSelect/personnelDetailsSelect' 
@@ -35,18 +35,18 @@
   <view class="personnelDetailsInput">
     <view class="personnelDetailsInputTitle">店铺内排序</view>
     <view class="personnelDetailsInputContent">
-      <input value="1" type="number"></input>
+      <input value="{{sort}}" type="number" bindinput="getSort"></input>
       <image class="personnelDetailsInputContentMore"></image>
     </view>
   </view>
 </view>
 <view class="personnelDetailsFeeling">
   <view>感悟</view>
-  <textarea placeholder="输入文字"></textarea>
+  <textarea placeholder="输入文字" value="{{perception}}" bindinput="getgw"></textarea>
 </view>
 <view class="personnelDetailsFeeling">
   <view>从业经历</view>
-  <textarea placeholder="输入文字"></textarea>
+  <textarea placeholder="输入文字" value="{{workingExperience}}" bindinput="getwork"></textarea>
 </view>
 <view>
   <view class="personnelDetailsAdd">
@@ -77,4 +77,4 @@
     </view>
   </view>
 </view>
-<view class="personnelDetailsButton">确定</view>
+<view class="personnelDetailsButton" bindtap="sure">确定</view>

@@ -41,7 +41,7 @@ page{
 .personnelDetailsHeadeImg{
   width: 100rpx;
   height: 100rpx;
-  background: #DDDDDD;
+  /* background: #DDDDDD; */
   border-radius: 8rpx;
   margin-right: 15rpx;
 }

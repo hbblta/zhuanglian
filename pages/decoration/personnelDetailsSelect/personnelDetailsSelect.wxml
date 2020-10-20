@@ -2,13 +2,12 @@
 <view class="personnelDetailsSelectEntert">
   <view class="personnelDetailsSelectEntertTitle">请选择职务</view>
   <view  class="personnelDetailsSelectEntertInput">
-  <input placeholder="如没有选择项目，可手动输入" value="{{name}}"></input></view>
+  <input placeholder="如没有选择项目，可手动输入" value="{{name}}" bindinput="getName"></input></view>
 </view>
 <view class="personnelDetailsSelectList">
-  <view>设计师</view>
-  <view>设计师</view>
+  <view wx:for="{{list}}" wx:key="index" bindtap="active" data-name="{{item}}">{{item}}</view>
 </view>
 
-<view class="materialOrderDefine">
+<view class="materialOrderDefine" bindtap="sure">
   确定
 </view>

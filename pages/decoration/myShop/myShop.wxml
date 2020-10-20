@@ -22,5 +22,35 @@
 				</swiper-item>
 			</block>
 		</swiper>
-	</view>
+  </view>
+  <view class="shopFeatures">
+      <view
+        wx:for='{{shopFeatures}}' 
+        wx:for-item='item' 
+        data-index='{{index}}'
+        data-url='{{item.url}}'
+        wx:key='index' 
+        bindtap="goUrl"
+      >
+        <image src="{{item.iconUrl}}"></image>
+        <view>{{item.title}}</view>
+      </view>
+  </view>
+  <view class="introduction">
+    <view class="introductionTitle">
+      <view>装企简介:</view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+    <view class="introductionBody">文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看</view>
+  </view>
+  <view class="shopMapPhone">
+    <view class="shopMapPhoneView">
+      <view>商家地址：金华市婺城区金谷创业园</view>
+      <image src="../../../image/shopIcon/map.png"></image>
+    </view>
+    <view class="shopMapPhoneView">
+      <view>商家电话：13555555555</view>
+      <image src="../../../image/shopIcon/phone.png"></image>
+    </view>
+  </view>
 </view>

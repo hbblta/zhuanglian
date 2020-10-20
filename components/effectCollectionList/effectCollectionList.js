@@ -12,7 +12,11 @@ Component({
         decorationAddress : '加载中',
         decorationPhone:'加载中'
       },
-    }
+    },
+    type: {
+      type: Number,
+      value: 1,
+    },
   },
 
   /**

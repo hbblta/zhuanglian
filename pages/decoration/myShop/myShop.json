@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "searchHeader": "/components/searchHeader/searchHeader"
+    "searchHeader": "/components/searchHeader/searchHeader",
+    "effectCollectionList": "/components/effectCollectionList/effectCollectionList"
   }
 }

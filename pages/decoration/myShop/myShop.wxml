@@ -1,40 +1,28 @@
 <!--pages/decoration/myShop/myShop.wxml-->
-<view 
-      class="shopIocn">
-  <view
-      wx:for='{{shopTabList}}' 
-      wx:for-item='item' 
-      data-index='{{index}}'
-      wx:key='index' 
-      bindtap="changeIndex"
-  >
+<view class="shopIocn">
+  <view wx:for='{{shopTabList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' bindtap="changeIndex">
     <image src="{{tabIndex == index ? item.changeIcon : item.iconUrl}}"></image>
     <view class="{{tabIndex == index ? 'nowIcon' : ''}}">{{item.title}}</view>
   </view>
 </view>
-<view wx:if="{{tabIndex == 0}}">
-  <searchHeader title='首页搜索'/>
+<view wx:if="{{tabIndex == 0}}" class="shopBody">
+  <searchHeader title='首页搜索' />
   <view class="swiperBox">
-		<swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)" indicator-active-color="rgba(255,255,255,1)">
-			<block wx:for="{{imgArr}}" wx:key="index">
-				<swiper-item>
-					<image src="{{item.imageUrl}}"></image>
-				</swiper-item>
-			</block>
-		</swiper>
+    <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+      indicator-active-color="rgba(255,255,255,1)">
+      <block wx:for="{{imgArr}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.imageUrl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <view class="shopFeatures">
-      <view
-        wx:for='{{shopFeatures}}' 
-        wx:for-item='item' 
-        data-index='{{index}}'
-        data-url='{{item.url}}'
-        wx:key='index' 
-        bindtap="goUrl"
-      >
-        <image src="{{item.iconUrl}}"></image>
-        <view>{{item.title}}</view>
-      </view>
+    <view wx:for='{{shopFeatures}}' wx:for-item='item' data-index='{{index}}' data-url='{{item.url}}' wx:key='index'
+      bindtap="goUrl">
+      <image src="{{item.iconUrl}}"></image>
+      <view>{{item.title}}</view>
+    </view>
   </view>
   <view class="introduction">
     <view class="introductionTitle">
@@ -53,5 +41,53 @@
       <image src="../../../image/shopIcon/phone.png"></image>
     </view>
   </view>
-  <view></view>
+  <view class="commissionType">
+    <view class="{{commissionType == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0'
+      bindtap="changeCommissionType">全部案例</view>
+    <view class="{{commissionType == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1'
+      bindtap="changeCommissionType">楼盘案例</view>
+  </view>
+  <view wx:if="{{commissionType == 0}}">
+    <effectCollectionList item='{{item}}' wx:for='{{list}}' wx:for-item='item' wx:for-index="index" wx:key='index' />
+  </view>
+  <view wx:if="{{commissionType == 1}}">
+    <effectCollectionList item='{{item}}' type='2' wx:for='{{list}}' wx:for-item='item' wx:for-index="index"
+      wx:key='index' />
+  </view>
+</view>
+
+<view wx:if="{{tabIndex == 4}}">
+  <view class="myHeader">
+    <view class="myUserMsgTwo">
+      <view class="myUserDate">
+        <image class="myUserImg" src="{{userData.Avatar}}"></image>
+        <view class="myUserName">{{userData.NickName}}</view>
+      </view>
+      <view class="myUserButton" bindtap="goUrl" data-url="">
+        设置
+      </view>
+    </view>
+  </view>
+  <view class="myManager">
+    <view class="withdraw">
+      <view class="withdrawIncome">我的收益: <text>10.00</text></view>
+      <view class="withdrawIncomeButton">
+        <view>明细</view>
+        <view>去体现</view>
+      </view>
+    </view>
+    <view class="withdrawIncomeYes">可提现: 10.00</view>
+    <view class="withdrawIncomeList">
+      <view>体现中: 10.00 </view>
+      <view>待确定: 10.00 </view>
+      <view>已提现: 10.00 </view>
+    </view>
+  </view>
+  <view class="myFeaturesList">
+    <view class="myFeatures" bindtap="goUrl" data-url='{{item.ordinaryUrl}}' wx:for='{{userFeaturesList}}'
+      wx:for-item='item' wx:for-index="index" wx:key='index'>
+      <image src='{{item.ordinaryIcon}}'></image>
+      <view>{{item.ordinaryTitle}}</view>
+    </view>
+  </view>
 </view>

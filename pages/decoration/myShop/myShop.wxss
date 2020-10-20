@@ -4,8 +4,11 @@ page{
   position: relative;
   height: 100%;
 }
+.shopBody{
+  padding-bottom: 120rpx;
+}
 .shopIocn{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   height: 100rpx;
@@ -97,4 +100,159 @@ page{
 .shopMapPhoneView image{
   width: 80rpx;
   height: 80rpx;
+}
+.commissionType{
+  height: 100rpx;
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  align-items: center;
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  width: 100%;
+}
+.commissionType .nowCommissionType{
+  color: #0081FF;
+  font-weight: 550;
+}
+
+
+.myHeader{
+  height: 200rpx;
+  width: 750rpx;
+  background: #FFFFFF;
+}
+.myUserMsgTwo{
+  width: 710rpx;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myUserDate{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.myUserImg{
+  height: 80rpx;
+  width: 80rpx;
+  margin-right: 30rpx;
+  background: #dddddd;
+  border-radius: 50%;
+}
+.myUserName{
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-weight: 550;
+}
+.myUserButton{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(0, 129, 255, 1);
+  background: #ffffff;
+}
+.myManager{
+  background: #FBE8D9;
+  width: 660rpx;
+  padding: 20rpx;
+  box-shadow: 0px 2rpx 6rpx 0px rgba(232, 231, 231, 0.4);
+  border-radius: 4rpx;
+  margin-left: 25rpx;
+  height: 150rpx;
+  margin-top: -50rpx;
+} 
+.withdraw{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.withdrawIncome{
+  color: rgba(95, 63, 48, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+}
+.withdrawIncome text{
+  color: rgba(95, 63, 48, 100);
+  font-size: 40rpx;
+  font-family: PingFangSC-bold;
+  margin-right: 20rpx;
+}
+.withdrawIncomeButton{
+  display: flex;
+}
+.withdrawIncomeButton view:nth-child(1){
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(95, 63, 48, 100);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  background-color: #FFFFFF;
+  border: 2rpx solid rgba(95, 63, 48, 100);
+}
+.withdrawIncomeButton view:nth-child(2){
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(255, 255, 255, 100);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(95, 63, 48, 100);
+  background-color: rgba(255, 138, 110, 100);
+  margin-left: 16rpx;
+}
+.withdrawIncomeYes{
+  color: rgba(95, 63, 48, 100);
+  font-size: 28rpx;
+  margin-top: 5rpx;
+  font-family: PingFangSC-regular;
+}
+.withdrawIncomeList{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25rpx;
+}
+.withdrawIncomeList view{
+  color: rgba(16, 16, 16, 100);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.myFeaturesList{
+  display: flex;
+  width: 700rpx;
+  margin-left: 20rpx;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  padding-bottom: 40rpx;
+  margin-top: 16rpx;
+}
+.myFeatures{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  width: 175rpx;
+  margin-top: 25rpx;
+}
+.myFeatures image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.myFeatures view{
+  color: rgba(48, 49, 51, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
 }

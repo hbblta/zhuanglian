@@ -1,49 +1,44 @@
 <!--pages/decoration/personnelDetailsAdd/personnelDetailsAdd.wxml-->
 <view>
-  <view class="effectPictureEditInput"><input placeholder="请填效果名称"></input></view>
-  <view class="effectPictureEditInput">
-    <input placeholder="风格名称（可选/可手输）"></input>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="effectPictureEditInput"><input placeholder="户型选择"></input></view>
-  <view class="effectPictureEditInput"><input placeholder="请填写面积"></input></view>
-  <view class="effectPictureEditInput"><input placeholder="输入复制的VR网址"></input></view>
-  <view class="effectPictureEditInput">
-    <input placeholder="装修清单" disabled="true"></input>
-    <view  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist'><image src="../../../image/icon/more.svg"></image></view>
-  </view>
+	<view class="effectPictureEditInput"><input value="{{name}}" bindinput="getname" placeholder="请填效果名称"></input></view>
+	<picker bindchange="bindPickerChange" value="{{fglistIndex}}" range="{{fglist}}" range-key="text">
+		<view class="effectPictureEditInput">
+			<input placeholder="风格名称" value="{{fgname}}"></input>
+			<view>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</view>
+	</picker>
+	<view class="effectPictureEditInput"><input value="{{houseHolds}}" bindtap="gethouse" placeholder="请填写户型"></input></view>
+	<view class="effectPictureEditInput"><input value="{{area}}" bindtap="getarea" placeholder="请填写面积"></input></view>
+	<view class="effectPictureEditInput"><input value="{{vrImageUrl}}" bindtap="getvr" placeholder="输入复制的VR网址"></input></view>
+	<!-- <view class="effectPictureEditInput">
+		<input placeholder="装修清单" disabled="true"></input>
+		<view bindtap="goUrl" data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist'>
+			<image src="../../../image/icon/more.svg"></image>
+		</view>
+	</view> -->
 </view>
-<view class="effectPictureEditMain effectPictureEditMainOne">
-  <view class="effectPictureEditMainTitle">主图上传</view>
+<!-- <view class="effectPictureEditMain effectPictureEditMainOne">
+	<view class="effectPictureEditMainTitle">主图上传</view>
+	<view>
+		<view class="effectPictureEditMainList">
+			<view class="effectPictureEditMainListData">
+				<image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+			</view>
+		</view>
+	</view>
+</view> -->
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle">图片上传</view>
   <view>
-    <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-    </view>
+    <uploadImage bind:getImagePath="getImagePath" imageLength='1' imageType='goods' />
   </view>
 </view>
 <view class="effectPictureEditMain">
   <view class="effectPictureEditMainTitle">效果图上传</view>
-  <view class="effectPictureEditMainList">
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input disabled="true"></input></view>
-    </view>
+  <view>
+    <uploadImage bind:getImagePath2="getImagePath2" imageLength='9' imageType='goods' />
   </view>
 </view>
-<view class="effectPictureEditSet">保存</view>
+<view class="effectPictureEditSet" bindtap="submit">保存</view>

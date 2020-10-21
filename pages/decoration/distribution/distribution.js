@@ -11,17 +11,21 @@ Page({
     textList : [
       {
         name : '分销团队',
-        id : 0
+        id : 2
       },
       {
         name : '分销审核',
-        id : 1
+        id : 0
       },
       {
         name : '团队分配',
         id : 2
       },
     ],
+    //默认分销团队
+    type:2,
+    keyword:'',
+    page:1
   },
 
   /**
@@ -34,14 +38,34 @@ Page({
     this.setData({
       generalIndex : this.selectComponent('#generalSelectionlist').data.textListIndex
     })
+    this.getUser()
+  },
+  getUser(){
+    var data={
+      keyword:this.data.keyword,
+      state:this.data.type,
+      page:this.data.page,
+      pagesize:10
+    }
+    app.ajaxToken('/shop/getdistributorlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
   getList(e){
+    var type = this.data.type
+    var index = e.detail.index
+    if(this.data.textList[index].id == type){
+      return
+    }
     this.setData({
-      generalIndex : e.detail.index
+      generalIndex : e.detail.index,
+      type:this.data.textList[index].id
     })
+    this.getUser()
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

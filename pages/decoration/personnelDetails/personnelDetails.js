@@ -7,6 +7,7 @@ Page({
    */
   data: {
     src:'',
+    savesrc:'',
     name:'',
     year:'',
     //设计团队1 施工团队2
@@ -15,7 +16,6 @@ Page({
     sort:'',
     perception:'',
     workingExperience:'',
-
   },
   getName(e){
     this.setData({
@@ -47,6 +47,17 @@ Page({
       workingExperience:e.detail.value
     })
   },
+  add(){
+    if(this.data.teamid){
+      app.goUrl('/pages/decoration/personnelDetailsAdd/personnelDetailsAdd')
+    }else{
+      wx.showToast({
+        title: '请先点击下方确定添加人员哦',
+        icon:'none',
+        mask:true
+      })
+    }
+  },
   sure(){
     if(!this.data.name){
       this.shows('请输入姓名')
@@ -71,7 +82,7 @@ Page({
     var data={
       teamType:this.data.type,
       realName:this.data.name,
-      avatar:this.data.src,
+      avatar:this.data.savesrc,
       post:this.data.sjs,
       sortKey:this.data.sort,
       workingYears:this.data.year,
@@ -79,14 +90,20 @@ Page({
       workingExperience:this.data.workingExperience
     } 
     //修改 编辑 人员ID
-    if(this.data.teamID){
-      data.teamID = this.data.teamID
+    if(this.data.teamid){
+      data.teamID = this.data.teamid
     }
     app.ajaxToken('/shop/addteam/'+app.globalData.userData.ShopID,data,'post').then(res=>{
       if(res.status == 0){
-        wx.showToast({
-          title: '添加成功',
-        })
+        if(this.data.teamid){
+          wx.showToast({
+            title: '修改成功',
+          })
+        }else{
+          wx.showToast({
+            title: '添加成功',
+          })
+        }
         setTimeout(()=>{
           wx.navigateBack()
         },1500)
@@ -97,6 +114,7 @@ Page({
         })
       }
     })
+    
   },
   shows(str){
     wx.showToast({
@@ -111,11 +129,28 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-     type:options.type
+     type:options.type,
+     teamid:options.teamid
     })
+    //编辑
+    if(options.teamid){
+      var pages = getCurrentPages()
+      var prevPage = pages[pages.length - 2]
+      var info = prevPage.data.info
+      this.setData({
+        src:info.AvatarUrl,
+        savesrc:info.Avatar,
+        name:info.RealName,
+        year:info.WorkingYears,
+        perception:info.Perception,
+        sjs:info.Post,
+        sort:info.SortKey,
+        workingExperience:info.WorkingExperience
+      })
+    }
   },
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
+    app.goUrl(e.currentTarget.dataset.url+'?teamid='+this.data.teamid)
   },
 
   upload(){
@@ -143,7 +178,8 @@ Page({
                 title: '上传成功',
               })
               that.setData({
-                src:JSON.parse(res.data).data.FileUrl
+                src:JSON.parse(res.data).data.FileUrl,
+                savesrc:JSON.parse(res.data).data.SaveName
               })
             }
           }

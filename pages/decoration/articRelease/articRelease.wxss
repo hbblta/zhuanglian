@@ -54,3 +54,8 @@ page{
   width: 45rpx;
   height: 45rpx;
 }
+
+.effectPictureEditInput image{
+  width: 30rpx;
+  height: 30rpx;
+}

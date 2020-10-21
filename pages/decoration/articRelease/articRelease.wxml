@@ -1,20 +1,21 @@
 <!--pages/decoration/articRelease/articRelease.wxml-->
-<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditInput"><input placeholder="请填写商品名称" bindinput="updateInput" data-key="title" ></input></view>
+<picker bindchange="bindPickerChange" value="{{getcategoriesShowIndex}}" range="{{getcategoriesShow}}">
+  <view class="effectPictureEditInput">
+    <input placeholder="资讯类别" value="{{getcategoriesShow[getcategoriesShowIndex]}}" disabled="true"></input>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+</picker>
 <view class="effectPictureEditMain">
-  <view class="effectPictureEditMainTitle"><text>商品描述</text><image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image></view>
+  <view class="effectPictureEditMainTitle"><text>商品描述</text>
+    <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
+  </view>
   <view class="effectPictureEditEditor">
-    <editor
-      id="editor"
-      class="ql-container"
-      placeholder="{{placeholder}}"
-      showImgSize
-      showImgToolbar
-      showImgResize
-      bindinput='editorData'
-      bindstatuschange="onStatusChange"
-      read-only="{{readOnly}}"
-      bindready="onEditorReady">
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+      bindinput='editorData' bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
     </editor>
   </view>
-  <view class="floatingButton">发布</view>
+  <view class="floatingButton" bindtap="submit">发布</view>
 </view>

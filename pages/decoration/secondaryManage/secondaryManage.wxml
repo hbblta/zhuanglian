@@ -2,7 +2,13 @@
 <searchTitle titleList='{{titleList}}' bind:getList='getLists'/>
 
 <view class="scroll">
-	<scroll-view style="height:100%" scroll-y="true">
+   <scroll-view 
+   style="height:100%" 
+   scroll-y="true" 
+   refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+   bindscrolltolower="getList">
 		<view 
       wx:for="{{listArr}}"
       data-index='{{index}}'

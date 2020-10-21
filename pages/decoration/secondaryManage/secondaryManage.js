@@ -7,12 +7,14 @@ Page({
    */
   data: {
     titleList: ['全部', '上架', '下架'],
-    //页面 页面数量
-    page: 1,
-    pagesize: 10,
+    fromData:{
+      page : 1,
+      pagesize : 10,
+    },
     //初始化索引
     index:0,
     //列表arr
+    tabIndex : '',
     listArr: []
   },
 
@@ -25,39 +27,30 @@ Page({
     })
   },
   getLists(e){
-    if(e.detail.index == this.data.index){
-      return
-    }else{
-      //初始化请求参数
-      this.setData({
-        index:e.detail.index,
-        page:1,
-        pagesize:10
-      })
-    }
-    if(e.detail.index){
-      if(e.detail.index == 2){
-        this.getList('0')
-      }else{
-        this.getList(1)
-      }
-    }else{
-      this.getList()
-    }
+    if(e.detail.index == this.data.index) return
+    this.setData({
+      index : e.detail.index,
+      tabIndex : e.detail.index == 1 ? 1 : e.detail.index == 2 ? 0 : ''
+    })
+    this.getList()
   },
-  getList(type) {
+  getList() {
+    var that = this
     // type 1:上架 0:下架 不传则为全部
-    var data = {}
-    data.page = this.data.page
-    data.pagesize = this.data.pagesize
-    if (type) data.ground = type
+    var data = {
+      page : this.data.fromData.page,
+      pagesize : this.data.fromData.pagesize,
+      ground : this.data.tabIndex
+    }
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
-     
       if(res.status == 0){
-        this.setData({
-          listArr:res.data
-        })
-        console.log(this.data.listArr)
+        if(that.data.fromData.page <= res.pagecount){
+          that.setData({
+            listArr:res.data,
+            totalCount : res.data.pagecount,
+            'fromData.page' : that.data.fromData.page ++
+          })
+        }
       }else{
         wx.showToast({
           title: res.msg,

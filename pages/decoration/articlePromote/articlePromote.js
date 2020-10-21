@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    titleList:['全部1','全部10','全部3','全部2','全部5','全部4']
+    titleList:[],
+    getcategoriesList : []
   },
 
   /**
@@ -16,10 +17,22 @@ Page({
     this.setData({
       ShopID:app.globalData.userData.ShopID
     })
+    app.ajaxToken('/common/getnewsclass', '', 'get').then(res => {
+      let arr = JSON.parse(res.data).map((data)=>{
+        return data.label
+      })
+      this.setData({
+        getcategoriesList : JSON.parse(res.data),
+        titleList : arr
+      })
+    })
     this.getInfo()
   },
   getInfo(){
-    app.ajaxToken('/shop/addcustomercategory/'+this.data.ShopID,{shopId:this.data.ShopID},'post').then(res => {//获取文章列表
+    var data = {
+      shopId:this.data.ShopID
+    }
+    app.ajaxToken('/shop/getnews/'+this.data.ShopID,data,'get').then(res => {//获取文章列表
       console.log(res)
     })
   },

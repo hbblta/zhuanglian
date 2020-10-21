@@ -1,11 +1,19 @@
 // pages/decoration/articRelease/articRelease.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    getcategoriesShowIndex : -1,
+    getcategoriesShow : [],
+    getcategoriesList : [],
+    fromData : {
+      classID : '',
+      title : '',
+      content : ''
+    }
   },
 
   /**
@@ -13,6 +21,30 @@ Page({
    */
   onLoad: function (options) {
     this.onEditorReady()
+    wx.setNavigationBarTitle({
+      title: '文章发布',
+    })
+    app.ajaxToken('/common/getnewsclass', '', 'get').then(res => {
+      let arr = JSON.parse(res.data).map((data)=>{
+        return data.label
+      })
+      this.setData({
+        getcategoriesList : JSON.parse(res.data),
+        getcategoriesShow : arr
+      })
+    })
+  },
+  updateInput(e) {
+    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
+    fromData[e.currentTarget.dataset.key] = e.detail.value
+    this.setData({
+      fromData : fromData
+    })
+  },
+  bindPickerChange(e){
+    this.setData({
+      getcategoriesShowIndex : e.detail.value
+    })
   },
   onEditorReady() {
     const that = this
@@ -21,19 +53,31 @@ Page({
     }).exec()
   },
   insertImage() {
-    const that = this
+    var that = this;
     wx.chooseImage({
-      count: 1,
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        that.editorCtx.insertImage({
-          src: res.tempFilePaths[0],
-          data: {
-            id: 'abcd',
-            role: 'god'
+        wx.uploadFile({
+          url: app.globalData.httpUrl + '/common/uploadimage',
+          filePath: res.tempFilePaths[0],
+          name: 'file',
+          header: {
+            "Authorization": app.globalData.Authorization
           },
-          width: '80%',
-          success: function () {
-            console.log('insert image success')
+          success: function (res) {
+            that.editorCtx.insertImage({
+              src: JSON.parse(res.data).data.FileUrl,
+              data: {
+                id: 'abcd',
+                role: 'god'
+              },
+              width: '80%',
+              success: function () {
+                console.log('insert image success')
+              }
+            })
           }
         })
       }
@@ -42,6 +86,27 @@ Page({
   editorData(e){
     this.setData({
       'fromData.content' : e.detail.html
+    })
+  },
+  submit(){
+    if(!this.data.getcategoriesList[this.data.getcategoriesShowIndex].value){
+      wx.showToast({
+        title: '请选择资讯类别',
+        icon : 'none'
+      })
+      return
+    }
+    var data = {
+      classID : this.data.getcategoriesList[this.data.getcategoriesShowIndex].value,
+      title : this.data.fromData.title,
+      content : this.data.fromData.content
+    }
+    app.ajaxToken('/shop/addnews/'+app.globalData.userData.ShopID, data, 'post').then(res => {
+     if(res.status == 0){
+       wx.navigateBack({
+         delta: 1,
+       })
+     }
     })
   },
   /**

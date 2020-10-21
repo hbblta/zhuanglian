@@ -33,6 +33,7 @@ Component({
       this.setData({
         textListIndex : e.currentTarget.dataset.index
       })
+      console.log(e)
       this.triggerEvent('getList', {index:e.currentTarget.dataset.index})
     },
     inputValue(e){

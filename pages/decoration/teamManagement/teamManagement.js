@@ -25,10 +25,13 @@ Page({
   },
   getList(e){
     var index = e.detail.index
+    var type = this.data.type
+    if(type == this.data.textList[index].id)return
     this.setData({
       type:this.data.textList[index].id,
       page:1,
-      keyword:''
+      keyword:'',
+      list:[]
     })
     this.getUser()
   },
@@ -47,9 +50,39 @@ Page({
       title: '团队管理'
     })
   },
+  delete(e){
+    var id = e.currentTarget.dataset.id
+    app.ajaxToken('/shop/delteam/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+          mask:true,
+        })
+        setTimeout(()=>{
+          this.setData({
+            page:1,
+            list:[]
+          })
+          this.getUser()
+        },1000)
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
+    })
+  },
   //滚动条到底
   scroll(e){
-    console.log(e)
+    if(this.data.total<=this.data.page * 10){
+      return
+    }else{
+      this.setData({
+        page:Number(this.data.page)+1
+      })
+      this.getUser()
+    }
   },
   //获取列表
   getUser(){
@@ -60,7 +93,6 @@ Page({
       pagesize:10,
     }
     app.ajaxToken('/shop/getteamlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
       if(res.status == 0){
         this.setData({
           total:res.totalitem,
@@ -76,7 +108,13 @@ Page({
   },
   
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url+'?type='+String(this.data.type))
+    if(e.currentTarget.dataset.type == 'add'){
+      //添加新成员
+     app.goUrl(e.currentTarget.dataset.url+'?type='+String(this.data.type))
+    }else{
+     app.goUrl(e.currentTarget.dataset.url+'?teamid='+e.currentTarget.dataset.id)
+    }
+    return
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -89,6 +127,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      list:[]
+    })
     this.getUser()
   },
 

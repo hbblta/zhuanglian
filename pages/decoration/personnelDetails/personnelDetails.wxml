@@ -51,12 +51,12 @@
 <view>
   <view class="personnelDetailsAdd">
     <view class="personnelDetailsAddTitle">作品案例</view>
-    <view class="personnelDetailsAddAddButton" bindtap="goUrl" data-url='/pages/decoration/personnelDetailsAdd/personnelDetailsAdd' >
+    <view class="personnelDetailsAddAddButton" bindtap="add" data-url='/pages/decoration/personnelDetailsAdd/personnelDetailsAdd' >
       <image src="../../../image/icon/increase.svg"></image>
       <view>添加案例</view>
     </view>
   </view> 
-  <view class="personnelDetailsListAll">
+  <!-- <view class="personnelDetailsListAll">
     <view class="personnelDetailsList">
       <view class="personnelDetailsListImg"><image></image></view>
       <view class="personnelDetailsListText">
@@ -75,6 +75,6 @@
       </view>
       <image class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
     </view>
-  </view>
+  </view> -->
 </view>
 <view class="personnelDetailsButton" bindtap="sure">确定</view>

@@ -2,24 +2,24 @@
 <generalSelectionlist textList='{{textList}}' bind:getList="getList" keyword="{{keyword}}" bind:inputvalue="inputvalue">
 	<view class="materialOrderScroll" slot="after">
 		<scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
-			<view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' bindtap="goUrl" data-url='/pages/decoration/teamManagementDetails/teamManagementDetails' class="materialOrderList">
+			<view wx:for='{{list}}' wx:for-item='item' data-id="{{item.TeamID}}" wx:for-index="listIndex" wx:key='listIndex' catchtap="goUrl" data-url='/pages/decoration/teamManagementDetails/teamManagementDetails' class="materialOrderList">
 				<view class="materialOrderListImg">
-					<image></image>
+					<image src="{{item.AvatarUrl}}"></image>
 				</view>
 				<view class="materialOrderListText">
 					<view class="materialOrderListName">
-						<view>姓名</view>
-						<view>职务: 首席设计师</view>
+						<view>{{item.RealName}}</view>
+						<view>职务: {{item.Post}}</view>
 					</view>
 					<view class="materialOrderListButton">
 						<text></text>
-						<text>删除</text>
+						<text catchtap="delete" data-id="{{item.TeamID}}">删除</text>
 					</view>
 				</view>
 			</view>
 			<view class="materialOrderIncrease">
 				<image src="../../../image/icon/increase.svg"></image>
-				<view bindtap="goUrl" data-url='/pages/decoration/personnelDetails/personnelDetails'>添加新成员</view>
+				<view bindtap="goUrl" data-type="add" data-url='/pages/decoration/personnelDetails/personnelDetails'>添加新成员</view>
 			</view>
 		</scroll-view>
 	</view>

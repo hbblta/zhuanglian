@@ -1,20 +1,20 @@
 <!--pages/decoration/teamManagementDetails/teamManagementDetails.wxml-->
 <view class="teamManagementDetailsUser">
-  <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+  <view class="teamManagementDetailsUserImg"><image src="{{info.AvatarUrl}}"></image></view>
   <view class="teamManagementDetailsUserText">
-    <view>姓名</view>
-    <view>职务: 首席设计师</view>
-    <view>工作年限: 12年</view>
-    <view>排序: 1</view>
+    <view>{{info.RealName}}</view>
+    <view>职务: {{info.Post}}</view>
+    <view>工作年限: {{info.WorkingYears}}年</view>
+    <view>排序: {{info.SortKey}}</view>
   </view>
 </view>
 <view class="teamManagementDetailsResume">
   <view>感悟</view>
-  <view class="teamManagementDetailsResumeText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
+  <view class="teamManagementDetailsResumeText">{{info.Perception}}</view>
 </view>
 <view class="teamManagementDetailsResume">
   <view>从业经历</view>
-  <view class="teamManagementDetailsResumeText">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
+  <view class="teamManagementDetailsResumeText">{{info.WorkingExperience}}</view>
 </view>
 <view class="teamManagementDetailsResume teamManagementDetailsResumeTwo">
   <view>作品案例</view>
@@ -63,5 +63,5 @@
 </view>
 <view class="teamManagementDetailsButton">
   <view  bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>编辑</view>
-  <view>删除</view>
+  <view bindtap="delete">删除</view>
 </view>

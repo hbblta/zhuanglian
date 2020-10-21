@@ -16,11 +16,41 @@ Page({
     wx.setNavigationBarTitle({
       title: '详情',
     })
+    this.setData({
+      teamid:options.teamid
+    })
+  },
+  getDetail(){
+    app.ajaxToken('/shop/getteamdetail/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+       this.setData({
+         info:res.data
+       })
+    })
+
   },
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
+    app.goUrl(e.currentTarget.dataset.url+'?teamid='+this.data.teamid)
   },
-
+  delete(e){
+    var id = this.data.teamid
+    app.ajaxToken('/shop/delteam/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+          mask:true,
+        })
+        setTimeout(() => {
+            wx.navigateBack()
+        }, 1500);
+     
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -32,7 +62,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(this.data.teamid){
+      this.getDetail()
+    }
   },
 
   /**

@@ -2,6 +2,27 @@
 page{
   background: #f7f7f7;
 }
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-bottom: 70rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .effectPictureEditInput{
   margin-top: 15rpx;
   width: 700rpx;

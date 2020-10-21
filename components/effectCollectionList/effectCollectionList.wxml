@@ -1,5 +1,22 @@
 <!--components/effectCollectionList/effectCollectionList.wxml-->
-<view class="decorationRecordingList">
+<view class="decorationRecordingList"  wx:if="{{type == 2}}">
+ <view class="decorationRecordingImg"> <image src="{{item.imgUrl}}" ></image></view>
+  <view class="decorationRecordingMsg">
+    <view class="decorationRecordingTitle">{{item.decorationName}}</view>
+    <view class="decorationRecordingStyle">
+      <text>户型: 7</text>
+    </view>
+    <view class="decorationRecordingMeun">
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../image/icon/materialcon.png'></image>
+        <text>户型查看</text>
+        <image src='../../image/icon/more.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="decorationRecordingList" wx:else>
  <view class="decorationRecordingImg"> <image src="{{item.imgUrl}}" ></image></view>
   <view class="decorationRecordingMsg">
     <view class="decorationRecordingTitle">{{item.decorationName}}</view>
@@ -21,3 +38,4 @@
     </view>
   </view>
 </view>
+

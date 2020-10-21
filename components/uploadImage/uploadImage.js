@@ -12,7 +12,7 @@ Component({
     imageType: {
       type: String,
       value: 'all'
-    }
+    },
   },
 
   /**

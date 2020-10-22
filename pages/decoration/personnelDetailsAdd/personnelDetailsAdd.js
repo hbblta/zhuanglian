@@ -49,7 +49,7 @@ Page({
     console.log(this.data.uploadImgList2)
   },
   submit(){//提交
-    if(!this.data.caseName){
+    if(!this.data.name){
       this.shows('请填写作品案例名称')
       return
     }

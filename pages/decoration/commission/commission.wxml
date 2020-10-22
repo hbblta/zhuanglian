@@ -15,7 +15,7 @@
 		<view class="searchInputViewBody">
 			<view class="searchInputView">
 				<icon class="icon-small" type="search" size="20"></icon>
-				<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+				<input class="searchInput" type='text' bindinput="getvalue" value="{{keyword}}" confirm-type='search' placeholder='搜索' />
 			</view>
 		</view>
     <view wx:if='{{commissionType == 0 }}'>

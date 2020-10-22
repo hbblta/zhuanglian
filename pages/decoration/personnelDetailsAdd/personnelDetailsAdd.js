@@ -42,12 +42,6 @@ Page({
     })
     console.log(this.data.uploadImgList)
   },
-  getImagePath2(e){
-    this.setData({
-      uploadImgList2  : e.detail
-    })
-    console.log(this.data.uploadImgList2)
-  },
   submit(){//提交
     if(!this.data.name){
       this.shows('请填写作品案例名称')
@@ -69,30 +63,23 @@ Page({
       this.shows('请选择主图')
       return
     }
-    var data = {
-      teamID:this.data.teamid,
-      caseName:this.data.name,
-      area:this.data.area,
-      styleID:this.data.fglist[this.data.fglistIndex.value],
-      houseHolds:this.data.houseHolds,
-      vrImageUrl:this.data.vrImageUrl
-    }
+
     var that = this
     wx.showLoading({
       title: '提交中',
       mask: true
     })
+    var data = {
+      teamID:this.data.teamid,
+      caseName:this.data.name,
+      area:this.data.area,
+      styleID:this.data.styleID,
+      houseHolds:this.data.houseHolds,
+    }
     this.callback(this.data.uploadImgList,(res)=>{
-      var data = {
-        // materialName : this.data.fromData.materialName,
-        // categoryID : this.data.getcategoriesList[this.data.getcategoriesShowIndex].value,
-        // brand : this.data.fromData.brand,
-        // modelNubmer : this.data.fromData.modelNubmer,
-        // content : this.data.fromData.content,
-        // isGround : this.data.fromData.isGround ? 1 : 0,
-        // images : res
-      }
-      app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {
+      data.image = res
+      console.log(data)
+      app.ajaxToken('/shop/addteamcase/'+app.globalData.userData.ShopID,data, 'post').then(res => {
         wx.hideLoading()
         wx.showToast({
           title: '发布成功',
@@ -155,7 +142,8 @@ Page({
   bindPickerChange: function(e) {
     this.setData({
       fgname:this.data.fglist[e.detail.value].text,
-      fglistIndex:e.detail.value
+      fglistIndex:e.detail.value,
+      styleID:this.data.fglist[this.data.fglistIndex].value
     })
   },
   goUrl(e){

@@ -40,6 +40,15 @@ Page({
     })
     this.getUser()
   },
+  inputvalue(e){
+    this.setData({
+      keyword:e.detail,
+      list:[],
+      page:1,
+      pagesize:10
+    })
+    this.getUser()
+  },
   getUser(){
     var data={
       keyword:this.data.keyword,
@@ -62,7 +71,8 @@ Page({
     }
     this.setData({
       generalIndex : e.detail.index,
-      type:this.data.textList[index].id
+      type:this.data.textList[index].id,
+      keyword:''
     })
     this.getUser()
 

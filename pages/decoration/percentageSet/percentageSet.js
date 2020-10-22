@@ -31,6 +31,9 @@ Page({
     wx.setNavigationBarTitle({
       title: '提成设置',
     })
+    this.getset()
+  },
+  getset(){
   },
 
   /**

@@ -39,6 +39,8 @@ Page({
     this.setData({
       keyword:e.detail,
       list:[],
+      page:1,
+      pagesize:10
     })
     this.getUser()
   },

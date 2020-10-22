@@ -49,7 +49,7 @@ Page({
   },
   add(){
     if(this.data.teamid){
-      app.goUrl('/pages/decoration/personnelDetailsAdd/personnelDetailsAdd')
+      app.goUrl('/pages/decoration/personnelDetailsAdd/personnelDetailsAdd?teamid='+this.data.teamid)
     }else{
       wx.showToast({
         title: '请先点击下方确定添加人员哦',
@@ -199,8 +199,18 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  getDetail(){
+    app.ajaxToken('/shop/getteamdetail/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+       this.setData({
+         info:res.data
+       })
+    })
 
+  },
+  onShow: function () {
+    if(this.data.teamid){
+      this.getDetail()
+    }
   },
 
   /**

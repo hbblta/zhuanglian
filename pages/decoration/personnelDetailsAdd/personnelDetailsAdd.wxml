@@ -3,15 +3,15 @@
 	<view class="effectPictureEditInput"><input value="{{name}}" bindinput="getname" placeholder="请填效果名称"></input></view>
 	<picker bindchange="bindPickerChange" value="{{fglistIndex}}" range="{{fglist}}" range-key="text">
 		<view class="effectPictureEditInput">
-			<input placeholder="风格名称" value="{{fgname}}"></input>
+			<input placeholder="风格名称" value="{{fgname}}" disabled="true"></input>
 			<view>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
 		</view>
 	</picker>
-	<view class="effectPictureEditInput"><input value="{{houseHolds}}" bindtap="gethouse" placeholder="请填写户型"></input></view>
-	<view class="effectPictureEditInput"><input value="{{area}}" bindtap="getarea" placeholder="请填写面积"></input></view>
-	<view class="effectPictureEditInput"><input value="{{vrImageUrl}}" bindtap="getvr" placeholder="输入复制的VR网址"></input></view>
+	<view class="effectPictureEditInput"><input value="{{houseHolds}}" bindinput="gethouse" placeholder="请填写户型"></input></view>
+	<view class="effectPictureEditInput"><input value="{{area}}" bindinput="getarea" placeholder="请填写面积"></input></view>
+	<view class="effectPictureEditInput"><input value="{{vrImageUrl}}" bindinput="getvr" placeholder="输入复制的VR网址"></input></view>
 	<!-- <view class="effectPictureEditInput">
 		<input placeholder="装修清单" disabled="true"></input>
 		<view bindtap="goUrl" data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist'>
@@ -35,10 +35,10 @@
     <uploadImage bind:getImagePath="getImagePath" imageLength='1' imageType='goods' />
   </view>
 </view>
-<view class="effectPictureEditMain">
+<!-- <view class="effectPictureEditMain">
   <view class="effectPictureEditMainTitle">效果图上传</view>
   <view>
     <uploadImage bind:getImagePath2="getImagePath2" imageLength='9' imageType='goods' />
   </view>
-</view>
+</view> -->
 <view class="effectPictureEditSet" bindtap="submit">保存</view>

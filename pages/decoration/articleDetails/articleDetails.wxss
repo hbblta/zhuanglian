@@ -57,6 +57,11 @@ page{
   line-height: 94rpx;
   border-top: 1rpx solid rgba(247, 247, 247, 1);
   font-family: PingFangSC-regular;
+  display: flex;
+  align-items: center;
+}
+.articleDetailsUser  view:nth-child(3) input{
+  width: 100%;
 }
 .articleDetailsPoster{
   width: 100%;

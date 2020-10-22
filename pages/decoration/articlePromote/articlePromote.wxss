@@ -1,6 +1,8 @@
 /* pages/decoration/articlePromote/articlePromote.wxss */
 page{
-  background: #F7f7f7;
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
 }
 .articlePromoteList{
   display: flex;
@@ -39,6 +41,13 @@ page{
   color: #9FA1A6;
   font-size: 28rpx;
   font-family: PingFangSC-regular;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .articlePromoteDate{
   color: #9FA1A6;
@@ -58,4 +67,10 @@ page{
   text-align: center;
   font-family: Arial;
   border: 2rpx solid rgba(255, 255, 255, 0);
+}
+.scroll{
+  width: 100%;
+  height: calc(100% - 200rpx);
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
 }

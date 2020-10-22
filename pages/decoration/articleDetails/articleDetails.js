@@ -1,22 +1,39 @@
-// pages/decoration/articleDetails/articleDetails.js
+// pages/decoration/articleDetails/articleDetails.js\
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    newsId : '',
+    articleData : {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      newsId : options.newsId
+    })
     wx.setNavigationBarTitle({
       title: '详情'
     })
+    this.getArticle()
   },
-
+  getArticle(){
+    app.ajaxToken('/shop/gettransfernewsdetail/'+app.globalData.userData.ShopID+'/'+this.data.newsId,'', 'get').then(res => {
+      this.setData({
+        articleData : res.data
+      })
+    })
+  },
+  inputChange(e){
+    this.setData({
+      'articleData.Signature' : e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -42,7 +59,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var data = {
+      content : this.data.articleData.Signature
+    }
+    app.ajaxToken('/shop/setsign/'+app.globalData.userData.ShopID,data, 'post').then(res => {})
   },
 
   /**

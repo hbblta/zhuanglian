@@ -10,12 +10,14 @@ Page({
     fromData:{
       page : 1,
       pagesize : 10,
+      keyword : ''
     },
+    load : false,
     //初始化索引
     index:0,
     //列表arr
     tabIndex : '',
-    listArr: []
+    list: []
   },
 
   /**
@@ -26,11 +28,29 @@ Page({
       title: '辅材管理',
     })
   },
-  getLists(e){
-    if(e.detail.index == this.data.index) return
+  listChange(e){
+    if(e.detail.index){
+      if(e.detail.index == this.data.index) return
+      this.setData({
+        index : e.detail.index,
+        'fromData.page' : 1,
+        tabIndex : e.detail.index == 1 ? 1 : e.detail.index == 2 ? 0 : '',
+        list : []
+      })
+    }
+    if(e.detail.value){
+      this.setData({
+        'fromData.page' : 1,
+        'fromData.keyword' : e.detail.value,
+        list : []
+      })
+    }
+    this.getList()
+  },
+  loadresh(){
     this.setData({
-      index : e.detail.index,
-      tabIndex : e.detail.index == 1 ? 1 : e.detail.index == 2 ? 0 : ''
+      'fromData.page' : 1,
+      list : [],
     })
     this.getList()
   },
@@ -40,15 +60,16 @@ Page({
     var data = {
       page : this.data.fromData.page,
       pagesize : this.data.fromData.pagesize,
-      ground : this.data.tabIndex
+      ground : this.data.tabIndex,
+      keyword : this.data.fromData.keyword
     }
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
       if(res.status == 0){
         if(that.data.fromData.page <= res.pagecount){
           that.setData({
-            listArr:res.data,
-            totalCount : res.data.pagecount,
-            'fromData.page' : that.data.fromData.page ++
+            load : false,
+            list:res.data,
+            'fromData.page' : that.data.fromData.page + 1
           })
         }
       }else{

@@ -1,5 +1,5 @@
 <!--pages/decoration/secondaryManage/secondaryManage.wxml-->
-<searchTitle titleList='{{titleList}}' bind:getList='getLists'/>
+<searchTitle titleList='{{titleList}}' bind:getList='listChange'/>
 
 <view class="scroll">
    <scroll-view 
@@ -10,7 +10,7 @@
    bindrefresherrefresh="loadresh" 
    bindscrolltolower="getList">
 		<view 
-      wx:for="{{listArr}}"
+      wx:for="{{list}}"
       data-index='{{index}}'
       wx:key="index"
       class="manage-list">

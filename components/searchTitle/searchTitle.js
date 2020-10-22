@@ -26,6 +26,10 @@ Component({
         textListIndex : e.currentTarget.dataset.index
       })
       this.triggerEvent('getList', {index:e.currentTarget.dataset.index})
-    }
+    },
+    updateInput(e) {
+      this.triggerEvent('getList', {value:e.detail.value})
+    },
+    changeInput(e){},
   }
 })

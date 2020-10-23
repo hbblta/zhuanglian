@@ -19,46 +19,16 @@
 <view class="teamManagementDetailsResume teamManagementDetailsResumeTwo">
   <view>作品案例</view>
   <view>
-    <view class="teamManagementDetailsCase">
-      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
+    <view class="teamManagementDetailsCase" wx:for="{{case}}" wx:key="index">
+      <view class="teamManagementDetailsUserImg"><image src="{{item.ImageUrl[0]}}"></image></view>
       <view class="teamManagementDetailsCaseText">
-        <view>姓名</view>
-        <view>职务: 首席设计师</view>
-        <view>工作年限: 12年</view>
+        <view>{{item.CaseName}}</view>
+        <view>面积: {{item.Area}}平方</view>
+        <view>户型: {{item.HouseHolds}}</view>
       </view>
     </view>
-    <view class="teamManagementDetailsCase">
-      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
-      <view class="teamManagementDetailsCaseText">
-        <view>姓名</view>
-        <view>职务: 首席设计师</view>
-        <view>工作年限: 12年</view>
-      </view>
-    </view>
-    <view class="teamManagementDetailsCase">
-      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
-      <view class="teamManagementDetailsCaseText">
-        <view>姓名</view>
-        <view>职务: 首席设计师</view>
-        <view>工作年限: 12年</view>
-      </view>
-    </view>
-    <view class="teamManagementDetailsCase">
-      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
-      <view class="teamManagementDetailsCaseText">
-        <view>姓名</view>
-        <view>职务: 首席设计师</view>
-        <view>工作年限: 12年</view>
-      </view>
-    </view>
-    <view class="teamManagementDetailsCase">
-      <view class="teamManagementDetailsUserImg"><image src=""></image></view>
-      <view class="teamManagementDetailsCaseText">
-        <view>姓名</view>
-        <view>职务: 首席设计师</view>
-        <view>工作年限: 12年</view>
-      </view>
-    </view>
+  
+ 
   </view>
 </view>
 <view class="teamManagementDetailsButton">

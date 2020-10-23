@@ -16,6 +16,7 @@ Page({
     sort:'',
     perception:'',
     workingExperience:'',
+    case:[]
   },
   getName(e){
     this.setData({
@@ -129,25 +130,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-     type:options.type,
-     teamid:options.teamid
+     type:options.type?options.type:'',
+     teamid:options.teamid?options.teamid:''
     })
-    //编辑
-    if(options.teamid){
-      var pages = getCurrentPages()
-      var prevPage = pages[pages.length - 2]
-      var info = prevPage.data.info
-      this.setData({
-        src:info.AvatarUrl,
-        savesrc:info.Avatar,
-        name:info.RealName,
-        year:info.WorkingYears,
-        perception:info.Perception,
-        sjs:info.Post,
-        sort:info.SortKey,
-        workingExperience:info.WorkingExperience
-      })
-    }
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url+'?teamid='+this.data.teamid)
@@ -187,7 +172,53 @@ Page({
       }
     })
   },
-
+  getDetail(){
+    console.log(22)
+    app.ajaxToken('/shop/getteamdetail/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+       this.setData({
+         info:res.data
+       })
+       var info = this.data.info
+       this.setData({
+        src:info.AvatarUrl,
+        savesrc:info.Avatar,
+        name:info.RealName,
+        year:info.WorkingYears,
+        perception:info.Perception,
+        sjs:info.Post,
+        sort:info.SortKey,
+        workingExperience:info.WorkingExperience
+      })
+       if(this.data.info.Cases){
+         this.setData({
+           case:info.Cases
+         })
+       }
+       console.log(this.data,11)
+    })
+  },
+  delete(e){
+    console.log(e)
+    var id = e.currentTarget.dataset.id
+    app.ajaxToken('/shop/delteamcase/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+        if(res.status == 0){
+          wx.showToast({
+            title: res.msg,
+            mask:true,
+            duration:2000
+          })
+          setTimeout(() => {
+            this.getDetail()
+          }, 2000);
+        }else{
+          wx.showToast({
+            title: res.msg,
+            icon:"none",
+            mask:true
+          })
+        }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -199,14 +230,6 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  getDetail(){
-    app.ajaxToken('/shop/getteamdetail/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
-       this.setData({
-         info:res.data
-       })
-    })
-
-  },
   onShow: function () {
     if(this.data.teamid){
       this.getDetail()

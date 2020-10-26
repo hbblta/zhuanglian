@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    case:[]
   },
 
   /**
@@ -25,6 +25,11 @@ Page({
        this.setData({
          info:res.data
        })
+       if(this.data.info.Cases){
+         this.setData({
+           case:this.data.info.Cases
+         })
+       }
     })
 
   },

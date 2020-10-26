@@ -56,25 +56,17 @@
       <view>添加案例</view>
     </view>
   </view> 
-  <!-- <view class="personnelDetailsListAll">
-    <view class="personnelDetailsList">
-      <view class="personnelDetailsListImg"><image></image></view>
+  <view class="personnelDetailsListAll">
+    <view class="personnelDetailsList" wx:for="{{case}}" wx:key="index">
+      <view class="personnelDetailsListImg"><image src="{{item.ImageUrl[0]}}"></image></view>
       <view class="personnelDetailsListText">
-        <view>案例名称</view>
-        <view>面积：120平方</view>
-        <view>户型：三室一厅两卫</view>
+        <view>{{item.CaseName}}</view>
+        <view>面积：{{item.Area}}平方</view>
+        <view>户型：{{item.HouseHolds}}</view>
       </view>
-      <image class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
+      <image bindtap="delete" data-id="{{item.CaseID}}" class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
     </view>
-    <view class="personnelDetailsList">
-      <view class="personnelDetailsListImg"><image></image></view>
-      <view class="personnelDetailsListText">
-        <view>案例名称</view>
-        <view>面积：120平方</view>
-        <view>户型：三室一厅两卫</view>
-      </view>
-      <image class="personnelDetailsListDelete" src="../../../image/icon/delete.svg"></image>
-    </view>
-  </view> -->
+    
+  </view>
 </view>
 <view class="personnelDetailsButton" bindtap="sure">确定</view>

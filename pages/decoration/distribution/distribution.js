@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list : 2,
+    list : 0,
     generalIndex:0,
     textList : [
       {

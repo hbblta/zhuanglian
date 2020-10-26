@@ -5,7 +5,7 @@
   <input placeholder="如没有选择项目，可手动输入" value="{{name}}" bindinput="getName"></input></view>
 </view>
 <view class="personnelDetailsSelectList">
-  <view wx:for="{{list}}" wx:key="index" bindtap="active" data-name="{{item}}">{{item}}</view>
+  <view wx:for="{{list}}" wx:key="index" bindtap="active" data-name="{{item.text}}">{{item.text}}</view>
 </view>
 
 <view class="materialOrderDefine" bindtap="sure">

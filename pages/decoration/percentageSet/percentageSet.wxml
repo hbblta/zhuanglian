@@ -1,4 +1,8 @@
 <!--pages/decoration/percentageSet/percentageSet.wxml-->
+<view class="commissionType">
+	<view class="{{commissionType == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">按面积</view>
+	<view class="{{commissionType == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">按成交额</view>
+</view>
 <view class="setting"> 
   <view class="set-list" 
         wx:for="{{content}}" 
@@ -12,13 +16,9 @@
         wx:for="{{items.list}}" 
         class="list"
         data-index="{{index}}"
-        data-num="{{num}}"
-        bindtap="change"
         wx:key="index">
       <view>{{item.title}}</view>
-      <view>{{item.text}}</view>
-      <!-- css .setting .set-list .list>view:nth-child(3) -->
-      <image src="../../../image/icon/more.svg"></image>
+      <view><input type="text" bindinput="updateInput" value="{{item.value}}" data-num="{{item.num}}" data-key="{{item.key}}" placeholder="{{item.text}}"></input></view>
       </view>
   </view>
 </view>

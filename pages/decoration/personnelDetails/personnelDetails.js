@@ -53,7 +53,7 @@ Page({
       app.goUrl('/pages/decoration/personnelDetailsAdd/personnelDetailsAdd?teamid='+this.data.teamid)
     }else{
       wx.showToast({
-        title: '请先点击下方确定添加人员哦',
+        title: '编辑时才能添加案例',
         icon:'none',
         mask:true
       })

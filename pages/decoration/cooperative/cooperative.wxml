@@ -2,10 +2,10 @@
 <view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>
-		<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+		<input class="searchInput" type='text' confirm-type='search' bindinput="getvalue" value="{{keyword}}" placeholder='搜索' />
 	</view>
   <view class="searchType">
-    <view>区域</view>
+    <range class="range" bind:changearea="changearea" name="{{area?area:'区域'}}"></range>
     <image src="../../../image/icon/more.svg"></image>
   </view>
 </view>

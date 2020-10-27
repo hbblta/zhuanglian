@@ -17,7 +17,7 @@
 	</scroll-view>
 	<view slot="after" class="materialOrderScroll">
 		<scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
-      <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' bindtap="goUrl" data-url='/pages/decoration/constructionDetails/constructionDetails' class="materialOrderList">
+      <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' data-id = "{{item.ConstructionID}}" bindtap="goUrl" data-url='/pages/decoration/constructionDetails/constructionDetails' class="materialOrderList">
 			<view class="tip">{{textList[textIndex].name}}</view>
 			<view class="materialOrderListImg">
 				<image src="{{item.Avatar}}"></image>

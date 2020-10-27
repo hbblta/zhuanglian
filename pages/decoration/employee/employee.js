@@ -7,7 +7,17 @@ Page({
    */
   data: {
     commissionType : 0,
-    list:5
+    list:5,
+    keyword:'',
+    page:1,
+  },
+  getvalue(e){
+    this.setData({
+      keyword:e.detail.value,
+      page:1,
+      list:[]
+    })
+    this.getUser()
   },
 
   /**
@@ -21,7 +31,11 @@ Page({
   changeCommissionType(e){
     this.setData({
       commissionType : e.currentTarget.dataset.commissiontype,
+      page:1,
+      list:[],
+      keyword:''
     })
+    this.getUser()
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
@@ -32,12 +46,22 @@ Page({
   onReady: function () {
 
   },
+  getUser(){
+    var data = {
+      keyword:this.data.keyword,
+      state:this.data.commissionType?0:2,
+      page:this.data.page,
+    }
+    app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUser()
   },
 
   /**

@@ -23,6 +23,22 @@ Page({
         id: 2
       },
     ],
+    area:'',
+    areaid:'',
+    keyword:'',
+    page:1
+  },
+  getvalue(e){
+    this.setData({
+      keyword:e.detail.value
+    })
+  },
+  changearea(e){
+    console.log(e)
+    this.setData({
+      area:e.detail.name,
+      areaid:e.detail.id
+    })
   },
 
   /**

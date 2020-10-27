@@ -56,7 +56,14 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      scheduleNum : '50%'
+      scheduleNum : '50%',
+      id:options.id
+    })
+    this.getInfo()
+  },
+  getInfo(){
+    app.ajaxToken('/shop/getconstructiondetail/'+app.globalData.userData.ShopID+'/'+this.data.id,'','get').then(res=>{
+      console.log(res)
     })
   },
   bindPickerChange: function(e) {

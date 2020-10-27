@@ -8,6 +8,10 @@ Component({
     type: {
       type: Number,
       value: 0
+    },
+    name:{
+      type:String,
+      value:'申请区域'
     }
   },
   lifetimes: {
@@ -28,7 +32,6 @@ Component({
   data: {
     multiArray: [],
     multiIndex: [0, 0, 0],
-    name:'申请区域'
   },
 
   /**

@@ -127,7 +127,7 @@ Page({
     this.getUser(this.data.textList[index].State)
   },
   //跳转报备按钮
-  goto(){
+  goto(e){
     app.goUrl('/pages/decoration/workreport/workreport')
   },
 
@@ -141,7 +141,8 @@ Page({
   },
   
   goUrl(e) {
-    app.goUrl(e.currentTarget.dataset.url)
+    var id = e.currentTarget.dataset.id
+    app.goUrl(e.currentTarget.dataset.url+'?id='+id)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -154,6 +155,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(this.data.list.length){
+      this.setData({
+        list:[]
+      })
+    }
     this.getManageList()
   },
 

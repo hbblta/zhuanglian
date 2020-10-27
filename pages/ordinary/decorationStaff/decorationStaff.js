@@ -73,7 +73,7 @@ Page({
       }
       var data = {
         userId : this.data.userData.UserID,
-        costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
+        shopNo : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
         companyName : this.data.company,
         areaId : this.data.areaId,
         encryptedData:e.detail.encryptedData,

@@ -6,7 +6,7 @@
   z-index: -1;
   bottom: 0;
 }
-.decorationStaffInput input{
+.decorationStaffInput input,.decorationStaffInput .inputClass{
   margin-top: 50rpx;
   width: 640rpx;
   margin-left: 25rpx;
@@ -17,6 +17,7 @@
   background-color: rgba(247, 247, 247, 1);
   font-size: 28rpx;
   font-family: Arial;
+  line-height: 80rpx;
 }
 .decorationStaffPact{
   margin-left: 25rpx;
@@ -43,7 +44,7 @@
 .decorationStaffButton{
   margin-left: 25rpx;
   margin-top: 50rpx;
-  width: 700rpx;
+  width: 700rpx !important;
   height: 90rpx;
   line-height:90rpx;
   border-radius: 8rpx;
@@ -53,4 +54,5 @@
   text-align: center;
   font-family: Arial;
   border: 1px solid rgba(0, 129, 255, 1);
+  padding: 0;
 }

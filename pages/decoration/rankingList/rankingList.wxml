@@ -1,17 +1,43 @@
 <!--pages/decoration/rankingList/rankingList.wxml-->
 <view class="tab-top">
-	<view wx:for="{{tabText}}" class="{{tabIndex == index?'active':''}}" bindtap="tabChange" data-index="{{index}}" wx:key="index">
+	<view wx:for="{{tabText}}" class="{{tabIndex == index?'active':''}}" bindtap="tabChange" data-index="{{index}}"
+		wx:key="index">
 		{{item}}
 	</view>
 </view>
 
 <!-- 员工排行榜排行条件 -->
 <view class="orderkind" wx:if="{{tabIndex==0}}">
-	<view>排行对象</view>
-	<view wx:key="index" wx:for="{{kindList}}" bindtap="personnelSort" data-index="{{index}}">
-		<text>{{item}}</text>
+	<!-- <view>排行对象</view> -->
+	<view>
+		<picker bindchange="bindPickerChange" range-key="name" range="{{rolearr}}" value="{{roleIndex}}">
+			<text>{{rolearr[roleIndex].name}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
-
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange2" range-key="name" range="{{typearr}}" value="{{typeIndex}}">
+			<text>{{typeIndex?typearr[typeIndex].name:'排行类别'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange3" range-key="name" range="{{orderarr}}" value="{{orderIndex}}">
+			<text>{{orderIndex?orderarr[orderIndex].name:'指标值'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange4" mode="date" value="{{date}}">
+			<text>{{date?date:'起始时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange5" mode="date" value="{{date2}}">
+			<text>{{date2?date2:'结束时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
 <!-- 分销排行榜排行条件 -->

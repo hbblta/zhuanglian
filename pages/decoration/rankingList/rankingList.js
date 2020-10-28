@@ -1,4 +1,5 @@
 // pages/decoration/rankingList/rankingList.js
+var app = getApp()
 Page({
 
   /**
@@ -33,7 +34,88 @@ Page({
         {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=978984144,3008825592&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:2},
         {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1719075638,1065027568&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:2},
         {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1829272418,1951610969&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:1}
-      ]
+      ],
+      //员工排行榜 
+      roleIndex:'0',
+      rolearr:[
+        {id:1,name:'开发员'},
+        {id:2,name:'跟单员'},
+        {id:3,name:'设计师'},
+      ],
+      typeIndex:'',
+      typearr:[
+        {id:1,name:'自营'},
+        {id:2,name:'下属'},
+        {id:3,name:'分销团队'},
+      ],
+      orderIndex:'',
+      orderarr:[],
+      orderarr1:[
+        {id:1,name:'客户量'},
+        {id:2,name:'设计量'},
+        {id:3,name:'成交量'},
+        {id:4,name:'成交额'},
+      ],
+      orderarr2:[
+        {id:1,name:'跟单量'},
+        {id:2,name:'设计量'},
+        {id:3,name:'成交量'},
+        {id:4,name:'成交额'},
+      ],
+      orderarr3:[
+        {id:1,name:'设计量'},
+        {id:2,name:'成交量'},
+        {id:3,name:'成交额'},
+      ],
+      date:'',
+      date2:'',
+      userpage:1
+  },
+  bindPickerChange(e){
+    this.setData({
+      roleIndex:e.detail.value,
+      orderIndex:''
+    })
+    var arr = []
+    if(e.detail.value == 0 ){
+      arr = this.data.orderarr1
+    }else if(e.detail.value == 1){
+      arr = this.data.orderarr2
+    }else{
+      arr = this.data.orderarr3
+    }
+    this.setData({
+      orderarr:arr
+    })
+    this.getUser()
+  },
+  bindPickerChange2(e){
+    this.setData({
+      typeIndex:e.detail.value
+    })
+    this.getUser()
+  },
+  bindPickerChange3(e){
+    this.setData({
+      orderIndex:e.detail.value
+    })
+    this.getUser()
+  },
+  bindPickerChange4(e){
+    this.setData({
+      date:e.detail.value
+    })
+    if(this.data.date&&this.data.date2){
+      this.getUser()
+    }
+  },
+  bindPickerChange5(e){
+    this.setData({
+      date2:e.detail.value
+    })
+    if(this.data.date&&this.data.date2){
+      this.getUser()
+    }
   },
   //tab切换
   tabChange(e){
@@ -41,11 +123,30 @@ Page({
       tabIndex:e.currentTarget.dataset.index
     })
   },
-  //员工排行榜排序条件点击
-  personnelSort(e){
-    var index = e.currentTarget.dataset.index
-    console.log('当前点击员工排行榜'+this.data.kindList[index])
+  //员工排行榜list
+  getUser(){
+    var data={
+      page:this.data.userpage,
+      role:this.data.roleIndex?this.data.rolearr[this.data.roleIndex].id:'',
+      // type:this.data.typeIndex?this.data.typearr[this.data.typeIndex].id:'',
+      // order:this.data.orderIndex?this.data.orderarr[this.data.orderIndex].id:''
+    }
+    if(this.data.typeIndex){
+      data.type = this.data.typearr[this.data.typeIndex].id
+    }
+    if(this.data.orderIndex){
+      data.type = this.data.orderarr[this.data.orderIndex].id
+    }
+    if(this.data.date&&this.data.date2){
+      data.begindate = this.data.date
+      data.enddate = this.data.date2
+    }
+    console.log(data)
+    app.ajaxToken('/shop/getstaffsortlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
   },
+
   //分销排行榜排序条件点击
   retailSort(e){
     var index = e.currentTarget.dataset.index
@@ -58,6 +159,11 @@ Page({
     wx.setNavigationBarTitle({
       title: '排行榜单',
     })
+    //不同角色不同数据
+    this.setData({
+      orderarr:this.data.orderarr1
+    })
+    this.getUser()
   },
 
   /**

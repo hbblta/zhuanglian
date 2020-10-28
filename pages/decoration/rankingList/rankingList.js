@@ -69,7 +69,17 @@ Page({
       ],
       date:'',
       date2:'',
-      userpage:1
+      userpage:1,
+      //分销排行榜
+      fxpage:1,
+      date3:'',
+      date4:'',
+      fxorderIndex:0,
+      fxorderarr:[
+        {id:1,name:'团队人数'},
+        {id:2,name:'成交量'},
+        {id:3,name:'成交额'}
+      ]
   },
   bindPickerChange(e){
     this.setData({
@@ -117,19 +127,50 @@ Page({
       this.getUser()
     }
   },
+  bindPickerChange6(e){
+    this.setData({
+      fxorderIndex:e.detail.value
+    })
+    this.getFx()
+  },
+  bindPickerChange7(e){
+    this.setData({
+      date3:e.detail.value
+    })
+    if(this.data.date3&&this.data.date4){
+      this.getFx()
+    }
+  },
+  bindPickerChange8(e){
+    this.setData({
+      date4:e.detail.value
+    })
+    if(this.data.date3&&this.data.date4){
+      this.getFx()
+    }
+  },
   //tab切换
   tabChange(e){
     this.setData({
       tabIndex:e.currentTarget.dataset.index
     })
+    if(this.data.tabIndex){
+      this.setData({
+        fxpage:1
+      })
+      this.getFx()
+    }else{
+      this.setData({
+        userpage:1
+      })
+      this.getFx()
+    }
   },
   //员工排行榜list
   getUser(){
     var data={
       page:this.data.userpage,
       role:this.data.roleIndex?this.data.rolearr[this.data.roleIndex].id:'',
-      // type:this.data.typeIndex?this.data.typearr[this.data.typeIndex].id:'',
-      // order:this.data.orderIndex?this.data.orderarr[this.data.orderIndex].id:''
     }
     if(this.data.typeIndex){
       data.type = this.data.typearr[this.data.typeIndex].id
@@ -145,6 +186,21 @@ Page({
     app.ajaxToken('/shop/getstaffsortlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
       console.log(res)
     })
+  },
+  //分销排行榜
+  getFx(){
+    var data={
+      page:this.data.fxpage,
+      order:this.data.fxorderarr[this.data.fxorderIndex].id
+    }
+    if(this.data.date3&&this.data.date4){
+      data.begindate = this.data.date3
+      data.enddate = this.data.date4
+    }
+    app.ajaxToken('/shop/getdistributorsortlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
+   
   },
 
   //分销排行榜排序条件点击

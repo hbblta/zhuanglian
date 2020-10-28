@@ -48,7 +48,7 @@ page{
   justify-content: flex-start;
 }
 .retail>view{
-  margin-right: 80rpx;
+  margin-right: 60rpx;
 }
 .scroll{
   width: 100%;

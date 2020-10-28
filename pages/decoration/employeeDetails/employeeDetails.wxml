@@ -2,12 +2,12 @@
 <view style="height:15rpx"></view>
 <view class="employeeDetailsUser">
 	<view class="employeeDetailsUserImg">
-		<image></image>
+		<image src="{{info.Avatar}}"></image>
 	</view>
 	<view class="employeeDetailsUserText">
-		<view>姓名</view>
-		<view>15616156342</view>
-		<view>加入时间: 2020?04?4</view>
+		<view>{{info.NickName}}</view>
+		<view>{{info.Mobile}}</view>
+		<view>加入时间: {{info.AddDate}}</view>
 	</view>
 </view>
 <view wx:if='{{!employeePay}}'>
@@ -38,7 +38,7 @@
 		</view>
 	</view>
 	<view class="employeeDetailsButton">
-		<view>驳回</view>
+		<view bindtap="oppose">驳回</view>
 		<view bindtap="changeEmployeePay">通过</view>
 	</view>
 </view>
@@ -57,7 +57,7 @@
 		<view>已同意<text>服务条款</text>虚拟产品，支付后不退开通费</view>
 	</view>
 </view>
-<view class="featuresPay">
+<view class="featuresPay" wx:if='{{employeePay}}'>
   <view>
     <text>订单价格<text>￥32399</text></text>
     <text>￥29923</text>

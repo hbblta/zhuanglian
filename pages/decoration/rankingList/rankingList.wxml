@@ -43,8 +43,22 @@
 <!-- 分销排行榜排行条件 -->
 
 <view class="orderkind retail" wx:if="{{tabIndex==1}}">
-	<view wx:key="index" wx:for="{{retailList}}" bindtap="retailSort" data-index="{{index}}">
-		<text>{{item}}</text>
+	<view>
+		<picker bindchange="bindPickerChange6" range-key="name" range="{{fxorderarr}}" value="{{fxorderIndex}}">
+			<text>{{fxorderarr[fxorderIndex].name}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange7" mode="date" value="{{date3}}">
+			<text>{{date3?date3:'起始时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange8" mode="date" value="{{date4}}">
+			<text>{{date4?date4:'结束时间'}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>

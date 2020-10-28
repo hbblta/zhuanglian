@@ -13,13 +13,17 @@ Page({
       realName : ''
     },
     selecteUser : true,
-    code:''
+    code:'',
+    ajaxUrl : ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      ajaxUrl : options.costType == 1 ? '/user/registerstaff' : '/user/registermaterialstaff'
+    })
     var that = this
     wx.setNavigationBarTitle({
       title: '申请'
@@ -105,8 +109,12 @@ Page({
         realName : this.data.fromData.realName,
       }
     }
-    app.ajaxToken('/user/registerstaff', data, 'post').then(res => {
-      console.log(res)
+    app.ajaxToken(this.data.ajaxUrl, data, 'post').then(res => {
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+      }
     })
   },
   /**

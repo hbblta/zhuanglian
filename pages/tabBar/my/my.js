@@ -184,6 +184,100 @@ Page({
         ordinaryUrl : '/pages/material/shopManage/shopManage'
       }
     ],//材料商功能
+    decorationClerkList:[
+      {
+        ordinaryIcon : '../../../image/icon/decoration1.png',
+        ordinaryTitle : '我的公司',
+        ordinaryUrl : '/pages/decoration/myShop/myShop'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration2.png',
+        ordinaryTitle : '我的推广码',
+        ordinaryUrl : '/pages/decoration/promoteCode/promoteCode'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration3.png',
+        ordinaryTitle : '文章引流',
+        ordinaryUrl : '/pages/decoration/articlePromote/articlePromote'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration10.png',
+        ordinaryTitle : '我的客户',
+        ordinaryUrl : '/pages/decoration/clientManage/clientManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration11.png',
+        ordinaryTitle : '我的订单',
+        ordinaryUrl : '/pages/decoration/orderListManage/orderListManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/report.png',
+        ordinaryTitle : '客户报备',
+        ordinaryUrl : '/pages/decoration/orderListManage/orderListManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration9.png',
+        ordinaryTitle : '我的下属',
+        ordinaryUrl : '/pages/decoration/employee/employee'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration7.png',
+        ordinaryTitle : '我的分销',
+        ordinaryUrl : '/pages/decoration/distribution/distribution'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration14.png',
+        ordinaryTitle : '排行榜单',
+        ordinaryUrl : '/pages/decoration/rankingList/rankingList'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration15.png',
+        ordinaryTitle : '施工管理',
+        ordinaryUrl : '/pages/decoration/buildManage/buildManage'
+      }
+    ],//装修员工功能
+    materialClerkList:[
+      {
+        ordinaryIcon : '../../../image/icon/decoration1.png',
+        ordinaryTitle : '我的店铺',
+        ordinaryUrl : '/pages/decoration/myShop/myShop'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration2.png',
+        ordinaryTitle : '我的推广码',
+        ordinaryUrl : '/pages/decoration/promoteCode/promoteCode'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration3.png',
+        ordinaryTitle : '文章引流',
+        ordinaryUrl : '/pages/decoration/articlePromote/articlePromote'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration10.png',
+        ordinaryTitle : '我的客户',
+        ordinaryUrl : '/pages/decoration/clientManage/clientManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration11.png',
+        ordinaryTitle : '我的订单',
+        ordinaryUrl : '/pages/decoration/orderListManage/orderListManage'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration7.png',
+        ordinaryTitle : '我的装企',
+        ordinaryUrl : '/pages/decoration/distribution/distribution'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration9.png',
+        ordinaryTitle : '我的下属',
+        ordinaryUrl : '/pages/decoration/employee/employee'
+      },
+      {
+        ordinaryIcon : '../../../image/icon/decoration14.png',
+        ordinaryTitle : '排行榜单',
+        ordinaryUrl : '/pages/decoration/rankingList/rankingList'
+      }
+    ],//材料商员工功能
   },
 
   goUrl(e){

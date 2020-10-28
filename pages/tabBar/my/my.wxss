@@ -142,3 +142,46 @@ page{
   font-family: Arial;
   border: 2rpx solid rgba(255, 255, 255, 1);
 }
+.withdrawEdit{
+  width: 640rpx;
+  margin-left: 25rpx;
+  padding: 20rpx 30rpx;
+  border-radius: 4rpx;
+  background: #F8E5D6;
+  margin-top: 15rpx;
+}
+.withdrawEditAll{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.withdrawEditAllPrice{
+  color: rgba(95, 63, 48, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+}
+.withdrawEditAllPrice text{
+  color: rgba(95, 63, 48, 100);
+  font-size: 40rpx;
+  margin-left: 50rpx;
+  font-family: PingFangSC-bold;
+}
+.withdrawEditAllButton{
+  width: 120rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 60rpx;
+  color: rgba(95, 63, 48, 100);
+  font-size: 24rpx;
+  text-align: center;
+  font-family: Arial;
+  border: 2rpx solid rgba(95, 63, 48, 100);
+}
+.withdrawEditData text{
+  color: rgba(16, 16, 16, 100);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.withdrawEditData text:nth-child(2){
+  margin-left: 80rpx;
+}

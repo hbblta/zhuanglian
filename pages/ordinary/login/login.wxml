@@ -7,7 +7,7 @@
   </view>
   <view class="loginViewType">
     <view bindtap="goUrl" data-url='/pages/ordinary/decorationBossBuy/decorationBossBuy?costType=1'>企业</view>
-    <view bindtap="goUrl" data-url='/pages/ordinary/decorationStaff/decorationStaff?costType=2'>员工</view>
+    <view bindtap="goUrl" data-url='/pages/ordinary/decorationStaff/decorationStaff?costType=1'>员工</view>
   </view>
 </view>
 <view class="loginView orangeBack">
@@ -17,7 +17,7 @@
   </view>
   <view class="loginViewType">
     <view class="orangeFont"  bindtap="goUrl" data-url='/pages/ordinary/materialRegistration/materialRegistration?costType=3'>企业</view>
-    <view class="orangeFont"  bindtap="goUrl" data-url='/pages/ordinary/materialStaff/materialStaff?costType=4'>员工</view>
+    <view class="orangeFont"  bindtap="goUrl" data-url='/pages/ordinary/decorationStaff/decorationStaff?costType=2'>员工</view>
   </view>
 </view>
 <image class="applicationBk" src="../../../image/testImg/applicationBk.png"></image>

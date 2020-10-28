@@ -1,8 +1,8 @@
 <!--pages/ordinary/decorationStaff/decorationStaff.wxml-->
 <view class="decorationStaffInput">
-    <input placeholder="申请人"></input>
-    <view  class="inputClass"><range bind:changearea="changearea" type='2'></range></view>
-    <input placeholder="装企店码"></input>
+    <input  bindinput="updateInput" data-key="realName" placeholder="申请人"></input>
+    <!-- <view  class="inputClass"><range bind:changearea="changearea" type='2'></range></view> -->
+    <input bindinput="updateInput" data-key="shopNo" placeholder="装企店码"></input>
 </view>
 <view class="decorationStaffPact">
   <image bindtap="selecteChange" src="{{selecteUser ? '../../../image/icon/selected.svg' : '../../../image/icon/selecte.svg'}}"></image>

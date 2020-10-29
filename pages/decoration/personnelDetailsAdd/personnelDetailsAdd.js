@@ -105,7 +105,7 @@ Page({
         },
         success: function (res) {
           arr.push(JSON.parse(res.data).data.SaveName)
-          if(arr.length - 1 == i){
+          if(list.length - 1 == i){
             callFn(arr)
           }
         }

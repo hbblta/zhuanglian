@@ -82,16 +82,6 @@ page{
   display: flex;
   flex-wrap: wrap;
 }
-.realEstateEditorAllImgList view {
-  width:  110rpx;
-  height: 110rpx;
-  margin-right: 6rpx;
-  margin-bottom: 20rpx;
-}
-.realEstateEditorAllImgList view image{
-  width:  110rpx;
-  height: 110rpx;
-}
 .effectPictureEditButtons{
   height: 100rpx;
   width: 510rpx;

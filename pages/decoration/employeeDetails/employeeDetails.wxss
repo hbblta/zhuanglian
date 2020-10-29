@@ -16,6 +16,10 @@ page{
   background: #DDDDDD;
   margin-right: 20rpx;
 }
+.employeeDetailsUserImg image{
+  width: 100%;
+  height: 100%;
+}
 .employeeDetailsUserText{
   display: flex;
   flex-direction: column;

@@ -8,21 +8,44 @@ Page({
   data: {
     userData : {},
     areaId : '',
-    selecteUser : true
+    fromData:{
+      shopNo : '',
+      realName : ''
+    },
+    selecteUser : true,
+    code:'',
+    ajaxUrl : ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      ajaxUrl : options.costType == 1 ? '/user/registerstaff' : '/user/registermaterialstaff'
+    })
+    var that = this
     wx.setNavigationBarTitle({
       title: '申请'
     })
     this.setData({
       userData : app.globalData.userData
     })
+    wx.login({
+      success: res => {
+        that.setData({
+          code : res.code
+        })
+      }
+    })
   },
-
+  updateInput(e) {
+    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
+    fromData[e.currentTarget.dataset.key] = e.detail.value
+    this.setData({
+      fromData : fromData
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -41,9 +64,16 @@ Page({
   },
   registerStaff(e){
     var that = this
-    if(this.data.company == ''){
+    if(this.data.fromData.shopNo == ''){
       wx.showToast({
-        title: '请填写公司名称',
+        title: '请填写装企店码',
+        icon :'none'
+      })
+      return
+    }
+    if(this.data.fromData.realName == ''){
+      wx.showToast({
+        title: '请填写申请人',
         icon :'none'
       })
       return
@@ -51,13 +81,6 @@ Page({
     if(!this.data.selecteUser){
       wx.showToast({
         title: '请勾选用户条款',
-        icon :'none'
-      })
-      return
-    }
-    if(!this.data.areaId){
-      wx.showToast({
-        title: '请选择区域',
         icon :'none'
       })
       return
@@ -73,9 +96,8 @@ Page({
       }
       var data = {
         userId : this.data.userData.UserID,
-        shopNo : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
-        companyName : this.data.company,
-        areaId : this.data.areaId,
+        shopNo : this.data.fromData.shopNo,
+        realName : this.data.fromData.realName,
         encryptedData:e.detail.encryptedData,
         iv : e.detail.iv,
         code:this.data.code
@@ -83,13 +105,16 @@ Page({
     }else{
       var data = {
         userId : this.data.userData.UserID,
-        costId : this.data.decorationBossBuyList[this.data.swiperIndex].CostID,
-        companyName : this.data.company,
-        areaId : this.data.areaId,
+        shopNo : this.data.fromData.shopNo,
+        realName : this.data.fromData.realName,
       }
     }
-    app.ajaxToken('/user/registerstaff', data, 'post').then(res => {
-      app.pay(res.data)
+    app.ajaxToken(this.data.ajaxUrl, data, 'post').then(res => {
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+      }
     })
   },
   /**

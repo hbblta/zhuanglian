@@ -7,18 +7,38 @@ Page({
    */
   data: {
     commissionType : 0,
-    list:5,
+    list:[],
     keyword:'',
     page:1,
+    totalitem:0,
+    flag:true,
+    nowObj:{}
   },
   getvalue(e){
     this.setData({
       keyword:e.detail.value,
       page:1,
+      flag:true,
+      totalitem:0,
       list:[]
     })
     this.getUser()
   },
+  scroll(e){
+    if(this.data.page * 10>this.data.totalitem){
+      return
+    }else{
+      if(this.data.flag){
+        //接口请求不成功 不改变flag
+        this.setData({
+          page:this.data.page++,
+          flag:false
+        })
+        this.getUser()
+      }
+    }
+  },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -33,11 +53,17 @@ Page({
       commissionType : e.currentTarget.dataset.commissiontype,
       page:1,
       list:[],
-      keyword:''
+      totalitem:0,
+      keyword:'',
+      flag:true
     })
     this.getUser()
   },
   goUrl(e){
+    var index = e.currentTarget.dataset.index
+    this.setData({
+      nowObj:this.data.list[index]
+    })
     app.goUrl(e.currentTarget.dataset.url)
   },
   /**
@@ -46,14 +72,24 @@ Page({
   onReady: function () {
 
   },
+  // delete(e){
+  //   var id = e.currentTarget.dataset.id
+  //   app.ajaxToken('/shop/delstaff/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+  //     console.log(res)
+  //   })
+  // },
   getUser(){
     var data = {
       keyword:this.data.keyword,
-      state:this.data.commissionType?0:2,
+      state:this.data.commissionType==1?0:2,
       page:this.data.page,
     }
     app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        list:this.data.list.concat(res.data),
+        totalitem:res.totalitem,
+        flag:true
+      })
     })
   },
 
@@ -61,6 +97,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      list:[],
+      page:1
+    })
     this.getUser()
   },
 

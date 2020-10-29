@@ -66,6 +66,7 @@ App({
         if ((res.data.UserType & that.globalData.userTypeList[i].userTypeId) == that.globalData.userTypeList[i].userTypeId) {
           console.log(that.globalData.userTypeList[i].typeName)
           changeTypeList[that.globalData.userTypeList[i].typeKey] = true
+          changeTypeList.nowUserText = that.globalData.userTypeList[i].typeName
         }
       }
       that.setGlobalData({

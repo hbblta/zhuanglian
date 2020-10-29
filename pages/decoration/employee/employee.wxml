@@ -14,7 +14,7 @@
   </view>
 </view>
 <view class="employeeListAll">
-  <scroll-view style="height:100%" scroll-y>
+  <scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
     <view class="employeeListData"
     wx:if='{{commissionType == 0}}'
     wx:for='{{list}}' 
@@ -52,17 +52,16 @@
     wx:for='{{list}}' 
     wx:for-item='item' 
     data-index='{{index}}'
-    bindtap="goUrl"  data-url='/pages/decoration/employeeDetails/employeeDetails'
+    catchtap="goUrl"  data-url='/pages/decoration/employeeDetails/employeeDetails'
     wx:key='index' >
       <view class="employeeList">
-        <view class="employeeImg"><image></image></view>
+        <view class="employeeImg"><image src="{{item.Avatar}}"></image></view>
         <view class="employeeText">
           <view class="employeeTextFlex employeeName">
-            <view>姓名</view>
-            <view> </view>
+            <view>{{item.NickName}}</view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>62165465154</view>
+            <view>{{item.Mobile}}</view>
             <view class="employeePentagram">
               <!-- <image src="../../../image/icon/pentagram.svg"></image>
               <image src="../../../image/icon/pentagram.svg"></image>
@@ -71,12 +70,12 @@
             </view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>加入时间: 2020/05/05</view>
+            <view>加入时间:{{item.AddDate}}</view>
             <view> </view>
           </view>
         </view>
       </view>
-      <view class="employeeDelete">
+      <view class="employeeDelete" catchtap="delete" data-id="{{item.StaffID}}">
         <view>删除</view>
       </view>
     </view>

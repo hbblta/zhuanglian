@@ -1,4 +1,5 @@
 // pages/decoration/employeeDetails/employeeDetails.js
+var app = getApp()
 Page({
 
   /**
@@ -34,7 +35,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let pages = getCurrentPages();
+    let current= pages[pages.length - 2];
+    this.setData({
+      info:current.data.nowObj
+    })
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -42,6 +47,20 @@ Page({
   changeEmployeePay(){
     this.setData({
       employeePay : true
+    })
+  },
+  //驳回
+  oppose(){
+    console.log(this.data.info)
+    app.ajaxToken('/shop/backstaff/'+app.globalData.userData.ShopID+'/'+this.data.info.StaffID,'','post').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+        setTimeout(() => {
+            wx.navigateBack()
+        }, 1500);
+      }
     })
   },
   /**

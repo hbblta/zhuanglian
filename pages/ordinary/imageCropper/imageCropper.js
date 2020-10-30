@@ -21,17 +21,33 @@ Page({
     //开始裁剪
     this.setData({
       src: options.imagUrl,
+      imageType : options.imageType
     });
     wx.showLoading({
       title: '加载中'
     })
   },
   getImg(){
+    var that = this
     this.cropper = this.selectComponent("#image-cropper");
     this.cropper.getImg((obj)=>{ //裁剪获取图片方法
-      app.globalData.cropperImgist.push(obj.url)
-      wx.navigateBack({
-        delta: 1 
+      wx.uploadFile({
+        url: app.globalData.httpUrl + '/common/uploadproduct',
+        filePath: obj.url,
+        name: 'file',
+        header: {
+          "Authorization": app.globalData.Authorization
+        },
+        success: function (res) {
+          app.globalData.cropperImg = {
+            FileUrl : JSON.parse(res.data).data.FileUrl,
+            SaveName : JSON.parse(res.data).data.SaveName,
+            imageType : that.data.imageType
+          }
+          wx.navigateBack({
+            delta: 1 
+          })
+        }
       })
     })
   },

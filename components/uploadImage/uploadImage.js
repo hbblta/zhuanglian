@@ -9,9 +9,13 @@ Component({
       type: Number,
       value: 9
     },
+    imageList:{
+      type: Array,
+      value: [],
+    },
     imageType: {
-      type: String,
-      value: 'all'
+      type: Number,
+      value: -1
     },
   },
 
@@ -19,7 +23,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    nowImgList: [],
   },
 
   /**
@@ -30,17 +33,22 @@ Component({
       // 在组件实例进入页面节点树时执行
     },
     detached: function() {
-      app.globalData.cropperImgist = []
       // 在组件实例被从页面节点树移除时执行
     },
   },
   pageLifetimes: {
     show: function() {
       // 页面被展示
-      this.setData({
-        nowImgList : app.globalData.cropperImgist
-      })
-      this.triggerEvent('getImagePath',this.data.nowImgList)
+      if(app.globalData.cropperImg != '' && this.data.imageType == app.globalData.cropperImg.imageType){
+        this.data.imageList.push(app.globalData.cropperImg)
+        this.triggerEvent('getImagePath',{
+          imageList :this.data.imageList,
+          imageType : app.globalData.cropperImg.imageType
+        })
+        setTimeout(()=>{
+          app.globalData.cropperImg = ''
+        },400)
+      }
     },
     hide: function() {
       // 页面被隐藏
@@ -57,13 +65,12 @@ Component({
         content: '确定删除这张图片吗',
         success (res) {
           if (res.confirm) {
-            var imageList = JSON.parse(JSON.stringify(that.data.nowImgList))
-            imageList.splice(e.currentTarget.dataset.index,1)
-            that.setData({
-              nowImgList : imageList
+            var imageType = that.data.imageList[e.currentTarget.dataset.index].imageType
+            that.data.imageList.splice(e.currentTarget.dataset.index,1)
+            that.triggerEvent('getImagePath',{
+              imageList :that.data.imageList,
+              imageType : imageType
             })
-            app.globalData.cropperImgist = imageList
-            that.triggerEvent('getImagePath',imageList)
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
@@ -75,11 +82,11 @@ Component({
     upload(e) {
       var that = this;
       wx.chooseImage({
-        count: that.data.imageLength - that.data.nowImgList.length, // 默认9
+        count: that.data.imageLength - that.data.imageList.length, // 默认9
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
         success: function (res) {
-          app.goUrl('/pages/ordinary/imageCropper/imageCropper?imagUrl='+res.tempFilePaths[0])
+          app.goUrl('/pages/ordinary/imageCropper/imageCropper?imagUrl='+res.tempFilePaths[0]+'&imageType='+that.data.imageType)
         }
       })
     },

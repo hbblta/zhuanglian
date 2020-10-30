@@ -4,21 +4,21 @@
   <view class="generalSelectionlist">
     <view bindtap="changIndex" data-index="-1" class="{{textListIndex == -1 ? 'generalSelectionCurrent' : ''}}">
       基础信息</view>
-    <view wx:for='{{textList}}' wx:for-item='item' wx:for-index="index" wx:key='index' data-index="{{index}}"
+    <view wx:for='{{formData.unitList}}' wx:for-item='item' wx:for-index="index" wx:key='index' data-index="{{index}}"
       bindtap="changIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
-      {{item.name}}
-      <image class="generalSelectionlistDelete" src="../../../image/icon/delete.svg"></image>
+      户型{{item.index+1}}
+      <image bindtap="deleteUnit" data-index="{{index}}" class="generalSelectionlistDelete" src="../../../image/icon/delete.svg"></image>
     </view>
-    <view class="realEstateEditorMoer">添加新户型+</view>
+    <view class="realEstateEditorMoer" bindtap="moreUnit">添加新户型+</view>
   </view>
   
   <!-- 基础信息 -->
   <view wx:if='{{textListIndex == -1}}'>
     <view class="realEstateEditorAllName"><input bindinput="propertyNameChange" placeholder="请填写楼盘名称"></input></view>
     <view class="realEstateEditorAllImg">
-      <view class="realEstateEditorAllImgTitle"><text>图片上传</text><text>{{formData.basisData.PropertyShowImage.length}}/3</text></view>
+      <view class="realEstateEditorAllImgTitle"><text>图片上传</text><text>{{formData.basisData.imageList.length}}/3</text></view>
       <view>
-           <uploadImage bind:getImagePath="getImagePath" imageLength='3' imageType='goods' />
+           <uploadImage  imageList='{{formData.basisData.imageList}}' bind:getImagePath="getImagePath" imageLength='3' imageType='-1' />
       </view>
     </view>
     <view class="effectPictureEditButtons">
@@ -34,7 +34,7 @@
       <view class="realEstateEditorAllImgTitle"><text>图片上传</text><text>0/8</text></view>
       <view class="realEstateEditorAllImgList">
         <view>
-          <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
+           <uploadImage  imageList='{{formData.unitList[textListIndex].imageList}}' bind:getImagePath="getImagePath" imageLength='3' imageType='{{textListIndex}}' />
         </view>
       </view>
     </view>

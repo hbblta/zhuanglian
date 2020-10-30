@@ -166,7 +166,7 @@ App({
     Authorization: '', //通用令牌
     httpUrl: 'https://api.dlkj369.com/api/v1.0',
     userData: {},
-    cropperImgist: [],
+    cropperImg: '',
     nowUserType: {
       type1: true, //普通会员
       type2: false, //装企店主

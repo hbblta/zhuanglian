@@ -4,12 +4,12 @@
     <image class="showImg" src="../../image/backgroundImg/effectPictureEditMore.png"></image>
   </view>
   <view class="uploadimageListData"
-        wx:for='{{nowImgList}}' 
+        wx:for='{{imageList}}' 
         wx:for-item='item' 
         data-index='{{index}}'
         wx:key='index' 
   >
-   <image class="showImg" src="{{item}}"></image>
+   <image class="showImg" src="{{item.FileUrl}}"></image>
    <image bindtap="deleteImg" data-index="{{index}}" class="delete" src="../../image/icon/delete.svg"></image>
   </view>
 </view>

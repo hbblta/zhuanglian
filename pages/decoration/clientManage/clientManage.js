@@ -40,7 +40,14 @@ Page({
     gradeIndex:'',
     gradearr:[
 
-    ]
+    ],
+    keyword:'',
+    page:1,
+  },
+  getvalue(e){
+    this.setData({
+      keyword:e.detail.value
+    })
   },
   bindPickerChange3(e) {
     this.setData({
@@ -95,6 +102,15 @@ Page({
       title: '客户详情'
     })
     this.getInfo()
+    this.getgrade()
+  },
+  //获取星级
+  getgrade(){
+    app.ajaxToken('/common/getintergralgrade/1','','get').then(res=>{
+      this.setData({
+        gradearr:res.data
+      })
+    })
   },
   //获取统计
   getInfo() {
@@ -110,12 +126,21 @@ Page({
   onReady: function () {
 
   },
-
+  //获取客户列表
+  getList(){
+    var data={
+      page:this.data.page,
+      keyword:this.data.keyword
+    }
+    app.ajaxToken('/shop/getcustomerlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getList()
   },
 
   /**

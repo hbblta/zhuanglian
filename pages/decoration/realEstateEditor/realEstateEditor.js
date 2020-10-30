@@ -22,6 +22,7 @@ Page({
       basisData : {
         propertyName : '',
         PropertyImage : [],
+        isGround : true,
         PropertyShowImage : []
       }
     }
@@ -55,6 +56,11 @@ Page({
       'formData.basisData.propertyName' : e.detail.value
     })
   },
+  changeIsGround(){//上下架更改状态
+    this.setData({
+      'formData.basisData.isGround' : !this.data.formData.basisData.isGround
+    })
+  },
   getImagePath(e){//获取组件图片
     this.setData({
       'formData.basisData.PropertyShowImage'  : e.detail
@@ -68,7 +74,11 @@ Page({
     // })
     this.callback(this.data.formData.basisData.PropertyShowImage,(res)=>{
       var data = {
-        images : res
+        basisData : {
+          PropertyImage : res,
+          propertyName : that.data.formData.basisData.propertyName,
+          isGround : this.data.formData.basisData.isGround
+        }
       }
       console.log(data)
       // app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {

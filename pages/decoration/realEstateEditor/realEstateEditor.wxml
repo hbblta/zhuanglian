@@ -1,5 +1,6 @@
 <!--pages/decoration/realEstateEditor/realEstateEditor.wxml-->
 <view style='height:{{windowHeight - 90}}rpx;' class="generalSelectionBody">
+  <!-- tab切换 -->
   <view class="generalSelectionlist">
     <view bindtap="changIndex" data-index="-1" class="{{textListIndex == -1 ? 'generalSelectionCurrent' : ''}}">
       基础信息</view>
@@ -10,6 +11,8 @@
     </view>
     <view class="realEstateEditorMoer">添加新户型+</view>
   </view>
+  
+  <!-- 基础信息 -->
   <view wx:if='{{textListIndex == -1}}'>
     <view class="realEstateEditorAllName"><input bindinput="propertyNameChange" placeholder="请填写楼盘名称"></input></view>
     <view class="realEstateEditorAllImg">
@@ -19,10 +22,12 @@
       </view>
     </view>
     <view class="effectPictureEditButtons">
-      <view class="nowButtons">上架</view>
-      <view>下架</view>
+      <view bindtap="changeIsGround" class="{{!formData.basisData.isGround? 'nowButtons' : ''}}">下架</view>
+      <view bindtap="changeIsGround" class="{{formData.basisData.isGround ? 'nowButtons' : ''}}">上架</view>
     </view>
   </view>
+
+  <!-- 户型列表 -->
   <view wx:else>
     <view class="realEstateEditorAllName"><input placeholder="请填写楼盘名称"></input></view>
     <view class="realEstateEditorAllImg">

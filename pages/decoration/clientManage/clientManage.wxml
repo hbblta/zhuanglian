@@ -11,16 +11,42 @@
 </view>
 
 <view class="typesort">
-	<view wx:for="{{tabType}}" wx:key="index">
-		<text>{{item}}</text>
+	<view>
+    <picker bindchange="bindPickerChange2" range-key="name" range="{{typearr}}" value="{{typeIndex}}">
+			<text>{{typeIndex?typearr[typeIndex].name:'客户类别'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+  </view>
+  <view>
+    <picker bindchange="bindPickerChange3" range-key="name" range="{{sourcearr}}" value="{{sourceIndex}}">
+			<text>{{sourceIndex?sourcearr[typeIndex].name:'客户来源'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+  </view>
+  <view>
+		<picker bindchange="bindPickerChange4" mode="date" value="{{date}}">
+			<text>{{date?date:'起始时间'}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
+	<view>
+		<picker bindchange="bindPickerChange5" mode="date" value="{{date2}}">
+			<text>{{date2?date2:'结束时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+  </view>
+  <view>
+    <picker bindchange="bindPickerChange6" range="{{gradearr}}" value="{{gradeIndex}}">
+			<text>{{gradeIndex?gradearr[gradeIndex]:'客户星级'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+  </view>
 </view>
 
 <view class="personal">
 	<view class="peoplesum">
-		<view>总数：66人</view>
-		<view>今日新增：3人</view>
+		<view>总数：{{info.Total}}人</view>
+		<view>今日新增：{{info.TodayCount}}人</view>
 	</view>
 	<view class="addpeople">
 		<view>增加：22人</view>

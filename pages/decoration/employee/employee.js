@@ -48,6 +48,7 @@ Page({
       title: '员工管理',
     })
   },
+
   changeCommissionType(e){
     this.setData({
       commissionType : e.currentTarget.dataset.commissiontype,
@@ -72,17 +73,50 @@ Page({
   onReady: function () {
 
   },
-  // delete(e){
-  //   var id = e.currentTarget.dataset.id
-  //   app.ajaxToken('/shop/delstaff/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
-  //     console.log(res)
-  //   })
-  // },
+  //删除全部员工
+  alldelete(e){
+    var id = e.currentTarget.dataset.id
+    app.ajaxToken('/shop/delstaff/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+        setTimeout(() => {
+            this.setData({
+              page:1,
+              list:[],
+              flag:true
+            })
+            this.getUser()
+        }, 1500);
+      }
+    })
+  },
+  //删除/驳回待审员工
+  delete(e){
+    var id = e.currentTarget.dataset.id
+    app.ajaxToken('/shop/backstaff/'+app.globalData.userData.ShopID+'/'+id,'','post').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+        setTimeout(() => {
+            this.setData({
+              page:1,
+              list:[],
+              flag:true
+            })
+            this.getUser()
+        }, 1500);
+      }
+    })
+  },
   getUser(){
     var data = {
       keyword:this.data.keyword,
       state:this.data.commissionType==1?0:2,
       page:this.data.page,
+      pagesize:30
     }
     app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
       this.setData({

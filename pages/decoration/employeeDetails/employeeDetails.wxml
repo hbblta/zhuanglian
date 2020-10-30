@@ -23,15 +23,23 @@
 		<view class="constructionDetailsPicker">
 			<view>TA的下级</view>
 			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-				<view class="constructionDetailsPickerData"><text>姓名/姓名</text>
+				<view class="constructionDetailsPickerData"><text>姓名/可多选</text>
 					<image src="../../../image/icon/more.svg"></image>
 				</view>
 			</picker>
 		</view>
 		<view class="constructionDetailsPicker">
 			<view>TA的身份</view>
-			<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-				<view class="constructionDetailsPickerData"><text>请选择</text>
+			<picker bindchange="bindPickerChange3" value="{{sfIndex}}" range="{{sfarray}}" range-key="text">
+				<view class="constructionDetailsPickerData"><text>{{sfIndex?sfarray[sfIndex].text:'请选择'}}</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="constructionDetailsPicker">
+			<view>付款方式</view>
+			<picker bindchange="bindPickerChange4" value="{{payIndex}}" range="{{payarray}}" range-key="Remark">
+				<view class="constructionDetailsPickerData"><text>{{payIndex?payarray[payIndex].Remark:'请选择'}}</text>
 					<image src="../../../image/icon/more.svg"></image>
 				</view>
 			</picker>
@@ -53,14 +61,13 @@
 		</view>
 	</view>
 	<view class="featuresProtocol">
-		<checkbox></checkbox>
+		<checkbox checked="{{checked}}" bindtap="checkboxChange"></checkbox>
 		<view>已同意<text>服务条款</text>虚拟产品，支付后不退开通费</view>
 	</view>
 </view>
 <view class="featuresPay" wx:if='{{employeePay}}'>
   <view>
-    <text>订单价格<text>￥32399</text></text>
-    <text>￥29923</text>
+    <text>订单价格<text>￥{{payarray[payIndex].Amount}}</text></text>
   </view>
-  <view>立即支付</view>
+  <view bindtap="pays">立即支付</view>
 </view>

@@ -1,4 +1,5 @@
 <!--pages/decoration/orderListManage/orderListManage.wxml-->
+<scroll-view class="scroll" scroll-y="true" bindscrolltolower="scroll">
 <view class="searchInputViewBody">
   <view class="searchInputView">
     <icon class="icon-small" type="search" size="20"></icon>
@@ -26,6 +27,12 @@
 	<view>
 		<picker bindchange="bindPickerChange6" range-key="GradeName" range="{{gradearr}}" value="{{gradeIndex}}">
 			<text>{{gradeIndex?gradearr[gradeIndex].GradeName:'客户星级'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+  <view>
+		<picker bindchange="bindPickerChange7" range-key="text" range="{{statearr}}" value="{{stateIndex}}">
+			<text>{{stateIndex?statearr[stateIndex].text:'订单状态'}}</text>
 		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
@@ -87,3 +94,4 @@
     </view>
   </view>
 </view>
+</scroll-view>

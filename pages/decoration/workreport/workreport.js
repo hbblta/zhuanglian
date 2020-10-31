@@ -6,117 +6,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:'',
-    phone:'',
-    //详细地址
-    address:'',
+    fromData:{
+      realName:'',
+      mobile:'',
+      address:'',
+    },
     //选择的地区
     area:'',
     //选择的地区id
     areaid:'',
-    //项目经理
-    objectArray: [
-      {
-        id: 0,
-        name: '中国'
-      },
-      {
-        id: 1,
-        name: '美国'
-      },
-      {
-        id: 2,
-        name: '德国'
-      },
-      {
-        id: 3,
-        name: '法国'
-      }
-    ],
+    userlist:[],
     //设计师
-    objectArray2: [
-      {
-        id: 0,
-        name: '中国'
-      },
-      {
-        id: 1,
-        name: '美国'
-      },
-      {
-        id: 2,
-        name: '德国'
-      },
-      {
-        id: 3,
-        name: '法国'
-      }
-    ],
-    //跟单人
-    objectArray3: [
-      {
-        id: 0,
-        name: '中国'
-      },
-      {
-        id: 1,
-        name: '美国'
-      },
-      {
-        id: 2,
-        name: '德国'
-      },
-      {
-        id: 3,
-        name: '法国'
-      }
-    ],
-    objectIndex: 0,//默认显示位置
-    objectIndex2: 0,
-    objectIndex3: 0,
-    value1:'',
-    value2:'',
-    value3:'',
-    //传给后端的id 项目经理 设计师 跟单人
-    id1:'',
-    id2:'',
-    id3:''
+    designerID:'',
+    //项目经理
+    projectManager:'',
+    //跟单员
+    trackerID:''
   },
-  bindPickerChange(e){
+  bindPickerChange1(e){
     this.setData({
-      value1:this.data.objectArray[e.detail.value].name,
-      id1:this.data.objectArray[e.detail.value].id
+      projectManager:e.detail.value
     })
   },
   bindPickerChange2(e){
     this.setData({
-      value2:this.data.objectArray[e.detail.value].name,
-      id2:this.data.objectArray[e.detail.value].id
+      designerID:e.detail.value
     })
   },
   bindPickerChange3(e){
     this.setData({
-      value3:this.data.objectArray[e.detail.value].name,
-      id3:this.data.objectArray[e.detail.value].id
+      trackerID:e.detail.value
     })
   },
-  getNameValue(e){
+  getvalue(e){
+    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
+    fromData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      name:e.detail.value
-    })
-  },
-  getPhoneValue(e){
-    this.setData({
-      phone:e.detail.value
-    })
-  },
-  getAddressValue(e){
-    this.setData({
-      address:e.detail.value
+      fromData : fromData
     })
   },
   changearea(e){
-    console.log(e)
     this.setData({
       area:e.detail.name,
       areaid:e.detail.id
@@ -124,19 +53,30 @@ Page({
   },
   goback(){
     var userId = app.globalData.userData.UserID
-    if(!this.data.name){
+    var datas = this.data.fromData
+    if(!datas.mobile){
+      wx.showToast({
+        title: '请先输入电话',
+        icon:'none'
+      })
+      return
+    }
+    if(!datas.realName){
       wx.showToast({
         title: '请先输入姓名',
         icon:'none'
       })
       return
     }
-    if(!this.data.phone){
+    if(!datas.address){
       wx.showToast({
-        title: '请先输入电话',
+        title: '请先填入详细地址',
         icon:'none'
       })
       return
+    }
+    var data = {
+      ...datas
     }
     if(!this.data.areaid){
       wx.showToast({
@@ -145,51 +85,31 @@ Page({
       })
       return
     }
-    if(!this.data.address){
-      wx.showToast({
-        title: '请先填入详细地址',
-        icon:'none'
-      })
-      return
-    }
-    if(!this.data.value1){
-      wx.showToast({
-        title: '请先选择项目经理',
-        icon:'none'
-      })
-      return
-    }
-    if(!this.data.value3){
+    if(!this.data.trackerID){
       wx.showToast({
         title: '请先选择跟单人',
         icon:'none'
       })
       return
     }
-    //必填
-    // var data = {
-    //   realName:this.data.name,
-    //   mobile:this.data.phone,
-    //   areaID:this.data.areaid,
-    //   address:this.data.address,
-    //   projectManager:this.data.value1,
-    //   trackerID:this.data.value3
-    // }
-    var data = {
-      realName:this.data.name,
-      mobile:this.data.phone,
-      areaID:this.data.areaid,
-      address:this.data.address,
-      projectManager:userId,
-      trackerID:userId
+    if(!this.data.projectManager){
+      wx.showToast({
+        title: '请先选择项目经理',
+        icon:'none'
+      })
+      return
     }
+    var data = {
+      ...datas
+    }
+    data.areaID = this.data.areaid
+    data.projectManager = this.data.userlist[this.data.projectManager].UserID
+    data.trackerID = this.data.userlist[this.data.trackerID].UserID
     //非必填
-    if(this.data.value2){
-      // data.designerID = this.data.value2
-      data.designerID = userId
+    if(this.data.designerID){
+      data.designerID = this.data.userlist[this.data.designerID].UserID
     }
     app.ajaxToken('/shop/reportconstruction/'+app.globalData.userData.ShopID,data,'post').then(res=>{
-      console.log(res)
       if(res.status == 0){
         wx.showToast({
           title: res.msg,
@@ -213,6 +133,20 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '工地报备'
+    })
+    this.getUser()
+  },
+  //员工列表
+  getUser(){
+    var data={
+      page:1,
+      pagesize:50,
+      state:2
+    }
+    app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        userlist:res.data
+      })
     })
   },
 

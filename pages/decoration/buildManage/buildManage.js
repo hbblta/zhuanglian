@@ -157,7 +157,8 @@ Page({
   onShow: function () {
     if(this.data.list.length){
       this.setData({
-        list:[]
+        list:[],
+        page:1
       })
     }
     this.getManageList()

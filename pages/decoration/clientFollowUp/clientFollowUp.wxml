@@ -5,7 +5,7 @@
 			<image class="{{item.Avatar?'':'black'}}" src="{{item.Avatar}}"></image>
 			<view>
 				<view class="name">
-					<view>{{item.NickName}}</view>
+					<view>{{item.NickName?item.NickName:item.RealName}}</view>
 					<view>
 						<image  wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
 					</view>

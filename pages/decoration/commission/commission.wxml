@@ -18,57 +18,60 @@
 				<input class="searchInput" type='text' bindinput="getvalue" value="{{keyword}}" confirm-type='search' placeholder='搜索' />
 			</view>
 		</view>
-    <view wx:if='{{commissionType == 0 }}'>
-        <view class="commissionUser" wx:if='{{textListIndex == 0}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
-          <view class="commissionUserImg"><image></image></view>
+    <view wx:if='{{commissionType == 0 }}' style="height:calc(100% - 140rpx)">
+        <view class="commissionUser" wx:for="{{list}}" wx:key="index" wx:if='{{textListIndex == 0}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+          <view class="commissionUserImg"><image  src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>总收入: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>总收入: {{item.Amount}}</view>
           </view>
         </view>
-        <view class="commissionUser" wx:if='{{textListIndex == 1}}'>
-          <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUser" wx:for="{{list}}" wx:key="index" wx:if='{{textListIndex == 1}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+          <view class="commissionUserImg"><image  src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>已提现: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>总收入: {{item.Amount}}</view>
           </view>
         </view>
-        <view class="commissionUser" wx:if='{{textListIndex == 2}}' bindtap="goUrl"  data-url='/pages/decoration/notWithdrawn/notWithdrawn'>
-          <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUser" wx:for="{{list}}" wx:key="index" wx:if='{{textListIndex == 2}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+          <view class="commissionUserImg"><image  src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>未提现: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>总收入: {{item.Amount}}</view>
           </view>
         </view>
-        <view class="commissionUser" wx:if='{{textListIndex == 3}}'>
-          <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUser" wx:for="{{list}}" wx:key="index" wx:if='{{textListIndex == 3}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+          <view class="commissionUserImg"><image  src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>提现申请: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>总收入: {{item.Amount}}</view>
           </view>
         </view>
-        <view class="commissionUser" wx:if='{{textListIndex == 4}}'>
-          <view class="commissionUserImg"><image></image></view>
+        <view class="commissionUser" wx:for="{{list}}" wx:key="index" wx:if='{{textListIndex == 4}}'  bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+          <view class="commissionUserImg"><image  src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>待确认提现: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>总收入: {{item.Amount}}</view>
           </view>
         </view>
     </view>
-    <view wx:else>
-        <view class="commissionUser"  bindtap="goUrl"  data-url='/pages/decoration/employeeWithdrawal/employeeWithdrawal'>
-          <view class="commissionUserImg"><image></image></view>
+    <view wx:else  style="height:calc(100% - 140rpx)">
+        <scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
+          <view class="commissionUser" wx:for="{{list}}" wx:key="index" bindtap="goUrl"  data-url='/pages/decoration/employeeWithdrawal/employeeWithdrawal'>
+          <view class="commissionUserImg"><image src="{{item.Avatar?item.Avatar:''}}"></image></view>
           <view class="commissionUserData">
-            <view>姓名</view>
-            <view>153216854641</view>
-            <view>{{textListIndex == 0 ? '总佣金' : textListIndex == 1 ? '已付佣金' : '未付佣金'}}: 1984.54</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.Mobile}}</view>
+            <view>{{textListIndex == 0 ? '总佣金' : textListIndex == 1 ? '已付佣金' : '未付佣金'}}: 
+              {{item.Amount}}</view>
           </view>
         </view>
+        </scroll-view>
     </view>
 	</view>
 </view>

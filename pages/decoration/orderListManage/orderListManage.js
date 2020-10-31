@@ -41,6 +41,8 @@ Page({
     gradearr:[
 
     ],
+    stateIndex:'',
+    statearr:[],
     keyword:'',
     page:1,
     pagecount:0,
@@ -110,6 +112,17 @@ Page({
       this.getList()
     }
   },
+  bindPickerChange7(e){
+    this.setData({
+      stateIndex: e.detail.value
+    })
+    this.setData({
+      page:1,
+      flag:true,
+      list:[]
+    })
+    this.getList()
+  },
   goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
   },
@@ -143,6 +156,15 @@ Page({
     })
     this.getInfo()
     this.getgrade()
+    this.getstate()
+  },
+  //获取订单状态
+  getstate(){
+    app.ajaxToken('/common/getdecorationorderstates','','get').then(res=>{
+      this.setData({
+        statearr:res.data
+      })
+    })
   },
   //获取星级
   getgrade(){
@@ -181,6 +203,9 @@ Page({
     }
     if(this.data.typeIndex){
       data.type = this.data.typearr[this.data.typeIndex].id
+    }
+    if(this.data.stateIndex){
+      data.state = this.data.statearr[this.data.stateIndex].value
     }
     app.ajaxToken('/shop/getorderlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
       this.setData({

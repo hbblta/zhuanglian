@@ -61,7 +61,10 @@ Page({
     page:1,
     keyword:'',
     //左边 tab 选项 默认总佣金1
-    type:1
+    type:1,
+    list:[],
+    flag:true,
+    pagecount:0
   },
 
   /**
@@ -147,6 +150,10 @@ Page({
         textListIndex : 0,
         commissionType : e.currentTarget.dataset.commissiontype,
         keyword:'',
+        list:[],
+        page:1,
+        pagecount:0,
+        flag:true,
         type:1
       })
       this.getShop()
@@ -156,7 +163,11 @@ Page({
         textListIndex :  0,
         commissionType : e.currentTarget.dataset.commissiontype,
         keyword:'',
-        type:1
+        type:1,
+        list:[],
+        page:1,
+        pagecount:0,
+        flag:true
       })
       this.getYuan()
       this.getygList()
@@ -171,7 +182,11 @@ Page({
       page:this.data.page
     }
     app.ajaxToken('/shop/getstaffcommissionlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        flag:true,
+        pagecount:res.pagecount,
+        list:this.data.list.concat(res.data)
+      })
     })
   },
   //获取分销提成的 人员列表
@@ -182,13 +197,21 @@ Page({
       page:this.data.page
     }
     app.ajaxToken('/shop/getdistributorcommissionlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        flag:true,
+        pagecount:res.pagecount,
+        list:this.data.list.concat(res.data)
+      })
     })
   },
   //input事件
   getvalue(e){
     this.setData({
-        keyword:e.detail.value
+        keyword:e.detail.value,
+        list:[],
+        page:1,
+        pagecount:0,
+        flag:true
     })
     if(this.data.commissionType == 1){
       this.getygList()
@@ -200,8 +223,11 @@ Page({
     var type = Number(this.data.textListIndex)+1
     this.setData({
       page:1,
-      keyword:'',
-      type
+      type,
+      list:[],
+      page:1,
+      pagecount:0,
+      flag:true
     })
     //员工提成获取列表
     if(this.data.commissionType==1){
@@ -212,6 +238,23 @@ Page({
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  scroll(e){
+    if(this.data.page<this.data.pagecount){
+      if(this.data.flag){
+        this.setData({
+          flag:false,
+          page:this.data.page+1
+        })
+        if(this.data.commissionType==1){
+          this.getfxList()
+        }else{
+          this.getygList()
+        }
+      }
+    }else{
+      return
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

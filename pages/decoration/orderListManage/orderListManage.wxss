@@ -62,7 +62,9 @@ page{
   font-size: 28rpx;
   color: #fff;
 }
-
+.black{
+  background-color: #999;
+}
 .typesort{
   box-sizing: border-box;
   height: 80rpx;
@@ -72,13 +74,13 @@ page{
   font-size: 24rpx;
   line-height: 24rpx;
   color: #909399;
-  justify-content: space-between;
   background-color: #fff;
 }
 .typesort>view{
   height: 100%;
   display: inline-flex;
   align-items: center;
+  margin-right: 20rpx;
 }
 
 .typesort image{

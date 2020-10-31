@@ -146,7 +146,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '客户详情'
+      title: '客户管理'
     })
     this.getInfo()
     this.getgrade()
@@ -186,22 +186,10 @@ Page({
     if(this.data.sourceIndex){
       data.source = this.data.sourcearr[this.data.sourceIndex].id
     }
-    console.log(app.globalData.userData)
+    if(this.data.typeIndex){
+      data.type = this.data.typearr[this.data.typeIndex].id
+    }
     app.ajaxToken('/shop/getcustomerlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      res.data=[
-        {
-          Avatar:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3068349715,719507215&fm=26&gp=0.jpg',
-          Mobile:'13216212336',
-          Star:'4',
-          AddDate:'2020-10-31',
-          DeveloperName:'xxx',
-          UserGrade:'0',
-          UserID:1,
-          ManagerID:2,
-          NickName:'胡彬彬',
-          GradeNam:'xx'
-        }
-      ]
       this.setData({
         list:this.data.list.concat(res.data),
         flag:true,

@@ -77,6 +77,9 @@ page{
   color: #909399;
   background-color: #fff;
 }
+.black{
+  background-color: #999;
+}
 .typesort>view{
   height: 100%;
   display: inline-flex;

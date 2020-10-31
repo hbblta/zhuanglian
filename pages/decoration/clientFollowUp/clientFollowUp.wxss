@@ -5,6 +5,9 @@ page{
   box-sizing: border-box;
 }
 
+.black{
+  background-color: #999;
+}
 
 .manageList{
   width: 100%;

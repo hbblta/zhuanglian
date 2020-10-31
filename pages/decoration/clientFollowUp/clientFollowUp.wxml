@@ -2,7 +2,7 @@
 <view class="user">
 	<view class="manageList">
 		<view class="listInfo">
-			<image src="{{item.Avatar}}"></image>
+			<image class="{{item.Avatar?'':'black'}}" src="{{item.Avatar}}"></image>
 			<view>
 				<view class="name">
 					<view>{{item.NickName}}</view>

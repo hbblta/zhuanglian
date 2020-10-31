@@ -52,19 +52,17 @@
 </view>
 <view class="manageList"  wx:for="{{list}}" wx:key="index">
 	<view class="listInfo" catchtap="follow" data-index="{{index}}" data-id="{{item.UserID}}">
-		<image src="{{item.Avatar}}"></image>
+		<image class="{{item.Avatar?'':'black'}}" src="{{item.Avatar}}"></image>
 		<view>
 			<view class="name">
-				<view>{{item.NickName}}</view>
+				<view>{{item.NickName?item.NickName:item.RealName}}</view>
 				<view>
 					<image  wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
 				</view>
 			</view>
 			<view class="tags">
 				<view>
-					<text wx:if="{{item.UserGrade == 0}}">普通客户</text>
-					<text wx:if="{{item.UserGrade == 1}}">报单客户</text>
-					<text wx:if="{{item.UserGrade == 2}}">成交客户</text>
+					<text>{{item.SourceName}}</text>
 				</view>
 				<view>
 					{{item.GradeName}}
@@ -75,7 +73,7 @@
 				<view>加入时间：{{item.AddDate}}</view>
 			</view>
 			<view class="develop">
-				<view>开发人员：{{item.DeveloperName}}</view>
+				<view>开发人员：{{item.DeveloperName?item.DeveloperName:'无'}}</view>
 				<view>跟单人员：<text>{{item.ManagerName?item.ManagerName:'暂无'}}</text>
 					<image src="../../../image/icon/more.svg"></image>
 				</view>

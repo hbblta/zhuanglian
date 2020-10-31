@@ -1,23 +1,20 @@
 <!--pages/decoration/effectPictureChecklist/effectPictureChecklist.wxml-->
-<view style='height:{{windowHeight - 292}}rpx;'  class="generalSelectionBody">
-  <view class="generalSelectionlist">
-    <view 
-    wx:for='{{textList}}' 
-    wx:for-item='item' 
-    wx:for-index="textListIndex" 
-    wx:key='textListIndex' 
-    class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
-    {{item.name}}</view>
-  </view>
-  <view class="effectPictureChecklistData">
-    <view class="effectPictureChecklist"  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm'>
-      <view>油漆</view>
-      <image src="../../../image/icon/more.svg"></image>
+<generalSelectionlist textList='{{textList}}' bind:getList="getList">
+  <view slot="after" class="materialOrderScroll">
+    <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' class="materialOrderList">
+        <view class="effectPictureChecklist"  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm'>
+        <view>油漆</view>
+        <image src="../../../image/icon/more.svg"></image>
+      </view>
+      <view class="effectPictureReleaseAdd">
+        <image src="../../../image/icon/increase.svg"></image>
+        <view>添加材料</view>
+      </view>
     </view>
   </view>
-</view>
+</generalSelectionlist>
 <view class="generalSelectionlistText">
   <view>请输入总价</view>
-  <view>辅材+人工的总价</view>
+  <view><input type="number" placeholder="辅材+人工的总价"/></view>
   <view>确定</view>
 </view>

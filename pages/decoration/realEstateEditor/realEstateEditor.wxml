@@ -2,12 +2,11 @@
 <view style='height:{{windowHeight - 90}}rpx;' class="generalSelectionBody">
   <!-- tab切换 -->
   <view class="generalSelectionlist">
-    <view bindtap="changIndex" data-index="-1" class="{{textListIndex == -1 ? 'generalSelectionCurrent' : ''}}">
-      基础信息</view>
+    <view bindtap="changIndex" data-index="-1" class="{{textListIndex == -1 ? 'generalSelectionCurrent' : ''}}">基础信息</view>
     <view wx:for='{{formData.unitList}}' wx:for-item='item' wx:for-index="index" wx:key='index' data-index="{{index}}"
       bindtap="changIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}}">
-      户型{{item.index+1}}
-      <image bindtap="deleteUnit" data-index="{{index}}" class="generalSelectionlistDelete" src="../../../image/icon/delete.svg"></image>
+      户型{{index+1}}
+      <image catchtap="deleteUnit" data-index="{{index}}" class="generalSelectionlistDelete" src="../../../image/icon/delete.svg"></image>
     </view>
     <view class="realEstateEditorMoer" bindtap="moreUnit">添加新户型+</view>
   </view>
@@ -27,24 +26,31 @@
     </view>
   </view>
 
-  <!-- 户型列表 -->
+  <!-- 户型信息 -->
   <view wx:else>
-    <view class="realEstateEditorAllName"><input placeholder="请填写楼盘名称"></input></view>
+    <view class="realEstateEditorAllName"><input value="{{formData.unitList[textListIndex].title}}" bindinput="unitListNameChange" placeholder="请填写户型名称"></input></view>
     <view class="realEstateEditorAllImg">
-      <view class="realEstateEditorAllImgTitle"><text>图片上传</text><text>0/8</text></view>
+      <view class="realEstateEditorAllImgTitle"><text>图片上传</text><text>{{formData.unitList[textListIndex].imageList.length}}/3</text></view>
       <view class="realEstateEditorAllImgList">
         <view>
            <uploadImage  imageList='{{formData.unitList[textListIndex].imageList}}' bind:getImagePath="getImagePath" imageLength='3' imageType='{{textListIndex}}' />
         </view>
       </view>
     </view>
-    <view class="realEstateEditorMore" bindtap="goUrl"
+    <view 
+      class="realEstateEditorMore" 
+      bindtap="goUrl"
+      wx:for='{{formData.unitList[textListIndex].styleList}}' 
+      wx:for-item='item' 
+      wx:for-index="index" 
+      wx:key='index' 
+      data-index="{{index}}"
       data-url='/pages/decoration/realEstateEditorEdit/realEstateEditorEdit'>
-      <view>风格一</view>
+      <view>风格{{index+1}}</view>
       <image class="realEstateEditorMoreImg" src="../../../image/icon/more.svg"></image>
-      <image class="realEstateEditorMoreDelete" src="../../../image/icon/delete.svg"></image>
+      <image data-index="{{index}}" catchtap="deleteStyle" class="realEstateEditorMoreDelete" src="../../../image/icon/delete.svg"></image>
     </view>
-    <view class="effectPictureReleaseAdd">
+    <view class="effectPictureReleaseAdd" bindtap="addNewSytle">
       <image src="../../../image/icon/increase.svg"></image>
       <view>添加新风格</view>
     </view>

@@ -55,7 +55,9 @@ page{
 .generalSelectionlistText{
   background: #FFFFFF;
   height: 280rpx;
-  margin-top: 12rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 .generalSelectionlistText view:nth-child(1){
   color: rgba(85, 85, 85, 1);
@@ -79,6 +81,10 @@ page{
   width: 710rpx;
   margin-left: 20rpx;
 }
+.generalSelectionlistText view:nth-child(2) input{
+  height: 80rpx;
+  line-height: 80rpx;
+}
 .generalSelectionlistText view:nth-child(3){
   color: rgba(255, 255, 255, 1);
   font-size: 28rpx;
@@ -88,4 +94,18 @@ page{
   margin-top: 32rpx;
   height: 90rpx;
   line-height: 90rpx;
+}
+.effectPictureReleaseAdd{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  width: 470rpx;
+  font-family: PingFangSC-regular;
+}
+.effectPictureReleaseAdd image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
 }

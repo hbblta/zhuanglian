@@ -28,6 +28,7 @@ page{
   background: #0081FF;
   color: #FFFFFF;
   font-weight: 550;
+  transition: .3s all ease-in;
 }
 .realEstateEditorMoer{
   color: rgba(0, 129, 255, 1)!important;

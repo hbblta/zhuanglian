@@ -212,7 +212,8 @@ App({
         typeName: '装企分销员',
         typeKey: 'type7'
       },
-    ]
+    ],
+    styleListData : null
   }
 })
 // userType:{

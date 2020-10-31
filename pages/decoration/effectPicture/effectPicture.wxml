@@ -19,7 +19,6 @@
       </view>
     </view>
   </view>
-
 </generalSelectionlist>
 <view class="effectPictureButton">
   <view bindtap="goUrl" data-url='/pages/decoration/effectPictureEdit/effectPictureEdit'>效果发布</view>

@@ -1,73 +1,34 @@
 <!--pages/decoration/realEstateEditorEdit/realEstateEditorEdit.wxml-->
 <view>
-  <view class="effectPictureEditInput">
-    <input placeholder="风格名称（可选/可手输）"></input>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{styleListText}}">
+    <view class="effectPictureEditInput">
+      <input  disabled value="{{styleData.effectName}}" placeholder="风格名称"></input>
       <view><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="effectPictureEditInput"><input placeholder="输入复制的VR网址"></input></view>
-  <view class="effectPictureEditInput">
+    </view>
+  </picker>
+  <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="vrImageUrl" value="{{styleData.vrImageUrl}}" placeholder="输入复制的VR网址"></input></view>
+  <view class="effectPictureEditInput"><input type="number" bindinput="updateInput" data-key="area" value="{{styleData.area}}" placeholder="输入面积"></input></view>
+  <view data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist' bindtap="goUrl" class="effectPictureEditInput">
     <input placeholder="装修清单" disabled="true"></input>
-    <view  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist'><image src="../../../image/icon/more.svg"></image></view>
+    <view  ><image src="../../../image/icon/more.svg"></image></view>
   </view>
 </view>
 <view class="effectPictureEditMain effectPictureEditMainOne">
   <view class="effectPictureEditMainTitle">主图上传</view>
   <view>
     <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
+      <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
     </view>
   </view>
 </view>
-<view class="effectPictureEditMain">
+<!-- <view class="effectPictureEditMain effectPictureEditMainOne">
   <view class="effectPictureEditMainTitle">效果图上传</view>
   <view class="effectPictureEditMainList">
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input disabled="true"></input></view>
-    </view>
+    <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
   </view>
-</view>
+</view> -->
+<view style="height:100rpx"></view>
 <view class="effectPictureEditSet">
   <view>删除</view>
-  <view>保存</view>
+  <view bindtap="saveStyle">保存</view>
 </view>

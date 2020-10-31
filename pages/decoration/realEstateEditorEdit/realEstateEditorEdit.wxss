@@ -83,6 +83,9 @@ page{
   font-family: PingFangSC-regular;
 }
 .effectPictureEditSet{
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   height: 90rpx;
   width: 750rpx;

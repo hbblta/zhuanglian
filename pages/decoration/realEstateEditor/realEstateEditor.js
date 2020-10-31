@@ -35,6 +35,13 @@ Page({
     })
   },
   goUrl(e){
+    if(e.currentTarget.dataset.url == '/pages/decoration/realEstateEditorEdit/realEstateEditorEdit'){
+      app.globalData.styleListData = {
+        unitIndex : this.data.textListIndex,
+        styleIndex : e.currentTarget.dataset.index,
+        styleData : this.data.formData.unitList[this.data.textListIndex].styleList[e.currentTarget.dataset.index]
+      }
+    }
     app.goUrl(e.currentTarget.dataset.url)
   },
   changIndex(e){
@@ -45,6 +52,13 @@ Page({
   propertyNameChange(e){
     this.setData({
       'formData.basisData.propertyName' : e.detail.value
+    })
+  },
+  unitListNameChange(e){
+    var arr = JSON.parse(JSON.stringify(this.data.formData)).unitList
+    arr[this.data.textListIndex].title = e.detail.value
+    this.setData({
+      'formData.unitList' : arr
     })
   },
   changeIsGround(){//上下架更改状态
@@ -61,7 +75,7 @@ Page({
       var arr = JSON.parse(JSON.stringify(this.data.formData)).unitList
           arr[e.detail.imageType].imageList = e.detail.imageList
       this.setData({
-        'formData.unitList' : arr
+        'formData.unitList' : arr,
       })
     }
 
@@ -72,14 +86,15 @@ Page({
     //   title: '提交中',
     //   mask: true
     // })
-    var data = {
-      basisData : {
-        propertyImage : res,
-        propertyName : that.data.formData.basisData.propertyName,
-        isGround : this.data.formData.basisData.isGround
-      }
-    }
-    console.log(data)
+    
+    console.log(this.data.formData)
+    // var data = {
+    //   basisData : {
+    //     propertyImage : res,
+    //     propertyName : that.data.formData.basisData.propertyName,
+    //     isGround : this.data.formData.basisData.isGround
+    //   }
+    // }
     // app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {
     //   wx.hideLoading()
     //   wx.showToast({
@@ -92,22 +107,64 @@ Page({
     //   },1000)
     // })
   },
-  moreUnit(){
+  moreUnit(){//新增户型
     var that = this
     this.setData({
       'formData.unitList' : this.data.formData.unitList.concat([{
-        index : that.data.formData.unitList.length,
-        imageList : []
+        imageList : [],
+        title : '',
+        styleList : []
       }])
     })
   },
-  deleteUnit(e){
-    console.log(e)
-    var arr = JSON.parse(JSON.stringify(this.data.formData.unitList))
-    arr.splice(e.currentTarget.dataset.index,1)
-    this.setData({
-      'formData.unitList' : arr
+  deleteUnit(e){//删除户型
+    var that = this
+    wx.showLoading({
+      title: '删除中',
     })
+    setTimeout(()=>{
+      wx.hideLoading({
+        success: (res) => {
+          var arr = JSON.parse(JSON.stringify(that.data.formData.unitList))
+          arr.splice(e.currentTarget.dataset.index,1)
+          that.setData({
+            'formData.unitList' : arr,
+            textListIndex : -1
+          })
+          wx.showToast({
+            title: '删除成功',
+          })
+        },
+      })
+    },500)
+  },
+  addNewSytle(){//新增风格
+    var that = this
+    var updata = `formData.unitList[${this.data.textListIndex}].styleList`
+    this.setData({
+        [updata] : that.data.formData.unitList[this.data.textListIndex].styleList.concat([false])
+    })
+  },
+  deleteStyle(e){//删除风格
+    var that = this
+    wx.showLoading({
+      title: '删除中',
+    })
+    setTimeout(()=>{
+      wx.hideLoading({
+        success: (res) => {
+          var arr = JSON.parse(JSON.stringify(that.data.formData.unitList))[this.data.textListIndex].styleList
+          var updata = `formData.unitList[${this.data.textListIndex}].styleList`
+          arr.splice(e.currentTarget.dataset.index,1)
+          that.setData({
+            [updata] : arr,
+          })
+          wx.showToast({
+            title: '删除成功',
+          })
+        },
+      })
+    },500)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

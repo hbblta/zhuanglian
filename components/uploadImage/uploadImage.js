@@ -17,12 +17,18 @@ Component({
       type: Number,
       value: -1
     },
+    // effectImages : {
+    //   type: Boolean,
+    //   value: false,
+    // }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    // styleListText : [],
+    // styleList : []
   },
 
   /**
@@ -30,6 +36,14 @@ Component({
    */
   lifetimes: {
     attached: function() {
+      // if(this.data.effectImages){
+      //   app.ajaxToken('/common/getstyles', 'get').then(res => {
+      //     this.setData({
+      //       styleListText : res.data.map((data)=>{return data.text}),
+      //       styleList : res.data
+      //     })
+      //   })
+      // }
       // 在组件实例进入页面节点树时执行
     },
     detached: function() {
@@ -58,7 +72,13 @@ Component({
     }
   },
   methods: {
-    deleteImg(e){
+    // bindPickerChange(e){
+    //   this.setData({
+    //     'styleData.effectName' :  this.data.styleListText[e.detail.value],
+    //     'styleData.style' : this.data.styleList[e.detail.value].value,
+    //   })
+    // },
+    deleteImg(e){//删除图片
       var that = this
       wx.showModal({
         title: '提示',
@@ -78,8 +98,7 @@ Component({
       })
 
     },
-    //上传图片
-    upload(e) {
+    upload(e) {//上传图片
       var that = this;
       wx.chooseImage({
         count: that.data.imageLength - that.data.imageList.length, // 默认9

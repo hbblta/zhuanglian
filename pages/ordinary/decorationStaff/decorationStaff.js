@@ -112,8 +112,14 @@ Page({
     app.ajaxToken(this.data.ajaxUrl, data, 'post').then(res => {
       if(res.status == 0){
         wx.showToast({
+          icon : 'none',
           title: res.msg,
         })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 2,
+          })
+        },1000)
       }
     })
   },

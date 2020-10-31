@@ -22,3 +22,8 @@
   background: #ffffff;
   border-radius: 50%;
 }
+.uploadimageListData input{
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}

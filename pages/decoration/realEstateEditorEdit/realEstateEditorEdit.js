@@ -6,9 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    decorationArray:{
-      textList: ['现代风格','现代风格','现代风格','现代风格'],
-      idList: [0,1,2,3]
+     styleListText : [],
+     styleList : [],
+     styleData : {
+      effectName : '',
+      style : '',
+      area : '',
+      vrImageUrl : '',
+      styleImage : []
      }
   },
 
@@ -16,13 +21,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app.globalData.styleListData)
+    if(!app.globalData.styleListData.styleData){
+      console.log('新增')
+    }else{
+      console.log('编辑')
+    }
+    this.getStylePicker()
   },
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      'styleData.effectName' :  this.data.styleListText[e.detail.value],
+      'styleData.style' : this.data.styleList[e.detail.value].value,
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  getStylePicker(){//获取样式列表
+    app.ajaxToken('/common/getstyles', 'get').then(res => {
+      this.setData({
+        styleListText : res.data.map((data)=>{return data.text}),
+        styleList : res.data
+      })
+    })
+  },
+  updateInput(e) {
+    var styleData = JSON.parse(JSON.stringify(this.data.styleData))
+    styleData[e.currentTarget.dataset.key] = e.detail.value
+    this.setData({
+      styleData
+    })
+  },
+  getImagePath(e){
+    this.setData({
+      'styleData.styleImage' : e.detail.imageList
+    })
+  },
+  saveStyle(){
+    console.log(this.data.styleData)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

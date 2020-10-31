@@ -1,6 +1,6 @@
 <!--components/uploadimage/uploadimage.wxml-->
 <view class="uploadimageList">
-  <view bindtap="upload" wx:if="{{!(nowImgList.length == imageLength)}}" class="uploadimageListData">
+  <view bindtap="upload" wx:if="{{!(imageList.length == imageLength)}}" class="uploadimageListData">
     <image class="showImg" src="../../image/backgroundImg/effectPictureEditMore.png"></image>
   </view>
   <view class="uploadimageListData"
@@ -11,5 +11,8 @@
   >
    <image class="showImg" src="{{item.FileUrl}}"></image>
    <image bindtap="deleteImg" data-index="{{index}}" class="delete" src="../../image/icon/delete.svg"></image>
+   <!-- <picker wx:if="{{effectImages}}" bindchange="bindPickerChange" value="{{index}}" range="{{styleListText}}">
+      <view><input disabled value="{{item.spaceName}}" placeholder="输入描述名称"></input></view>
+   </picker> -->
   </view>
 </view>

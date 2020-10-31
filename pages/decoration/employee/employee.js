@@ -73,7 +73,7 @@ Page({
   onReady: function () {
 
   },
-  //删除全部员工
+  //删除 全部员工
   alldelete(e){
     var id = e.currentTarget.dataset.id
     app.ajaxToken('/shop/delstaff/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{

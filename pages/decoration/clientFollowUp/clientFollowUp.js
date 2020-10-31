@@ -7,7 +7,16 @@ Page({
    */
   data: {
     textList:['客户动态','客户统计','TA的订单','TA的跟进'],
-    textListIndex:0
+    textListIndex:0,
+    followList:[],
+  },
+  //获取跟进列表
+  getfollow(){
+    app.ajaxToken('/shop/getcustomertracklist/'+app.globalData.userData.ShopID+'/'+this.data.id,'','get').then(res=>{
+      this.setData({
+        followList:res.data
+      })
+    })
   },
   changeIndex(e){
     this.setData({
@@ -22,6 +31,16 @@ Page({
     wx.setNavigationBarTitle({
       title: '客户详情'
     })
+    this.setData({
+      id:options.id,
+      textListIndex:options.idx?options.idx:0
+    })
+    let pages = getCurrentPages();
+    let current = pages[pages.length - 2];
+    this.setData({
+      item: current.data.nowobj
+    })
+    this.getfollow()
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)

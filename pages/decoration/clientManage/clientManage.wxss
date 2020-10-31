@@ -1,4 +1,7 @@
 /* pages/decoration/clientManage/clientManage.wxss */
+.scroll{
+  height: calc(100% - 120rpx);
+}
 page{
   width: 100%;
   height: 100%;

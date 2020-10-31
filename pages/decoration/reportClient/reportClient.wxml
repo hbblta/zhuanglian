@@ -1,30 +1,55 @@
 <!--pages/decoration/reportClient/reportClient.wxml-->
+<!--pages/decoration/workreport/workreport.wxml-->
 <view class="decorationStaffInput">
 	<view>
-		<input placeholder="姓名" value="{{name}}" bindinput="getNameValue"></input>
+		<input placeholder="姓名" data-key="realName" bindinput="getvalue"></input>
 	</view>
 	<view>
-		<input placeholder="电话"></input>
+		<input placeholder="手机号码" maxlength="11" data-key="mobile" bindinput="getvalue"></input>
 	</view>
+	<picker bindchange="bindPickerChange1" value="{{sexIndex}}" range="{{sexarr}}" range-key="name">
+		<view>
+			<input placeholder="性别" disabled="true" value="{{sexIndex?sexarr[sexIndex].name:''}}"  ></input>
+		</view>
+	</picker>
 	<view>
-		<input placeholder="小区"></input>
+		<range class="range" bind:changearea="changearea"></range>
+		<input placeholder="地区" disabled="true" value="{{area}}"></input>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 	<view>
-		<input placeholder="面积"></input>
+		<input placeholder="小区详细地址"  bindinput="getvalue" data-key="address"></input>
 	</view>
 	<view>
-		<input placeholder="风格"></input>
-		<image src="../../../image/icon/more.svg"></image>
+		<input placeholder="面积"  bindinput="getvalue" data-key="area"></input>
 	</view>
+	<picker bindchange="bindPickerChange2" value="{{fgIndex}}" range="{{fglist}}" range-key="text">
+		<view>
+			<input placeholder="风格" disabled="true" value="{{fgIndex?fglist[fgIndex].text:''}}"  ></input>
+		</view>
+	</picker>
 	<view>
-		<input placeholder="预算"></input>
+		<input placeholder="预算"  bindinput="getvalue" data-key="budget"></input>
 	</view>
-	<view>
-		<input placeholder="跟单人"></input>
-	</view>
-</view>
+	<picker bindchange="bindPickerChange3" value="{{userIndex}}" range="{{userlist}}" range-key="NickName">
+		<view>
+			<input placeholder="跟单员" disabled="true" value="{{userIndex?userlist[userIndex].NickName:''}}"  ></input>
+		</view>
+	</picker>
+	<picker bindchange="bindPickerChange4" value="{{cateIndex}}" range="{{catearr}}" range-key="name">
+		<view>
+			<input placeholder="是否沟通过装修需求" disabled="true" value="{{cateIndex?catearr[cateIndex].name:''}}"  ></input>
+		</view>
+	</picker>
+	<picker bindchange="bindPickerChange5" value="{{isunIndex}}" range="{{isunarr}}" range-key="name">
+		<view>
+			<input placeholder="是否了解过我们公司" disabled="true" value="{{isunIndex?isunarr[isunIndex].name:''}}"  ></input>
+		</view>
+	</picker>
 
+
+</view>
+<view style="height:120rpx"></view>
 <view class="fix-btn" bindtap="goback">
 	报备
 </view>

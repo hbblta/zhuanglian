@@ -32,7 +32,7 @@
 <view class="effectPictureEditMain">
   <view class="effectPictureEditMainTitle">图片上传</view>
   <view>
-    <uploadImage bind:getImagePath="getImagePath" imageLength='1' imageType='goods' />
+		<uploadImage  imageList='{{uploadImgList}}' bind:getImagePath="getImagePath" imageLength='1' imageType='-1' />
   </view>
 </view>
 <!-- <view class="effectPictureEditMain">

@@ -70,12 +70,12 @@
 			<view class="userList" wx:for="{{personnelList}}" wx:key="index">
 				<view class="number">第{{index+1}}名</view>
 				<view class="listInfo">
-					<image src="{{item.url}}"></image>
+					<image src="{{item.Avatar}}"></image>
 					<view class="userInfo">
-						<text>{{item.name}}</text>
-						<text>{{item.phone}}</text>
-						<text>团队人数：{{item.tema}}人</text>
-						<text>加入时间：{{item.entryTime}}</text>
+						<text>{{item.NickName}}</text>
+						<text>{{item.Mobile}}</text>
+						<!-- <text>团队人数：{{item.tema}}人</text> -->
+						<text>加入时间：{{item.AddDate}}</text>
 					</view>
 				</view>
 			</view>
@@ -84,15 +84,15 @@
 			<view class="userList" wx:for="{{retailKingList}}" wx:key="index">
 				<view class="number">第{{index+1}}名</view>
 				<view class="level">
-					<image wx:for="{{item.xing}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
+					<image wx:for="{{item.Grade}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
 				</view>
 				<view class="listInfo">
 					<image src="{{item.url}}"></image>
 					<view class="userInfo">
-						<text>{{item.name}}</text>
-						<text>{{item.phone}}</text>
-						<text>团队人数：{{item.tema}}人</text>
-						<text>加入时间：{{item.entryTime}}</text>
+						<text>{{item.NickName}}</text>
+						<text>{{item.Mobile}}</text>
+						<!-- <text>团队人数：{{item.tema}}人</text> -->
+						<text>加入时间：{{item.AddDate}}</text>
 					</view>
 				</view>
 			</view>

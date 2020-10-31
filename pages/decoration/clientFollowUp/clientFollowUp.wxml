@@ -2,33 +2,31 @@
 <view class="user">
 	<view class="manageList">
 		<view class="listInfo">
-			<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+			<image src="{{item.Avatar}}"></image>
 			<view>
 				<view class="name">
-					<view>胡彬彬</view>
+					<view>{{item.NickName}}</view>
 					<view>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
+						<image  wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
 					</view>
 				</view>
 				<view class="tags">
 					<view>
-						<text>精准</text>
-						<text>免费设计</text>
+						<text wx:if="{{item.UserGrade == 0}}">普通客户</text>
+					<text wx:if="{{item.UserGrade == 1}}">报单客户</text>
+					<text wx:if="{{item.UserGrade == 2}}">成交客户</text>
 					</view>
 					<view>
-						待设计
+						{{item.GradeName}}
 					</view>
 				</view>
 				<view class="phone">
-					<view>13216212336</view>
-					<view>加入时间：2020/05/30</view>
+					<view>{{item.Mobile}}</view>
+					<view>加入时间：{{item.AddDate}}</view>
 				</view>
 				<view class="develop">
-					<view>开发人员：名称</view>
-					<view>跟单人员：<text>张三</text>
+					<view>开发人员：{{item.DeveloperName}}</view>
+					<view>跟单人员：<text>{{item.ManagerName?item.ManagerName:'暂无'}}</text>
 						<image src="../../../image/icon/more.svg"></image>
 					</view>
 				</view>
@@ -116,6 +114,7 @@
 								<view class="clientReportListText">文字文字文字文字文字文字文字文字文字文字文字</view>
 								<view class="clientReportListButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view>
 							</view>
+							
 						</view>
 					</view>
 				</scroll-view>

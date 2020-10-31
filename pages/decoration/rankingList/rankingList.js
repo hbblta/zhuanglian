@@ -163,7 +163,7 @@ Page({
       this.setData({
         userpage:1
       })
-      this.getFx()
+      this.getUser()
     }
   },
   //员工排行榜list
@@ -184,7 +184,9 @@ Page({
     }
     console.log(data)
     app.ajaxToken('/shop/getstaffsortlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        personnelList:res.data
+      })
     })
   },
   //分销排行榜
@@ -198,7 +200,9 @@ Page({
       data.enddate = this.data.date4
     }
     app.ajaxToken('/shop/getdistributorsortlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        retailKingList:res.data
+      })
     })
    
   },

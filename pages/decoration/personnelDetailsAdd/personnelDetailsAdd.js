@@ -6,96 +6,92 @@ Page({
    * 页面的初始数据
    */
   data: {
-     fglist:[],
-     fglistIndex:0,
-     uploadImgList:[],
-     fgname:'',
-     flag:true,
-     name:'',
-     area:'',
-     houseHolds:'',
-     vrImageUrl:'',
+    fglist: [],
+    fglistIndex: 0,
+    uploadImgList: [],
+    fgname: '',
+    flag: true,
+    name: '',
+    area: '',
+    houseHolds: '',
+    vrImageUrl: '',
   },
-  getname(e){
+  getname(e) {
     this.setData({
-      name:e.detail.value
+      name: e.detail.value
     })
   },
-  getarea(e){
+  getarea(e) {
     this.setData({
-      area:e.detail.value
+      area: e.detail.value
     })
   },
-  gethouse(e){
+  gethouse(e) {
     this.setData({
-      houseHolds:e.detail.value
+      houseHolds: e.detail.value
     })
   },
-  getvr(e){
+  getvr(e) {
     this.setData({
-      vrImageUrls:e.detail.value
+      vrImageUrls: e.detail.value
     })
   },
-  getImagePath(e){//获取组件图片
+  getImagePath(e) { //获取组件图片
+    console.log(e)
     this.setData({
-      uploadImgList  : e.detail
+      uploadImgList: e.detail.imageList
     })
-    console.log(this.data.uploadImgList)
   },
-  submit(){//提交
-    if(!this.data.name){
+  submit() { //提交
+    if (!this.data.name) {
       this.shows('请填写作品案例名称')
       return
     }
-    if(!this.data.area){
+    if (!this.data.area) {
       this.shows('请填写面积')
       return
     }
-    if(!this.data.houseHolds){
+    if (!this.data.houseHolds) {
       this.shows('请填写户型')
       return
     }
-    if(!this.data.fgname){
+    if (!this.data.fgname) {
       this.shows('请选择风格')
       return
     }
-    if(!this.data.uploadImgList.length){
+    if (!this.data.uploadImgList.length) {
       this.shows('请选择主图')
       return
     }
-
     var that = this
     wx.showLoading({
       title: '提交中',
       mask: true
     })
     var data = {
-      teamID:this.data.teamid,
-      caseName:this.data.name,
-      area:this.data.area,
-      styleID:this.data.styleID,
-      houseHolds:this.data.houseHolds,
+      teamID: this.data.teamid,
+      caseName: this.data.name,
+      area: this.data.area,
+      styleID: this.data.styleID,
+      houseHolds: this.data.houseHolds,
+      image: [this.data.uploadImgList[0].SaveName]
     }
-    this.callback(this.data.uploadImgList,(res)=>{
-      data.image = res
-      console.log(data)
-      app.ajaxToken('/shop/addteamcase/'+app.globalData.userData.ShopID,data, 'post').then(res => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '发布成功',
-        })
-        setTimeout(()=>{
-          wx.navigateBack({
-            delta: 1,
-          })
-        },1000)
+    app.ajaxToken('/shop/addteamcase/' + app.globalData.userData.ShopID, data, 'post').then(res => {
+      wx.hideLoading()
+      wx.showToast({
+        title: '发布成功',
       })
+      setTimeout(() => {
+        wx.navigateBack({
+          delta: 1,
+        })
+      }, 1000)
     })
   },
-  callback(list,callFn){//上传图片
+  callback(list, callFn) { //上传图片
     var that = this
     var arr = []
-    for(let i in list){
+    for (let i in list) {
       wx.uploadFile({
         url: app.globalData.httpUrl + '/common/uploadproduct',
         filePath: list[i],
@@ -105,7 +101,7 @@ Page({
         },
         success: function (res) {
           arr.push(JSON.parse(res.data).data.SaveName)
-          if(list.length - 1 == i){
+          if (list.length - 1 == i) {
             callFn(arr)
           }
         }
@@ -113,11 +109,11 @@ Page({
     }
     //输入你先需要执行完的逻辑
   },
-  shows(str){
+  shows(str) {
     wx.showToast({
       title: str,
-      icon:'none',
-      mask:true
+      icon: 'none',
+      mask: true
     })
   },
 
@@ -126,27 +122,27 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      teamid:options.teamid
+      teamid: options.teamid
     })
     this.getfg()
   },
   //风格
-  getfg(){
-    app.ajaxToken('/common/getstyles','','get').then(res=>{
+  getfg() {
+    app.ajaxToken('/common/getstyles', '', 'get').then(res => {
       this.setData({
-        fglist:res.data
+        fglist: res.data
       })
       console.log(this.data.fglist)
     })
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     this.setData({
-      fgname:this.data.fglist[e.detail.value].text,
-      fglistIndex:e.detail.value,
-      styleID:this.data.fglist[this.data.fglistIndex].value
+      fgname: this.data.fglist[e.detail.value].text,
+      fglistIndex: e.detail.value,
+      styleID: this.data.fglist[this.data.fglistIndex].value
     })
   },
-  goUrl(e){
+  goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
   },
   /**

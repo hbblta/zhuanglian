@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabType: ['客户类别', '管理人员', '客户来源', '时间', '星级'],
+    list:[],
     info: {},
     date: '',
     date2: '',
@@ -43,55 +43,102 @@ Page({
     ],
     keyword:'',
     page:1,
+    pagecount:0,
+    flag:true,
+    //当前点击的对象信息
+    nowobj:{}
   },
   getvalue(e){
     this.setData({
-      keyword:e.detail.value
+      keyword:e.detail.value,
+      page:1,
+      flag:true,
+      list:[]
     })
+    this.getList()
   },
   bindPickerChange3(e) {
     this.setData({
-      sourceIndex: e.detail.value
+      sourceIndex: e.detail.value,
+      page:1,
+      flag:true,
+      list:[]
     })
+    this.getList()
   },
   bindPickerChange2(e) {
     this.setData({
-      typeIndex: e.detail.value
+      typeIndex: e.detail.value,
+      page:1,
+      flag:true,
+      list:[]
     })
+    this.getList()
   },
   bindPickerChange6(e) {
     this.setData({
-      gradeIndex: e.detail.value
+      gradeIndex: e.detail.value,
+      page:1,
+      flag:true,
+      list:[]
     })
+    this.getList()
   },
   bindPickerChange4(e) {
     this.setData({
       date: e.detail.value
     })
-    if (this.data.date && this.data.date2) {}
+    if (this.data.date && this.data.date2) {
+      this.setData({
+        page:1,
+        flag:true,
+        list:[]
+      })
+      this.getList()
+    }
   },
   bindPickerChange5(e) {
     this.setData({
       date2: e.detail.value
     })
-    if (this.data.date && this.data.date2) {}
+    if (this.data.date && this.data.date2) {
+      this.setData({
+        page:1,
+        flag:true,
+        list:[]
+      })
+      this.getList()
+    }
   },
   goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
   },
-  //delete 
-  delete(e) {
-    console.log('点击了删除')
-  },
   //跟进
-
   follow(e) {
-    console.log('点击了跟进')
-    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp')
+    var id = e.currentTarget.dataset.id
+    var index = e.currentTarget.dataset.index
+    var idx = e.currentTarget.dataset.idx
+    this.setData({
+      nowobj:this.data.list[index]
+    })
+    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp?id='+id+'&idx='+3)
   },
   //报单
   declaration(e) {
     app.goUrl('/pages/decoration/declaration/declaration')
+  },
+  scroll(e){
+     if(this.data.page<this.data.pagecount){
+       if(this.data.flag){
+         this.setData({
+           flag:false,
+           page:this.data.page+1
+         })
+         this.getList()
+       }
+     }else{
+       return
+     }
   },
 
   /**
@@ -130,16 +177,47 @@ Page({
   getList(){
     var data={
       page:this.data.page,
-      keyword:this.data.keyword
+      keyword:this.data.keyword,
+      manager:app.globalData.userData.UserID
     }
+    if(this.data.gradeIndex){
+      data.grade = this.data.gradearr[this.data.gradeIndex].Nubmer
+    }
+    if(this.data.sourceIndex){
+      data.source = this.data.sourcearr[this.data.sourceIndex].id
+    }
+    console.log(app.globalData.userData)
     app.ajaxToken('/shop/getcustomerlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      res.data=[
+        {
+          Avatar:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3068349715,719507215&fm=26&gp=0.jpg',
+          Mobile:'13216212336',
+          Star:'4',
+          AddDate:'2020-10-31',
+          DeveloperName:'xxx',
+          UserGrade:'0',
+          UserID:1,
+          ManagerID:2,
+          NickName:'胡彬彬',
+          GradeNam:'xx'
+        }
+      ]
+      this.setData({
+        list:this.data.list.concat(res.data),
+        flag:true,
+        pagecount:res.pagecount
+      })
     })
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      list:[],
+      page:1,
+      flag:true
+    })
     this.getList()
   },
 

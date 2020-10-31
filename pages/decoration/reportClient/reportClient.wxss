@@ -1,4 +1,20 @@
-/* pages/decoration/reportClient/reportClient.wxss */
+/* pages/decoration/workreport/workreport.wxss */
+.range{
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  height: 100%;
+}
+.range picker{
+  width: 100%;
+  opacity: 0;
+  height: 100%;
+}
+.range picker view{
+  width: 100%;
+  height: 100%;
+  padding: 10rpx;
+}
 .applicationBk{
   width: 100%;
   height: 240rpx;
@@ -40,4 +56,15 @@
   line-height: 100rpx;
   font-size: 28rpx;
   color: #fff;
+  z-index: 999;
+}
+.pickers{
+  position: relative;
+}
+.pickers image{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 48rpx;
+  top: 24rpx;
 }

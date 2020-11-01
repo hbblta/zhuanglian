@@ -26,19 +26,54 @@ Page({
     area:'',
     areaid:'',
     keyword:'',
-    page:1
+    page:1,
+    pagecount:0,
+    list:[]
   },
   getvalue(e){
     this.setData({
-      keyword:e.detail.value
+      keyword:e.detail.value,
+      flag:true,
+      page:1,
+      list:[]
     })
+    this.changeF()
+  },
+  scroll(e){
+    if(this.data.pagecount>this.data.page){
+      if(this.data.flag){
+        this.setData({
+          flag:false,
+          page:this.data.page+1
+        })
+        this.changeF()
+      }
+    }else{
+      return
+    }
+  },
+  //当前执行哪种获取数据方法
+  changeF(){
+      if(this.data.textListIndex == 0){
+        this.getcl()
+      }
+      if(this.data.textListIndex == 1){
+        this.getds()
+      }
+      if(this.data.textListIndex == 2){
+        this.getfq()
+      }
   },
   changearea(e){
-    console.log(e)
     this.setData({
       area:e.detail.name,
-      areaid:e.detail.id
+      areaid:e.detail.id,
+      page:1,
+      pagecount:0,
+      flag:true,
+      list:[]
     })
+    this.changeF()
   },
 
   /**
@@ -48,16 +83,41 @@ Page({
     wx.setNavigationBarTitle({
       title: '合作管理',
     })
+    //获取合作材料
+    this.getcl()
   },
   changeIndex(e){
+    if(e.currentTarget.dataset.index == this.data.textListIndex)return
     this.setData({
-      textListIndex : e.currentTarget.dataset.index
+      textListIndex : e.currentTarget.dataset.index,
+      commissiontype:0
+    })
+    console.log(this.data.textListIndex,this.data.commissiontype)
+  },
+  //获取合作材料
+  getcl(){
+    var data={
+      page:this.data.page,
+      keyword:this.data.keyword
+    }
+    data.type = this.data.commissiontype?2:1
+    if(this.data.areaid){
+      data.area = this.data.areaid
+    }
+    app.ajaxToken('/shop/getcooperationlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+      this.setData({
+        list:this.data.list.concat(res.data),
+        flag:true,
+        pagecount:res.pagecount
+      })
     })
   },
   changeCommissionType(e){
     this.setData({
       commissiontype : e.currentTarget.dataset.commissiontype
     })
+    console.log(this.data.textListIndex,this.data.commissiontype)
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)

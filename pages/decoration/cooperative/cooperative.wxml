@@ -14,13 +14,14 @@
 	<view class="generalSelectionlist">
 		<view bindtap="changeIndex" wx:for='{{textList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistTitle">{{item.name}}</view>
 	</view>
-	<view class="effectPictureChecklistData">
-    <view wx:if='{{textListIndex == 0}}'>
+	<view class="effectPictureChecklistData" style="height:calc(100% - 16rpx)">
+    <scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scroll">
+      <view wx:if='{{textListIndex == 0}}'>
       <view class="commissionType" >
         <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">我发起的</view>
         <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">TA发起的</view>
       </view>
-      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeDetails/cooperativeDetails'>
+      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeDetails/cooperativeDetails' wx:for="{{list}}" wx:key="index">
         <view class="commissionUserImg"><image></image></view>
         <view class="commissionUserData">
           <view>公司名称</view>
@@ -61,5 +62,6 @@
         </view>
       </view>
     </view>
+    </scroll-view>
 	</view>
 </view>

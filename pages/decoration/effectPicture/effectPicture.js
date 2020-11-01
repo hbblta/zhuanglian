@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list : 10,
+    list : 0,
     textList : [
       {
         name : '楼盘案例',

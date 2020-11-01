@@ -2,15 +2,15 @@
 <generalSelectionlist textList='{{textList}}' bind:getList="getList">
   <view slot="after" class="materialOrderScroll">
     <view wx:for='{{list}}' wx:for-item='item' data-index="{{index}}" wx:key='lindex' class="materialOrderList">
-        <view class="effectPictureChecklist"  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm'>
+        <view class="effectPictureChecklist">
         <view>油漆</view>
         <image src="../../../image/icon/more.svg"></image>
       </view>
-      <view class="effectPictureReleaseAdd">
+    </view>
+    <view class="effectPictureReleaseAdd" bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm'>
         <image src="../../../image/icon/increase.svg"></image>
         <view>添加材料</view>
       </view>
-    </view>
   </view>
 </generalSelectionlist>
 <view class="generalSelectionlistText">

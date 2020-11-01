@@ -18,6 +18,11 @@ Page({
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
+  getList(){
+    app.ajaxToken('/shop/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      console.log(res)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -26,7 +26,7 @@ Page({
       },
     ],
     windowHeight : 0,
-    list : 5
+    list : 0
   },
 
   /**

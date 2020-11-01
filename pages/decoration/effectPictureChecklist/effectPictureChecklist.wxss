@@ -58,6 +58,7 @@ page{
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
 }
 .generalSelectionlistText view:nth-child(1){
   color: rgba(85, 85, 85, 1);

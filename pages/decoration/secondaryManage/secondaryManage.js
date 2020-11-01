@@ -83,6 +83,29 @@ Page({
   goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
   },
+  deleteSecondary(e){
+    var that = this
+    console.log(e)
+    var data = {
+      ids : [e.currentTarget.dataset.id]
+    }
+    wx.showModal({
+      title: '提示',
+      content: '确定删除这张图片吗',
+      success (res) {
+        if (res.confirm) {
+          app.ajaxToken('/shop/delproducts/' + app.globalData.userData.ShopID, data, 'delete').then(res => {
+              wx.showToast({
+                title: '删除成功',
+              })
+              that.loadresh()
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

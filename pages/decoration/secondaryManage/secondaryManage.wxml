@@ -21,7 +21,7 @@
            <view>型号：{{item.ModelNumber}}</view>
            <view class="{{item.IsGround?'statu':''}}">{{item.IsGround?'上架':'下架'}}</view>
       </view>
-      <view class="list-btn">删除</view>
+      <view class="list-btn" bindtap="deleteSecondary" data-id='{{item.MaterialID}}'>删除</view>
 		</view>
 	</scroll-view>
 </view>

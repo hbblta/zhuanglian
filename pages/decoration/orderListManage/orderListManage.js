@@ -152,7 +152,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '客户管理'
+      title: '订单管理'
     })
     this.getInfo()
     this.getgrade()
@@ -182,6 +182,7 @@ Page({
       })
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

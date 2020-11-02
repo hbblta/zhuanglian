@@ -24,10 +24,10 @@
       <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeDetails/cooperativeDetails' wx:for="{{list}}" wx:key="index">
         <view class="commissionUserImg"><image></image></view>
         <view class="commissionUserData">
-          <view>公司名称</view>
-          <view>品牌: 圣像</view>
-          <view>品类: 文字</view>
-          <view>到期时间: 2020/051/056</view>
+          <view>{{item.CompanyName}}</view>
+          <view>品牌: {{item.ShopLogo}}</view>
+          <view>品类: {{item.BrandName}}</view>
+          <view>到期时间: {{item.EndDate}}</view>
         </view>
       </view>
     </view>
@@ -36,12 +36,12 @@
         <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">待审核</view>
         <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">已放弃</view>
       </view>
-      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeConfirm/cooperativeConfirm'>
+      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeConfirm/cooperativeConfirm' wx:for="{{list}}" wx:key="index">
         <view class="commissionUserImg"><image></image></view>
         <view class="commissionUserData">
-          <view>公司名称</view>
-          <view>品牌: 圣像</view>
-          <view>品类: 文字</view>
+          <view>{{item.CompanyName}}</view>
+          <view>品牌: {{item.ShopLogo}}</view>
+          <view>品类: {{item.BrandName}}</view>
           <view class="commissionSuer">确认合作</view>
         </view>
       </view>
@@ -52,13 +52,13 @@
         <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">确认中</view>
         <view class="{{commissiontype == 2 ? 'nowCommissionType' : ''}}" data-commissiontype='2' bindtap="changeCommissionType">未通过</view>
       </view>
-      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
+      <view class="commissionUser" catchtap="goUrl" wx:for="{{list}}" wx:key="index"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
         <view class="commissionUserImg"><image></image></view>
         <view class="commissionUserData">
-          <view>公司名称</view>
-          <view>品牌: 圣像</view>
-          <view>品类: 文字</view>
-          <view class="commissionSuer">发起合作</view>
+          <view>{{item.CompanyName}}</view>
+          <view>品牌: {{item.ShopLogo}}</view>
+          <view>品类: {{item.BrandName}}</view>
+          <view class="commissionSuer" catchtap="apply" data-id="{{item.ShopID}}">发起合作</view>
         </view>
       </view>
     </view>

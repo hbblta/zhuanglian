@@ -45,6 +45,7 @@ Page({
     page:1,
     pagecount:0,
     flag:true,
+    load:true,
     //当前点击的对象信息
     nowobj:{}
   },
@@ -121,7 +122,11 @@ Page({
     this.setData({
       nowobj:this.data.list[index]
     })
-    app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp?id='+id+'&idx='+3)
+    if(idx){
+       app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp?id='+id+'&idx='+3)
+    }else{
+      app.goUrl('/pages/decoration/clientFollowUp/clientFollowUp?id='+id)
+    }
   },
   //报单
   declaration(e) {

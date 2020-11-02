@@ -18,10 +18,21 @@ Page({
       })
     })
   },
+  //获取客户统计
+  getcount(){
+    app.ajaxToken('/shop/getcustomerstatlist/'+app.globalData.userData.ShopID+'/'+this.data.id,'','get').then(res=>{
+      console.log(index)
+    })
+  },
   changeIndex(e){
     this.setData({
       textListIndex:e.currentTarget.dataset.index
     })
+    console.log(e)
+    this.changeF()
+  },
+  changeF(){
+    console.log(this.data.textListIndex)
   },
 
   /**

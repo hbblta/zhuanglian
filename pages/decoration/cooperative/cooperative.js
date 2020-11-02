@@ -90,9 +90,13 @@ Page({
     if(e.currentTarget.dataset.index == this.data.textListIndex)return
     this.setData({
       textListIndex : e.currentTarget.dataset.index,
-      commissiontype:0
+      commissiontype:0,
+      list:[],
+      page:1,
+      flag:true
     })
     console.log(this.data.textListIndex,this.data.commissiontype)
+    this.changeF()
   },
   //获取合作材料
   getcl(){
@@ -113,14 +117,87 @@ Page({
       })
     })
   },
+  //获取待审合作列表
+  getds(){
+    var data = {
+      keyword:this.data.keyword,
+      page:this.data.page,
+      type:this.data.commissiontype?2:1
+    }
+    if(this.data.areaid){
+      data.area = this.data.areaid
+    }
+    app.ajaxToken('/shop/getcooperatonauditlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        list:this.data.list.concat(res.data),
+        flag:true,
+        pagecount:res.pagecount
+      })
+    })
+  },
+  //获取发起合作列表
+  getfq(){
+    var data = {
+      keyword:this.data.keyword,
+      page:this.data.page,
+    }
+    if(this.data.areaid){
+      data.area = this.data.areaid
+    }
+    var url = this.data.commissiontype == 0?'/shop/launchcooperationlist/':'/shop/sponsorcooperationlist/'
+    if(this.data.commissiontype == 0){
+
+    }else{
+      data.type = this.data.commissiontype
+    }
+    app.ajaxToken(url+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        list:this.data.list.concat(res.data),
+        flag:true,
+        pagecount:res.pagecount
+      })
+    })
+  },
   changeCommissionType(e){
     this.setData({
       commissiontype : e.currentTarget.dataset.commissiontype
     })
     console.log(this.data.textListIndex,this.data.commissiontype)
+    this.setData({
+      page:1,
+      flag:true,
+      list:[],
+    })
+    this.changeF()
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  
+  //发起合作
+  apply(e){
+    console.log(e)
+    app.ajaxToken('/shop/launchcooperation/'+app.globalData.userData.ShopID+'/'+e.currentTarget.dataset.id,'','post').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+        setTimeout(()=>{
+          this.setData({
+            page:1,
+            flag:true,
+            list:[]
+          })
+          this.changeF()
+        },1500)
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -133,7 +210,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      
   },
 
   /**

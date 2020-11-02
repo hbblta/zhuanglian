@@ -7,7 +7,11 @@ Component({
     titleList: {
       type: Array,
       value: [],
-    }
+    },
+    tabShow : {
+      type: Boolean,
+      value : true
+    },
   },
 
   /**
@@ -28,6 +32,7 @@ Component({
       this.triggerEvent('getList', {index:e.currentTarget.dataset.index})
     },
     updateInput(e) {
+      console.log(e)
       this.triggerEvent('getList', {value:e.detail.value})
     },
     changeInput(e){},

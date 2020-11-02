@@ -7,26 +7,9 @@ Page({
    */
   data: {
     index:0,
-    textList : [
-      {
-        name : '辅材',
-        id : 0
-      },
-      {
-        name : '主材',
-        id : 1
-      },
-      {
-        name : '软装',
-        id : 2
-      },
-      {
-        name : '家电',
-        id : 3
-      },
-    ],
+    textList : [],
     windowHeight : 0,
-    list : 0
+    list : 2
   },
 
   /**
@@ -40,9 +23,21 @@ Page({
         })
       },
     })
+    app.ajaxToken('/common/getcategories', 'get').then(res => {
+      var arr = res.data
+      for(let i in arr){
+        arr[i].name = arr[i].text
+      }
+      this.setData({
+        textList : arr,
+      })
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  getList(e){
+    console.log(e)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -55,7 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(app.globalData.styleListData.styleData.materials)
   },
 
   /**

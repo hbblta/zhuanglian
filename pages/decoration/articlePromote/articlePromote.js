@@ -9,7 +9,7 @@ Page({
     titleList:[],
     getcategoriesList : [],
     list : [],
-    fromData:{
+    formData:{
       page : 1,
       pagesize : 10,
       keyword : '',
@@ -43,14 +43,14 @@ Page({
       if(e.detail.index == this.data.index) return
       this.setData({
         classIdIndex : e.detail.index,
-        'fromData.page' : 1,
+        'formData.page' : 1,
         list : [],
       })
     }
     if(e.detail.value){
       this.setData({
-        'fromData.keyword' : e.detail.value,
-        'fromData.page' : 1,
+        'formData.keyword' : e.detail.value,
+        'formData.page' : 1,
         list : [],
       })
     }
@@ -58,7 +58,7 @@ Page({
   },
   loadresh(){
     this.setData({
-      'fromData.page' : 1,
+      'formData.page' : 1,
       list : [],
     })
     this.getList()
@@ -66,18 +66,18 @@ Page({
   getList() {
     var that = this
     var data = {
-      page : this.data.fromData.page,
-      pagesize : this.data.fromData.pagesize,
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
       classId : this.data.getcategoriesList[this.data.classIdIndex].value,
-      keyword : this.data.fromData.keyword
+      keyword : this.data.formData.keyword
     }
     app.ajaxToken('/shop/getnews/' + app.globalData.userData.ShopID, data, 'get').then(res => {
       if(res.status == 0){
-        if(that.data.fromData.page <= res.pagecount){
+        if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,
             list : this.data.list.concat(res.data),
-            'fromData.page' : that.data.fromData.page + 1
+            'formData.page' : that.data.formData.page + 1
           })
         }
       }else{

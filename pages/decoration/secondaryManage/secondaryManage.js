@@ -7,7 +7,7 @@ Page({
    */
   data: {
     titleList: ['全部', '上架', '下架'],
-    fromData:{
+    formData:{
       page : 1,
       pagesize : 10,
       keyword : ''
@@ -33,15 +33,14 @@ Page({
       if(e.detail.index == this.data.index) return
       this.setData({
         index : e.detail.index,
-        'fromData.page' : 1,
+        'formData.page' : 1,
         tabIndex : e.detail.index == 1 ? 1 : e.detail.index == 2 ? 0 : '',
         list : []
       })
-    }
-    if(e.detail.value){
+    }else{
       this.setData({
-        'fromData.page' : 1,
-        'fromData.keyword' : e.detail.value,
+        'formData.page' : 1,
+        'formData.keyword' : e.detail.value,
         list : []
       })
     }
@@ -49,7 +48,7 @@ Page({
   },
   loadresh(){
     this.setData({
-      'fromData.page' : 1,
+      'formData.page' : 1,
       list : [],
     })
     this.getList()
@@ -58,18 +57,18 @@ Page({
     var that = this
     // type 1:上架 0:下架 不传则为全部
     var data = {
-      page : this.data.fromData.page,
-      pagesize : this.data.fromData.pagesize,
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
       ground : this.data.tabIndex,
-      keyword : this.data.fromData.keyword
+      keyword : this.data.formData.keyword
     }
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
       if(res.status == 0){
-        if(that.data.fromData.page <= res.pagecount){
+        if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,
             list:res.data,
-            'fromData.page' : that.data.fromData.page + 1
+            'formData.page' : that.data.formData.page + 1
           })
         }
       }else{
@@ -117,7 +116,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList()
+    this.loadresh()
   },
 
   /**

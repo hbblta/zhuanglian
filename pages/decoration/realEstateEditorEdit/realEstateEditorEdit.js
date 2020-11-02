@@ -13,7 +13,8 @@ Page({
       style : '',
       area : '',
       vrImageUrl : '',
-      styleImage : []
+      styleImage : [],
+      materials : []
      }
   },
 
@@ -23,6 +24,9 @@ Page({
   onLoad: function (options) {
     console.log(app.globalData.styleListData)
     if(!app.globalData.styleListData.styleData){
+      app.globalData.styleListData.styleData = {
+        materials : []
+      }
       console.log('新增')
     }else{
       console.log('编辑')

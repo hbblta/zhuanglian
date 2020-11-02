@@ -2,7 +2,7 @@
 <view class="effectPictureEditMain">
   <view class="effectPictureEditMainTitle">图片上传</view>
   <view>
-    <uploadImage bind:getImagePath="getImagePath" imageLength='6' imageType='goods' />
+    <uploadImage  imageList='{{formData.imageList}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
   </view>
 </view>
 <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="materialName"  placeholder="请填写商品名称"></input></view>
@@ -41,8 +41,8 @@
 </view>
 <view class="effectPictureEditButtonsTwo">
   <view class="effectPictureEditButtons">
-    <view bindtap="changeIsGround" class="{{!fromData.isGround ? 'nowButtons' : ''}}">下架</view>
-    <view bindtap="changeIsGround" class="{{fromData.isGround ? 'nowButtons' : ''}}">上架</view>
+    <view bindtap="changeIsGround" class="{{!formData.isGround ? 'nowButtons' : ''}}">下架</view>
+    <view bindtap="changeIsGround" class="{{formData.isGround ? 'nowButtons' : ''}}">上架</view>
   </view>
   <view class="effectPictureRelease" bindtap="submit">发布</view>
 </view>

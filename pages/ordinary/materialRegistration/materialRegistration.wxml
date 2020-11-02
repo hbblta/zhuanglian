@@ -3,7 +3,7 @@
     <input placeholder="商铺名称" bindinput="updateInput" data-key='companyName'></input>
     <input placeholder="经营品牌(可多填写)" bindinput="updateInput" data-key='brandName'></input>
     <input placeholder="注册人" bindinput="updateInput" data-key='realName'></input>
-    <view class="{{fromData.areaId ? 'decorationStafColol' : ''}}"><range bind:changearea="changearea"></range></view>
+    <view class="{{formData.areaId ? 'decorationStafColol' : ''}}"><range bind:changearea="changearea"></range></view>
 </view>
 <view class="decorationStaffPact">
   <image bindtap="selecteChange" src="{{selecteUser ? '../../../image/icon/selected.svg' : '../../../image/icon/selecte.svg'}}"></image>

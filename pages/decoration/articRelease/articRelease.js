@@ -9,7 +9,7 @@ Page({
     getcategoriesShowIndex : -1,
     getcategoriesShow : [],
     getcategoriesList : [],
-    fromData : {
+    formData : {
       classID : '',
       title : '',
       content : ''
@@ -35,10 +35,10 @@ Page({
     })
   },
   updateInput(e) {
-    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
-    fromData[e.currentTarget.dataset.key] = e.detail.value
+    var formData = JSON.parse(JSON.stringify(this.data.formData))
+    formData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      fromData : fromData
+      formData : formData
     })
   },
   bindPickerChange(e){
@@ -85,7 +85,7 @@ Page({
   },
   editorData(e){
     this.setData({
-      'fromData.content' : e.detail.html
+      'formData.content' : e.detail.html
     })
   },
   submit(){
@@ -98,8 +98,8 @@ Page({
     }
     var data = {
       classID : this.data.getcategoriesList[this.data.getcategoriesShowIndex].value,
-      title : this.data.fromData.title,
-      content : this.data.fromData.content
+      title : this.data.formData.title,
+      content : this.data.formData.content
     }
     app.ajaxToken('/shop/addnews/'+app.globalData.userData.ShopID, data, 'post').then(res => {
      if(res.status == 0){

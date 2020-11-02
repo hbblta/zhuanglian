@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fromData:{
+    formData:{
       from : 0,
       size : 20,
       name : ''
@@ -44,12 +44,12 @@ Page({
   },
   getList(){
     var that = this
-    app.ajaxToken('information/search/category',this.data.fromData,'get').then(res=>{
-      if(that.data.fromData.from < res.data.totalCount){
+    app.ajaxToken('information/search/category',this.data.formData,'get').then(res=>{
+      if(that.data.formData.from < res.data.totalCount){
         that.setData({
           list : this.data.list.concat(res.data.items),
           totalCount : res.data.totalCount,
-          'fromData.from' : that.data.fromData.from + that.data.fromData.size
+          'formData.from' : that.data.formData.from + that.data.formData.size
         })
       }
     })

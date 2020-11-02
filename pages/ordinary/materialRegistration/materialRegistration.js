@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fromData:{
+    formData:{
       companyName : '',
       brandName : '',
       realName : '',
@@ -38,7 +38,7 @@ Page({
   },
   changearea(e){
     this.setData({
-      'fromData.areaId' : e.detail.id
+      'formData.areaId' : e.detail.id
     })
   },
   selecteChange(){//用户协议
@@ -46,11 +46,11 @@ Page({
       selecteUser : !this.data.selecteUser
     })
   },
-  updateInput(e) {//公用input更改fromData
-    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
-    fromData[e.currentTarget.dataset.key] = e.detail.value
+  updateInput(e) {//公用input更改formData
+    var formData = JSON.parse(JSON.stringify(this.data.formData))
+    formData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      fromData : fromData
+      formData : formData
     })
   },
   submit(e){
@@ -62,7 +62,7 @@ Page({
       })
       return
     }
-    if(!this.data.fromData.companyName || !this.data.fromData.brandName || !this.data.fromData.realName || !this.data.fromData.areaId){
+    if(!this.data.formData.companyName || !this.data.formData.brandName || !this.data.formData.realName || !this.data.formData.areaId){
       wx.showToast({
         title: '请先将信息填写完整',
         icon :'none'
@@ -80,10 +80,10 @@ Page({
       }
       var data = {
         userId : this.data.userData.UserID,
-        realName : this.data.fromData.realName,
-        brandName : this.data.fromData.brandName,
-        companyName : this.data.fromData.companyName,
-        areaId : this.data.fromData.areaId,
+        realName : this.data.formData.realName,
+        brandName : this.data.formData.brandName,
+        companyName : this.data.formData.companyName,
+        areaId : this.data.formData.areaId,
         encryptedData:e.detail.encryptedData,
         iv : e.detail.iv,
         code:this.data.code
@@ -91,10 +91,10 @@ Page({
     }else{
       var data = {
         userId : this.data.userData.UserID,
-        realName : this.data.fromData.realName,
-        brandName : this.data.fromData.brandName,
-        companyName : this.data.fromData.company,
-        areaId : this.data.fromData.areaId,
+        realName : this.data.formData.realName,
+        brandName : this.data.formData.brandName,
+        companyName : this.data.formData.company,
+        areaId : this.data.formData.areaId,
       }
     }
     app.ajaxToken('/user/registermaterialshop', data, 'post').then(res => {

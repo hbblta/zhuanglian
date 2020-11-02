@@ -121,7 +121,7 @@ Page({
         ]
       },
     ],
-    AreafromDataInit: {
+    AreaformDataInit: {
       disCommendArea: 0,
       disInCommendArea: 0,
       customerDeveloperArea: 0,
@@ -129,7 +129,7 @@ Page({
       orderManagerArea: 0,
       designArea: 0,
     },
-    AreafromData: {
+    AreaformData: {
       disCommendArea: '',
       disInCommendArea: '',
       customerDeveloperArea: '',
@@ -137,7 +137,7 @@ Page({
       orderManagerArea: '',
       designArea: '',
     },
-    CjfromDataInit: {
+    CjformDataInit: {
       disCommendRatio: 0,
       disInCommendRatio: 0,
       customerDeveloperRatio: 0,
@@ -145,7 +145,7 @@ Page({
       orderManagerRatio: 0,
       designRatio: 0
     },
-    CjfromData: {
+    CjformData: {
       disCommendRatio: '',
       disInCommendRatio: '',
       customerDeveloperRatio: '',
@@ -158,16 +158,16 @@ Page({
   },
   updateInput(e) {
     if (e.currentTarget.dataset.num == 0) {
-      var AreafromData = JSON.parse(JSON.stringify(this.data.AreafromData))
-      AreafromData[e.currentTarget.dataset.key] = e.detail.value
+      var AreaformData = JSON.parse(JSON.stringify(this.data.AreaformData))
+      AreaformData[e.currentTarget.dataset.key] = e.detail.value
       this.setData({
-        AreafromData
+        AreaformData
       })
     } else {
-      var CjfromData = JSON.parse(JSON.stringify(this.data.CjfromData))
-      CjfromData[e.currentTarget.dataset.key] = e.detail.value
+      var CjformData = JSON.parse(JSON.stringify(this.data.CjformData))
+      CjformData[e.currentTarget.dataset.key] = e.detail.value
       this.setData({
-        CjfromData
+        CjformData
       })
     }
   },
@@ -185,9 +185,9 @@ Page({
     if (this.data.commissionType) {
       var ipt = false
       //输入的成交额值
-      var arr = Object.keys(this.data.CjfromData)
+      var arr = Object.keys(this.data.CjformData)
       for (let i in arr) {
-        if (!this.data.CjfromData[arr[i]]) {
+        if (!this.data.CjformData[arr[i]]) {
           ipt = true
           break;
         }
@@ -201,13 +201,13 @@ Page({
         return
       }
       data.setType = 2
-      data = Object.assign(data, this.data.AreafromDataInit, this.data.CjfromData)
+      data = Object.assign(data, this.data.AreaformDataInit, this.data.CjformData)
     } else {
       var ipt = false
       //输入的按面积的值
-      var arr = Object.keys(this.data.AreafromData)
+      var arr = Object.keys(this.data.AreaformData)
       for (let i in arr) {
-        if (!this.data.AreafromData[arr[i]]) {
+        if (!this.data.AreaformData[arr[i]]) {
           ipt = true
           break;
         }
@@ -221,7 +221,7 @@ Page({
         return
       }
       data.setType = 1
-      data = Object.assign(data, this.data.CjfromDataInit, this.data.AreafromData)
+      data = Object.assign(data, this.data.CjformDataInit, this.data.AreaformData)
     }
     console.log(data)
     app.ajaxToken('/shop/setcommission/' + app.globalData.userData.ShopID, data, 'post').then(res => {

@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    httpUrl : [],
     uploadImgList: [],
-    fromData : {
+    formData : {
       materialName : '',
       brand : '',
       modelNubmer : '',
       content : '',
-      isGround : false
+      isGround : true,
+      imageList : []
     },
     getcategoriesList : [],
     getcategoriesShow : [],
@@ -47,7 +47,7 @@ Page({
   },
   changeIsGround(){
     this.setData({
-      'fromData.isGround' : !this.data.fromData.isGround
+      'formData.isGround' : !this.data.formData.isGround
     })
   },
   onEditorReady() {
@@ -58,7 +58,7 @@ Page({
   },
   editorData(e){
     this.setData({
-      'fromData.content' : e.detail.html
+      'formData.content' : e.detail.html
     })
   },
   insertImage() {
@@ -86,15 +86,15 @@ Page({
     })
   },
   updateInput(e) {
-    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
-    fromData[e.currentTarget.dataset.key] = e.detail.value
+    var formData = JSON.parse(JSON.stringify(this.data.formData))
+    formData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      fromData : fromData
+      formData : formData
     })
   },
   getImagePath(e){//获取组件图片
     this.setData({
-      uploadImgList  : e.detail
+      'formData.imageList' : e.detail.imageList
     })
   },
   submit(){//提交
@@ -103,49 +103,26 @@ Page({
       title: '提交中',
       mask: true
     })
-    this.callback(this.data.uploadImgList,(res)=>{
-      var data = {
-        materialName : this.data.fromData.materialName,
-        categoryID : this.data.getcategoriesList[this.data.getcategoriesShowIndex].value,
-        brand : this.data.fromData.brand,
-        modelNubmer : this.data.fromData.modelNubmer,
-        content : this.data.fromData.content,
-        isGround : this.data.fromData.isGround ? 1 : 0,
-        images : res
-      }
-      app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '发布成功',
-        })
-        setTimeout(()=>{
-          wx.navigateBack({
-            delta: 1,
-          })
-        },1000)
-      })
-    })
-  },
-  callback(list,callFn){//上传图片
-    var that = this
-    var arr = []
-    for(let i in list){
-      wx.uploadFile({
-        url: app.globalData.httpUrl + '/common/uploadproduct',
-        filePath: list[i],
-        name: 'file',
-        header: {
-          "Authorization": app.globalData.Authorization
-        },
-        success: function (res) {
-          arr.push(JSON.parse(res.data).data.SaveName)
-          if(list.length - 1 == i){
-            callFn(arr)
-          }
-        }
-      })
+    var data = {
+      materialName : this.data.formData.materialName,
+      categoryID : this.data.getcategoriesList[this.data.getcategoriesShowIndex].value,
+      brand : this.data.formData.brand,
+      modelNubmer : this.data.formData.modelNubmer,
+      content : this.data.formData.content,
+      isGround : this.data.formData.isGround ? 1 : 0,
+      images : this.data.formData.imageList.map((data)=>{return data.SaveName})
     }
-    //输入你先需要执行完的逻辑
+    app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {
+      wx.hideLoading()
+      wx.showToast({
+        title: '发布成功',
+      })
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1,
+        })
+      },1000)
+    })
   },
   /**
    * 生命周期函数--监听页面显示

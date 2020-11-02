@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fromData:{
+    formData:{
       realName:'',
       mobile:'',
       address:'',
@@ -39,10 +39,10 @@ Page({
     })
   },
   getvalue(e){
-    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
-    fromData[e.currentTarget.dataset.key] = e.detail.value
+    var formData = JSON.parse(JSON.stringify(this.data.formData))
+    formData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      fromData : fromData
+      formData : formData
     })
   },
   changearea(e){
@@ -53,7 +53,7 @@ Page({
   },
   goback(){
     var userId = app.globalData.userData.UserID
-    var datas = this.data.fromData
+    var datas = this.data.formData
     if(!datas.mobile){
       wx.showToast({
         title: '请先输入电话',

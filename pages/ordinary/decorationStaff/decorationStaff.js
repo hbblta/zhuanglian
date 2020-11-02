@@ -8,7 +8,7 @@ Page({
   data: {
     userData : {},
     areaId : '',
-    fromData:{
+    formData:{
       shopNo : '',
       realName : ''
     },
@@ -40,10 +40,10 @@ Page({
     })
   },
   updateInput(e) {
-    var fromData = JSON.parse(JSON.stringify(this.data.fromData))
-    fromData[e.currentTarget.dataset.key] = e.detail.value
+    var formData = JSON.parse(JSON.stringify(this.data.formData))
+    formData[e.currentTarget.dataset.key] = e.detail.value
     this.setData({
-      fromData : fromData
+      formData : formData
     })
   },
   /**
@@ -64,14 +64,14 @@ Page({
   },
   registerStaff(e){
     var that = this
-    if(this.data.fromData.shopNo == ''){
+    if(this.data.formData.shopNo == ''){
       wx.showToast({
         title: '请填写装企店码',
         icon :'none'
       })
       return
     }
-    if(this.data.fromData.realName == ''){
+    if(this.data.formData.realName == ''){
       wx.showToast({
         title: '请填写申请人',
         icon :'none'
@@ -96,8 +96,8 @@ Page({
       }
       var data = {
         userId : this.data.userData.UserID,
-        shopNo : this.data.fromData.shopNo,
-        realName : this.data.fromData.realName,
+        shopNo : this.data.formData.shopNo,
+        realName : this.data.formData.realName,
         encryptedData:e.detail.encryptedData,
         iv : e.detail.iv,
         code:this.data.code
@@ -105,8 +105,8 @@ Page({
     }else{
       var data = {
         userId : this.data.userData.UserID,
-        shopNo : this.data.fromData.shopNo,
-        realName : this.data.fromData.realName,
+        shopNo : this.data.formData.shopNo,
+        realName : this.data.formData.realName,
       }
     }
     app.ajaxToken(this.data.ajaxUrl, data, 'post').then(res => {

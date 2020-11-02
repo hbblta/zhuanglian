@@ -78,7 +78,6 @@ Page({
         'formData.unitList' : arr,
       })
     }
-
   },
   submit(){//提交
     var that = this

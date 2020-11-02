@@ -29,6 +29,10 @@ Page({
   },
   getImg(){
     var that = this
+    wx.showLoading({
+      title: '上传中',
+      mask:true
+    })
     this.cropper = this.selectComponent("#image-cropper");
     this.cropper.getImg((obj)=>{ //裁剪获取图片方法
       wx.uploadFile({
@@ -44,6 +48,7 @@ Page({
             SaveName : JSON.parse(res.data).data.SaveName,
             imageType : that.data.imageType
           }
+          wx.hideLoading()
           wx.navigateBack({
             delta: 1 
           })

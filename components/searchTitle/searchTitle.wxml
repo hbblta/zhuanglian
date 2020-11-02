@@ -5,7 +5,7 @@
       <input class="searchInput" bindinput="updateInput"  type='text' confirm-type='search' placeholder='搜索' />
     </view>
 </view>
-<scroll-view  scroll-x="true" class="materialOrderStatusList">
+<scroll-view wx:if="{{tabShow}}"  scroll-x="true" class="materialOrderStatusList">
     <view 
     wx:for='{{titleList}}' 
     wx:key='index' 

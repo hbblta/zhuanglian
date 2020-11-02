@@ -91,7 +91,7 @@ page{
   width: 750rpx;
 }
 .effectPictureEditSet view:nth-child(1){
-  width: 375rpx;
+  width: 100%;
   height: 90rpx;
   line-height: 90rpx;
   background-color:  rgba(255, 255, 255, 1);

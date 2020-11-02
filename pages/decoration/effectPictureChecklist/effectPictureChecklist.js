@@ -9,7 +9,8 @@ Page({
     index:0,
     textList : [],
     windowHeight : 0,
-    list : 2
+    list : [],
+    auxiliaryCost : ''
   },
 
   /**
@@ -26,18 +27,35 @@ Page({
     app.ajaxToken('/common/getcategories', 'get').then(res => {
       var arr = res.data
       for(let i in arr){
+        app.globalData.styleListData.styleData.materials[i] = []
         arr[i].name = arr[i].text
       }
       this.setData({
         textList : arr,
+        auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
       })
+    })
+    wx.showToast({
+      icon:'none',
+      title: '暂只支持选择辅材',
     })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
   getList(e){
-    console.log(e)
+    this.setData({
+      index : e.detail.index,
+    })
+    this.reshList()
+  },
+  reshList(){
+    this.setData({
+      list : app.globalData.styleListData.styleData.materials[this.data.index]
+    })
+  },
+  priceEffect(e){
+    app.globalData.styleListData.styleData.auxiliaryCost = e.detail.value
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -50,7 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app.globalData.styleListData.styleData.materials)
+    this.reshList()
   },
 
   /**

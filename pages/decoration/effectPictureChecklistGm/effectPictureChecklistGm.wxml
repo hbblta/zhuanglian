@@ -21,7 +21,11 @@
            <view>型号：{{item.ModelNumber}}</view>
            <view class="{{item.IsGround?'statu':''}}">{{item.IsGround?'上架':'下架'}}</view>
       </view>
-      <view class="list-btn {{item.selected ? 'selectedStyle' : ''}}" bindtap="selectThis" data-index="{{index}}">{{item.selected ? '选中' : '选择' }}</view>
+      <view 
+      class="list-btn {{item.selected ? 'selectedStyle' : ''}}" 
+      bindtap="selectThis" 
+      data-id="{{item.MaterialID}}" 
+      data-index="{{index}}">{{item.selected ? '选中' : '选择' }}</view>
 		</view>
 	</scroll-view>
 </view>

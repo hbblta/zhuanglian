@@ -30,15 +30,8 @@ Page({
       title: '辅材管理',
     })
     this.setData({//获取全局清单并，删除全局已拥有清单，以用于卸载页面时合并
-      selectList : app.globalData.styleListData.styleData.materials
+      selectList : app.globalData.styleListData.styleData.materials[0]
     })
-    // for(let i in app.globalData.styleListData.styleData.materials){
-    //   for(let j in this.data.selectList){
-    //     if(app.globalData.styleListData.styleData.materials[i].MaterialID == this.data.selectList[j].MaterialID){
-    //       app.globalData.styleListData.styleData.materials.splice(i,1)
-    //     }
-    //   }
-    // }
   },
   listChange(e){
     if(e.detail.index){
@@ -76,15 +69,14 @@ Page({
     }
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
       if(res.status == 0){
-        for(let i in res.data){
-          for(let j in that.data.selectList){
-            if(res.data[i].MaterialID == this.data.selectList[j].MaterialID){
-              res.data[i].selected = true
-            }else{
-              res.data[i].selected = false
-            }
+        var selectListId = that.data.selectList.map(data=>{return data.MaterialID})
+        res.data.forEach(item => {
+          if(selectListId.includes(item.MaterialID)){
+            item.selected = true
+          }else{
+            item.selected = false
           }
-        }
+        });
         if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,
@@ -108,6 +100,33 @@ Page({
     this.setData({
       [updateData] : !this.data.list[e.currentTarget.dataset.index].selected
     })
+    if(this.data.list[e.currentTarget.dataset.index].selected){
+      wx.showToast({
+        title: '选择成功',
+        mask : true
+      })
+      var selectList = this.data.selectList
+      selectList.push(this.data.list[e.currentTarget.dataset.index])
+      this.setData({
+        selectList
+      })
+    }else{
+      wx.showToast({
+        title: '取消成功',
+        mask : true,
+        icon:'none'
+      })
+      var selectList = this.data.selectList
+      for(let i in selectList){
+        console.log(i)
+        if(selectList[i].MaterialID == e.currentTarget.dataset.id){
+          selectList.splice(i,1)
+        }
+      }
+      this.setData({
+        selectList
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -120,7 +139,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.loadresh()
+    setTimeout(()=>{
+      this.loadresh()
+    },500)
   },
 
   /**
@@ -134,12 +155,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    for(let i in this.data.list){
-      if(this.data.list[i].selected){
-        app.globalData.styleListData.styleData.materials.push(this.data.list[i])
-      }
-    }
-    console.log(app.globalData.styleListData.styleData.materials)
+    app.globalData.styleListData.styleData.materials[0] = this.data.selectList
   },
 
   /**

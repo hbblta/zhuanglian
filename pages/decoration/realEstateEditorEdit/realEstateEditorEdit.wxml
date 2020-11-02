@@ -30,5 +30,4 @@
 <view style="height:100rpx"></view>
 <view class="effectPictureEditSet">
   <view>删除</view>
-  <view bindtap="saveStyle">保存</view>
 </view>

@@ -3,7 +3,7 @@
   <view slot="after" class="materialOrderScroll">
     <view wx:for='{{list}}' wx:for-item='item' data-index="{{index}}" wx:key='lindex' class="materialOrderList">
         <view class="effectPictureChecklist">
-        <view>油漆</view>
+        <view>{{item.MaterialName}}</view>
         <image src="../../../image/icon/more.svg"></image>
       </view>
     </view>
@@ -15,6 +15,6 @@
 </generalSelectionlist>
 <view class="generalSelectionlistText">
   <view>请输入总价</view>
-  <view><input type="number" placeholder="辅材+人工的总价"/></view>
+  <view><input type="number" bindinput="priceEffect" placeholder="辅材+人工的总价"/></view>
   <view>确定</view>
 </view>

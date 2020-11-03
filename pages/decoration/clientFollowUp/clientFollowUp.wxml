@@ -43,11 +43,18 @@
 		</view>
 		<view>
 			<view class="searchInputViewBody" style="height:100%">
-				<scroll-view scroll-y="true" style="height:100%">
+				<scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scroll">
 					<view class="clientAction" wx:if="{{textListIndex==0}}">
-						<view>
-							<view class="titleTime">2019年</view>
+						<view wx:for="{{movelist}}" wx:key="index">
+							<view class="titleTime">{{item.AddDate}}</view>
 							<view class="list">
+								<view class="tip">{{item.ActionName}}</view>
+								<view class="info">
+									<image src="{{item.ImageUrl}}"></image>
+									<view class="name">{{item.Remark}}</view>
+								</view>
+							</view>
+							<!-- <view class="list">
 								<view class="tip">访问房源</view>
 								<view class="info">
 									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
@@ -60,35 +67,21 @@
 									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
 									<view class="name">我是大哥大</view>
 								</view>
-							</view>
-							<view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
-								</view>
-							</view>
+							</view> -->
 						</view>
 					</view>
-
 					<view wx:if="{{textListIndex==1}}">
 						<view class="clientList">
-							<view><text>访问次数</text><text>55</text></view>
-							<view><text>转发次数</text><text>55</text></view>
-							<view><text>访问总时长（分）</text><text>55</text></view>
-							<view><text>收藏效果（款）</text><text>55</text></view>
-							<view><text>下单次数</text><text>55</text></view>
-							<view><text>成交次数</text><text>55</text></view>
+							<view wx:for="{{countobj}}" wx:key="index"><text>{{item.Name}}</text><text>{{item.Count}}</text></view>
 						</view>
 					</view>
-
 					<view wx:if="{{textListIndex==2}}">
-						<view>
+						<view wx:for="{{herlist}}" wx:key="index">
 							<view class="clientOrder">
 								<view class="clientOrderText">
-									<view>小区名称</view>
-									<view>订单状态: 量房</view>
-									<view>时间: 2020/05/05</view>
+									<view>{{item.Address}}</view>
+									<view>订单状态: {{item.StateName}}</view>
+									<view>时间: {{item.AddDate}}</view>
 								</view>
 								<image class="clientOrderMore" src="../../../image/icon/more.svg"></image>
 							</view>

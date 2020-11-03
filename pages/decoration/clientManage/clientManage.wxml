@@ -1,5 +1,10 @@
 <!--pages/decoration/clientManage/clientManage.wxml-->
-<scroll-view class="scroll" scroll-y="true" bindscrolltolower="scroll">
+<scroll-view class="scroll" 
+	scroll-y="true" 
+	refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+	bindscrolltolower="scroll">
 	<view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>

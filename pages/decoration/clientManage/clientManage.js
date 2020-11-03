@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    load : false,
     list:[],
     info: {},
     date: '',
@@ -49,11 +50,25 @@ Page({
     //当前点击的对象信息
     nowobj:{}
   },
+  loadresh(e){
+    this.setData({
+      list:[],
+      page:1,
+      pagecount:0,
+      flag:true
+    })
+    setTimeout(() => {
+        this.setData({
+          load:false
+        })
+    },1500);
+    this.getList()
+  },
   getvalue(e){
     this.setData({
       keyword:e.detail.value,
       page:1,
-      flag:true,
+      flag:false,
       list:[]
     })
     this.getList()
@@ -200,6 +215,8 @@ Page({
         flag:true,
         pagecount:res.pagecount
       })
+
+
     })
   },
   /**

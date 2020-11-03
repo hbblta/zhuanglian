@@ -8,13 +8,13 @@
   <view slot="after" class="materialOrderScroll">
     <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' class="materialOrderList">
       <view class="materialOrderListImg">
-        <image></image>
+        <image src="{{item.ImageUrl[0]}}"></image>
       </view>
       <view class="materialOrderListText">
-        <view class="materialOrderListName">楼盘名称</view>
+        <view class="materialOrderListName">{{item.CaseName}}</view>
         <view class="materialOrderListButton">
           <text>上架</text>
-          <text>删除</text>
+          <text bindtap="deleteEffect" data-index="{{listIndex}}">删除</text>
         </view>
       </view>
     </view>

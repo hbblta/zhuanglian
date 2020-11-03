@@ -8,7 +8,6 @@ Page({
   data: {
     index:0,
     textList : [],
-    windowHeight : 0,
     list : [],
     auxiliaryCost : ''
   },
@@ -17,24 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({  
-      success: (res) => {
-        this.setData({
-          windowHeight: (res.windowHeight * (750 / res.windowWidth))
-        })
-      },
-    })
-    app.ajaxToken('/common/getcategories', 'get').then(res => {
-      var arr = res.data
-      for(let i in arr){
-        app.globalData.styleListData.styleData.materials[i] = []
-        arr[i].name = arr[i].text
-      }
-      this.setData({
-        textList : arr,
-        auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
-      })
-    })
+    this.reshMaterials()
     wx.showToast({
       icon:'none',
       title: '暂只支持选择辅材',
@@ -49,6 +31,31 @@ Page({
     })
     this.reshList()
   },
+  reshMaterials(){
+    if(app.globalData.styleListData.styleData.materials.length == 0){
+      app.ajaxToken('/common/getcategories', 'get').then(res => {
+        for(let i in res.data){
+          app.globalData.styleListData.styleData.materials[i] = []
+          res.data[i].name = res.data[i].text
+        }
+        this.setData({
+          textList : res.data,
+          auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
+        })
+      })
+    }else{
+      app.ajaxToken('/common/getcategories', 'get').then(res => {
+        for(let i in res.data){
+          res.data[i].name = res.data[i].text
+        }
+        this.setData({
+          textList : res.data,
+          auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
+        })
+      })
+    }
+
+  },
   reshList(){
     this.setData({
       list : app.globalData.styleListData.styleData.materials[this.data.index]
@@ -56,6 +63,11 @@ Page({
   },
   priceEffect(e){
     app.globalData.styleListData.styleData.auxiliaryCost = e.detail.value
+  },
+  backUrl(){
+    wx.navigateBack({
+      delta: 1,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -82,7 +94,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
+    prevPage.setData({
+      'styleData.materials': app.globalData.styleListData.styleData.materials,
+      'styleData.auxiliaryCost' : app.globalData.styleListData.styleData.auxiliaryCost
+    })
   },
 
   /**

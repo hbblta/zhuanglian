@@ -49,7 +49,6 @@ Page({
     if(e.detail.index == 1){
       this.getxg()
     }
-
   },
   act(e){
     var index = e.currentTarget.dataset.index
@@ -90,7 +89,9 @@ Page({
     }
     if(ground)data.ground=ground
     app.ajaxToken('/shop/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      this.setData({
+        list : res.data
+      })
     })
   },
   //楼盘列表 参数化
@@ -104,10 +105,28 @@ Page({
     }
     if(ground)data.ground=ground
     app.ajaxToken('/shop/geteffectlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        list : res.data
+      })
       console.log(res)
     })
   },
-
+  deleteEffect(e){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定删除这张图片吗',
+      success (res) {
+        if (res.confirm) {
+          app.ajaxToken('/shop/delcase/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].CaseID,'','delete').then(res=>{
+            that.getlp()
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },

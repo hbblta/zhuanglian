@@ -79,33 +79,6 @@ Page({
       })
     }
   },
-  submit(){//提交
-    var that = this
-    // wx.showLoading({
-    //   title: '提交中',
-    //   mask: true
-    // })
-    
-    console.log(this.data.formData)
-    // var data = {
-    //   basisData : {
-    //     propertyImage : res,
-    //     propertyName : that.data.formData.basisData.propertyName,
-    //     isGround : this.data.formData.basisData.isGround
-    //   }
-    // }
-    // app.ajaxToken('/shop/addproduct/'+app.globalData.userData.ShopID,data, 'post').then(res => {
-    //   wx.hideLoading()
-    //   wx.showToast({
-    //     title: '发布成功',
-    //   })
-    //   setTimeout(()=>{
-    //     wx.navigateBack({
-    //       delta: 1,
-    //     })
-    //   },1000)
-    // })
-  },
   moreUnit(){//新增户型
     var that = this
     this.setData({
@@ -164,6 +137,71 @@ Page({
         },
       })
     },500)
+  },
+  submit(){//提交
+    var that = this
+    wx.showLoading({
+      title: '提交中',
+      mask: true
+    })
+    console.log(this.data.formData)
+    var data = {
+      caseName : this.data.formData.basisData.propertyName,
+      images : this.data.formData.basisData.imageList.map(data=>{return data.SaveName}),
+      isGround : this.data.formData.basisData.isGround ? 1 : 0,
+      houses : []
+    }
+    var arrOne = JSON.parse(JSON.stringify(this.data.formData.unitList))
+    arrOne.forEach((item1,index1) => {
+      data.houses[index1] = {
+        houseName : item1.title,
+        images : item1.imageList.map(data=>{return data.SaveName}),
+        styles : that.changeStyleList(item1.styleList)
+      }
+    });
+    console.log(data)
+    app.ajaxToken('/shop/addcase/'+app.globalData.userData.ShopID,data, 'post').then(res => {
+      wx.hideLoading()
+      wx.showToast({
+        title: '发布成功',
+      })
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1,
+        })
+      },1000)
+    })
+  },
+  changeStyleList(setleData){
+    var that = this
+    var data2 = []
+    setleData.forEach((item2,index2) => {
+      data2[index2] = {
+        effectName : item2.effectName,
+        area : item2.area,
+        style : item2.style,
+        styleImage : item2.styleImage.map(data=>{return data.SaveName}),
+        vrImageUrl : item2.vrImageUrl,
+        auxiliaryCost : item2.auxiliaryCost,
+        materials : that.changeMaterialsList(item2.materials)
+      }
+    });
+    return data2
+  },
+  changeMaterialsList(materialsData){
+    var data3 = []
+    var materialsDataList = []
+    materialsData.forEach(items=>{
+      materialsDataList = materialsDataList.concat(items)
+    })
+    materialsDataList.forEach((item3,index3) => {
+      data3[index3] = {
+        materialID : item3.MaterialID,
+        spaceID : null,
+        quantity : 1,
+      }
+    });
+    return data3
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

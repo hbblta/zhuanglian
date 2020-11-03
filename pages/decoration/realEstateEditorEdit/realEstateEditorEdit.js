@@ -14,7 +14,8 @@ Page({
       area : '',
       vrImageUrl : '',
       styleImage : [],
-      materials : []
+      materials : [],
+      auxiliaryCost : ''
      }
   },
 
@@ -29,6 +30,9 @@ Page({
       }
       console.log('新增')
     }else{
+      this.setData({
+        styleData : app.globalData.styleListData.styleData
+      })
       console.log('编辑')
     }
     this.getStylePicker()
@@ -76,7 +80,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -90,7 +93,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    var that=this;
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];
+    let update = `formData.unitList[${app.globalData.styleListData.unitIndex}].styleList[${app.globalData.styleListData.styleIndex}]`
+    prevPage.setData({
+      [update]: that.data.styleData,
+    })
+    app.globalData.styleListData.styleData = false
   },
 
   /**

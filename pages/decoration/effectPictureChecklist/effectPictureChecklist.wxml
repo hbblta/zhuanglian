@@ -15,6 +15,6 @@
 </generalSelectionlist>
 <view class="generalSelectionlistText">
   <view>请输入总价</view>
-  <view><input type="number" bindinput="priceEffect" placeholder="辅材+人工的总价"/></view>
-  <view>确定</view>
+  <view><input type="number" value="{{auxiliaryCost}}" bindinput="priceEffect" placeholder="辅材+人工的总价"/></view>
+  <view bindtap="backUrl">确定</view>
 </view>

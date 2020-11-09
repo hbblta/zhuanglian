@@ -27,7 +27,3 @@
     <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
   </view>
 </view> -->
-<view style="height:100rpx"></view>
-<view class="effectPictureEditSet">
-  <view>删除</view>
-</view>

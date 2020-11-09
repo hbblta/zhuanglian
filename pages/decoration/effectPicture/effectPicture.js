@@ -115,7 +115,7 @@ Page({
     var that = this
     wx.showModal({
       title: '提示',
-      content: '确定删除这张图片吗',
+      content: '确定删除吗',
       success (res) {
         if (res.confirm) {
           app.ajaxToken('/shop/delcase/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].CaseID,'','delete').then(res=>{

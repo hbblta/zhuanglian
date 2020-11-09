@@ -82,7 +82,9 @@
         "commissionSettings/commissionSettings",
         "followUp/followUp",
         "articRelease/articRelease",
-        "myShop/myShop"
+        "myShop/myShop",
+        "teamIntroduction/teamIntroduction",
+        "designFree/designFree"
       ]
     },
     {

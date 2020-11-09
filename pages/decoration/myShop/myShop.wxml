@@ -29,9 +29,13 @@
       <view>装企简介:</view>
       <image src="../../../image/icon/more.svg"></image>
     </view>
-    <view class="introductionBody">{{shopData.Description ? shopData.Description : '暂未填写'}}</view>
+    <view class="introductionBody">{{shopData.DescripItion ? shopData.Description : '暂未填写'}}</view>
   </view>
   <view class="shopMapPhone">
+    <view class="shopMapPhoneView shopMinuteView">
+      <view>信誉值分：{{shopData.Intergral}}</view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
     <view class="shopMapPhoneView">
       <view>商家地址：{{shopData.Address ? shopData.Address : '暂未填写'}}</view>
       <image src="../../../image/shopIcon/map.png"></image>

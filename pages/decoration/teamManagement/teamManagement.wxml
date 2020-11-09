@@ -2,7 +2,15 @@
 <generalSelectionlist textList='{{textList}}' bind:getList="getList" keyword="{{keyword}}" bind:inputvalue="inputvalue">
 	<view class="materialOrderScroll" slot="after">
 		<scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
-			<view wx:for='{{list}}' wx:for-item='item' data-id="{{item.TeamID}}" wx:for-index="listIndex" wx:key='listIndex' catchtap="goUrl" data-url='/pages/decoration/teamManagementDetails/teamManagementDetails' class="materialOrderList">
+			<view 
+			wx:for='{{list}}' 
+			wx:for-item='item' 
+			data-id="{{item.TeamID}}" 
+			wx:for-index="listIndex" w
+			x:key='listIndex' 
+			catchtap="goUrl" 
+			data-url='/pages/decoration/teamManagementDetails/teamManagementDetails' 
+			class="materialOrderList">
 				<view class="materialOrderListImg">
 					<image src="{{item.AvatarUrl}}"></image>
 				</view>

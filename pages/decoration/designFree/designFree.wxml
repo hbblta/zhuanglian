@@ -1,0 +1,30 @@
+<!--pages/decoration/designFree/designFree.wxml-->
+<view class="designFreeTitle">
+  专业设计师为您量身打造
+</view>
+<view class="decorationStaffInput">
+    <input  bindinput="updateInput" data-key="realName" placeholder="姓名"></input>
+    <input bindinput="updateInput" data-key="area" placeholder="面积"></input>
+</view>
+<button wx:if="{{!userData.Mobile}}" class="decorationStaffButton"  open-type="getPhoneNumber" bindgetphonenumber='registerStaff'>马上预约</button>
+<button wx:if="{{userData.Mobile}}" class="decorationStaffButton"  bindtap="registerStaff">马上预约</button>
+<view class="decorationCalculatorBroadcast">
+    <image src="../../../image/icon/volume.png"></image>
+    <text>手机号码139***6909用户免费获得报价</text>
+</view>
+<view class="designFreeBottom">
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free1.png"></image>
+    <view>微网</view>
+  </view>
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free2.png"></image>
+    <view>联系TA</view>
+  </view>
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free3.png"></image>
+    <view>留言</view>
+  </view>
+  <view class="designFreeBottomChat">与TA微聊</view>
+</view>
+

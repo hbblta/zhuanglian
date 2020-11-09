@@ -1,0 +1,77 @@
+/* pages/decoration/teamIntroduction/teamIntroduction.wxss */
+page{
+  background: #f7f7ff;
+}
+.teamIntroductionView{
+  margin-top: 15rpx;
+  background: #FFFFFF;
+}
+.teamIntroductionTitle{
+  height: 130rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2rpx solid #f7f7f7;
+}
+.teamIntroductionTitle view:nth-child(1){
+  color: rgba(48, 49, 51, 100);
+  font-size: 32rpx;
+  font-family: PingFangSC-regular;
+  font-weight: 550;
+}
+.teamIntroductionTitle view:nth-child(2){
+  color: rgba(48, 49, 51, 100);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.teamIntroductionListData{
+  height: 160rpx;
+  display: flex;
+  width: 720rpx;
+  padding: 20rpx 15rpx;
+  align-items: center;
+}
+.teamIntroductionListDataImg{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #f7f7f7;
+  margin-right: 20rpx;
+}
+.teamIntroductionListDataImg image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.teamIntroductionListDataText{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160rpx;
+  width: 100%;
+}
+.teamIntroductionListDataName,.teamIntroductionListDataFeeling{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.teamIntroductionListDataName text:nth-child(1){
+  color: rgba(48, 49, 51, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular
+}
+.teamIntroductionListDataName text:nth-child(2){
+  color: rgba(0, 129, 255, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.teamIntroductionListDataTear,.teamIntroductionListDataFeeling view:nth-child(1){
+  color: rgba(144, 147, 153, 100);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.teamIntroductionListDataFeeling image:nth-child(2){
+  width: 30rpx;
+  height: 30rpx;
+}

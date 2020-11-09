@@ -1,39 +1,60 @@
 // pages/ordinary/effectCollection/effectCollection.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {
-       imgUrl : '',
-       decorationName : '金华材料商',
-       decorationAddress : '金华市',
-       decorationPhone:'1008611'
-      },
-      {
-       imgUrl : '',
-       decorationName : '北京材料商',
-       decorationAddress : '北京市',
-       decorationPhone:'121300861154154'
-      },
-      {
-       imgUrl : '',
-       decorationName : '新疆材料商',
-       decorationAddress : '新疆市',
-       decorationPhone:'1541857415114'
-      },
-    ]
+    url : '',
+    formData:{
+      page : 1,
+      pagesize : 10,
+    },
+    load : false,
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      url : options.url
+    })
+    this.loadresh()
   },
-
+  loadresh(){
+    this.setData({
+      'formData.page' : 1,
+      list : [],
+    })
+    this.getList()
+  },
+  getList() {
+    var that = this
+    // type 1:上架 0:下架 不传则为全部
+    var data = {
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
+    }
+    app.ajaxToken(this.data.url+ app.globalData.userData.ShopID, data, 'get').then(res => {
+      if(res.status == 0){
+        if(that.data.formData.page <= res.pagecount){
+          that.setData({
+            load : false,
+            list:res.data,
+            'formData.page' : that.data.formData.page + 1
+          })
+        }
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

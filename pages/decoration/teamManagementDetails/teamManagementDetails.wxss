@@ -43,7 +43,7 @@ page{
   padding: 20rpx 15rpx 40rpx;
 }
 .teamManagementDetailsResumeTwo{
-  padding-bottom: 0;
+  padding-bottom: 5rpx;
   margin-bottom: 100rpx;
 }
 .teamManagementDetailsResume .teamManagementDetailsResumeText{

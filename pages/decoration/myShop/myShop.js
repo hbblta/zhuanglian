@@ -35,19 +35,19 @@ Page({
     imgArr: [],//轮播图数组
     shopFeatures:[
       {
-        title: '案例集经',
+        title: '案例集锦',
         iconUrl: '../../../image/shopIcon/features1.png',
-        url:'/pages/decoration/effectPicture/effectPicture'
+        url:'/pages/ordinary/effectCollection/effectCollection?url=/store/geteffectlist/'
       },
       {
         title: '团队介绍',
         iconUrl: '../../../image/shopIcon/features2.png',
-        url:'/pages/decoration/teamManagement/teamManagement'
+        url:'/pages/decoration/teamIntroduction/teamIntroduction'
       },
       {
         title: '免费设计',
         iconUrl: '../../../image/shopIcon/features3.png',
-        url:''
+        url:'/pages/decoration/designFree/designFree'
       },
       {
         title: '装修预算',
@@ -93,7 +93,12 @@ Page({
     realList:[],
     commissionType : 0,
     userData : {},
-    shopData : {}
+    shopData : {},
+    formDataOne:{
+      page : 1,
+      pagesize : 10,
+    },
+    load : false,
   },
 
   /**
@@ -104,7 +109,7 @@ Page({
       userData : app.globalData.userData
     })
     this.getUserInfo()
-    this.getAllList()
+    this.getList()
     this.getRealList()
   },
   changeIndex(e) {
@@ -172,6 +177,37 @@ Page({
       this.setData({
         imgArr : res.data
       })
+    })
+  },
+  loadresh(){
+    this.setData({
+      'formData.page' : 1,
+      list : [],
+    })
+    this.getList()
+  },
+  getList() {
+    var that = this
+    // type 1:上架 0:下架 不传则为全部
+    var data = {
+      page : this.data.formDataOne.page,
+      pagesize : this.data.formDataOne.pagesize,
+    }
+    app.ajaxToken('/store/geteffectlist/'+ app.globalData.userData.ShopID, data, 'get').then(res => {
+      if(res.status == 0){
+        if(that.data.formDataOne.page <= res.pagecount){
+          that.setData({
+            load : false,
+            allList:res.data,
+            'formData.page' : that.data.formDataOne.page + 1
+          })
+        }
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
     })
   },
   /**

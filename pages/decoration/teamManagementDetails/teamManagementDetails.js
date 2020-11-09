@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    case:[]
+    case:[],
+    type : 'change'
   },
 
   /**
@@ -17,7 +18,8 @@ Page({
       title: '详情',
     })
     this.setData({
-      teamid:options.teamid
+      teamid:options.teamid,
+      type : options.type
     })
   },
   getDetail(){
@@ -25,13 +27,12 @@ Page({
        this.setData({
          info:res.data
        })
-       if(this.data.info.Cases){
-         this.setData({
-           case:this.data.info.Cases
-         })
-       }
+       app.ajaxToken('/shop/getteamcaselist/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+        this.setData({
+          case:res.data
+        })
+     })
     })
-
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url+'?teamid='+this.data.teamid)

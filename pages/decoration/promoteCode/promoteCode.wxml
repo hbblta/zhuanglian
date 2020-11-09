@@ -7,7 +7,7 @@
     <image src="../../../image/icon/refresh.svg"></image>
   </view>
   <view class="promoteCodeButton">
-    <text bindtap="saveImage">保存图片</text>
+    <text bindtap="downloadImg">保存图片</text>
     <text bindtap="shareImg">转发</text>
   </view>
 </view>

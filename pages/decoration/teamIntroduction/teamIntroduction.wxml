@@ -1,0 +1,66 @@
+<!--pages/decoration/teamIntroduction/teamIntroduction.wxml-->
+<view class="teamIntroductionView">
+  <view class="teamIntroductionTitle">
+    <view>设计师 Designer</view>
+    <view>设计师团队</view>
+  </view>
+  <view>
+    <view class="teamIntroductionListData"
+          wx:for='{{listOne}}' 
+          wx:for-item='item' 
+          data-index='{{index}}'
+          wx:key='index' 
+          data-url='/pages/decoration/teamManagementDetails/teamManagementDetails'
+          data-id='{{item.TeamID}}'
+          bindtap="goUrl"
+    >
+      <view class="teamIntroductionListDataImg"><image src="{{item.Avatar}}"></image></view>
+      <view class="teamIntroductionListDataText">
+        <view class="teamIntroductionListDataName">
+          <text>{{item.RealName}}</text>
+          <text>{{item.Post}}</text>
+        </view>
+        <view class="teamIntroductionListDataTear">从业时间: {{item.WorkingYears}}年</view>
+        <view class="teamIntroductionListDataFeeling">
+          <view>
+            感悟: {{item.Perception}}
+          </view>
+          <image src="../../../image/icon/more.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="teamIntroductionView">
+  <view class="teamIntroductionTitle">
+    <view>施工 Construction</view>
+    <view>施工团队</view>
+  </view>
+  <view>
+    <view class="teamIntroductionListData"
+          wx:for='{{listTwo}}' 
+          wx:for-item='item' 
+          data-index='{{index}}'
+          wx:key='index' 
+          data-url='/pages/decoration/teamManagementDetails/teamManagementDetails'
+          data-id='{{item.TeamID}}'
+          bindtap="goUrl"
+    >
+      <view class="teamIntroductionListDataImg"><image src="{{item.Avatar}}"></image></view>
+      <view class="teamIntroductionListDataText">
+        <view class="teamIntroductionListDataName">
+          <text>{{item.RealName}}</text>
+          <text>{{item.Post}}</text>
+        </view>
+        <view class="teamIntroductionListDataTear">从业时间: {{item.WorkingYears}}年</view>
+        <view class="teamIntroductionListDataFeeling">
+          <view>
+            感悟: {{item.Perception}}
+          </view>
+          <image src="../../../image/icon/more.svg"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

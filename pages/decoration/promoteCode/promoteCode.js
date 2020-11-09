@@ -1,5 +1,6 @@
 // pages/decoration/promoteCode/promoteCode.js
 const app = getApp()
+var openStatus = true;
 Page({
 
   /**
@@ -45,7 +46,18 @@ Page({
       })
     }
   },
-  saveImage() {
+  downloadImg(){
+    var that = this
+    wx.downloadFile({
+      url: that.data.imgList[that.data.imgIndex],
+      success:function(res){
+        that.saveImage(res.tempFilePath)
+      }
+    })
+  },
+  saveImage (path) {
+    let that = this;
+    // 获取用户是否开启用户授权相册
     if(this.data.imgList.length == 0){
       wx.showToast({
         title: '暂未设置图片',
@@ -54,35 +66,96 @@ Page({
       });
       return
     }
-    wepy.showLoading({
-      title: '保存中...', 
-      mask: true,
-    });
-    wx.downloadFile({
-      url:this.data.imgList[this.data.imgIndex],
-      success: function(res) {
-        if (res.statusCode === 200) {
-          let img = res.tempFilePath;
-          wx.saveImageToPhotosAlbum({
-            filePath: img,
-            success(res) {
-              wepy.showToast({
-                title: '保存成功',
-                icon: 'success',
-                duration: 2000
-              });
-            },
-            fail(res) {
-              wepy.showToast({
-                title: '保存失败',
-                icon: 'success',
-                duration: 2000
-              });
+    if (!openStatus) {
+      wx.openSetting({
+        success: (result) => {
+          if (result) {
+            if (result.authSetting["scope.writePhotosAlbum"] === true) {
+              openStatus = true;
+              wx.saveImageToPhotosAlbum({
+                filePath: path,
+                success() {
+                  wx.showToast({
+                    title: '图片保存成功，快去分享到朋友吧~',
+                    icon: 'none',
+                    duration: 3500
+                  })
+                },
+                fail() {
+                  wx.showToast({
+                    title: '保存失败',
+                    icon: 'none'
+                  })
+                }
+              })
             }
-          });
+          }
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+    } else {
+      wx.getSetting({
+        success(res) {
+          // 如果没有则获取授权
+          if (!res.authSetting['scope.writePhotosAlbum']) {
+            wx.authorize({
+              scope: 'scope.writePhotosAlbum',
+              success() {
+                openStatus = true
+                wx.saveImageToPhotosAlbum({
+                  filePath: path,
+                  success() {
+                    wx.showToast({
+                      title: '图片保存成功，快去分享到朋友吧~',
+                      icon: 'none',
+                      duration: 2000
+                    })
+                  },
+                  fail() {
+                    wx.showToast({
+                      title: '保存失败',
+                      icon: 'none'
+                    })
+                  }
+                })
+              },
+              fail() {
+                // 如果用户拒绝过或没有授权，则再次打开授权窗口
+                openStatus = false
+                console.log('请设置允许访问相册')
+                wx.showToast({
+                  title: '请设置允许访问相册',
+                  icon: 'none'
+                })
+              }
+            })
+          } else {
+            // 有则直接保存
+            openStatus = true
+            wx.saveImageToPhotosAlbum({
+              filePath: path,
+              success() {
+                wx.showToast({
+                  title: '图片保存成功，快去分享到朋友吧~',
+                  icon: 'none',
+                  duration: 2000
+                })
+              },
+              fail() {
+                wx.showToast({
+                  title: '保存失败',
+                  icon: 'none'
+                })
+              }
+            })
+          }
+        },
+        fail(err) {
+          console.log(err)
         }
-      }
-    });
+      })
+    }
   },
   shareImg(){
     if(this.data.imgList.length == 0){
@@ -95,7 +168,7 @@ Page({
     }
     var that = this
     wx.previewImage({
-      urls: this.data.imgList[this.data.imgIndex],
+      urls: [this.data.imgList[this.data.imgIndex]],
       success:res=>{
         wx.showToast({
           icon : 'none',

@@ -256,3 +256,7 @@ page{
   font-size: 24rpx;
   font-family: PingFangSC-regular;
 }
+.shopMinuteView image{
+  width: 30rpx;
+  height: 30rpx;
+}

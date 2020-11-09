@@ -29,15 +29,15 @@
       <view>装企简介:</view>
       <image src="../../../image/icon/more.svg"></image>
     </view>
-    <view class="introductionBody">文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看文章拉萨客户拜访库拉索尼看</view>
+    <view class="introductionBody">{{shopData.Description ? shopData.Description : '暂未填写'}}</view>
   </view>
   <view class="shopMapPhone">
     <view class="shopMapPhoneView">
-      <view>商家地址：金华市婺城区金谷创业园</view>
+      <view>商家地址：{{shopData.Address ? shopData.Address : '暂未填写'}}</view>
       <image src="../../../image/shopIcon/map.png"></image>
     </view>
     <view class="shopMapPhoneView">
-      <view>商家电话：13555555555</view>
+      <view>商家电话：{{shopData.Telphone ? shopData.Telphone : '暂未填写'}}</view>
       <image src="../../../image/shopIcon/phone.png"></image>
     </view>
   </view>
@@ -48,10 +48,10 @@
       bindtap="changeCommissionType">楼盘案例</view>
   </view>
   <view wx:if="{{commissionType == 0}}">
-    <effectCollectionList item='{{item}}' wx:for='{{list}}' wx:for-item='item' wx:for-index="index" wx:key='index' />
+    <effectCollectionList item='{{item}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index" wx:key='index' />
   </view>
   <view wx:if="{{commissionType == 1}}">
-    <effectCollectionList item='{{item}}' type='2' wx:for='{{list}}' wx:for-item='item' wx:for-index="index"
+    <effectCollectionList item='{{item}}' type='2' wx:for='{{realList}}' wx:for-item='item' wx:for-index="index"
       wx:key='index' />
   </view>
 </view>

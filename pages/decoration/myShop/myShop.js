@@ -32,23 +32,17 @@ Page({
         changeIcon: '../../../image/shopIcon/5.png',
       },
     ], //tabbar数组
-    imgArr: [{
-        imageUrl: 'https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png'
-      },
-      {
-        imageUrl: 'https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png'
-      }
-    ],//轮播图数组
+    imgArr: [],//轮播图数组
     shopFeatures:[
       {
         title: '案例集经',
         iconUrl: '../../../image/shopIcon/features1.png',
-        url:''
+        url:'/pages/decoration/effectPicture/effectPicture'
       },
       {
         title: '团队介绍',
         iconUrl: '../../../image/shopIcon/features2.png',
-        url:''
+        url:'/pages/decoration/teamManagement/teamManagement'
       },
       {
         title: '免费设计',
@@ -58,7 +52,7 @@ Page({
       {
         title: '装修预算',
         iconUrl: '../../../image/shopIcon/features4.png',
-        url:''
+        url:'/pages/decoration/decorationCalculator/decorationCalculator'
       },
       {
         title: '材料商城',
@@ -95,28 +89,11 @@ Page({
       },
     ],//用户通用功能
     tabIndex: 0,
-    list:[
-      {
-       imgUrl : '',
-       decorationName : '金华材料商',
-       decorationAddress : '金华市',
-       decorationPhone:'1008611'
-      },
-      {
-       imgUrl : '',
-       decorationName : '北京材料商',
-       decorationAddress : '北京市',
-       decorationPhone:'121300861154154'
-      },
-      {
-       imgUrl : '',
-       decorationName : '新疆材料商',
-       decorationAddress : '新疆市',
-       decorationPhone:'1541857415114'
-      },
-    ],
+    allList:[],
+    realList:[],
     commissionType : 0,
-    userData : {}
+    userData : {},
+    shopData : {}
   },
 
   /**
@@ -126,6 +103,9 @@ Page({
     this.setData({
       userData : app.globalData.userData
     })
+    this.getUserInfo()
+    this.getAllList()
+    this.getRealList()
   },
   changeIndex(e) {
     if(e.currentTarget.dataset.index == 1){
@@ -154,6 +134,44 @@ Page({
   changeCommissionType(e){
     this.setData({
       commissionType : e.currentTarget.dataset.commissiontype,
+    })
+  },
+  getAllList(){
+    var data = {
+      shopId  : app.globalData.userData.ShopID,
+      keyword : '',
+      page : 1,
+      pagesize : 10
+    }
+    app.ajaxToken('/store/geteffectlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        allList : res.data
+      })
+    })
+  },
+  getRealList(){
+    var data = {
+      shopId  : app.globalData.userData.ShopID,
+      keyword : '',
+      page : 1,
+      pagesize : 10
+    }
+    app.ajaxToken('/store/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+      this.setData({
+        realList : res.data
+      })
+    })
+  },
+  getUserInfo(){
+    app.ajaxToken('/store/getshopinfo/'+app.globalData.userData.ShopID,'','get').then(res=>{
+      this.setData({
+        shopData : res.data
+      })
+    })
+    app.ajaxToken('/store/getshopadvs/'+app.globalData.userData.ShopID,'','get').then(res=>{
+      this.setData({
+        imgArr : res.data
+      })
     })
   },
   /**

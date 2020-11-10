@@ -29,7 +29,7 @@ Page({
     })
   },
   listChange(e){
-    if(e.detail.index){
+    if(!isNaN(e.detail.index)){
       if(e.detail.index == this.data.index) return
       this.setData({
         index : e.detail.index,

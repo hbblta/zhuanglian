@@ -1,13 +1,19 @@
 <!--pages/ordinary/decorationSchedule/decorationSchedule.wxml-->
-<generalSelectionlist textList='{{textList}}' bind:inputvalue="inputvalue" keyword="{{keyword}}" bind:getList='getList'>
-  <view class="decorationList" slot='after'>
+<generalSelectionlist textList='{{textList}}' bind:inputvalue="inputvalue" keyword='{{formData.keyword}}'  bind:getList='getList'>
+  <view 
+  wx:for='{{list}}' 
+  wx:for-item='item' 
+  data-index='{{index}}'
+  wx:key='index' 
+  class="decorationList" 
+  slot='after'>
     <view class="decorationName">
-      <text>装企名称</text>
-      <text>待量房</text>
+      <text>{{item.companyName}}</text>
+      <text>{{item.stateName}}</text>
     </view>
     <view class="decorationPeople">
-      <text>设计师: 1号设计师</text>
-      <text>跟单人: 1号耿丹人</text>
+      <text>设计师: {{item.designer}}</text>
+      <text>跟单人: {{item.tracker}}</text>
     </view>
     <view class="decorationLeaveMsg">
       <text>留言: 你好有合适的房子吗请问，卡是富农赛飞糊弄i啊是佛</text>

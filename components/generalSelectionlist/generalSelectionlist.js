@@ -22,7 +22,8 @@ Component({
    */
   data: {
     heightMax : '',
-    textListIndex : 0
+    textListIndex : 0,
+    load : false
   },
 
   /**
@@ -37,6 +38,18 @@ Component({
     },
     inputValue(e){
       this.triggerEvent('inputvalue',e.detail.value)
+    },
+    loadresh(){
+      this.triggerEvent('getList',{type:'loadresh'})
+      this.setData({
+        load : false
+      })
+    },
+    moreList(){
+      this.triggerEvent('getList',{type:'loadresh'})
+      this.setData({
+        load : false
+      })
     }
   },
 })

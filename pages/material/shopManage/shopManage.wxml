@@ -1,24 +1,28 @@
 <!--pages/decoration/secondaryManage/secondaryManage.wxml-->
-<searchTitle titleList='{{titleList}}' />
-
+<searchTitle titleList='{{titleList}}' bind:getList='listChange'/>
 <view class="scroll">
-	<scroll-view style="height:100%" scroll-y="true">
+   <scroll-view 
+   style="height:100%" 
+   scroll-y="true" 
+   refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+   bindscrolltolower="getList">
 		<view 
-      wx:for="{{listArr}}"
-      bindtap="goUrl"  data-url='/pages/material/auxiliaryRelease/auxiliaryRelease'
+      wx:for="{{list}}"
       data-index='{{index}}'
       wx:key="index"
       class="manage-list">
-      <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=13168071,2975128595&fm=26&gp=0.jpg"></image>
+      <image src="{{item.ImageUrl[0]}}"></image>
       <view class="listInfo">
-           <view class="title">{{item.name}}</view>
-           <view>品牌：{{item.pinpai}}</view>
-           <view>型号：{{item.num}}</view>
-           <view>规格：80*80,100*100</view>
-           <view><text>会员价：￥699</text> <text>原价：￥6999</text></view>
-           <view class="{{item.statu?'statu':''}}">{{item.statu?'上架':'下架'}}</view>
+           <view class="title">{{item.MaterialName}}</view>
+           <view>品牌：{{item.Brand}}</view>
+           <view>型号：{{item.ModelNumber}}</view>
+           <view>规格：</view>
+           <view><text>会员价：￥{{item.MemberPrice}}</text> <text>原价：￥{{item.MarketPrice}}</text></view>
+           <view class="{{item.statu?'statu':''}}">{{item.IsGround?'上架':'下架'}}</view>
       </view>
-      <view class="list-btn">删除</view>
+      <view class="list-btn" bindtap="deleteSecondary" data-id='{{item.MaterialID}}'>删除</view>
 		</view>
 	</scroll-view>
 </view>

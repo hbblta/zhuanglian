@@ -1,56 +1,51 @@
-<!--pages/decoration/auxiliaryRelease/auxiliaryRelease.wxml-->
+<!--pages/material/auxiliaryRelease/auxiliaryRelease.wxml-->
 <view class="effectPictureEditMain">
   <view class="effectPictureEditMainTitle">图片上传</view>
   <view>
-    <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-    </view>
+    <uploadImage  imageList='{{formData.imageList}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
   </view>
 </view>
-<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<view class="effectPictureEditInput"><input bindinput="updateInput" data-key="materialName"  placeholder="请填写商品名称"></input></view>
+<view  class="effectPictureEditInput"><input bindinput="updateInput" data-key="memberPrice"  placeholder="请填写会员价"></input></view>
+<view  class="effectPictureEditInput"><input bindinput="updateInput" data-key="marketPrice"  placeholder="请填写原价"></input></view>
+<view  class="effectPictureEditInput"><input bindinput="updateInput" data-key="unit"  placeholder="请填单位"></input></view>
 <view class="effectPictureEditMain">
-  <view class="effectPictureEditMainTitle"><text>品类规格</text><image src="../../../image/icon/moreBack.svg"></image></view>
+  <view class="effectPictureEditMainTitle"><text>品类规格</text>
+    <image src="../../../image/icon/moreBack.svg"></image>
+  </view>
   <view class="effectPictureReleaseSize">
     <view>100*1010</view>
     <view>100*1010</view>
   </view>
 </view>
-<view class="effectPictureReleaseAdd"><image src="../../../image/icon/increase.svg"></image><view>添加类目</view></view>
-<view class="effectPictureEditInput">
-    <input placeholder="商品类别" disabled="true"></input>
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-      <view><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
+<view class="effectPictureReleaseAdd">
+  <image src="../../../image/icon/increase.svg"></image>
+  <view>添加类目</view>
 </view>
-<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
-<view class="effectPictureEditInput"><input placeholder="请填写商品名称"></input></view>
+<picker bindchange="bindPickerChange" value="{{getcategoriesShowIndex}}" range="{{getcategoriesShow}}">
+  <view class="effectPictureEditInput">
+    <input placeholder="商品类别" value="{{getcategoriesShow[getcategoriesShowIndex]}}" disabled="true"></input>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+</picker>
+<view class="effectPictureEditInput"><input bindinput="updateInput" data-key="brand" placeholder="请填写商品品牌"></input></view>
+<view class="effectPictureEditInput"><input bindinput="updateInput" data-key="modelNubmer" placeholder="请填写型号"></input></view>
 <view class="effectPictureEditMain">
-  <view class="effectPictureEditMainTitle"><text>商品描述</text><image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image></view>
+  <view class="effectPictureEditMainTitle"><text>商品描述</text>
+    <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
+  </view>
   <view class="effectPictureEditEditor">
-    <editor
-      id="editor"
-      class="ql-container"
-      placeholder="{{placeholder}}"
-      showImgSize
-      showImgToolbar
-      showImgResize
-      bindstatuschange="onStatusChange"
-      read-only="{{readOnly}}"
-      bindready="onEditorReady">
+    <editor bindinput='editorData' id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+      bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
     </editor>
   </view>
 </view>
 <view class="effectPictureEditButtonsTwo">
   <view class="effectPictureEditButtons">
-    <view>下架</view>
-    <view class="nowButtons">上架</view>
+    <view bindtap="changeIsGround" class="{{!formData.isGround ? 'nowButtons' : ''}}">下架</view>
+    <view bindtap="changeIsGround" class="{{formData.isGround ? 'nowButtons' : ''}}">上架</view>
   </view>
-  <view class="effectPictureRelease">发布</view>
+  <view class="effectPictureRelease" bindtap="submit">发布</view>
 </view>
-
-

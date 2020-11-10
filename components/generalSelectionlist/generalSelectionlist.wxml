@@ -18,7 +18,13 @@
       </view>
     </view>
     <slot name="before"></slot>
-    <scroll-view  scroll-y="true" style="height:100%">
+    <scroll-view  
+    style="height:100%" 
+   scroll-y="true" 
+   refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+   bindscrolltolower="moreList">
        <slot name="after"></slot>
     </scroll-view>
 

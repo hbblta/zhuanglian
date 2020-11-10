@@ -39,7 +39,7 @@ Page({
     app.goUrl(e.currentTarget.dataset.url)
   },
   listChange(e){
-    if(e.detail.index){
+    if(!isNaN(e.detail.index)){
       if(e.detail.index == this.data.index) return
       this.setData({
         classIdIndex : e.detail.index,

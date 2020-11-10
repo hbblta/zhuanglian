@@ -1,24 +1,71 @@
 <!--pages/decoration/rankingList/rankingList.wxml-->
 <view class="tab-top">
-	<view wx:for="{{tabText}}" class="{{tabIndex == index?'active':''}}" bindtap="tabChange" data-index="{{index}}" wx:key="index">
+	<view wx:for="{{tabText}}" class="{{tabIndex == index?'active':''}}" bindtap="tabChange" data-index="{{index}}"
+		wx:key="index">
 		{{item}}
 	</view>
 </view>
 
 <!-- 员工排行榜排行条件 -->
 <view class="orderkind" wx:if="{{tabIndex==0}}">
-	<view>排行对象</view>
-	<view wx:key="index" wx:for="{{kindList}}" bindtap="personnelSort" data-index="{{index}}">
-		<text>{{item}}</text>
+	<!-- <view>排行对象</view> -->
+	<view>
+		<picker bindchange="bindPickerChange" range-key="name" range="{{rolearr}}" value="{{roleIndex}}">
+			<text>{{rolearr[roleIndex].name}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange2" range-key="name" range="{{typearr}}" value="{{typeIndex}}">
+			<text>{{typeIndex?typearr[typeIndex].name:'排行类别'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange3" range-key="name" range="{{orderarr}}" value="{{orderIndex}}">
+			<text>{{orderIndex?orderarr[orderIndex].name:'指标值'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange4" mode="date" value="{{date}}">
+			<text>{{date?date:'起始时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange5" mode="date" value="{{date2}}">
+			<text>{{date2?date2:'结束时间'}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
 <!-- 分销排行榜排行条件 -->
 
 <view class="orderkind retail" wx:if="{{tabIndex==1}}">
-	<view>排行对象</view>
-	<view wx:key="index" wx:for="{{retailList}}" bindtap="retailSort" data-index="{{index}}">
-		<text>{{item}}</text>
+	<view>
+		<picker bindchange="bindPickerChange6" range-key="name" range="{{fxorderarr}}" value="{{fxorderIndex}}">
+			<text>{{fxorderarr[fxorderIndex].name}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange9" range-key="name" range="{{zqarr}}" value="{{zqIndex}}">
+			<text>{{zqIndex?zqarr[zqIndex].name:'全部'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+
+	<view>
+		<picker bindchange="bindPickerChange7" mode="date" value="{{date3}}">
+			<text>{{date3?date3:'起始时间'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange8" mode="date" value="{{date4}}">
+			<text>{{date4?date4:'结束时间'}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
@@ -30,11 +77,12 @@
 			<view class="userList" wx:for="{{personnelList}}" wx:key="index">
 				<view class="number">第{{index+1}}名</view>
 				<view class="listInfo">
-					<image src="{{item.url}}"></image>
+					<image src="{{item.Avatar}}"></image>
 					<view class="userInfo">
-						<text>{{item.name}}</text>
-						<text>{{item.phone}}</text>
-						<text>加入时间：{{item.entryTime}}</text>
+						<text>{{item.NickName}}</text>
+						<text>{{item.Mobile}}</text>
+						<!-- <text>团队人数：{{item.tema}}人</text> -->
+						<text>加入时间：{{item.AddDate}}</text>
 					</view>
 				</view>
 			</view>
@@ -42,15 +90,16 @@
 		<view wx:if="{{tabIndex==1}}">
 			<view class="userList" wx:for="{{retailKingList}}" wx:key="index">
 				<view class="number">第{{index+1}}名</view>
-				<!-- <view class="level">
-					<image wx:for="{{item.xing}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
-				</view> -->
+				<view class="level">
+					<image wx:for="{{item.Grade}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
+				</view>
 				<view class="listInfo">
 					<image src="{{item.url}}"></image>
 					<view class="userInfo">
-						<text>{{item.name}}</text>
-						<text>{{item.phone}}</text>
-						<text>合作时间：{{item.entryTime}}</text>
+						<text>{{item.NickName}}</text>
+						<text>{{item.Mobile}}</text>
+						<!-- <text>团队人数：{{item.tema}}人</text> -->
+						<text>加入时间：{{item.AddDate}}</text>
 					</view>
 				</view>
 			</view>

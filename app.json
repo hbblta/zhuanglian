@@ -101,7 +101,8 @@
         "shopManage/shopManage",
         "auxiliaryRelease/auxiliaryRelease",
         "orderListDetails/orderListDetails",
-        "clientFollowUp/clientFollowUp"
+        "clientFollowUp/clientFollowUp",
+        "reportClient/reportClient"
       ]
     },
     {

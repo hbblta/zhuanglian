@@ -1,4 +1,8 @@
-/* pages/material/clientManage/clientManage.wxss */
+/* pages/decoration/clientManage/clientManage.wxss */
+.scroll{
+  height: 100%;
+  /* height: calc(100% - 120rpx); */
+}
 page{
   width: 100%;
   height: 100%;
@@ -72,13 +76,16 @@ page{
   font-size: 24rpx;
   line-height: 24rpx;
   color: #909399;
-  justify-content: space-between;
   background-color: #fff;
+}
+.black{
+  background-color: #999;
 }
 .typesort>view{
   height: 100%;
   display: inline-flex;
   align-items: center;
+  margin-left: 20rpx;
 }
 
 .typesort image{
@@ -119,7 +126,6 @@ page{
   line-height: 24rpx;
   line-height: 24rpx;
   justify-content: space-between;
-  padding-bottom: 18rpx;
 }
 .personal .addpeople>view{
   height: 100%;
@@ -136,7 +142,7 @@ page{
 
 .manageList{
   width: 100%;
-  height: 200rpx;
+  height: 290rpx;
   position: relative;
   background-color: #fff;
   box-sizing: border-box;

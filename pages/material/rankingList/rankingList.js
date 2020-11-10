@@ -1,51 +1,206 @@
 // pages/decoration/rankingList/rankingList.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      tabText:['员工排行榜','装企排行'],
+      tabText:['员工排行榜','装企排行榜'],
       //当前选中的tab
       tabIndex:0,
-      //员工排行榜筛选条件
-      kindList:['排行类别','排行指标','排行时间'],
-      //分销排行榜筛选条件
-      retailList:['排行时间'],
       //员工排行榜list
       personnelList:[
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=910527016,2220695787&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3085552352,556493802&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3943584555,2366501618&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1877257905,591130638&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3842853828,78964374&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=978984144,3008825592&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1719075638,1065027568&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'},
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1829272418,1951610969&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30'}
+      
       ],
-      //分销排行榜list
+      //装企排行榜list
       retailKingList:[
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=910527016,2220695787&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:5},
-        {url:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3085552352,556493802&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:4},
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3943584555,2366501618&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:4},
-        {url:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1877257905,591130638&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:3},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3842853828,78964374&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:3},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=978984144,3008825592&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:2},
-        {url:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1719075638,1065027568&fm=26&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:2},
-        {url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1829272418,1951610969&fm=15&gp=0.jpg',name:'胡彬彬',phone:'12345678910',tema:'20人',entryTime:'2020/05/30',xing:1}
+       
+      ],
+      //员工排行榜 
+      roleIndex:'0',
+      rolearr:[
+        {id:1,name:'开发员'},
+        {id:2,name:'跟单员'},
+      ],
+      typeIndex:'',
+      typearr:[
+        {id:1,name:'自营'},
+        {id:2,name:'下属'},
+      ],
+      orderIndex:'0',
+      orderarr:[],
+      orderarr1:[
+        {id:1,name:'跟单量'},
+        {id:2,name:'到店量'},
+        {id:3,name:'成交量'},
+        {id:4,name:'成交额'},
+      ],
+      orderarr2:[
+        {id:1,name:'成交量'},
+        {id:2,name:'成交额'},
+      ],
+     
+      date:'',
+      date2:'',
+      userpage:1,
+      //分销排行榜
+      fxpage:1,
+      date3:'',
+      date4:'',
+      zqIndex:'',
+      zqarr:[
+        {id:1,name:'自营'},
+        {id:2,name:'下属'},
+      ],
+      fxorderIndex:0,
+      fxorderarr:[
+        {id:1,name:'引流量'},
+        {id:2,name:'分享量'},
+        {id:3,name:'成交量'},
+        {id:4,name:'成交额'}
       ]
+  },
+  bindPickerChange(e){
+    this.setData({
+      roleIndex:e.detail.value,
+      orderIndex:''
+    })
+    var arr = []
+    if(e.detail.value == 0 ){
+      arr = this.data.orderarr1 
+      this.setData({
+        orderIndex : '0'
+      })
+    }else if(e.detail.value == 1){
+      arr = this.data.orderarr2
+    }else{
+      
+    }
+    this.setData({
+      orderarr:arr
+    })
+    this.getUser()
+  },
+  bindPickerChange2(e){
+    this.setData({
+      typeIndex:e.detail.value
+    })
+    this.getUser()
+  },
+  bindPickerChange3(e){
+    this.setData({
+      orderIndex:e.detail.value
+    })
+    this.getUser()
+  },
+  bindPickerChange4(e){
+    this.setData({
+      date:e.detail.value
+    })
+    if(this.data.date&&this.data.date2){
+      this.getUser()
+    }
+  },
+  bindPickerChange5(e){
+    this.setData({
+      date2:e.detail.value
+    })
+    if(this.data.date&&this.data.date2){
+      this.getUser()
+    }
+  },
+  bindPickerChange6(e){
+    this.setData({
+      fxorderIndex:e.detail.value
+    })
+    this.getFx()
+  },
+  bindPickerChange7(e){
+    this.setData({
+      date3:e.detail.value
+    })
+    if(this.data.date3&&this.data.date4){
+      this.getFx()
+    }
+  },
+  bindPickerChange8(e){
+    this.setData({
+      date4:e.detail.value
+    })
+    if(this.data.date3&&this.data.date4){
+      this.getFx()
+    }
+  },
+  bindPickerChange9(e){
+    this.setData({
+      zqIndex:e.detail.value
+    })
+    this.getFx()
   },
   //tab切换
   tabChange(e){
     this.setData({
       tabIndex:e.currentTarget.dataset.index
     })
+    if(this.data.tabIndex){
+      this.setData({
+        fxpage:1
+      })
+      this.getFx()
+    }else{
+      this.setData({
+        userpage:1
+      })
+      this.getUser()
+    }
   },
-  //员工排行榜排序条件点击
-  personnelSort(e){
-    var index = e.currentTarget.dataset.index
-    console.log('当前点击员工排行榜'+this.data.kindList[index])
+  //员工排行榜list
+  getUser(){
+    console.log(app.globalData.userData)
+    var data={
+      page:this.data.userpage,
+      role:this.data.rolearr[this.data.roleIndex].id,
+      pagesize:100
+    }
+    if(this.data.typeIndex){
+      data.type = this.data.typearr[this.data.typeIndex].id
+    }
+    if(this.data.orderIndex){
+      data.order = this.data.orderarr[this.data.orderIndex].id
+    }
+    if(this.data.date&&this.data.date2){
+      data.begindate = this.data.date
+      data.enddate = this.data.date2
+    }
+    app.ajaxToken('/materialstaff/getstaffsortlist/'+app.globalData.userData.StaffID,data,'get').then(res=>{
+      this.setData({
+        personnelList:res.data
+      })
+    })
   },
+  //分销排行榜
+  getFx(){
+    var data={
+      page:this.data.fxpage,
+      order:this.data.fxorderarr[this.data.fxorderIndex].id,
+      pagesize:100
+    }
+    if(this.data.date3&&this.data.date4){
+      data.begindate = this.data.date3
+      data.enddate = this.data.date4
+    }
+    if(this.data.zqIndex){
+      data.type = this.data.zqarr[this.data.zqIndex].id
+    }
+    app.ajaxToken('/materialstaff/getshopsortlist/'+app.globalData.userData.StaffID,data,'get').then(res=>{
+      this.setData({
+        retailKingList:res.data
+      })
+    })
+   
+  },
+
   //分销排行榜排序条件点击
   retailSort(e){
     var index = e.currentTarget.dataset.index
@@ -58,6 +213,11 @@ Page({
     wx.setNavigationBarTitle({
       title: '排行榜单',
     })
+    //不同角色不同数据
+    this.setData({
+      orderarr:this.data.orderarr1
+    })
+    this.getUser()
   },
 
   /**

@@ -6,7 +6,7 @@
 <view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>
-		<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+		<input class="searchInput" type='text' value="{{keyword}}" bindinput="getvalue" confirm-type='search' placeholder='搜索' />
 	</view>
   <view class="searchType">
     <view>全部</view>
@@ -14,7 +14,7 @@
   </view>
 </view>
 <view class="employeeListAll">
-  <scroll-view style="height:100%" scroll-y>
+  <scroll-view style="height:100%" scroll-y bindscrolltolower="scroll">
     <view class="employeeListData"
     wx:if='{{commissionType == 0}}'
     wx:for='{{list}}' 
@@ -22,28 +22,25 @@
     data-index='{{index}}'
     wx:key='index' >
       <view class="employeeList">
-        <view class="employeeImg"><image></image></view>
+        <view class="employeeImg"><image src="{{item.Avatar}}"></image></view>
         <view class="employeeText">
           <view class="employeeTextFlex employeeName">
-            <view>姓名</view>
-            <view>设计师</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
+            <view>{{item.IdentityName}}</view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>62165465154</view>
+            <view>{{item.Mobile}}</view>
             <view class="employeePentagram">
-              <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image>
+              <image src="../../../image/icon/pentagram.svg" wx:for="{{item.Grade}}" wx:key="index"></image>
             </view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>加入时间: 2020/05/05</view>
+            <view>加入时间: {{item.AddDate}}</view>
             <view>个人业绩 <image src="../../../image/icon/more.svg"></image></view>
           </view>
         </view>
       </view>
-      <view class="employeeDelete">
+      <view class="employeeDelete" bindtap="alldelete" data-id="{{item.StaffID}}">
         <view>删除</view>
       </view>
     </view>
@@ -52,31 +49,25 @@
     wx:for='{{list}}' 
     wx:for-item='item' 
     data-index='{{index}}'
-    bindtap="goUrl"  data-url='/pages/material/employeeDetails/employeeDetails'
+    catchtap="goUrl"  data-url='/pages/material/employeeDetails/employeeDetails'
     wx:key='index' >
       <view class="employeeList">
         <view class="employeeImg"><image></image></view>
         <view class="employeeText">
           <view class="employeeTextFlex employeeName">
-            <view>姓名</view>
+            <view>{{item.NickName?item.NickName:item.RealName}}</view>
             <view> </view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>13216212336</view>
-            <view class="employeePentagram">
-              <!-- <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image>
-              <image src="../../../image/icon/pentagram.svg"></image> -->
-            </view>
+            <view>{{item.Mobile}}</view>
           </view>
           <view class="employeeTextFlex employeePhone">
-            <view>加入时间: 2020/05/05</view>
+            <view>加入时间: {{item.AddDate}}</view>
             <view> </view>
           </view>
         </view>
       </view>
-      <view class="employeeDelete">
+      <view class="employeeDelete" catchtap="delete" data-id="{{item.StaffID}}">
         <view>删除</view>
       </view>
     </view>

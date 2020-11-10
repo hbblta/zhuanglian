@@ -1,4 +1,5 @@
 <!--pages/decoration/reportClient/reportClient.wxml-->
+<!--pages/decoration/workreport/workreport.wxml-->
 <view class="decorationStaffInput">
 	<view>
 		<input placeholder="姓名" data-key="realName" bindinput="getvalue"></input>

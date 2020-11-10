@@ -48,7 +48,7 @@ page{
   justify-content: flex-start;
 }
 .retail>view{
-  margin-right: 80rpx;
+  margin-right: 60rpx;
 }
 .scroll{
   width: 100%;
@@ -103,9 +103,6 @@ page{
   font-size: 28rpx;
   color: #303133;
   margin-bottom: 6rpx;
-}
-.scroll .userList .listInfo>.userInfo>text:nth-child(2){
-  margin-bottom: 46rpx;
 }
 .scroll .userList .level{
   position: absolute;

@@ -162,7 +162,7 @@ Page({
       data.type = this.data.typearr[this.data.typeIndex].id
     }
     if(this.data.orderIndex){
-      data.type = this.data.orderarr[this.data.orderIndex].id
+      data.order = this.data.orderarr[this.data.orderIndex].id
     }
     if(this.data.date&&this.data.date2){
       data.begindate = this.data.date

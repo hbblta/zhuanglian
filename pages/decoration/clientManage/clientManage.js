@@ -168,8 +168,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '客户管理'
     })
-    this.getInfo()
-    this.getgrade()
+    
   },
   //获取星级
   getgrade(){
@@ -229,6 +228,8 @@ Page({
       flag:true
     })
     this.getList()
+    this.getInfo()
+    this.getgrade()
   },
 
   /**

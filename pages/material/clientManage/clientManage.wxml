@@ -1,59 +1,93 @@
-<!--pages/material/clientManage/clientManage.wxml-->
-<view class="searchInputViewBody">
+<!--pages/decoration/clientManage/clientManage.wxml-->
+<scroll-view class="scroll" 
+	scroll-y="true" 
+	refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+	bindscrolltolower="scroll">
+	<view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>
-		<input class="searchInput" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
+		<input class="searchInput" value="{{keyword}}" bindinput="getvalue" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
 	</view>
-	<view class="picker" bindtap="goUrl"  data-url='/pages/decoration/assignCustomers/assignCustomers'>
+	<view class="picker" bindtap="goUrl" data-url='/pages/material/assignCustomers/assignCustomers'>
 		<text>客户分配</text>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
 
 <view class="typesort">
-	<view wx:for="{{tabType}}" wx:key="index">
-		<text>{{item}}</text>
+	<view>
+		<picker bindchange="bindPickerChange2" range-key="name" range="{{typearr}}" value="{{typeIndex}}">
+			<text>{{typeIndex?typearr[typeIndex].name:'客户类型'}}</text>
+		</picker>
+		<image src="../../../image/icon/more.svg"></image>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange3" range-key="name" range="{{sourcearr}}" value="{{sourceIndex}}">
+			<text>{{sourceIndex?sourcearr[sourceIndex].name:'客户来源'}}</text>
+		</picker>
 		<image src="../../../image/icon/more.svg"></image>
 	</view>
 </view>
 
 <view class="personal">
 	<view class="peoplesum">
-		<view>总数：66人</view>
-		<view>今日新增：3人</view>
+		<view>总数：{{info.Total}}人</view>
+		<view>今日新增：{{info.TodayCount}}人</view>
 	</view>
 	<view class="addpeople">
-		<view>新增客户数：46单</view>
+		<view>增加：{{info.TodayCount}}人</view>
 		<view>
-			<text>2020/1/1</text> — <text>2020/5/20</text>
+			<picker bindchange="bindPickerChange4" mode="date" value="{{date}}">
+				<text>{{date?date:'起始时间'}} </text>
+			</picker>
+			— <picker bindchange="bindPickerChange5" mode="date" value="{{date2}}">
+				<text> {{date2?date2:'结束时间'}}</text>
+			</picker>
 			<image src="../../../image/icon/more.svg"></image>
 		</view>
 	</view>
 </view>
-<view class="manageList">
-  <view class="listInfo" bindtap="follow" data-item="{{item}}">
-    <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
-    <view>
-      <view class="name">
-        <view>胡彬彬</view>
-        <view>
-          <image src="../../../image/icon/pentagram.svg" wx:for="{{4}}" wx:key="index"></image>
-        </view>
-      </view>
-      <view class="tags">
-        <view>
-          <text>精准</text>
-        </view>
-      </view>
-      <view class="phone">
-        <view>13216212336</view>
-        <view>加入时间：2020/05/30</view>
-      </view>
-      <view class="develop">
-          <view>开发人员：名称</view>
-          <view>跟单人员：<text>张三</text> <image src="../../../image/icon/more.svg"></image></view>
-      </view> 
-    </view>
-  </view>
+<view class="manageList"  wx:for="{{list}}" wx:key="index">
+	<view class="listInfo" catchtap="follow" data-index="{{index}}" data-id="{{item.UserID}}">
+		<image class="{{item.Avatar?'':'black'}}" src="{{item.Avatar}}"></image>
+		<view>
+			<view class="name">
+				<view>{{item.NickName?item.NickName:item.RealName}}</view>
+				<view>
+					<image  wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
+				</view>
+			</view>
+			<view class="tags">
+				<view>
+					<text>{{item.SourceName}}</text>
+				</view>
+				<view>
+					{{item.GradeName}}
+				</view>
+			</view>
+			<view class="phone">
+				<view>{{item.Mobile}}</view>
+				<view>加入时间：{{item.AddDate}}</view>
+			</view>
+			<view class="develop">
+				<view>开发人员：{{item.DeveloperName?item.DeveloperName:'无'}}</view>
+				<view>跟单人员：<text>{{item.ManagerName?item.ManagerName:'暂无'}}</text>
+					<image src="../../../image/icon/more.svg"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="btn">
+		<view>
+			<view catchtap="follow" data-id="{{item.UserID}}" data-idx="4" data-item="{{item}}">跟进</view>
+			<view catchtap="declaration" data-item="{{item}}">报单</view>
+		</view>
+	</view>
 </view>
-
+</scroll-view>
+<!-- <view style="height:120rpx"></view>
+<view class="fix-btn" bindtap="goUrl" data-url='/pages/material/reportClient/reportClient'>
+	报备客户
+</view> -->

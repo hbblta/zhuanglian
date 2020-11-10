@@ -2,10 +2,10 @@
 <view class="searchInputViewBody">
 	<view class="searchInputView">
 		<icon class="icon-small" type="search" size="20"></icon>
-		<input class="searchInput" type='text' confirm-type='search' placeholder='搜索' />
+		<input class="searchInput" type='text' value="{{keyword}}" bindinput="getvalue" confirm-type='search' placeholder='搜索' />
 	</view>
   <view class="searchType">
-    <view>区域</view>
+    <range class="range" bind:changearea="changearea" name="{{area?area:'区域'}}"></range>
     <image src="../../../image/icon/more.svg"></image>
   </view>
 </view>
@@ -15,37 +15,40 @@
 		<view bindtap="changeIndex" wx:for='{{textList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistTitle">{{item.name}}</view>
 	</view>
 	<view class="effectPictureChecklistData">
+    <scroll-view scroll-y="true" style="height:100%" bindscrolltolower="scroll">
     <view wx:if='{{textListIndex == 0}}'>
       <view class="commissionType" >
-        <view class="alls">
-           <view>全部</view>
-           <image src="../../../image/icon/more.svg"></image>
-        </view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="name">
+          <view class="alls">
+            <view>全部</view>
+            <image src="../../../image/icon/more.svg"></image>
+          </view>
+        </picker>
         <!-- <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">我发起的</view>
         <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">TA发起的</view> -->
       </view>
-      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeDetails/cooperativeDetails'>
-        <view class="commissionUserImg"><image></image></view>
+      <view class="commissionUser"  wx:for="{{list}}" wx:key="index">
+        <view class="commissionUserImg"><image src="{{item.ShopLogo}}"></image></view>
         <view class="commissionUserData">
-          <view>公司名称</view>
-          <view>13216212336</view>
-          <view>合作时间：2020/05/30</view>
-          <view>到期时间：2020/051/056</view>
+          <view>{{item.CompanyName}}</view>
+          <view>{{item.Telphone}}</view>
+          <view>合作时间：{{item.AddDate}}</view>
+          <view>接管时间：{{item.ManageDate}}</view>
         </view>
       </view>
+      
     </view>
     <view wx:if='{{textListIndex == 1}}'>
-      <view class="commissionType" >
-        <view class="{{commissiontype == 0 ? 'nowCommissionType' : ''}}" data-commissiontype='0' bindtap="changeCommissionType">待审核</view>
-        <view class="{{commissiontype == 1 ? 'nowCommissionType' : ''}}" data-commissiontype='1' bindtap="changeCommissionType">已放弃</view>
-      </view>
-      <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/cooperativeConfirm/cooperativeConfirm'>
-        <view class="commissionUserImg"><image></image></view>
-        <view class="commissionUserData">
-          <view>公司名称</view>
-          <view>品牌: 圣像</view>
-          <view>品类: 文字</view>
-          <view class="commissionSuer">确认合作</view>
+      <view class="commissionUser"  wx:for="{{list}}" wx:key="index">
+        <view class="commissionUserImg"><image src="{{item.ShopLogo}}"></image></view>
+        <view class="commissionUserData nocum">
+          <view>{{item.CompanyName}}</view>
+          <view>{{item.Telphone?item.Telphone:''}}</view>
+          <view class="state" style="color:#0081FF" wx:if="{{item.State == 0}}">待发起</view>
+          <view class="state" style="color:#909399" wx:if="{{item.State == 1}}">未合作</view>
+          <view class="state" style="color:#0081FF" wx:if="{{item.State == 2}}">待确认</view>
+          <view class="state" style="color:#FF7200" wx:if="{{item.State == 3}}">确认中</view>
+          <view class="commissionSuer" wx:if="{{item.State == 1}}" catchtap="again" data-id="{{item.AuditID}}">再次发起</view>
         </view>
       </view>
     </view>
@@ -65,5 +68,6 @@
         </view>
       </view>
     </view>
+  </scroll-view>
 	</view>
 </view>

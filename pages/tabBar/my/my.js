@@ -179,7 +179,7 @@ Page({
         ordinaryUrl : '/pages/material/rankingList/rankingList'
       },
       {
-        ordinaryIcon : '../../../image/icon/decoration16.png',
+        ordinaryIcon : '../../../image/icon/report.png',
         ordinaryTitle : '商品管理',
         ordinaryUrl : '/pages/material/shopManage/shopManage'
       }

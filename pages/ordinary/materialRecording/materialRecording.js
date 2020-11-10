@@ -1,41 +1,61 @@
 // pages/ordinary/materialRecording/materialRecording.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     list:[
-       {
-        imgUrl : '',
-        decorationName : '金华材料商',
-        decorationAddress : '金华市',
-        decorationPhone:'1008611'
-       },
-       {
-        imgUrl : '',
-        decorationName : '北京材料商',
-        decorationAddress : '北京市',
-        decorationPhone:'121300861154154'
-       },
-       {
-        imgUrl : '',
-        decorationName : '新疆材料商',
-        decorationAddress : '新疆市',
-        decorationPhone:'1541857415114'
-       },
-     ]
+    formData:{
+      page : 1,
+      pagesize : 10,
+    },
+    load : false,
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '材料商'
+    this.loadresh()
+  },
+  loadresh(){
+    this.setData({
+      'formData.page' : 1,
+      list : [],
+    })
+    this.getList()
+  },
+  getList() {
+    var that = this
+    var data = {
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
+    }
+    app.ajaxToken('/user/getmaterialshoplist/'+ app.globalData.userData.UserID, data, 'get').then(res => {
+      if(res.status == 0){
+        if(res.pagecount == 0){
+          that.setData({
+            load : false,
+          })
+          return
+        }
+        if(that.data.formData.page <= res.pagecount){
+          that.setData({
+            load : false,
+            list:res.data,
+            'formData.page' : that.data.formData.page + 1
+          })
+        }
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

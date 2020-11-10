@@ -7,49 +7,51 @@ Page({
    */
   data: {
     formData:{
-      from : 0,
-      size : 20,
-      name : ''
-     },
-     totalCount:0,
-     list:[
-       {
-        imgUrl : '',
-        decorationName : '金华装企',
-        decorationAddress : '金华市',
-        decorationPhone:'1008611'
-       },
-       {
-        imgUrl : '',
-        decorationName : '北京装企',
-        decorationAddress : '北京市',
-        decorationPhone:'121300861154154'
-       },
-       {
-        imgUrl : '',
-        decorationName : '新疆装企',
-        decorationAddress : '新疆市',
-        decorationPhone:'1541857415114'
-       },
-     ]
+      page : 1,
+      pagesize : 10,
+    },
+    load : false,
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '装修公司'
-    })
+    this.loadresh()
   },
-  getList(){
+  loadresh(){
+    this.setData({
+      'formData.page' : 1,
+      list : [],
+    })
+    this.getList()
+  },
+  getList() {
     var that = this
-    app.ajaxToken('information/search/category',this.data.formData,'get').then(res=>{
-      if(that.data.formData.from < res.data.totalCount){
-        that.setData({
-          list : this.data.list.concat(res.data.items),
-          totalCount : res.data.totalCount,
-          'formData.from' : that.data.formData.from + that.data.formData.size
+    var data = {
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
+    }
+    app.ajaxToken('/user/getshoplist/'+ app.globalData.userData.UserID, data, 'get').then(res => {
+      if(res.status == 0){
+        if(res.pagecount == 0){
+          that.setData({
+            load : false,
+          })
+          return
+        }
+        if(that.data.formData.page <= res.pagecount){
+          that.setData({
+            load : false,
+            list:res.data,
+            'formData.page' : that.data.formData.page + 1
+          })
+        }
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
         })
       }
     })

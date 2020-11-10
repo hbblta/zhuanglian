@@ -1,5 +1,5 @@
 <!--pages/ordinary/decorationSchedule/decorationSchedule.wxml-->
-<generalSelectionlist textList='{{textList}}'>
+<generalSelectionlist textList='{{textList}}' bind:inputvalue="inputvalue" keyword="{{keyword}}" bind:getList='getList'>
   <view class="decorationList" slot='after'>
     <view class="decorationName">
       <text>装企名称</text>

@@ -77,6 +77,12 @@ Page({
             item.selected = false
           }
         });
+        if(res.pagecount == 0){
+          that.setData({
+            load : false,
+          })
+          return
+        }
         if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,

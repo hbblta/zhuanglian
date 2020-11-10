@@ -64,6 +64,12 @@ Page({
     }
     app.ajaxToken('/shop/getproductlist/' + app.globalData.userData.ShopID, data, 'get').then(res => {
       if(res.status == 0){
+        if(res.pagecount == 0){
+          that.setData({
+            load : false,
+          })
+          return
+        }
         if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,

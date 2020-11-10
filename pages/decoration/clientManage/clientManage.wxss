@@ -125,7 +125,6 @@ page{
   line-height: 24rpx;
   line-height: 24rpx;
   justify-content: space-between;
-  padding-bottom: 18rpx;
 }
 .personal .addpeople>view{
   height: 100%;

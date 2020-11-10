@@ -1,9 +1,9 @@
 <!--components/decorationRecordingList/decorationRecordingList.wxml-->
 <view class="decorationRecordingList">
-  <image src="{{item.imgUrl}}" class="decorationRecordingImg"></image>
+  <image src="{{item.shopLogo}}" class="decorationRecordingImg"></image>
   <view class="decorationRecordingMsg">
-    <view>{{item.decorationName}}</view>
-    <view>商家地址 : {{item.decorationAddress}}</view>
-    <view>商家电话 : {{item.decorationPhone}}</view>
+    <view>{{item.companyName}}</view>
+    <view>商家地址 : {{item.address}}</view>
+    <view>商家电话 : {{item.telphone}}</view>
   </view>
 </view>

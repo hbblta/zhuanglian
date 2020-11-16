@@ -38,7 +38,13 @@ Page({
       page : this.data.formData.page,
       pagesize : this.data.formData.pagesize,
     }
-    app.ajaxToken(this.data.url+ app.globalData.userData.ShopID, data, 'get').then(res => {
+    var url = this.data.url
+    if(this.data.url == '/user/getcollectionlist/'){
+      url  =url+app.globalData.userData.UserID
+    }else{
+      url = url+app.globalData.userData.ShopID
+    }
+    app.ajaxToken(url, data, 'get').then(res => {
       if(res.status == 0){
         if(res.pagecount == 0){
           that.setData({

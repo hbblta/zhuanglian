@@ -1,21 +1,19 @@
 <!--pages/ordinary/myPromotion/myPromotion.wxml-->
-<view class="myPromotionList">
-  <image class="myPromotionImg" src='../../../image/testImg/myPromotion1.png'></image>
-  <view class="myPromotionListMsg">
-    <view class="myPromotionListMuen">
-      <view class="myPromotionListMuenTitle">公司名称</view>
-      <view class="myPromotionListMuenButton"><text>我要推广</text><text>推广成果</text></view>
+<view class="scroll">
+  <scroll-view style="height:100%" scroll-y="true" refresher-enabled refresher-triggered="{{load}}"
+    bindrefresherrefresh="loadresh" bindscrolltolower="getList">
+    <view class="myPromotionList" item='{{item}}' wx:for='{{list}}' wx:for-item='item' wx:for-index="index"
+      wx:key='index'>
+      <image class="myPromotionImg" src='{{item.LogoImageUrl}}'></image>
+      <view class="myPromotionListMsg">
+        <view class="myPromotionListMuen">
+          <view class="myPromotionListMuenTitle">{{item.CompanyName}}</view>
+          <view class="myPromotionListMuenButton"><text>我要推广</text><text>推广成果</text></view>
+        </view>
+        <view class="myPromotionListMuenQCode">
+          <image src='{{item.QrcodeImageUrl}}'></image>
+        </view>
+      </view>
     </view>
-    <view class="myPromotionListMuenQCode"> <image src='../../../image/testImg/myPromotion2.png'></image></view>
-  </view>
-</view>
-<view class="myPromotionList">
-  <image class="myPromotionImg" src='../../../image/testImg/myPromotion1.png'></image>
-  <view class="myPromotionListMsg">
-    <view class="myPromotionListMuen">
-      <view class="myPromotionListMuenTitle">公司名称</view>
-      <view class="myPromotionListMuenButton"><text>我要推广</text><text>推广成果</text></view>
-    </view>
-    <view class="myPromotionListMuenQCode"> <image src='../../../image/testImg/myPromotion2.png'></image></view>
-  </view>
+  </scroll-view>
 </view>

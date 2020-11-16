@@ -97,7 +97,7 @@ Page({
     }
     wx.showModal({
       title: '提示',
-      content: '确定删除这张图片吗',
+      content: '确定删除吗',
       success (res) {
         if (res.confirm) {
           app.ajaxToken('/shop/delproducts/' + app.globalData.userData.ShopID, data, 'delete').then(res => {

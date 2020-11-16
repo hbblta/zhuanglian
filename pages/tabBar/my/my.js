@@ -32,7 +32,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/ordinary5.png',
         ordinaryTitle : '效果收藏',
-        ordinaryUrl : '/pages/ordinary/effectCollection/effectCollection'
+        ordinaryUrl : '/pages/ordinary/effectCollection/effectCollection?url=/user/getcollectionlist/'
       },
       {
         ordinaryIcon : '../../../image/icon/ordinary6.png',
@@ -141,7 +141,7 @@ Page({
       {
         ordinaryIcon : '../../../image/icon/decoration1.png',
         ordinaryTitle : '我的店铺',
-        ordinaryUrl : '/pages/decoration/myShop/myShop'
+        ordinaryUrl : '/pages/material/myShop/myShop'
       },
       {
         ordinaryIcon : '../../../image/icon/decoration2.png',

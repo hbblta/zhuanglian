@@ -1,0 +1,91 @@
+<!--pages/material/myShop/myShop.wxml-->
+<view class="shopIocn">
+  <view wx:for='{{shopTabList}}' wx:for-item='item' data-index='{{index}}' wx:key='index' bindtap="changeIndex">
+    <image src="{{tabIndex == index ? item.changeIcon : item.iconUrl}}"></image>
+    <view class="{{tabIndex == index ? 'nowIcon' : ''}}">{{item.title}}</view>
+  </view>
+</view>
+<view wx:if="{{tabIndex == 0}}" class="shopBody">
+  <searchHeader title='首页搜索' />
+  <view class="swiperBox">
+    <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+      indicator-active-color="rgba(255,255,255,1)">
+      <block wx:for="{{imgArr}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.imageUrl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="introduction">
+    {{shopData.CompanyName}}
+  </view>
+  <view class="shopMapPhone">
+    <view class="shopMapPhoneView">
+      <view>商家地址：{{shopData.Address ? shopData.Address : '暂未填写'}}</view>
+      <image src="../../../image/shopIcon/map.png"></image>
+    </view>
+    <view class="shopMapPhoneView">
+      <view>商家电话：{{shopData.Telphone ? shopData.Telphone : '暂未填写'}}</view>
+      <image src="../../../image/shopIcon/phone.png"></image>
+    </view>
+    <view class="shopMapPhoneView shopMinuteView">
+      <view>查看更多店铺地址</view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+  <view class="commissionType">
+   <view bindtap="resetList">
+      <text>全部</text>
+      <image src="../../../image/icon/more.svg"></image>
+   </view>
+   <view bindtap="priceSort">
+      <text>价格</text>
+      <image style="transform:{{formDataOne.order == 'asc' ? 'rotate(90deg)' : formDataOne.order == 'desc' ? 'rotate(270deg)' : 'rotate(0deg)'}}" src="../../../image/icon/more.svg"></image>
+   </view>
+   <view>
+      <text>分类</text>
+      <image src="../../../image/icon/more.svg"></image>
+   </view>
+  </view>
+  <scroll-view scroll-y="true" bindscrolltolower="getList">
+      <materialCollectionList item='{{item}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index"
+        wx:key='index' />
+  </scroll-view>
+</view>
+
+<view wx:if="{{tabIndex == 4}}">
+  <view class="myHeader">
+    <view class="myUserMsgTwo">
+      <view class="myUserDate">
+        <image class="myUserImg" src="{{userData.Avatar}}"></image>
+        <view class="myUserName">{{userData.NickName}}</view>
+      </view>
+      <view class="myUserButton" bindtap="goUrl" data-url="">
+        设置
+      </view>
+    </view>
+  </view>
+  <view class="myManager">
+    <view class="withdraw">
+      <view class="withdrawIncome">我的收益: <text>10.00</text></view>
+      <view class="withdrawIncomeButton">
+        <view>明细</view>
+        <view>去体现</view>
+      </view>
+    </view>
+    <view class="withdrawIncomeYes">可提现: 10.00</view>
+    <view class="withdrawIncomeList">
+      <view>体现中: 10.00 </view>
+      <view>待确定: 10.00 </view>
+      <view>已提现: 10.00 </view>
+    </view>
+  </view>
+  <view class="myFeaturesList">
+    <view class="myFeatures" bindtap="goUrl" data-url='{{item.ordinaryUrl}}' wx:for='{{userFeaturesList}}'
+      wx:for-item='item' wx:for-index="index" wx:key='index'>
+      <image src='{{item.ordinaryIcon}}'></image>
+      <view>{{item.ordinaryTitle}}</view>
+    </view>
+  </view>
+</view>

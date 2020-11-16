@@ -1,7 +1,17 @@
 <!--pages/ordinary/materialCollection/materialCollection.wxml-->
-<materialCollectionList
-item='{{item}}'
-wx:for='{{list}}' 
-wx:for-item='item' 
-wx:for-index="index" 
-wx:key='index'/>
+<view class="scroll">
+   <scroll-view 
+   style="height:100%" 
+   scroll-y="true" 
+   refresher-enabled 
+   refresher-triggered="{{load}}" 
+   bindrefresherrefresh="loadresh" 
+   bindscrolltolower="getList">
+      <materialCollectionList
+    item='{{item}}'
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    wx:for-index="index" 
+    wx:key='index'/>
+	</scroll-view>
+</view>

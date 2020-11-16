@@ -6,8 +6,8 @@
 			wx:for='{{list}}' 
 			wx:for-item='item' 
 			data-id="{{item.TeamID}}" 
-			wx:for-index="listIndex" w
-			x:key='listIndex' 
+			wx:for-index="listIndex" 
+			wx:key='listIndex' 
 			catchtap="goUrl" 
 			data-url='/pages/decoration/teamManagementDetails/teamManagementDetails' 
 			class="materialOrderList">

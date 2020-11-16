@@ -56,10 +56,6 @@ Page({
           'formData.page' : 1,
           'formData.keyword' : '',
         })
-      }else{
-        this.setData({
-          'formData.page' : 1,
-        })
       }
       this.getListData()
     }else{

@@ -1,76 +1,36 @@
-<!--pages/decoration/effectPictureEdit/effectPictureEdit.wxml-->
+<!--pages/decoration/realEstateEditorEdit/realEstateEditorEdit.wxml-->
 <view>
-  <view class="effectPictureEditInput"><input placeholder="请填效果案例名称"></input></view>
-  <view class="effectPictureEditInput">
-    <input placeholder="风格名称（可选/可手输）"></input>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{styleListText}}">
+    <view class="effectPictureEditInput">
+      <input  disabled value="{{styleData.effectName}}" placeholder="风格名称"></input>
       <view><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="effectPictureEditInput"><input placeholder="输入复制的VR网址"></input></view>
-  <view class="effectPictureEditInput">
+    </view>
+  </picker>
+  <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="vrImageUrl" value="{{styleData.vrImageUrl}}" placeholder="输入复制的VR网址"></input></view>
+  <view class="effectPictureEditInput"><input type="number" bindinput="updateInput" data-key="area" value="{{styleData.area}}" placeholder="输入面积"></input></view>
+  <view data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist' bindtap="goUrl" class="effectPictureEditInput">
     <input placeholder="装修清单" disabled="true"></input>
-    <view  bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist'><image src="../../../image/icon/more.svg"></image></view>
+    <view  ><image src="../../../image/icon/more.svg"></image></view>
   </view>
-  <view class="effectPictureEditInput"><input placeholder="请填写空间名称"></input></view>
 </view>
 <view class="effectPictureEditMain effectPictureEditMainOne">
   <view class="effectPictureEditMainTitle">主图上传</view>
   <view>
     <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="effectPictureEditMain">
-  <view class="effectPictureEditMainTitle">效果图上传</view>
-  <view class="effectPictureEditMainList">
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input placeholder="输入描述名称"></input></view>
-    </view>
-    <view class="effectPictureEditMainListData">
-      <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      <view><input disabled="true"></input></view>
+      <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
     </view>
   </view>
 </view>
 <view class="effectPictureEditButtons">
-  <view class="nowButtons">上架</view>
-  <view>下架</view>
+      <view bindtap="changeIsGround" class="{{!styleData.isGround? 'nowButtons' : ''}}">下架</view>
+      <view bindtap="changeIsGround" class="{{styleData.isGround ? 'nowButtons' : ''}}">上架</view>
 </view>
-<view class="effectPictureEditSet">保存</view>
+<!-- <view class="effectPictureEditMain effectPictureEditMainOne">
+  <view class="effectPictureEditMainTitle">效果图上传</view>
+  <view class="effectPictureEditMainList">
+    <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
+  </view>
+</view> -->
+<view bindtap="submit" class="floatingButton">
+  <view>确定</view>
+</view>

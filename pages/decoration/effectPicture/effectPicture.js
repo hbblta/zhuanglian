@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list : 0,
+    list : [],
     textList : [
       {
         name : '楼盘案例',
@@ -19,57 +19,49 @@ Page({
     ],
     //当前的tabIndex
     tabIndex:0,
-    //楼盘 page
-    page:1,
-    pagesize:10,
-    keyword:'',
-    //效果 page
-    page2:1,
-    pagesize2:10,
-    keyword2:'',
-    //类别 默认全部
-    ground:'',
-    groundIndex:0
+    formData:{
+      page : 1,
+      pagesize : 6,
+      keyword : ''
+    },
+    ground : -1
   },
   getList(e){
-    this.setData({
-      tabIndex:e.detail.index,
-      groundIndex:0,
-      ground:'',
-      keyword:'',
-      keyword2:'',
-      page:1,
-      page2:1,
-      pagesize2:10,
-      pagesize:10
-    })
-    if(e.detail.index == 0){
-      this.getlp()
-    }
-    if(e.detail.index == 1){
-      this.getxg()
+    var that = this
+    if(e.detail.type){
+      if(e.detail.type == 'loadresh'){
+        this.setData({
+          'formData.page' : 1,
+          'formData.keyword' : '',
+          list : []
+        })
+      }
+      this.getListData()
+    }else{
+      this.setData({
+        'formData.keyword' : '',
+        'formData.page' : 1,
+        tabIndex : e.detail.index,
+        list : []
+      })
+      this.getListData()
     }
   },
   act(e){
-    var index = e.currentTarget.dataset.index
-    var ground = ''
-    if(index){
-      if(index == 1){
-        ground='1'
-      }
-      if(index == 2){
-        ground='0'
-      }
-    }
     this.setData({
-      groundIndex:index,
-      ground
+      ground : e.currentTarget.dataset.index,
+      list : [],
+      'formData.page' : 1,
     })
-    if(this.data.tabIndex){
-      this.getxg(ground)
-    }else{
-      this.getlp(ground)
-    }
+    this.getListData()
+  },
+  inputvalue(e){
+    this.setData({
+      'formData.keyword':e.detail,
+      'formData.page' : 1,
+      list:[],
+    })
+    this.getListData()
   },
   /**
    * 生命周期函数--监听页面加载
@@ -78,37 +70,34 @@ Page({
     wx.setNavigationBarTitle({
       title: '效果图管理'
     }) 
-    this.getlp()
+    this.getListData()
   },
-  //楼盘案例列表 初始化
-  getlp(ground){
+  getListData(){
+    var that = this
     var data = {
-      page:this.data.page,
-      pagesize:this.data.pagesize,
-      keyword:this.data.keyword
+      page:this.data.formData.page,
+      pagesize:this.data.formData.pagesize,
+      keyword:this.data.formData.keyword
     }
-    if(ground)data.ground=ground
-    app.ajaxToken('/shop/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      this.setData({
-        list : res.data
-      })
-    })
-  },
-  //楼盘列表 参数化
-
-  //效果案例
-  getxg(ground){
-    var data = {
-      page:this.data.page2,
-      pagesize:this.data.pagesize2,
-      keyword:this.data.keyword
-    }
-    if(ground)data.ground=ground
-    app.ajaxToken('/shop/geteffectlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      this.setData({
-        list : res.data
-      })
-      console.log(res)
+    if(this.data.ground != -1) data.ground = this.data.ground
+    var url = this.data.tabIndex == 0 ?  '/shop/getcaselist/' : '/shop/geteffectlist/'
+    app.ajaxToken(url+app.globalData.userData.ShopID,data,'get').then(res=>{
+      if(res.status == 0){
+        if(res.pagecount == 0){
+          return
+        }
+        if(that.data.formData.page <= res.pagecount){
+          that.setData({
+            list : that.data.list.concat(res.data),
+            'formData.page' : that.data.formData.page + 1
+          })
+        }
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon:'none'
+        })
+      }
     })
   },
   deleteEffect(e){
@@ -118,7 +107,13 @@ Page({
       content: '确定删除吗',
       success (res) {
         if (res.confirm) {
-          app.ajaxToken('/shop/delcase/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].CaseID,'','delete').then(res=>{
+          var url = '' 
+          if(that.data.tabIndex == 0){
+            url = '/shop/delcase/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].CaseID
+          }else{
+            url = '/shop/deleffect/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].EffectID
+          }
+          app.ajaxToken(url,'','delete').then(res=>{
             that.getlp()
           })
         } else if (res.cancel) {

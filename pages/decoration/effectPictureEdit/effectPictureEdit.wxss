@@ -1,4 +1,4 @@
-/* pages/decoration/effectPictureEdit/effectPictureEdit.wxss */
+/* pages/decoration/realEstateEditorEdit/realEstateEditorEdit.wxss */
 page{
   background: #f7f7f7;
 }
@@ -33,6 +33,7 @@ page{
   padding-right: 25rpx;
   border-bottom: 1rpx solid #f7f7f7;
   width: 700rpx;
+  margin-top: 15rpx;
 }
 .effectPictureEditMainTitle{
   color: rgba(59, 59, 59, 1);
@@ -81,14 +82,40 @@ page{
   font-size: 28rpx;
   font-family: PingFangSC-regular;
 }
+.effectPictureEditSet{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 90rpx;
+  width: 750rpx;
+}
+.effectPictureEditSet view:nth-child(1){
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color:  rgba(255, 255, 255, 1);
+  color:  rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}
+.effectPictureEditSet view:nth-child(2){
+  width: 375rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: rgba(0, 129, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}
 .effectPictureEditButtons{
   height: 100rpx;
-  width: 735rpx;
-  padding-right: 15rpx;
+  margin-top: 30rpx;
   display: flex;
   align-items: center;
   flex-direction: row-reverse ;
-  background: #FFFFFF;
 }
 .effectPictureEditButtons view{
   color: #909399 ;
@@ -111,14 +138,4 @@ page{
   color: rgba(255, 255, 255, 1)!important;
   background: #0081FF!important;
   z-index: 1!important;
-}
-.effectPictureEditSet{
-  width: 750rpx;
-  height: 90rpx;
-  line-height: 90rpx;
-  background-color: rgba(0, 129, 255, 1);
-  color: rgba(255, 255, 255, 1);
-  font-size: 28rpx;
-  text-align: center;
-  font-family: Arial;
 }

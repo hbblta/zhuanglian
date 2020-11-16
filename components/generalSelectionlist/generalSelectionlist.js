@@ -46,7 +46,7 @@ Component({
       })
     },
     moreList(){
-      this.triggerEvent('getList',{type:'loadresh'})
+      this.triggerEvent('getList',{type:'more'})
       this.setData({
         load : false
       })

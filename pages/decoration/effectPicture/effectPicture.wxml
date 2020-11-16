@@ -1,9 +1,9 @@
 <!--pages/decoration/effectPicture/effectPicture.wxml-->
-<generalSelectionlist textList='{{textList}}' bind:getList="getList">
+<generalSelectionlist textList='{{textList}}' keyword="{{formData.keyword}}" bind:getList="getList" bind:inputvalue="inputvalue">
   <scroll-view slot="before" scroll-x="true" class="materialOrderStatusList">
-    <view bindtap="act" data-index="0" class="{{groundIndex == 0?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">全部</view>
-    <view bindtap="act" data-index="1" class="{{groundIndex == 1?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">上架</view>
-    <view bindtap="act" data-index="2" class="{{groundIndex == 2?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">下架</view>
+    <view bindtap="act" data-index="-1" class="{{ground == -1?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">全部</view>
+    <view bindtap="act" data-index="1" class="{{ground == 1?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">上架</view>
+    <view bindtap="act" data-index="0" class="{{ground == 0?'materialOrderStatus materialOrderStatusNow':'materialOrderStatus'}}">下架</view>
   </scroll-view>
   <view slot="after" class="materialOrderScroll">
     <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' class="materialOrderList">
@@ -11,9 +11,9 @@
         <image src="{{item.ImageUrl[0]}}"></image>
       </view>
       <view class="materialOrderListText">
-        <view class="materialOrderListName">{{item.CaseName}}</view>
+        <view class="materialOrderListName">{{tabIndex == 0 ? item.CaseName :  item.EffectName}}</view>
         <view class="materialOrderListButton">
-          <text>上架</text>
+          <text>{{item.IsGround ? '上架' : '下架'}}</text>
           <text bindtap="deleteEffect" data-index="{{listIndex}}">删除</text>
         </view>
       </view>

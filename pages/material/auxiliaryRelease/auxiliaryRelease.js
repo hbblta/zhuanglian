@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     this.onEditorReady()
     wx.setNavigationBarTitle({
-      title: '辅材发布',
+      title: '发布',
     })
     app.ajaxToken('/common/getcategories', '', 'get').then(res => {
       let arr = res.data.map((data)=>{

@@ -11,12 +11,12 @@ Page({
     formData : {
       basisData : {
         propertyName : '',
-        propertyImage : [],
         isGround : true,
         imageList : []
       },
       unitList : []
-    }
+    },
+    CaseID : null
   },
 
   /**
@@ -33,6 +33,12 @@ Page({
     wx.setNavigationBarTitle({
       title: '楼盘编辑',
     })
+    if(options.CaseID){
+      this.setData({
+        CaseID : options.CaseID
+      })
+      this.getCaseInfo()
+    }
   },
   goUrl(e){
     if(e.currentTarget.dataset.url == '/pages/decoration/realEstateEditorEdit/realEstateEditorEdit'){
@@ -144,7 +150,6 @@ Page({
       title: '提交中',
       mask: true
     })
-    console.log(this.data.formData)
     var data = {
       caseName : this.data.formData.basisData.propertyName,
       images : this.data.formData.basisData.imageList.map(data=>{return data.SaveName}),
@@ -158,8 +163,13 @@ Page({
         images : item1.imageList.map(data=>{return data.SaveName}),
         styles : that.changeStyleList(item1.styleList)
       }
+      if(that.data.CaseID){
+        data.houses[index1].HouseID = item1.HouseID
+      }
     });
-    console.log(data)
+    if(this.data.CaseID){
+      data.CaseID = this.data.CaseID
+    }
     app.ajaxToken('/shop/addcase/'+app.globalData.userData.ShopID,data, 'post').then(res => {
       wx.hideLoading()
       wx.showToast({
@@ -185,6 +195,9 @@ Page({
         auxiliaryCost : item2.auxiliaryCost,
         materials : that.changeMaterialsList(item2.materials)
       }
+      if(that.data.CaseID){
+        data2[index2].StyleID = item2.StyleID
+      }
     });
     return data2
   },
@@ -202,6 +215,61 @@ Page({
       }
     });
     return data3
+  },
+  getCaseInfo(){//编辑初始化
+    var that = this
+    app.ajaxToken('/shop/getcaseinfo/'+app.globalData.userData.ShopID+'/'+this.data.CaseID, 'get').then(res => {
+      var formData = {
+        basisData : {},
+        unitList : []
+      }
+      formData.basisData = {
+        imageList : that.mergeImg(res.data.ImageUrl,res.data.Image),
+        isGround : res.data.IsGround ? true : false,
+        propertyName : res.data.CaseName,
+      }
+      res.data.Houses.forEach((item,index)=>{
+        formData.unitList[index] = {
+          title : item.HouseName,
+          imageList : that.mergeImg(item.ImageUrl,item.Image),
+          styleList : [],
+          HouseID : item.HouseID
+        }
+        console.log(item.Styles)
+        item.Styles.forEach((item2,index2)=>{
+          formData.unitList[index].styleList[index2] = {
+            area : item2.Area,
+            auxiliaryCost : item2.AuxiliaryCost,
+            effectName : item2.EffectName,
+            style : item2.Style,
+            styleImage : that.mergeImg(item2.StyleImageUrl,item2.StyleImage),
+            vrImageUrl : item2.VRImageUrl,
+            StyleID : item2.StyleID
+          }
+          formData.unitList[index].styleList[index2].materials = [[],[],[],[],[]]
+          item2.SpaceMaterials[0].Materials.forEach((item3,index3)=>{
+            if(!item3.SpaceID){
+              item3.selected = true
+              formData.unitList[index].styleList[index2].materials[0].push(item3)
+            }
+          })
+        })
+      })
+      this.setData({
+        formData
+      })
+    })
+  },
+  mergeImg(fileList,saveList){
+    var imageList = []
+    fileList.forEach((item,index)=>{
+      imageList[index] = {
+        FileUrl : item,
+        SaveName : saveList[index],
+        imageType : -1
+      }
+    })
+    return imageList
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

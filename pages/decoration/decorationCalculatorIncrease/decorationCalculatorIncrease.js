@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    calaData : []
   },
 
   /**
@@ -14,13 +14,52 @@ Page({
    */
   onLoad: function (options) {
     app.ajaxToken('/shop/getbudgets/'+app.globalData.userData.ShopID, '', 'get').then(res => {
-      console.log(res)
       this.setData({
         calaData : res.data
       })
     })
   },
-
+  addIncrease(){
+    var calaData = this.data.calaData
+    var data = {
+      BudgetName : '档次'+calaData.length,
+      Price : 0,
+    }
+    calaData.push(data)
+    this.setData({
+      calaData
+    })
+  },
+  deleteData(e){
+    console.log(e)
+    var calaData = this.data.calaData
+    calaData.splice(e.currentTarget.dataset.index,1)
+    this.setData({
+      calaData
+    }) 
+  },
+  priceChange(e){
+    var changeData = `calaData[${e.currentTarget.dataset.index}].Price`
+    this.setData({
+      [changeData] : e.detail.value
+    })
+  },
+  nameChange(e){
+    var changeData = `calaData[${e.currentTarget.dataset.index}].BudgetName`
+    this.setData({
+      [changeData] : e.detail.value
+    })
+  },
+  sumit(){
+    let data = this.data.calaData
+    app.ajaxToken('/shop/savebudgets/'+app.globalData.userData.ShopID,data, 'post').then(res => {
+      if(res.data.status == 0){
+        wx.showToast({
+          title: res.data.msg,
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

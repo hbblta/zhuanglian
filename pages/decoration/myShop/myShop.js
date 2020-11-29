@@ -52,7 +52,7 @@ Page({
       {
         title: '装修预算',
         iconUrl: '../../../image/shopIcon/features4.png',
-        url:'/pages/decoration/decorationCalculator/decorationCalculator'
+        url:'/pages/decoration/decorationCalculator/decorationCalculator?type=shop'
       },
       {
         title: '材料商城',

@@ -1,29 +1,24 @@
 <!--pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease.wxml-->
-<view class="decorationCalculatorIncrease">
+<view 
+    class="decorationCalculatorIncrease"
+    wx:for='{{calaData}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' 
+>
   <view class="decorationCalculatorIncreaseInput">
-    <input placeholder="请输入名称"></input>
+    <input placeholder="请输入名称" bindinput="nameChange" data-index="{{index}}" value="{{item.BudgetName}}"></input>
   </view>
   <view class="decorationCalculatorIncreaseText">
     <view class="decorationCalculatorIncreaseTextPrice">
-      <text>请选择</text>
-      <image src="../../../image/icon/more.svg"></image>
+      <input type="text" bindinput="priceChange" data-index="{{index}}" value="{{item.Price}}"/>
     </view>
     <view class="decorationCalculatorIncreaseUnit">元/平方</view>
   </view>
+  <image class="deleteImg" catchtap="deleteData" data-index="{{index}}" src="../../../image/icon/delete.svg"></image>
 </view>
-<view class="decorationCalculatorIncrease">
-  <view class="decorationCalculatorIncreaseInput">
-    <input placeholder="请输入名称"></input>
-  </view>
-  <view class="decorationCalculatorIncreaseText">
-    <view class="decorationCalculatorIncreaseTextPrice">
-      <text>请选择</text>
-      <image src="../../../image/icon/more.svg"></image>
-    </view>
-    <view class="decorationCalculatorIncreaseUnit">元/平方</view>
-  </view>
-</view>
-<view class="decorationCalculatorIncreaseMore">
+<view class="decorationCalculatorIncreaseMore" bindtap="addIncrease">
   <image src="../../../image/icon/increase.svg"></image>
   <view>增加装修档次</view>
 </view>
+<view class="floatingButton" bindtap="sumit">保存</view>

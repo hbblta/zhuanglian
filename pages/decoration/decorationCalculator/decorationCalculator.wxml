@@ -2,7 +2,7 @@
 <image class="decorationCalculatorTitleImg" src="{{imgShow.topImage}}"></image>
 <view class="decorationCalculatorChangeTitleImg">
     <view></view>
-    <view class="decorationCalculatorChangeTitleImgButton" bindtap="upload" data-type="top">
+    <view wx:if="{{type != 'shop'}}" class="decorationCalculatorChangeTitleImgButton" bindtap="upload" data-type="top">
       <image src="../../../image/icon/image.svg"></image>
       <text>更换图片</text>
     </view>
@@ -12,13 +12,15 @@
     <text>手机号码139***6909用户免费获得报价</text>
 </view>
 <view class="decorationCalculatorBudget">
-    您家的装修预算<text>{{calaData.price}}</text>元
+    您家的装修预算<text>{{calaPrice}}</text>元
 </view>
 <view class="decorationCalculatorSet">
-    <view  bindtap="goUrl"  data-url="/pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease" class="decorationCalculatorSetText">编辑</view>
+    <view  bindtap="goUrl" wx:if="{{type != 'shop'}}" data-url="/pages/decoration/decorationCalculatorIncrease/decorationCalculatorIncrease" class="decorationCalculatorSetText">编辑</view>
     <view class="decorationCalculatorSetInput">
-       <input placeholder="装修档次" value="{{calaData.budgetName}}" disabled></input>
-       <input placeholder="装修面积"></input>
+      <picker  bindchange="bindPickerChange" value="{{pickInex}}" range="{{pickerListText}}">
+        <input placeholder="装修档次" value="{{pickerListText[pickInex]}}" disabled></input>
+      </picker>
+       <input placeholder="装修面积" bindinput="changeArea"></input>
     </view>
 </view>
 <view class="decorationCalculatorPublic">
@@ -32,4 +34,5 @@
       <text>更换图片</text>
     </view>
 </view>
-<view class="decorationCalculatorSetButton" bindtap="submit">保存</view>
+<button wx:if="{{!userData.Mobile}}" class="decorationCalculatorSetButton"  open-type="getPhoneNumber" bindgetphonenumber='submit'>{{type == 'shop' ? '提交' : '保存'}}</button>
+<button wx:if="{{userData.Mobile}}"  class="decorationCalculatorSetButton"  bindtap="submit">{{type == 'shop' ? '提交' : '保存'}}</button>

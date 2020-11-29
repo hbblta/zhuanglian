@@ -114,7 +114,11 @@ Page({
             url = '/shop/deleffect/'+app.globalData.userData.ShopID + '/' + that.data.list[e.currentTarget.dataset.index].EffectID
           }
           app.ajaxToken(url,'','delete').then(res=>{
-            that.getlp()
+            that.setData({
+              'formData.page' : 1,
+              list:[],
+            })
+            that.getListData()
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -124,6 +128,13 @@ Page({
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  goEditorEffect(e){
+    if(this.data.tabIndex == 0){
+      app.goUrl('/pages/decoration/realEstateEditor/realEstateEditor?CaseID='+this.data.list[e.currentTarget.dataset.index].CaseID)
+    }else{
+      app.goUrl('/pages/decoration/effectPictureEdit/effectPictureEdit?EffectID='+this.data.list[e.currentTarget.dataset.index].EffectID)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

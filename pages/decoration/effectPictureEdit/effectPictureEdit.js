@@ -17,15 +17,15 @@ Page({
       materials : [],
       auxiliaryCost : '',
       isGround : true
-     }
+     },
+     EffectID : null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.styleListData)
-    if(!app.globalData.styleListData){
+    if(!options.EffectID){
       app.globalData.styleListData = {
         styleData : {
           materials : [],
@@ -34,9 +34,10 @@ Page({
       }
       console.log('新增')
     }else{
-      // this.setData({
-      //   styleData : app.globalData.styleListData.styleData
-      // })
+      this.setData({
+        EffectID : options.EffectID
+      })
+      this.getPictureInfo()
       console.log('编辑')
     }
     this.getStylePicker()
@@ -77,11 +78,6 @@ Page({
   },
   submit(){//提交
     var that = this
-    console.log(this.data.styleData)
-    wx.showLoading({
-      title: '提交中',
-      mask: true
-    })
     var data = {
       effectName : this.data.styleData.effectName,
       area : this.data.styleData.area,
@@ -92,7 +88,11 @@ Page({
       isGround :  this.data.styleData.isGround ? 1 : 0,
       materials : that.changeMaterialsList(this.data.styleData.materials)
     }
-    console.log(data)
+    if(this.data.EffectID) data.EffectID = this.data.EffectID
+    wx.showLoading({
+      title: '提交中',
+      mask: true
+    })
     app.ajaxToken('/shop/addeffect/'+app.globalData.userData.ShopID,data, 'post').then(res => {
       wx.hideLoading()
       wx.showToast({
@@ -120,6 +120,48 @@ Page({
     });
     return data3
   },
+  getPictureInfo(){//编辑初始化
+    var that = this
+    app.ajaxToken('/shop/geteffectinfo/'+app.globalData.userData.ShopID+'/'+this.data.EffectID,'', 'get').then(res => {
+      var styleData = {}
+      styleData = {
+        area : res.data.Area,
+        auxiliaryCost : res.data.AuxiliaryCost,
+        effectName : res.data.EffectName,
+        isGround : res.data.IsGround ? true : false,
+        styleImage : that.mergeImg(res.data.StyleImageUrl,res.data.StyleImage),
+        vrImageUrl : res.data.VRImageUrl,
+        StyleID : res.data.StyleID
+      }
+      styleData.materials = [[],[],[],[],[]]
+      res.data.SpaceMaterials[0].Materials.forEach((item3,index3)=>{
+        if(!item3.SpaceID){
+          item3.selected = true
+          styleData.materials[0].push(item3)
+        }
+      })
+      app.globalData.styleListData = {
+        styleData : {
+          materials : styleData.materials,
+          auxiliaryCost : res.data.AuxiliaryCost
+        }
+      }
+      that.setData({
+        styleData
+      })
+    })
+  },
+  mergeImg(fileList,saveList){
+    var imageList = []
+    fileList.forEach((item,index)=>{
+      imageList[index] = {
+        FileUrl : item,
+        SaveName : saveList[index],
+        imageType : -1
+      }
+    })
+    return imageList
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -144,13 +186,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    // var that=this;
-    // let pages = getCurrentPages();
-    // let prevPage = pages[pages.length - 2];
-    // let update = `formData.unitList[${app.globalData.styleListData.unitIndex}].styleList[${app.globalData.styleListData.styleIndex}]`
-    // prevPage.setData({
-    //   [update]: that.data.styleData,
-    // })
     app.globalData.styleListData = null
   },
 

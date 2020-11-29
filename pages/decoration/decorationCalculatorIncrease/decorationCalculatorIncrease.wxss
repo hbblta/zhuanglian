@@ -11,16 +11,24 @@ page{
   margin-left: 25rpx;
   margin-top: 15rpx;
   background: #FFFFFF;
+  position: relative;
+}
+.deleteImg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: -5rpx;
+  top: -5rpx;
 }
 .decorationCalculatorIncreaseInput{
   height: 98rpx;
-  width: 660rpx;
+  width: 680rpx;
   padding-left: 20rpx;
   border: 2rpx solid rgba(247, 247, 247, 1);
 }
 .decorationCalculatorIncreaseInput input{
   height: 98rpx;
-  width: 660rpx;
+  width: 600rpx;
   font-weight: 550;
   color: rgba(48, 49, 51, 1);
   font-size: 32rpx;

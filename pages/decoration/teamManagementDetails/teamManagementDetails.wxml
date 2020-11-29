@@ -31,7 +31,7 @@
  
   </view>
 </view>
-<view class="teamManagementDetailsButton" wx:if="{{type != 'show'}}">
+<view class="teamManagementDetailsButton">
   <view  bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>编辑</view>
   <view bindtap="delete">删除</view>
 </view>

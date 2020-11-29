@@ -12,6 +12,7 @@ Page({
       realName : ''
     },
     code:'',
+    ShopID : '',
   },
 
   /**

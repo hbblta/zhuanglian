@@ -113,7 +113,7 @@ page{
   height: 564rpx;
 }
 .decorationCalculatorSetButton{
-  width: 100%;
+  width: 100% !important;
   height: 100rpx;
   line-height: 100rpx;
   margin-top: 80rpx;
@@ -122,4 +122,7 @@ page{
   font-size: 28rpx;
   text-align: center;
   font-family: Arial;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
 }

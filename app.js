@@ -146,7 +146,7 @@ App({
             wx.hideLoading()
             wx.showToast({
               icon: 'none',
-              title: `接口状态:${res.data.status},错误信息:${res.data.msg}`,
+              title: res.data.msg,
             })
             return
           }

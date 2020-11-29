@@ -16,7 +16,7 @@
   </view>
 </view>
 
-<view class="decorationRecordingList" wx:else>
+<view class="decorationRecordingList" wx:else bindtap="goMaterialList" data-id='{{item.EffectID}}'>
  <view class="decorationRecordingImg"> <image src="{{item.StyleImageUrl[0]}}" ></image></view>
   <view class="decorationRecordingMsg">
     <view class="decorationRecordingTitle">{{item.EffectName}}</view>

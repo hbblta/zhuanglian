@@ -54,11 +54,12 @@
   <view class="scheduleTextList">
     <view class="scheduleText">
       <text 
+        bindtap=""
         wx:for='{{scheduleList}}' 
         wx:for-item='item' 
         data-index='{{index}}'
         wx:key='index' 
-      >{{item.name}}</text>
+      >{{item.text}}</text>
     </view>
       <view class="scheduleTextBlueList" style="width:{{constructionData.Percent}}%">
         <view class="scheduleText scheduleTextBlue">

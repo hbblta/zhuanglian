@@ -6,10 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    decorationArray:{
-      textList: ['张三','李四','王二','码字'],
-      idList: [0,1,2,3]
-     },
      scheduleList:[
        {
          name: '浇底',
@@ -60,8 +56,16 @@ Page({
       scheduleNum : '50%',
       ConstructionID:options.ConstructionID 
     })
+    this.getscheduleList()
     this.getInfo()
     this.getStaffList()
+  },
+  getscheduleList(){
+    app.ajaxToken('/common/getconstructionstates','','get').then(res=>{
+      this.setData({
+        scheduleList : res.data
+      })
+    })
   },
   getStaffList(){
     app.getStaffList(res=>{

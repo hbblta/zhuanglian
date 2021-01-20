@@ -1,0 +1,50 @@
+<!--pages/decoration/editShop/editShop.wxml-->
+<view class="effectPictureEditInput effectPictureEditLogo">
+  <input disabled  placeholder="LOGO"></input>
+  <view bindtap="upload">
+    <image src="{{formData.ShopLogoUrl ? formData.ShopLogoUrl : '../../../image/testImg/logo.png'}}"></image>
+  </view>
+</view>
+<view class="effectPictureEditInput">
+  <input bindinput="updateInput" data-key="CompanyName" value="{{formData.CompanyName}}" placeholder="请输入公司名"></input>
+  <view>
+    <!-- <image src="../../../image/icon/more.svg"></image> -->
+  </view>
+</view>
+<view bindtap="goUrl"  data-url='/pages/decoration/addressLibrary/addressLibrary' class="effectPictureEditInput">
+  <input disabled value="{{}}" placeholder="地址库"></input>
+  <view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<view class="effectPictureEditInput">
+  <input  bindinput="updateInput" data-key="Telphone" value="{{formData.Telphone}}" type="number" placeholder="请输入联系方式"></input>
+  <view>
+    <!-- <image src="../../../image/icon/more.svg"></image> -->
+  </view>
+</view>
+<view class="effectPictureEditInput" style="margin-top:15rpx" bindtap="goUrl"  data-url='/pages/decoration/bannerList/bannerList'>
+  <input disabled value="{{}}" placeholder="店铺轮播图"></input>
+  <view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<!-- <view class="effectPictureEditInput">
+  <input disabled value="{{}}" placeholder="施工团队是否展示"></input>
+  <view class="effectPictureEditButtons">
+      <view bindtap="changeIsGround" class="{{isGround ? 'nowButtons' : ''}}">下架</view>
+      <view bindtap="changeIsGround" class="{{!isGround ? 'nowButtons' : ''}}">上架</view>
+  </view>
+</view> -->
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle"><text>企业简介</text>
+    <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
+  </view>
+  <view class="effectPictureEditEditor">
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+      bindinput='editorData' bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
+    </editor>
+  </view>
+</view>
+<!-- <view style="height:200rpx"></view> -->
+<view class="topButton" bindtap="submit">保存</view>

@@ -53,10 +53,16 @@ Page({
   sumit(){
     let data = this.data.calaData
     app.ajaxToken('/shop/savebudgets/'+app.globalData.userData.ShopID,data, 'post').then(res => {
-      if(res.data.status == 0){
+      if(res.status == 0){
         wx.showToast({
-          title: res.data.msg,
+          title: res.msg,
         })
+        setTimeout(()=>{
+          wx.navigateBack({
+            delta: 1,
+          })
+        },500)
+
       }
     })
   },

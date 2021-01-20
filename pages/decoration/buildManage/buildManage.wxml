@@ -17,7 +17,7 @@
 	</scroll-view>
 	<view slot="after" class="materialOrderScroll">
 		<scroll-view style="height:100%" scroll-y="true" bindscrolltolower="scroll">
-      <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' data-id = "{{item.ConstructionID}}" bindtap="goUrl" data-url='/pages/decoration/constructionDetails/constructionDetails' class="materialOrderList">
+      <view wx:for='{{list}}' wx:for-item='item' wx:for-index="listIndex" wx:key='listIndex' data-id = "{{item.ConstructionID}}" bindtap="goUrl" data-url='/pages/decoration/constructionDetails/constructionDetails?ConstructionID={{item.ConstructionID}}' class="materialOrderList">
 			<view class="tip">{{textList[textIndex].name}}</view>
 			<view class="materialOrderListImg">
 				<image src="{{item.Avatar}}"></image>
@@ -25,8 +25,8 @@
 			<view class="materialOrderListText">
 				<view>{{item.RealName}}</view>
 				<view>{{item.Mobile}}</view>
-				<view>成交时间：{{item.AddDate}}</view>
-				<view>项目经理：{{item.name}}</view>
+				<view>成交时间:{{item.AddDate}}</view>
+				<view>项目经理:{{item.ProjectManagerName ? item.ProjectManagerName : '暂无'}}</view>
 			</view>
 			<view class="home">
 				<view>地区名称：{{item.AreaStr}}</view>

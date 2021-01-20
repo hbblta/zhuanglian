@@ -1,39 +1,31 @@
 <!--pages/decoration/commissionSettings/commissionSettings.wxml-->
 <view class="decorationStaffInput">
 	<view>
-		<input placeholder="分销直推提成（姓名）" value="{{name}}" bindinput="getNameValue"></input>
+		<input placeholder="分销直推提成（{{formData.DisCommendName ? formData.DisCommendName : '暂无'}}）" value="{{formData.DisCommend}}" bindinput="updateInput" data-key="DisCommend"></input>
 		<text>元</text>
 	</view>
 	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
+		<input placeholder="分销间接提成（{{formData.DisInCommendName ? formData.DisInCommendName : '暂无'}}）" value="{{formData.DisInCommend}}" bindinput="updateInput" data-key="DisInCommend"></input>
 		<text>元</text>
 	</view>
 	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
+		<input placeholder="客户开发提成（{{formData.CustomerDeveloperName ? formData.CustomerDeveloperName : '暂无'}}）" value="{{formData.CustomerDeveloper}}" bindinput="updateInput" data-key="CustomerDeveloper"></input>
 		<text>元</text>
 	</view>
 	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
+		<input placeholder="客户跟单提成（{{formData.CustomerManagerName ? formData.CustomerManagerName : '暂无'}}）" value="{{formData.CustomerManager}}" bindinput="updateInput" data-key="CustomerManager"></input>
 		<text>元</text>
 	</view>
 	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
+		<input placeholder="订单跟单提成（{{formData.OrderManagerName ? formData.OrderManagerName : '暂无'}}）" value="{{formData.OrderManager}}" bindinput="updateInput" data-key="OrderManager"></input>
 		<text>元</text>
 	</view>
 	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
-		<text>元</text>
-	</view>
-	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
-		<text>元</text>
-	</view>
-	<view>
-		<input placeholder="分销直推提成（姓名）"></input>
+		<input placeholder="设计提成（{{formData.DesignName ? formData.DesignName : '暂无'}}）" value="{{formData.Design}}" bindinput="updateInput" data-key="Design"></input>
 		<text>元</text>
 	</view>
 </view>
 
-<view class="floatingButton" bindtap="goback">
+<view class="floatingButton" bindtap="sumbit">
 	提交
 </view>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "range":"/components/range/range"
+    "range":"/components/range/range",
+    "uploadImage": "/components/uploadImage/uploadImage"
   }
 }

@@ -26,19 +26,19 @@ Page({
         iconUrl: '../../../image/shopIcon/44.png',
         changeIcon: '../../../image/shopIcon/4.png',
       },
-      {
-        title: '会员',
-        iconUrl: '../../../image/shopIcon/55.png',
-        changeIcon: '../../../image/shopIcon/5.png',
-      },
+      // {
+      //   title: '会员',
+      //   iconUrl: '../../../image/shopIcon/55.png',
+      //   changeIcon: '../../../image/shopIcon/5.png',
+      // },
     ], //tabbar数组
     imgArr: [],//轮播图数组
     shopFeatures:[
-      {
-        title: '案例集锦',
-        iconUrl: '../../../image/shopIcon/features1.png',
-        url:'/pages/ordinary/effectCollection/effectCollection?url=/store/geteffectlist/'
-      },
+      // {
+      //   title: '案例集锦',
+      //   iconUrl: '../../../image/shopIcon/features1.png',
+      //   url:'/pages/ordinary/effectCollection/effectCollection?url=/store/geteffectlist/'
+      // },
       {
         title: '团队介绍',
         iconUrl: '../../../image/shopIcon/features2.png',
@@ -57,7 +57,7 @@ Page({
       {
         title: '材料商城',
         iconUrl: '../../../image/shopIcon/features5.png',
-        url:''
+        url:'/pages/decoration/materialsMall/materialsMall'
       },
 
     ],
@@ -99,6 +99,7 @@ Page({
       pagesize : 10,
     },
     load : false,
+    ShopID : ''
   },
 
   /**
@@ -106,11 +107,20 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userData : app.globalData.userData
+      userData : app.globalData.userData,
+      ShopID : options.ShopID,
     })
-    this.getUserInfo()
-    this.getList()
-    this.getRealList()
+  },
+  call(e){
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone, //此号码仅用于测试 。
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
+    })
   },
   changeIndex(e) {
     if(e.currentTarget.dataset.index == 1){
@@ -134,6 +144,14 @@ Page({
     })
   },
   goUrl(e){
+    if(e.currentTarget.dataset.url == '/pages/decoration/introductionBody/introductionBody'){//跳转简介详情
+      app.globalData.introductionBody = this.data.shopData.Description
+    }
+    if(e.currentTarget.dataset.url == '/pages/decoration/decorationCalculator/decorationCalculator?type=shop'){
+      e.currentTarget.dataset.url = e.currentTarget.dataset.url+'&ShopID='+this.data.ShopID
+    }else{
+      e.currentTarget.dataset.url = e.currentTarget.dataset.url+'?ShopID='+this.data.ShopID
+    }
     app.goUrl(e.currentTarget.dataset.url)
   },
   changeCommissionType(e){
@@ -143,12 +161,12 @@ Page({
   },
   getAllList(){
     var data = {
-      shopId  : app.globalData.userData.ShopID,
+      shopId  : this.data.ShopID,
       keyword : '',
       page : 1,
       pagesize : 10
     }
-    app.ajaxToken('/store/geteffectlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+    app.ajaxToken('/store/geteffectlist/'+this.data.ShopID,data,'get').then(res=>{
       this.setData({
         allList : res.data
       })
@@ -156,24 +174,24 @@ Page({
   },
   getRealList(){
     var data = {
-      shopId  : app.globalData.userData.ShopID,
+      shopId  : this.data.ShopID,
       keyword : '',
       page : 1,
       pagesize : 10
     }
-    app.ajaxToken('/store/getcaselist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+    app.ajaxToken('/store/getcaselist/'+this.data.ShopID,data,'get').then(res=>{
       this.setData({
         realList : res.data
       })
     })
   },
   getUserInfo(){
-    app.ajaxToken('/store/getshopinfo/'+app.globalData.userData.ShopID,'','get').then(res=>{
+    app.ajaxToken('/store/getshopinfo/'+this.data.ShopID,'','get').then(res=>{
       this.setData({
         shopData : res.data
       })
     })
-    app.ajaxToken('/store/getshopadvs/'+app.globalData.userData.ShopID,'','get').then(res=>{
+    app.ajaxToken('/store/getshopadvs/'+this.data.ShopID,'','get').then(res=>{
       this.setData({
         imgArr : res.data
       })
@@ -193,12 +211,12 @@ Page({
       page : this.data.formDataOne.page,
       pagesize : this.data.formDataOne.pagesize,
     }
-    app.ajaxToken('/store/geteffectlist/'+ app.globalData.userData.ShopID, data, 'get').then(res => {
+    app.ajaxToken('/store/geteffectlist/'+ this.data.ShopID, data, 'get').then(res => {
       if(res.status == 0){
         if(that.data.formDataOne.page <= res.pagecount){
           that.setData({
             load : false,
-            allList:res.data,
+            allList:this.data.allList.concat(res.data),
             'formData.page' : that.data.formDataOne.page + 1
           })
         }
@@ -209,6 +227,22 @@ Page({
         })
       }
     })
+  },
+  goLocation(){
+    var that = this
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function(res) {
+       var latitude = res.latitude
+       var longitude = res.longitude
+       wx.openLocation({
+        latitude: that.data.shopData.Latitude ? that.data.shopData.Latitude  : latitude,
+        longitude:that.data.shopData.Longitude ? that.data.shopData.Longitude  : longitude ,
+        name:that.data.shopData.Address,
+        scale: 28
+       })
+      }
+     })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -221,7 +255,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getUserInfo()
+    this.getList()
+    this.getRealList()
+    setTimeout(()=>{
+      wx.setNavigationBarTitle({
+        title: this.data.shopData.CompanyName,
+      })
+    },500)
   },
 
   /**
@@ -256,6 +297,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '装联客易',
+      desc: this.data.userData.NickName+'的店铺',
+      path: '/pages/decoration/myShop/myShop?ShopID='+this.data.ShopID // 路径，传递参数到指定页面。
+     }
   }
 })

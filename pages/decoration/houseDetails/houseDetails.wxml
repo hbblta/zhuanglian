@@ -1,0 +1,43 @@
+<!--pages/decoration/houseDetails/houseDetails.wxml-->
+<view class="swiperBox">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+    indicator-active-color="rgba(255,255,255,1)">
+    <block wx:for="{{houseData.HouseImageUrl}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="propertyName">{{houseData.HouseName}}</view>
+<view 
+class="decorationRecordingList" 
+wx:for='{{houseData.HouseStyles}}' 
+data-id='{{item.StyleID}}'
+wx:for-item='item' 
+data-index='{{index}}'
+wx:key='index' 
+bindtap="goCaseDetails">
+  <view class="decorationRecordingImg">
+    <image src="{{item.StyleImageUrl[0]}}"></image>
+  </view>
+  <view class="decorationRecordingMsg">
+    <view class="decorationRecordingTitle">{{item.EffectName}}</view>
+    <view class="decorationRecordingStyle">
+      <text>图片: {{item.EffectImages}}张</text>
+      <text>风格: {{item.StyleName}}</text>
+    </view>
+    <view class="decorationRecordingMeun">
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../../image/icon/materialcon.png'></image>
+        <text>材料清单</text>
+        <image src='../../../image/icon/more.svg'></image>
+      </view>
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../../image/icon/VRIcon.png'></image>
+        <text>VR全景</text>
+        <image src='../../../image/icon/more.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>

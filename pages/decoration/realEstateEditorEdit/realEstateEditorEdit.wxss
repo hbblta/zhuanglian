@@ -11,6 +11,7 @@ page{
   background: #FFFFFF;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .effectPictureEditInput input{
   width: 670rpx;
@@ -109,4 +110,13 @@ page{
   font-size: 28rpx;
   text-align: center;
   font-family: Arial;
+}
+.delete{
+  position: absolute;
+  right: 5rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #ffffff;
+  border-radius: 50%;
 }

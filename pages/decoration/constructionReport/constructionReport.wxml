@@ -1,51 +1,50 @@
 <!--pages/decoration/constructionReport/constructionReport.wxml-->
-<view style="height:15rpx"></view>
-<view class="personnelDetailsFeeling">
+<view style="height:15rpx" wx:if="{{reportLength}}"></view>
+<view class="personnelDetailsFeeling" wx:if="{{reportLength}}">
   <view>总结</view>
-  <textarea placeholder="输入文字"></textarea>
+  <textarea placeholder="输入文字" value="{{formData.Summary}}" bindinput="summaryText"></textarea>
 </view>
-<view class="effectPictureEditMain effectPictureEditMainOne">
+<view class="effectPictureEditMain effectPictureEditMainOne" wx:if="{{reportLength}}">
   <view class="effectPictureEditMainTitle">
     <view>图片上传</view>
-    <view>4/9</view>
+    <view>{{formData.SummaryImages.length}}/3</view>
   </view>
   <view>
-    <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-    </view>
+    <uploadImage imageList='{{formData.SummaryImages}}' bind:getImagePath="getImagePath" imageLength='3'
+      imageType='-1' />
   </view>
 </view>
 <view style="height:15rpx"></view>
 <view class="personnelDetailsFeeling">
   <view>计划</view>
-  <textarea placeholder="输入文字"></textarea>
+  <textarea placeholder="输入文字" value="{{formData.Plan}}" bindinput="planText"></textarea>
 </view>
 <view class="effectPictureEditMain effectPictureEditMainOne">
   <view class="effectPictureEditMainTitle">
     <view>图片上传</view>
-    <view>4/9</view>
+    <view>{{formData.PlanImages.length}}/3</view>
   </view>
   <view>
-    <view class="effectPictureEditMainList">
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
-      <view class="effectPictureEditMainListData">
-       <image src="../../../image/backgroundImg/effectPictureEditMore.png"></image>
-      </view>
+    <uploadImage imageList='{{formData.PlanImages}}' bind:getImagePath="getImagePath" imageLength='3' imageType='1' />
+  </view>
+</view>
+<picker bindchange="bindPickerChange" mode="date" wx:if="{{!reportLength}}">
+  <view class='clientReportInput'>
+    <input placeholder="计划完成时间"  value="{{formData.PlanFinishDate}}" disabled></input>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</picker>
+<view class="constructionDetailsSelecte" wx:if="OrderID">
+  <view>是否完工</view>
+  <view class="constructionDetailsSelecteImg">
+    <view bindtap="changeIsFinish">
+      <text>是</text>
+      <image src="{{!formData.IsFinish ? '../../../image/icon/Selecte.svg' : '../../../image/icon/selected.svg'}}"></image>
+    </view>
+    <view bindtap="changeIsFinish"> 
+      <text>否</text>
+      <image src="{{formData.IsFinish ? '../../../image/icon/Selecte.svg' : '../../../image/icon/selected.svg'}}"></image>
     </view>
   </view>
 </view>
-<view class="constructionDetailsSelecte">
-  <view>是否完工</view>
-  <view class="constructionDetailsSelecteImg">
-    <view><text>是</text><image src="../../../image/icon/Selecte.svg"></image></view>
-    <view><text>否</text><image src="../../../image/icon/selected.svg"></image></view>
-  </view>
-</view>
-<view class="constructionReportButton">提交</view>
+<view class="topButton" bindtap="submit">提交</view>

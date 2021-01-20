@@ -1,33 +1,34 @@
 <!--pages/decoration/declaration/declaration.wxml-->
 <view class="decorationStaffInput">
 	<view>
-		<input placeholder="姓名" value="{{name}}" bindinput="getNameValue"></input>
+		<input placeholder="姓名" bindinput="updateInput" data-key="RealName"></input>
 	</view>
 	<view>
-		<input placeholder="电话"></input>
+		<input placeholder="电话" bindinput="updateInput" data-key="Mobile"></input>
 	</view>
 	<view>
-		<input placeholder="小区"></input>
-		<image src="../../../image/icon/more.svg"></image>
-	</view>
-  	<view>
-		<input placeholder="房号"></input>
-	</view>
-  	<view>
-		<input placeholder="面积"></input>
-	</view>
-  	<view>
-		<input placeholder="风格"></input>
-		<image src="../../../image/icon/more.svg"></image>
+		<range class="inputClass" class="range" type='2' bind:changearea="changearea"></range>
 	</view>
 	<view>
-		<input placeholder="预算"></input>
+		<input placeholder="详细地址" bindinput="updateInput" data-key="Address"></input>
 	</view>
-  	<view>
-		<input placeholder="报单理由"></input>
+	<view>
+		<input placeholder="面积" bindinput="updateInput" data-key="Area"></input>
+	</view>
+	<view>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{styleListText}}">
+			<input  disabled value="{{formData.StyleText}}" placeholder="风格类型"></input>
+			<image src="../../../image/icon/more.svg"></image>
+		</picker>
+	</view>
+	<view>
+		<input placeholder="预算" bindinput="updateInput" data-key="Budget"></input>
+	</view>
+	<view>
+		<input placeholder="报单理由" bindinput="updateInput" data-key="Reason"></input>
 	</view>
 </view>
 
-<view class="fix-btn" bindtap="goback">
+<view class="fix-btn" bindtap="sumbit">
 	报备
 </view>

@@ -1,0 +1,40 @@
+<!--pages/decoration/commodityDetalis/commodityDetalis.wxml-->
+<view class="swiperBox">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+    indicator-active-color="rgba(255,255,255,1)">
+    <block wx:for="{{commodityData.ImageUrl}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="brandTitle">
+  <view class="brandTitleText">{{commodityData.MaterialName}}</view>
+  <view class="brandPrice">
+    <text>会员价:￥{{commodityData.MemberPrice}}</text>
+    <text>原价:￥{{commodityData.MarketPrice	}}</text>
+  </view>
+  <view class="brandTitleModel">
+    <view>品牌: {{commodityData.Brand}}</view>
+    <view>型号: {{commodityData.ModelNumber}}</view>
+  </view>
+  <view class="brandTitleModelNum">规格: 88*88</view>
+</view>
+<view class="brandExplain">
+  <view>购买说明</view>
+  <view>1.会员价只限会员享受;</view>
+  <view>2.会员产品不使用抵金卷;</view>
+</view>
+<view class="shopMapPhone">
+    <view class="shopMapPhoneView" bindtap="goLocation">
+      <view>商家地址：{{commodityData.Address ? commodityData.Address : '暂未填写'}}</view>
+      <image src="../../../image/shopIcon/map.png"></image>
+    </view>
+    <view class="shopMapPhoneView" bindtap="call" data-phone='{{shopData.Telphone}}'>
+      <view>商家电话：{{commodityData.Telphone ? commodityData.Telphone : '暂未填写'}}</view>
+      <image src="../../../image/shopIcon/phone.png"></image>
+    </view>
+  </view>
+  <view class="floatingButton">加入清单</view>
+<!-- <rich-text nodes="{{item.Content}}"></rich-text></view> -->

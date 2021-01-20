@@ -1,0 +1,22 @@
+<!--pages/decoration/bannerList/bannerList.wxml-->
+<view
+    wx:for='{{list}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' 
+    bindtap="goUrl" 
+    data-url="{{'/pages/decoration/newBannerList/newBannerList?id='+item.IsValid}}"
+>
+  <image class="bannerListImg" src="{{item.ImageUrl}}"></image>
+  <view class="bannerListTitle">
+    <view>轮播图{{index + 1}}</view>
+    <view class="effectPictureEditButtons">
+      <view bindtap="changeIsGround" data-ground="{{item.IsValid}}" data-id='{{item.ShopAdvID}}' class="{{!item.IsValid? 'nowButtons' : ''}}">下架</view>
+      <view bindtap="changeIsGround" data-ground="{{item.IsValid}}" data-id='{{item.ShopAdvID}}' class="{{item.IsValid ? 'nowButtons' : ''}}">上架</view>
+    </view>
+  </view>
+</view>
+<view class="effectPictureReleaseAdd" bindtap="goUrl" data-url='/pages/decoration/newBannerList/newBannerList'>
+  <image src="../../../image/icon/increase.svg"></image>
+  <view>添加新轮播图</view>
+</view>

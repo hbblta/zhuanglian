@@ -7,7 +7,8 @@ Page({
    */
   data: {
     case:[],
-    type : 'change'
+    type : 'change',
+    ShopID : ''
   },
 
   /**
@@ -19,15 +20,16 @@ Page({
     })
     this.setData({
       teamid:options.teamid,
-      type : options.type
+      type : options.type,
+      ShopID : options.ShopID
     })
   },
   getDetail(){
-    app.ajaxToken('/shop/getteamdetail/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+    app.ajaxToken('/shop/getteamdetail/'+this.data.ShopID+'/'+this.data.teamid,'','get').then(res=>{
        this.setData({
          info:res.data
        })
-       app.ajaxToken('/shop/getteamcaselist/'+app.globalData.userData.ShopID+'/'+this.data.teamid,'','get').then(res=>{
+       app.ajaxToken('/shop/getteamcaselist/'+this.data.ShopID+'/'+this.data.teamid,'','get').then(res=>{
         this.setData({
           case:res.data
         })
@@ -39,7 +41,7 @@ Page({
   },
   delete(e){
     var id = this.data.teamid
-    app.ajaxToken('/shop/delteam/'+app.globalData.userData.ShopID+'/'+id,'','delete').then(res=>{
+    app.ajaxToken('/shop/delteam/'+this.data.ShopID+'/'+id,'','delete').then(res=>{
       if(res.status == 0){
         wx.showToast({
           title: res.msg,

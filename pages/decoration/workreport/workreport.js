@@ -7,35 +7,39 @@ Page({
    */
   data: {
     formData:{
-      realName:'',
-      mobile:'',
-      address:'',
+      RealName:'',
+      Mobile:'',
+      Address:'',
+      ImageUrl : [],
+      ProjectManager : '',
+      TrackerID : '',
+      DesignerID : ''
     },
     //选择的地区
-    area:'',
+    Area:'',
     //选择的地区id
-    areaid:'',
+    Areaid:'',
     userlist:[],
     //设计师
-    designerID:'',
+    DesignerID:'',
     //项目经理
-    projectManager:'',
+    ProjectManager:'',
     //跟单员
-    trackerID:''
+    TrackerID:''
   },
   bindPickerChange1(e){
     this.setData({
-      projectManager:e.detail.value
+      ProjectManager:e.detail.value
     })
   },
   bindPickerChange2(e){
     this.setData({
-      designerID:e.detail.value
+      DesignerID:e.detail.value
     })
   },
   bindPickerChange3(e){
     this.setData({
-      trackerID:e.detail.value
+      TrackerID:e.detail.value
     })
   },
   getvalue(e){
@@ -47,28 +51,35 @@ Page({
   },
   changearea(e){
     this.setData({
-      area:e.detail.name,
-      areaid:e.detail.id
+      Area:e.detail.name,
+      Areaid:e.detail.id
     })
+  },
+  getImagePath(e){//获取组件图片
+    if(e.detail.imageType == '-1'){
+      this.setData({
+        'formData.ImageUrl' : e.detail.imageList
+      })
+    }
   },
   goback(){
     var userId = app.globalData.userData.UserID
     var datas = this.data.formData
-    if(!datas.mobile){
+    if(!datas.Mobile){
       wx.showToast({
         title: '请先输入电话',
         icon:'none'
       })
       return
     }
-    if(!datas.realName){
+    if(!datas.RealName){
       wx.showToast({
         title: '请先输入姓名',
         icon:'none'
       })
       return
     }
-    if(!datas.address){
+    if(!datas.Address){
       wx.showToast({
         title: '请先填入详细地址',
         icon:'none'
@@ -78,21 +89,21 @@ Page({
     var data = {
       ...datas
     }
-    if(!this.data.areaid){
+    if(!this.data.Areaid){
       wx.showToast({
         title: '请先选择地区',
         icon:'none'
       })
       return
     }
-    if(!this.data.trackerID){
+    if(!this.data.TrackerID){
       wx.showToast({
         title: '请先选择跟单人',
         icon:'none'
       })
       return
     }
-    if(!this.data.projectManager){
+    if(!this.data.ProjectManager){
       wx.showToast({
         title: '请先选择项目经理',
         icon:'none'
@@ -102,13 +113,11 @@ Page({
     var data = {
       ...datas
     }
-    data.areaID = this.data.areaid
-    data.projectManager = this.data.userlist[this.data.projectManager].UserID
-    data.trackerID = this.data.userlist[this.data.trackerID].UserID
-    //非必填
-    if(this.data.designerID){
-      data.designerID = this.data.userlist[this.data.designerID].UserID
-    }
+    data.AreaID = this.data.Areaid
+    data.ImageUrl = this.data.formData.ImageUrl[0].SaveName
+    data.ProjectManager = this.data.userlist[this.data.ProjectManager].UserID
+    data.TrackerID = this.data.userlist[this.data.TrackerID].UserID
+    data.DesignerID = this.data.userlist[this.data.DesignerID].UserID
     app.ajaxToken('/shop/reportconstruction/'+app.globalData.userData.ShopID,data,'post').then(res=>{
       if(res.status == 0){
         wx.showToast({
@@ -134,18 +143,13 @@ Page({
     wx.setNavigationBarTitle({
       title: '工地报备'
     })
-    this.getUser()
+    this.getStaffList()
   },
   //员工列表
-  getUser(){
-    var data={
-      page:1,
-      pagesize:50,
-      state:2
-    }
-    app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+  getStaffList(){
+    app.getStaffList(res=>{
       this.setData({
-        userlist:res.data
+        userlist :  res
       })
     })
   },

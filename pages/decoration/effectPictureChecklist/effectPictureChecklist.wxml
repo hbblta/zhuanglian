@@ -1,7 +1,7 @@
 <!--pages/decoration/effectPictureChecklist/effectPictureChecklist.wxml-->
 <generalSelectionlist textList='{{textList}}' bind:getList="getList">
   <view slot="after" class="materialOrderScroll">
-    <view wx:for='{{list}}' wx:for-item='item' data-index="{{index}}" wx:key='lindex' class="materialOrderList">
+    <view wx:for='{{list}}' bindtap="goUrl"  data-url='/pages/decoration/effectPictureChecklistGm/effectPictureChecklistGm' wx:for-item='item' data-index="{{index}}" wx:key='lindex' class="materialOrderList">
         <view class="effectPictureChecklist">
         <view>{{item.MaterialName}}</view>
         <image src="../../../image/icon/more.svg"></image>

@@ -25,7 +25,10 @@ Page({
     calaList : [],
     area : '',
     code : '',
-    userData : {}
+    userData : {},
+    phoneList : ['139***6905','138***2382','189***6635','180***9841','150***6023','177***0653','187***6685','139***5100','181***9010','139***5456'],
+    imageType : '',
+    ShopID : ''
   },
 
   /**
@@ -33,6 +36,10 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    console.log(options)
+    this.setData({
+      ShopID : options.ShopID
+    })
     wx.setNavigationBarTitle({
       title: '装修计算器',
     })
@@ -50,82 +57,71 @@ Page({
       }
     })
   },
-  upload(e) {
-    console.log(e.currentTarget.dataset.type)
+  upload(e) {//上传图片
     var that = this;
     wx.chooseImage({
-      count: 1, // 默认9
+      count: 1, 
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        wx.uploadFile({
-          url: app.globalData.httpUrl + '/common/uploadimage',
-          filePath: res.tempFilePaths[0],
-          name: 'file',
-          header: {
-            "Authorization": app.globalData.Authorization
-          },
-          success: function (res) {
-            if(e.currentTarget.dataset.type == 'top'){
-              that.setData({
-                'imgData.topImage' : JSON.parse(res.data).data.SaveName,
-                'imgShow.topImage' : JSON.parse(res.data).data.FileUrl,
-              })
-            }else{
-              that.setData({
-                'imgData.bottomImage' : JSON.parse(res.data).data.SaveName,
-                'imgShow.bottomImage' : JSON.parse(res.data).data.FileUrl
-              })
-            }
-          }
+        app.goUrl('/pages/ordinary/imageCropper/imageCropper?imagUrl='+res.tempFilePaths[0]+'&imageType='+e.currentTarget.dataset.type+'&imageSize=rectangle')
+        that.setData({
+          imageType : e.currentTarget.dataset.type
         })
       }
     })
+  },
+  initImg(){
+    if(app.globalData.cropperImg != '' && this.data.imageType == app.globalData.cropperImg.imageType){
+        if(app.globalData.cropperImg.imageType == 'top'){
+          this.setData({
+            'imgData.topImage' : app.globalData.cropperImg.SaveName,
+            'imgShow.topImage' : app.globalData.cropperImg.FileUrl,
+          })
+        }else{
+          this.setData({
+            'imgData.bottomImage' : app.globalData.cropperImg.SaveName,
+            'imgShow.bottomImage' : app.globalData.cropperImg.FileUrl
+          })
+        }
+      setTimeout(()=>{
+        app.globalData.cropperImg = ''
+      },400)
+    }
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
   submit(e){
-    if(this.data.type == 'shop'){
-      var data = {}
-      if(!this.data.userData.Mobile){
-        if (!e.detail.encryptedData) {
-          wx.showToast({
-            title: '请授权手机号',
-            icon: 'none'
-          })
-          return
-        }
-        data = {
-          UserID : app.globalData.userData.UserID,
-          BudgetID : this.data.calaList[this.data.pickInex].value,
-          Area : this.data.area,
-          encryptedData:e.detail.encryptedData,
-          iv : e.detail.iv,
-          code:this.data.code
-        }
-      }else{
-         data = {
-          UserID : app.globalData.userData.UserID,
-          BudgetID : this.data.calaList[this.data.pickInex].value,
-          Area : this.data.area,
-        }
-      }
-      app.ajaxToken('/store/freebudget/'+app.globalData.userData.ShopID,data, 'post').then(res => {
-        console.log(res)
-      })
-    }else{
-      var imgDatas = {
-        topImage : this.data.imgData.topImage,
-        bottomImage : this.data.imgData.bottomImage,
-      }
-      var calaDatas = {
-        budgetName : '橙色',
-        price : 1
-      }
-      app.ajaxToken('/shop/savebudgets/'+app.globalData.userData.ShopID, calaDatas, 'post').then(res => {})
-      app.ajaxToken('/shop/savebudgetadv/'+app.globalData.userData.ShopID, imgDatas, 'post').then(res => {})
+    var imgDatas = {
+      topImage : this.data.imgData.topImage,
+      bottomImage : this.data.imgData.bottomImage,
     }
+    app.ajaxToken('/shop/savebudgetadv/'+this.data.ShopID, imgDatas, 'post').then(res => {
+      wx.showToast({
+        title: '保存成功',
+        icon : 'none'
+      })
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1,
+        })
+      },500)
+    })
+  },
+  submitUser(){
+    var data = {
+      UserID: app.globalData.userData.UserID,
+      BudgetID: this.data.calaList[this.data.pickInex].value,
+      Area: this.data.area,
+    }
+    app.ajaxToken('/store/freebudget/'+this.data.ShopID, data, 'post').then(res => {
+      setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1,
+        })
+      },500)
+    })
   },
   changeArea(e){
     this.setData({
@@ -141,7 +137,7 @@ Page({
     },4000)
   },
   getShopkeeper(){
-    app.ajaxToken('/store/getbudgetlist/'+app.globalData.userData.ShopID, '', 'get').then(res => {
+    app.ajaxToken('/store/getbudgetlist/'+this.data.ShopID, '', 'get').then(res => {
       this.setData({
         'imgShow.topImage.' : res.data.BudgetTopImageUrl,
         'imgShow.bottomImage.' : res.data.BudgetBottomImageUrl,
@@ -166,7 +162,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initImg()
   },
 
   /**

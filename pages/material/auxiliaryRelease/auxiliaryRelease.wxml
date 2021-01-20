@@ -18,10 +18,10 @@
     <view>100*1010</view>
   </view>
 </view>
-<view class="effectPictureReleaseAdd">
+<!-- <view class="effectPictureReleaseAdd">
   <image src="../../../image/icon/increase.svg"></image>
   <view>添加类目</view>
-</view>
+</view> -->
 <picker bindchange="bindPickerChange" value="{{getcategoriesShowIndex}}" range="{{getcategoriesShow}}">
   <view class="effectPictureEditInput">
     <input placeholder="商品类别" value="{{getcategoriesShow[getcategoriesShowIndex]}}" disabled="true"></input>
@@ -33,7 +33,7 @@
 <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="brand" placeholder="请填写商品品牌"></input></view>
 <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="modelNubmer" placeholder="请填写型号"></input></view>
 <view class="effectPictureEditMain">
-  <view class="effectPictureEditMainTitle"><text>商品描述</text>
+  <view class="effectPictureEditMainTitle"><text>文章详情</text>
     <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
   </view>
   <view class="effectPictureEditEditor">

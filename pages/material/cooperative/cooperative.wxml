@@ -39,9 +39,9 @@
       
     </view>
     <view wx:if='{{textListIndex == 1}}'>
-      <view class="commissionUser"  wx:for="{{list}}" wx:key="index">
+      <view class="commissionUser"  wx:for="{{list}}" wx:key="index" data-state='{{item.State}}' data-index='{{index}}' bindtap="goUrl" data-url='/pages/material/cooperativeConfirm/cooperativeConfirm'>
         <view class="commissionUserImg"><image src="{{item.ShopLogo}}"></image></view>
-        <view class="commissionUserData nocum">
+        <view class="commissionUserData nocum" >
           <view>{{item.CompanyName}}</view>
           <view>{{item.Telphone?item.Telphone:''}}</view>
           <view class="state" style="color:#0081FF" wx:if="{{item.State == 0}}">待发起</view>
@@ -61,7 +61,7 @@
       <view class="commissionUser" bindtap="goUrl"  data-url='/pages/decoration/totalRevenue/totalRevenue'>
         <view class="commissionUserImg"><image></image></view>
         <view class="commissionUserData">
-          <view>公司名称</view>
+          <view>此列表有待商议</view>
           <view>品牌: 圣像</view>
           <view>品类: 文字</view>
           <view class="commissionSuer">发起合作</view>

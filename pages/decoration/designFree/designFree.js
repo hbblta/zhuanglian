@@ -13,6 +13,7 @@ Page({
     },
     code:'',
     ShopID : '',
+    phoneList : ['139***6905','138***2382','189***6635','180***9841','150***6023','177***0653','187***6685','139***5100','181***9010','139***5456'],
   },
 
   /**
@@ -20,6 +21,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    this.setData({
+      ShopID : options.ShopID
+    })
     wx.setNavigationBarTitle({
       title: '预约免费设计'
     })
@@ -87,7 +91,12 @@ Page({
         realName : this.data.formData.realName,
       }
     }
-    app.ajaxToken('/store/freedesign/'+app.globalData.userData.ShopID, data, 'post').then(res => {
+    wx.showToast({
+      icon : 'none',
+      title: JSON.stringify(data),
+    })
+    
+    app.ajaxToken('/store/freedesign/'+this.data.ShopID, data, 'post').then(res => {
       if(res.status == 0){
         wx.showToast({
           icon : 'none',

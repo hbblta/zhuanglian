@@ -5,7 +5,7 @@
   width: 700rpx;
   padding: 20rpx 25rpx 20rpx 25rpx;
   background: #FFFFFF;
-  margin-top: 15rpx;
+  border-top : 15rpx solid #f7f7f7;
 }
 .decorationRecordingImg{
   width: 240rpx;

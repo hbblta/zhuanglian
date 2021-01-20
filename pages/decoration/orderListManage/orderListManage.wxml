@@ -5,10 +5,10 @@
     <icon class="icon-small" type="search" size="20"></icon>
     <input class="searchInput" value="{{keyword}}" bindinput="getvalue" type='text' placeholder-style="place" confirm-type='search' placeholder='搜索' />
   </view>
-  <view class="picker">
+  <!-- <view class="picker">
     <text>订单分配</text>
     <image src="../../../image/icon/more.svg"></image>
-  </view>
+  </view> -->
 </view>
 
 <view class="typesort">
@@ -58,7 +58,7 @@
 </view>
 
 <view class="manageList" wx:for="{{list}}" wx:key="index">
-  <view class="listInfo" bindtap="goUrl" data-url='/pages/decoration/orderListDetails/orderListDetails'>
+  <view class="listInfo" bindtap="goUrl" data-url='/pages/decoration/orderListDetails/orderListDetails?OrderID={{item.OrderID}}'>
     <image class="{{item.Avatar?'':'black'}}" src="{{item.Avatar}}"></image>
     <view>
       <view class="name">
@@ -72,7 +72,7 @@
           <text>来源: {{item.SourceName}}</text>
         </view>
         <view>
-          {{item.DesignerName}}
+          {{item.DesignerName ? item.DesignerName : '暂无'}}
         </view>
       </view>
       <view class="phone">
@@ -80,8 +80,8 @@
         <view>加入时间：{{item.AddDate}}</view>
       </view>
       <view class="develop">
-        <view>开发人员：{{DeveloperName}}</view>
-        <view>跟单人员：<text>{{TrackerName}}</text>
+        <view>开发人员：{{item.DeveloperName ? item.DeveloperName : '暂无'}}</view>
+        <view>跟单人员：<text>{{item.TrackerName ? item.TrackerName : '暂无'}}</text>
           <image src="../../../image/icon/more.svg"></image>
         </view>
       </view>

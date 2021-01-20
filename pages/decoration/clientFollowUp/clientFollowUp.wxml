@@ -7,14 +7,14 @@
 				<view class="name">
 					<view>{{item.NickName?item.NickName:item.RealName}}</view>
 					<view>
-						<image  wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
+						<image wx:for="{{item.Star}}" wx:key="index" src="../../../image/icon/pentagram.svg"></image>
 					</view>
 				</view>
 				<view class="tags">
 					<view>
 						<text wx:if="{{item.UserGrade == 0}}">普通客户</text>
-					<text wx:if="{{item.UserGrade == 1}}">报单客户</text>
-					<text wx:if="{{item.UserGrade == 2}}">成交客户</text>
+						<text wx:if="{{item.UserGrade == 1}}">报单客户</text>
+						<text wx:if="{{item.UserGrade == 2}}">成交客户</text>
 					</view>
 					<view>
 						{{item.GradeName}}
@@ -38,7 +38,8 @@
 <view class="scroll">
 	<view class="generalSelectionBody">
 		<view class="generalSelectionlist">
-			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
+			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex"
+				class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
 				{{item}}</view>
 		</view>
 		<view>
@@ -54,20 +55,6 @@
 									<view class="name">{{item.Remark}}</view>
 								</view>
 							</view>
-							<!-- <view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
-								</view>
-							</view>
-							<view class="list">
-								<view class="tip">访问房源</view>
-								<view class="info">
-									<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3022024980,1235302013&fm=26&gp=0.jpg"></image>
-									<view class="name">我是大哥大</view>
-								</view>
-							</view> -->
 						</view>
 					</view>
 					<view wx:if="{{textListIndex==1}}">
@@ -87,27 +74,35 @@
 							</view>
 						</view>
 					</view>
-
 					<view wx:if="{{textListIndex==3}}">
 						<view>
-							<view class="clientReportButton" bindtap="goUrl"  data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
-							<view class="clientReportList">
-								<view class="clientReportListTitle"><text>20556455416</text><text>汇报人: 张三</text></view>
+							<view class="clientReportButton" bindtap="goUrl"
+								data-url='/pages/decoration/constructionReport/constructionReport?userId={{id}}'>汇报</view>
+							<view class="clientReportList"  wx:for='{{followList}}' wx:for-item='item' wx:key='index' data-index="{{index}}">
+								<view class="clientReportListTitle"><text>{{item.AddDate}}</text><text>汇报人: {{item.ManagerName}}</text></view>
 								<view class="clientReportListImg">
-									<view>
-										<image></image>
-									</view>
-									<view>
-										<image></image>
-									</view>
-									<view>
-										<image></image>
+									<view  wx:for='{{item.SummaryImageUrl}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+										<image src="{{items}}"></image>
 									</view>
 								</view>
-								<view class="clientReportListText">文字文字文字文字文字文字文字文字文字文字文字</view>
-								<view class="clientReportListButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view>
+								<view class="clientReportListText">总结:{{item.Summary}}</view>
+								<view class="clientReportListImg">
+									<view  wx:for='{{item.PlanImageUrl}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+										<image src="{{items}}"></image>
+									</view>
+								</view>
+								<view class="clientReportListText">计划:{{item.Plan}}</view>
+								<view wx:for='{{item.Messages}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+									<view class="clientReportListImg">
+										<view  wx:for='{{items.ImageUrl}}' wx:for-item='itemss' wx:key='index' data-index="{{index}}">
+											<image src="{{itemss}}"></image>
+										</view>
+									</view>
+									<view class="clientReportListText">{{items.NickName}}留言:{{items.Content}}</view>
+								</view>
+								<view class="clientReportListButton" bindtap="goUrl"
+									data-url='/pages/decoration/constructionMessage/constructionMessage?TrackID={{item.TrackID}}' >我要留言</view>
 							</view>
-							
 						</view>
 					</view>
 				</scroll-view>
@@ -115,9 +110,9 @@
 		</view>
 	</view>
 </view>
-<view class="floatingButton" wx:if="{{textListIndex==3}}">报单</view>
+<view class="floatingButton" wx:if="{{textListIndex==3}}"  data-url="/pages/decoration/declaration/declaration?userId={{id}}">报单</view>
 <view wx:else class="floatingButtonList">
 	<view>删除</view>
 	<view>跟进</view>
-	<view>报单</view>
+	<view bindtap="goUrl" data-url="/pages/decoration/declaration/declaration?userId={{id}}">报单</view>
 </view>

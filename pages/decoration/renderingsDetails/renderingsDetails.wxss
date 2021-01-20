@@ -1,0 +1,64 @@
+/* pages/decoration/renderingsDetails/renderingsDetails.wxss */
+page{
+  background: #f7f7f7;
+  height: 100%;
+}
+.effectPictureEditInput{
+  border-top:solid #f7f7f7 15rpx;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 110rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditInput input{
+  width: 670rpx;
+  height: 110rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.effectPictureEditEditor{
+  background: #F7F7F7;
+  /* height: calc(100% - 150rpx); */
+}
+.effectPictureEditInput view{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-bottom: 100rpx;
+  margin-top: 15rpx;
+  /* height: calc(100% - 200rpx); */
+}
+.effectPictureEditMainTitle{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.effectPictureEditMainTitle image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.effectPictureEditInput image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.ql-container{
+  min-height: 400rpx;
+  height: auto;
+}

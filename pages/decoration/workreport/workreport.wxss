@@ -67,3 +67,29 @@
   right: 48rpx;
   top: 24rpx;
 }
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding: 0 25rpx 70rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  display: flex;
+  justify-content: space-between;
+  height: 90rpx;
+  align-items: center;
+  background: #FFFFFF;
+}
+.effectPictureEditMainTitle view:nth-child(1){
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.effectPictureEditMainTitle view:nth-child(2){
+  color: rgba(191, 194, 204, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}

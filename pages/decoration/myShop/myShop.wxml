@@ -6,41 +6,44 @@
   </view>
 </view>
 <view wx:if="{{tabIndex == 0}}" class="shopBody">
-  <searchHeader title='首页搜索' />
+  <searchHeader title='搜索' />
   <view class="swiperBox">
     <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
       indicator-active-color="rgba(255,255,255,1)">
-      <block wx:for="{{imgArr}}" wx:key="index">
+      <block 
+        wx:for='{{imgArr}}'
+        wx:for-item='item' 
+        data-index='{{index}}'
+        wx:key='index' >
         <swiper-item>
-          <image src="{{item.imageUrl}}"></image>
+          <image src="{{item.ImageUrl}}"></image>
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view class="shopFeatures">
-    <view wx:for='{{shopFeatures}}' wx:for-item='item' data-index='{{index}}' data-url='{{item.url}}' wx:key='index'
+    <view wx:for='{{shopFeatures}}' wx:for-item='item' data-index='{{index}}' data-url="{{item.url}}" wx:key='index'
       bindtap="goUrl">
       <image src="{{item.iconUrl}}"></image>
       <view>{{item.title}}</view>
     </view>
   </view>
-  <view class="introduction">
+  <view class="introduction" bindtap="goUrl" data-url="/pages/decoration/introductionBody/introductionBody">
     <view class="introductionTitle">
-      <view>装企简介:</view>
+      <view>装企简介</view>
       <image src="../../../image/icon/more.svg"></image>
     </view>
-    <view class="introductionBody">{{shopData.DescripItion ? shopData.Description : '暂未填写'}}</view>
   </view>
   <view class="shopMapPhone">
     <view class="shopMapPhoneView shopMinuteView">
       <view>信誉值分：{{shopData.Intergral}}</view>
       <image src="../../../image/icon/more.svg"></image>
     </view>
-    <view class="shopMapPhoneView">
+    <view class="shopMapPhoneView" bindtap="goLocation">
       <view>商家地址：{{shopData.Address ? shopData.Address : '暂未填写'}}</view>
       <image src="../../../image/shopIcon/map.png"></image>
     </view>
-    <view class="shopMapPhoneView">
+    <view class="shopMapPhoneView" bindtap="call" data-phone='{{shopData.Telphone}}'>
       <view>商家电话：{{shopData.Telphone ? shopData.Telphone : '暂未填写'}}</view>
       <image src="../../../image/shopIcon/phone.png"></image>
     </view>
@@ -52,10 +55,10 @@
       bindtap="changeCommissionType">楼盘案例</view>
   </view>
   <view wx:if="{{commissionType == 0}}">
-    <effectCollectionList item='{{item}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index" wx:key='index' />
+    <effectCollectionList item='{{item}}' id='{{ShopID}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index" wx:key='index' />
   </view>
   <view wx:if="{{commissionType == 1}}">
-    <effectCollectionList item='{{item}}' type='2' wx:for='{{realList}}' wx:for-item='item' wx:for-index="index"
+    <effectCollectionList item='{{item}}' id='{{ShopID}}' type='2' wx:for='{{realList}}' wx:for-item='item' wx:for-index="index"
       wx:key='index' />
   </view>
 </view>

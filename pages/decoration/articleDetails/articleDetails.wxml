@@ -1,11 +1,11 @@
 <!--pages/decoration/articleDetails/articleDetails.wxml-->
-<view class="articleDetailsTitle">人间正道是沧桑人间正道是沧桑沧桑沧桑</view>
+<view class="articleDetailsTitle">{{articleData.Title}}</view>
 <view class="articleDetailsUser">
   <view><image src="{{articleData.Avatar}}"></image></view>
   <view>{{articleData.NickName}}</view>
   <view><input type="text" bindinput="inputChange" placeholder="点击设置签名" value="{{articleData.Signature}}"/></view>
 </view>
-<view class="articleDetailsText"><rich-text nodes="{{articleData.Content}}">{{}}</rich-text></view>
+<view class="articleDetailsText"><rich-text nodes="{{articleData.Content}}"></rich-text></view>
 <!-- <view class="articleDetailsCompany">
   <view>
     <view class="articleDetailsCompanyText">公司名称</view>

@@ -1,16 +1,70 @@
 // pages/decoration/declaration/declaration.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:''
+    formData : {
+      RealName : '',
+      Mobile : '',
+      AreaID : '',
+      Address : '',
+      Area : '',
+      StyleID : '',
+      StyleText: '',
+      Budget : '',
+      Reason : ''
+    },
+    styleListText : [],
+    userId : ''
   },
-  //请自行复制
-  getNameValue(e){
+  updateInput(e) {
+    var fromDataKey = `formData.${e.currentTarget.dataset.key}`
     this.setData({
-      name:e.detail.value
+     [fromDataKey] : e.detail.value
+    })
+  },
+  getStylePicker() { //获取样式列表
+    app.ajaxToken('/common/getstyles', 'get').then(res => {
+      this.setData({
+        styleListText: res.data.map((data) => {
+          return data.text
+        }),
+        styleList: res.data
+      })
+    })
+  },
+  bindPickerChange: function (e) {
+    this.setData({
+      'formData.StyleID': this.data.styleList[e.detail.value].value,
+      'formData.StyleText' : this.data.styleList[e.detail.value].text
+    })
+  },
+  changearea(e){
+    this.setData({
+      'formData.AreaID':e.detail.id
+    })
+  },
+  sumbit(){
+    var data = {
+      RealName : this.data.formData.RealName,
+      Mobile : this.data.formData.Mobile,
+      AreaID : this.data.formData.AreaID,
+      Address : this.data.formData.Address,
+      Area : this.data.formData.Area,
+      StyleID : this.data.formData.StyleID,
+      Budget : this.data.formData.Budget,
+      Reason : this.data.formData.Reason,
+    }
+    app.ajaxToken('/shop/orderdown/'+app.globalData.userData.ShopID+'/'+this.data.userId,data,'post').then(res=>{
+      wx.showToast({
+        title: res.msg,
+      })
+      setTimeout(()=>{
+        wx.navigateBack()
+      },2000)
     })
   },
   /**
@@ -19,6 +73,10 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '报单'
+    })
+    this.getStylePicker()
+    this.setData({
+      userId : options.userId
     })
   },
 

@@ -27,11 +27,9 @@
         <view>户型: {{item.HouseHolds}}</view>
       </view>
     </view>
-  
- 
   </view>
 </view>
-<view class="teamManagementDetailsButton">
-  <view  bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>编辑</view>
+<view class="teamManagementDetailsButton" wx:if="{{type != 'show'}}">
+  <view  bindtap="goUrl"  data-url='/pages/decoration/personnelDetails/personnelDetails'>上传案例</view>
   <view bindtap="delete">删除</view>
 </view>

@@ -1,0 +1,10 @@
+<!--pages/ordinary/goBrowser/goBrowser.wxml-->
+<image class="downLoadHtmlBac" src=""></image>
+<view class="downLoadHtmlBottom">
+  <view class="copyLink">
+    <text>装联客易</text>
+    (请复制链接后再浏览器打开正常访问)
+  </view>
+  <view class="copyLinks">{{url}}</view>
+  <view class="topButton" bindtap="copyLink">一键复制链接</view>
+</view>

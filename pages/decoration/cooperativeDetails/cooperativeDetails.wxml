@@ -1,14 +1,14 @@
 <!--pages/decoration/cooperativeDetails/cooperativeDetails.wxml-->
-<view class="materialOrderList">
+<view class="materialOrderList" bindtap="goUrl" data-url="/pages/material/myShop/myShop?id={{cooperationData.ShopID}}">
 	<view class="materialOrderListImg">
-		<image></image>
+		<image src="{{cooperationData.ShopLogo}}"></image>
 	</view>
 	<view class="materialOrderListText">
 		<view class="materialOrderListName">
-			<view>姓名</view>
-			<view>商家地址: 文字</view>
+			<view>{{cooperationData.CompanyName}}</view>
+			<view>商家地址: {{cooperationData.Address}}</view>
 			<view>
-        <view>商家电话: 15864641654</view>
+        <view>商家电话: {{cooperationData.Telphone}}</view>
 		    <image src="../../../image/icon/more.svg"></image>
       </view>
 		</view>
@@ -42,13 +42,13 @@
         wx:key='index' 
       >
 				<view class="distributionDetailsListHead">
-					<image></image>
+					<image src="{{item.Avatar}}"></image>
 				</view>
 				<view class="distributionDetailsListText">
-					<view>姓名</view>
-					<view>418545645</view>
-					<view>成交额: 56</view>
-					<view>加入时间: 202025445</view>
+					<view>{{item.NickName}}</view>
+					<view>{{item.Mobile}}</view>
+					<view>成交额: {{item.Amount}}</view>
+					<view>加入时间: {{item.AddDate}}</view>
 				</view>
 			</view>
 		</view>

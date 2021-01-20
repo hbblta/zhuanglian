@@ -1,35 +1,39 @@
 <!--pages/decoration/cooperativeConfirm/cooperativeConfirm.wxml-->
-<view class="moreTitleData">
-  <view><image></image></view>
+<view class="moreTitleData" bindtap="goUrl" data-url="/pages/material/myShop/myShop?id={{cooperationData.ShopID}}">
+  <view>
+    <image src="{{cooperationData.ShopLogo}}"></image>
+  </view>
   <view>
     <view>
-      <view>公司名称</view>
-      <view>品牌: 圣像</view>
-      <view>品类: 文字</view>
+      <view>{{cooperationData.CompanyName}}</view>
+      <view>品牌:
+        <text wx:for='{{cooperationData.Categories}}' wx:for-item='item' data-index='{{index}}'
+          wx:key='index'>{{item}}</text>
+      </view>
+      <view>品类: {{cooperationData.BrandName}}</view>
       <view> </view>
     </view>
-    <view><image src="../../../image/icon/more.svg"></image></view>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
   </view>
 </view>
 <view>
   <view class="cooperativeConfirmBody">
-    <view>商家地址: 金华市婺城区金谷创业园</view>
-    <view class="cooperativeConfirmBodyImg"><image src="../../../image/icon/map.png"></image></view>
+    <view>商家地址: {{cooperationData.Address}}</view>
+    <view class="cooperativeConfirmBodyImg">
+      <image src="../../../image/icon/map.png"></image>
+    </view>
   </view>
   <view class="cooperativeConfirmBody">
-    <view>商家电话: 151658465465</view>
-    <view class="cooperativeConfirmBodyImg"><image src="../../../image/icon/phone.png"></image></view>
+    <view>商家电话: {{cooperationData.Telphone}}</view>
+    <view class="cooperativeConfirmBodyImg">
+      <image src="../../../image/icon/phone.png"></image>
+    </view>
   </view>
 </view>
+<view class="newChatButton">留言</view>
 <view class="cooperativeConfirmChatAll">
-  <view class="cooperativeConfirmChat">
-    <view class="cooperativeConfirmChatTitle">
-      <view>材料商</view>
-      <view>已确认</view>
-    </view>
-    <view class="cooperativeConfirmChatBody">文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
-    <view class="cooperativeConfirmChatButton">回复</view>
-  </view>
   <view class="cooperativeConfirmChat">
     <view class="cooperativeConfirmChatTitle">
       <view>材料商</view>
@@ -40,12 +44,14 @@
   </view>
 </view>
 <view class="cooperativeConfirmPrompt">
-  <view class="cooperativeConfirmPromptImg"><image src="../../../image/icon/prompt.svg"></image></view>
+  <view class="cooperativeConfirmPromptImg">
+    <image src="../../../image/icon/prompt.svg"></image>
+  </view>
   <view>老板：材料商已确认与您合作， 您是否与他沟通好合作方案，若沟通好，请安确认，若没有达成 合作，按放弃。</view>
 </view>
-<view class="floatingSelectButton">
+<view class="floatingSelectButton" wx:if="{{cooperationData.State == 1}}">
   <view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">放弃</picker>
   </view>
-  <view bindtap="goUrl"  data-url='/pages/decoration/cooperativeCost/cooperativeCost'>合作</view>
+  <view bindtap="goUrl" data-url='/pages/decoration/cooperativeCost/cooperativeCost?id={{cooperationData.AuditID}}'>合作</view>
 </view>

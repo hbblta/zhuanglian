@@ -73,7 +73,7 @@ Page({
                 id: 'abcd',
                 role: 'god'
               },
-              width: '80%',
+              width: '100%',
               success: function () {
                 console.log('insert image success')
               }

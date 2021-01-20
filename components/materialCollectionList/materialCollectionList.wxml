@@ -1,5 +1,5 @@
 <!--components/materialCollectionList/materialCollectionList.wxml-->
-<view class="decorationRecordingList">
+<view class="decorationRecordingList" bindtap="goUrl" data-url='/pages/decoration/commodityDetalis/commodityDetalis?id={{item.MaterialID}}&ShopID={{ShopID}}'>
   <image src="{{item.ImageUrl[0]}}" class="decorationRecordingImg"></image>
   <view class="decorationRecordingMsg">
     <view class="decorationRecordingMsgGray">{{item.MaterialName}}</view>

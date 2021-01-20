@@ -10,10 +10,13 @@
 		</view>
 	</view>
 	<view class="featuresProtocol">
-		<checkbox></checkbox>
+    <checkbox-group  bindchange="checkboxChange">
+      <checkbox checked='{{featuresProtocol}}' value="{{featuresProtocol}}"></checkbox>
+    </checkbox-group>
+		
 		<view>已同意<text>服务条款</text>,虚拟产品支付后不退开通费</view>
 	</view>
-  <view class="cooperativeCost">
+  <!-- <view class="cooperativeCost">
     <view>开通品牌</view>
     <view class="cooperativeCostList">
       <view>
@@ -28,13 +31,13 @@
         <checkbox></checkbox>
         <text>名称</text>
       </view>
-    </view>
-  </view>
+    </view> -->
+  <!-- </view> -->
 </view>
 <view class="featuresPay">
   <view>
-    <text>订单价格<text>￥32399</text></text>
-    <text>￥29923</text>
+    <text>订单价格<text>￥{{priceList[0].Amount}}</text></text>
+    <text>￥{{priceList[0].Amount}}</text>
   </view>
-  <view>立即支付</view>
+  <view bindtap="sumit">立即支付</view>
 </view>

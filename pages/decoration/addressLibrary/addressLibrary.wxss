@@ -1,0 +1,57 @@
+/* pages/decoration/addressLibrary/addressLibrary.wxss */
+page{
+  background: #f7f7f7;
+}
+.effectPictureEditInput{
+  border-top:1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 100rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.effectPictureEditInput input{
+  width: 670rpx;
+  height: 110rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.effectPictureEditInput>view{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditInput image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.effectPictureReleaseAdd{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  margin-left:25rpx;
+  font-family: PingFangSC-regular;
+}
+.effectPictureReleaseAdd image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
+}
+.deleteNow{
+  height: 70rpx;
+  line-height: 70rpx;
+  color: rgba(144, 147, 153, 100);
+  font-size: 28rpx;
+  text-align: right;
+  font-family: Arial;
+  background: #FFFFFF;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-top:1rpx solid #f7f7f7;
+}

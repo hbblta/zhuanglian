@@ -1,0 +1,34 @@
+<!--pages/decoration/addressLibrary/addressLibrary.wxml-->
+<view
+    wx:for='{{Addresses}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' 
+>
+  <view style="height:15rpx"></view>
+  <view class="effectPictureEditInput">
+    <input bindinput="updateInput" data-key="ShopName"  value="{{item.ShopName}}" data-index="{{index}}" placeholder="请输入总店名称"></input>
+    <view>
+      <!-- <image src="../../../image/testImg/logo.png"></image> -->
+    </view>
+  </view>
+  <view class="effectPictureEditInput effectPictureEditLogo">
+    <input bindinput="updateInput" data-key="Telphone"   value="{{item.Telphone}}" data-index="{{index}}" type="number" placeholder="请输入联系电话"></input>
+    <view>
+      <!-- <image src="../../../image/testImg/logo.png"></image> -->
+    </view>
+  </view>
+  <view class="effectPictureEditInput effectPictureEditLogo">
+    <input bindinput="updateInput" data-key="Address"  value="{{item.Address}}" data-index="{{index}}" placeholder="请输入店铺详细地址"></input>
+    <view>
+      <!-- <image src="../../../image/testImg/logo.png"></image> -->
+    </view>
+  </view>
+  <view wx:if="{{index != 0}}" data-index="{{index}}"  bindtap="delete" class="deleteNow">删除</view>
+</view>
+<view class="effectPictureReleaseAdd" bindtap="addNewSytle">
+  <image src="../../../image/icon/increase.svg"></image>
+  <view>添加新分店</view>
+</view>
+<view style="height:200rpx"></view>
+<view class="floatingButton" bindtap="submit">保存</view>

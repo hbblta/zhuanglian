@@ -1,16 +1,18 @@
 // pages/decoration/commissionSettings/commissionSettings.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:''
+    OrderID : '',
+    formData : {}
   },
-  //请自行复制
-  getNameValue(e){
+  updateInput(e) {
+    var formDataKey = `formData.${e.currentTarget.dataset.key}`
     this.setData({
-      name:e.detail.value
+     [formDataKey] : e.detail.value
     })
   },
   /**
@@ -20,8 +22,37 @@ Page({
     wx.setNavigationBarTitle({
       title: '报单'
     })
+    this.setData({
+      OrderID : options.OrderID
+    })
+    this.getCommission()
   },
-
+  getCommission(){
+    app.ajaxToken('/shop/getcommissions/'+app.globalData.userData.ShopID+'/'+this.data.OrderID,'','get').then(res=>{
+      this.setData({
+        formData:res.data
+      })
+    })
+  },
+  sumbit(){
+    var data = {
+      DisCommend : this.data.formData.DisCommend,
+      DisInCommend : this.data.formData.DisInCommend,
+      CustomerDeveloper : this.data.formData.CustomerDeveloper,
+      CustomerManager : this.data.formData.CustomerManager,
+      OrderManager : this.data.formData.OrderManager,
+      Design : this.data.formData.Design,
+    }
+    app.ajaxToken('/shop/getcommissions/'+app.globalData.userData.ShopID+'/'+this.data.OrderID,data,'post').then(res=>{
+      wx.showToast({
+        title: '提交成功',
+        mask:true
+      })
+      wx.navigateBack({
+        delta:1,
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

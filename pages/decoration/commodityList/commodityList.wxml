@@ -1,0 +1,21 @@
+<!--pages/decoration/commodityList/commodityList.wxml-->
+<view class="scroll">
+      <view class="commissionType">
+            <view bindtap="priceSort">
+                  <text>价格</text>
+                  <image style="transform:{{formData.order == 'asc' ? 'rotate(270deg)' : 'rotate(90deg)'}}"
+                        src="../../../image/icon/more.svg"></image>
+            </view>
+            <picker bindchange="bindPickerChange" value="{{commodityIndex}}" range="{{brandTextList}}">
+                  <view>
+                        <text>{{brandTextList[commodityIndex] ? brandTextList[commodityIndex] : '品牌'}}</text>
+                        <image src="../../../image/icon/more.svg"></image>
+                  </view>
+            </picker>
+      </view>
+      <scroll-view style="height:100%" scroll-y="true" refresher-enabled refresher-triggered="{{load}}"
+            bindrefresherrefresh="loadresh" bindscrolltolower="getList">
+            <materialCollectionList ShopID='{{ShopID}}' type='decoration' item='{{item}}' wx:for='{{list}}' wx:for-item='item'
+                  wx:for-index="index" wx:key='index' />
+      </scroll-view>
+</view>

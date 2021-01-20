@@ -175,7 +175,7 @@ page{
 .searchInputViewBody .clientAction{
   box-sizing: border-box;
   padding: 0 26rpx;
-  padding-bottom: 30rpx;
+  /* padding-bottom: 30rpx; */
   background: #FFFFFF;
 }
 .searchInputViewBody .clientAction .titleTime{
@@ -325,6 +325,7 @@ page{
 }
 .clientReportListText{
   margin-top:20rpx;
+  margin-bottom:20rpx;
   color: rgba(48, 49, 51, 1);
   font-size: 28rpx;
   font-family: PingFangSC-regular;
@@ -337,5 +338,4 @@ page{
   font-size: 28rpx;
   text-align: center;
   font-family: Arial;
-  margin-top: 25rpx;
 }

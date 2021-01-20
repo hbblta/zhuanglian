@@ -1,0 +1,85 @@
+/* pages/decoration/materialsMall/materialsMall.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
+}
+.scroll{
+  width: 100%;
+  height: calc(100% - 100rpx);
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
+}
+.materialsMallList{
+  display: flex;
+  background: #FFFFFF;
+  padding: 15rpx 0;
+  flex-wrap: wrap;
+}
+.materialsMallListData{
+  width: 210rpx;
+  margin: 20rpx;
+}
+.materialsMallListData image{
+  background: #dddddd;
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 8rpx;
+  box-shadow: 0px 4rpx 16rpx 0px rgba(196, 204, 210, 40);
+}
+.materialsMallListData view{
+  height:50rpx;
+  line-height: 50rpx;
+  color: rgba(48, 49, 51, 100);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: PingFangSC-regular;
+  width: 210rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.materialsMallType{
+  display: flex;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 6rpx 0px rgba(162, 205, 247, 100);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.materialsMallType view{
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: rgba(144, 147, 153, 100);
+  font-size: 28rpx;
+  font-weight: 550;
+  font-family: PingFangSC-regular;
+}
+.nowType{
+  color: #0081FF !important;
+}
+.materialOrderScroll{
+  display: flex;
+  flex-wrap: wrap;
+  background : #ffffff;
+  padding-top: 15rpx;
+  margin-bottom: 100rpx;
+}
+.materialOrderList{
+  margin: 15rpx 0 15rpx 15rpx;
+}
+.materialOrderList view image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  background: #dddddd;
+}
+.materialOrderList view{
+  color: rgba(144, 147, 153, 100);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: PingFangSC-regular;
+}

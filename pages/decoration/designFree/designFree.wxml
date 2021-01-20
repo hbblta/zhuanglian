@@ -9,8 +9,17 @@
 <button wx:if="{{!userData.Mobile}}" class="decorationStaffButton"  open-type="getPhoneNumber" bindgetphonenumber='registerStaff'>马上预约</button>
 <button wx:if="{{userData.Mobile}}" class="decorationStaffButton"  bindtap="registerStaff">马上预约</button>
 <view class="decorationCalculatorBroadcast">
-    <image src="../../../image/icon/volume.png"></image>
-    <text>手机号码139***6909用户免费获得报价</text>
+  <image src="../../../image/icon/volume.png"></image>
+  <view>
+    <view>
+      <view     
+      wx:for='{{phoneList}}' 
+      wx:for-item='item' 
+      data-index='{{index}}'
+      wx:key='index' 
+      >手机号码{{item}}用户免费获得报价</view>
+    </view>
+  </view>
 </view>
 <view class="designFreeBottom">
   <view class="designFreeBottomIcon">

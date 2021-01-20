@@ -35,22 +35,24 @@
     </view>
   </view>
   <view class="commissionType">
-   <view bindtap="resetList">
+    <view bindtap="resetList">
       <text>全部</text>
       <image src="../../../image/icon/more.svg"></image>
-   </view>
-   <view bindtap="priceSort">
+    </view>
+    <view bindtap="priceSort">
       <text>价格</text>
-      <image style="transform:{{formDataOne.order == 'asc' ? 'rotate(90deg)' : formDataOne.order == 'desc' ? 'rotate(270deg)' : 'rotate(0deg)'}}" src="../../../image/icon/more.svg"></image>
-   </view>
-   <view>
+      <image
+        style="transform:{{formDataOne.order == 'asc' ? 'rotate(90deg)' : formDataOne.order == 'desc' ? 'rotate(270deg)' : 'rotate(0deg)'}}"
+        src="../../../image/icon/more.svg"></image>
+    </view>
+    <view>
       <text>分类</text>
       <image src="../../../image/icon/more.svg"></image>
-   </view>
+    </view>
   </view>
   <scroll-view scroll-y="true" bindscrolltolower="getList">
-      <materialCollectionList item='{{item}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index"
-        wx:key='index' />
+    <materialCollectionList item='{{item}}' wx:for='{{allList}}' wx:for-item='item' wx:for-index="index"
+      wx:key='index' />
   </scroll-view>
 </view>
 

@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id : '',
+    showType : 'my',
     shopTabList: [{
         title: '主页',
         iconUrl: '../../../image/shopIcon/11.png',
@@ -77,6 +79,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    if(options.id){
+      this.setData({
+        id : options.id,
+        showType : 'others'
+      })
+    }else{
+      this.setData({
+        id : app.globalData.userData.MaterialShopID
+      })
+      
+    }
     this.setData({
       userData : app.globalData.userData
     })
@@ -113,12 +127,12 @@ Page({
     })
   },
   getUserInfo(){//获取店铺信息，轮播图
-    app.ajaxToken('/materialstore/getshopinfo/'+app.globalData.userData.MaterialShopID,'','get').then(res=>{
+    app.ajaxToken('/materialstore/getshopinfo/'+this.data.id,'','get').then(res=>{
       this.setData({
         shopData : res.data
       })
     })
-    app.ajaxToken('/materialstore/getshopadvs/'+app.globalData.userData.MaterialShopID,'','get').then(res=>{
+    app.ajaxToken('/materialstore/getshopadvs/'+this.data.id,'','get').then(res=>{
       this.setData({
         imgArr : res.data
       })
@@ -158,7 +172,7 @@ Page({
       pagesize : this.data.formDataOne.pagesize,
     }
     if(this.data.formDataOne.order) data.order = this.data.formDataOne.order
-    app.ajaxToken('/materialstore/getmateriallist/'+ app.globalData.userData.MaterialShopID, data, 'get').then(res => {
+    app.ajaxToken('/materialstore/getmateriallist/'+ this.data.id, data, 'get').then(res => {
       if(res.status == 0){
         if(that.data.formDataOne.page <= res.pagecount){
           that.setData({

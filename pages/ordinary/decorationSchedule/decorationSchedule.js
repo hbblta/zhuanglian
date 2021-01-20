@@ -82,7 +82,7 @@ Page({
         }
         if(that.data.formData.page <= res.pagecount){
           that.setData({
-            list:res.data,
+            list:this.data.list.concat(res.data),
             'formData.page' : that.data.formData.page + 1
           })
         }

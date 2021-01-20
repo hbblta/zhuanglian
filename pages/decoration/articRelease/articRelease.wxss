@@ -4,7 +4,7 @@ page{
   height: 100%;
 }
 .effectPictureEditInput{
-  margin-top: 15rpx;
+  border-top:solid #f7f7f7 15rpx;
   width: 700rpx;
   padding-left: 25rpx;
   padding-right: 25rpx;
@@ -21,7 +21,7 @@ page{
 }
 .effectPictureEditEditor{
   background: #F7F7F7;
-  height: calc(100% - 150rpx);
+  /* height: calc(100% - 150rpx); */
 }
 .effectPictureEditInput view{
   height: 110rpx;
@@ -34,9 +34,9 @@ page{
   padding-right: 25rpx;
   border-bottom: 1rpx solid #f7f7f7;
   width: 700rpx;
-  padding-bottom: 70rpx;
+  padding-bottom: 100rpx;
   margin-top: 15rpx;
-  height: calc(100% - 200rpx);
+  /* height: calc(100% - 200rpx); */
 }
 .effectPictureEditMainTitle{
   color: rgba(59, 59, 59, 1);
@@ -54,8 +54,11 @@ page{
   width: 45rpx;
   height: 45rpx;
 }
-
 .effectPictureEditInput image{
   width: 30rpx;
   height: 30rpx;
+}
+.ql-container{
+  min-height: 400rpx;
+  height: auto;
 }

@@ -7,9 +7,8 @@ page{
 }
 .scroll{
   width: 100%;
-  height: calc(100% - 200rpx);
+  height: calc(100% - 100rpx);
   box-sizing: border-box;
-  border-top: 16rpx solid #f7f7f7;
   padding-bottom: 100rpx;
 }
 .manage-list{

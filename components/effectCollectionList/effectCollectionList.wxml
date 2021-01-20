@@ -1,5 +1,5 @@
 <!--components/effectCollectionList/effectCollectionList.wxml-->
-<view class="decorationRecordingList"  wx:if="{{type == 2}}">
+<view class="decorationRecordingList"  wx:if="{{type == 2}}" bindtap="goEffectDetails">
  <view class="decorationRecordingImg"> <image src="{{item.ImageUrl[0]}}" ></image></view>
   <view class="decorationRecordingMsg">
     <view class="decorationRecordingTitle">{{item.CaseName}}</view>
@@ -16,7 +16,7 @@
   </view>
 </view>
 
-<view class="decorationRecordingList" wx:else bindtap="goMaterialList" data-id='{{item.EffectID}}'>
+<view class="decorationRecordingList" wx:else bindtap="goCaseDetails">
  <view class="decorationRecordingImg"> <image src="{{item.StyleImageUrl[0]}}" ></image></view>
   <view class="decorationRecordingMsg">
     <view class="decorationRecordingTitle">{{item.EffectName}}</view>
@@ -25,12 +25,12 @@
       <text>风格: {{item.StyleName}}</text>
     </view>
     <view class="decorationRecordingMeun">
-      <view class="decorationRecordingMeunTitle">
+      <view class="decorationRecordingMeunTitle" catchtap="goMaterialList" data-type="{{item.EffectType}}" data-id='{{item.EffectID}}'>
         <image src='../../image/icon/materialcon.png'></image>
         <text>材料清单</text>
         <image src='../../image/icon/more.svg'></image>
       </view>
-      <view class="decorationRecordingMeunTitle">
+      <view class="decorationRecordingMeunTitle" catchtap="goUrl" data-url="/pages/ordinary/goBrowser/goBrowser?url={{item.VRImageUrl}}">
         <image src='../../image/icon/VRIcon.png'></image>
         <text>VR全景</text>
         <image src='../../image/icon/more.svg'></image>

@@ -5,8 +5,8 @@
   <view></view>
 </view>
 <view class="registeredFrom">
-  <view class="registeredInput"><input placeholder="账号: 请输入账号" placeholder-style="color:#FFFFFF;"></input></view>
-  <view class="registeredInput"><input placeholder="密码: 请输入密码" placeholder-style="color:#FFFFFF;"></input></view>
+  <view class="registeredInput"><input bindinput="updateInput" data-key="Mobile" placeholder="账号: 请输入账号" placeholder-style="color:#FFFFFF;"></input></view>
+  <view class="registeredInput"><input type="password" bindinput="updateInput" data-key="Password" placeholder="密码: 请输入密码" placeholder-style="color:#FFFFFF;"></input></view>
   <view class="registeredButton" bindtap="setRegistered">登录</view>
   <view class="forgetPassword">忘记密码</view>
 </view>

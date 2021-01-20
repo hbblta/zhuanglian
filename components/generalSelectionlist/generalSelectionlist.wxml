@@ -8,10 +8,10 @@
     data-index="{{index}}"
     bindtap="changeIndex"
     class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
-    {{item.name}}</view>
+    {{item.label}}</view>
   </view>
   <view>
-    <view class="searchInputViewBody">
+    <view class="searchInputViewBody" wx:if="{{listSearch}}">
       <view class="searchInputView">
         <icon class="icon-small" type="search" size="20"></icon>
         <input class="searchInput" type='text' value="{{keyword}}" bindinput="inputValue" confirm-type='search' placeholder='搜索' />

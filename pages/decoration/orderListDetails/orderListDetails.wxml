@@ -1,32 +1,34 @@
 <!--pages/decoration/orderListDetails/orderListDetails.wxml-->
 <view class="manageList">
-	<view class="listInfo" bindtap="goUrl" data-url='/pages/decoration/orderListDetails/orderListDetails'>
-		<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+	<view class="listInfo">
+		<image src="{{OrderData.Avatar}}"></image>
 		<view>
 			<view class="name">
-				<view>胡彬彬</view>
+				<view>{{OrderData.RealName}}</view>
 				<view>
-					<image src="../../../image/icon/pentagram.svg"></image>
-					<image src="../../../image/icon/pentagram.svg"></image>
-					<image src="../../../image/icon/pentagram.svg"></image>
-					<image src="../../../image/icon/pentagram.svg"></image>
+					<image 
+					wx:for='{{OrderData.Star}}' 
+					wx:for-item='item' 
+					data-index='{{index}}'
+					wx:key='index' 
+					 src="../../../image/icon/pentagram.svg"></image>
 				</view>
 			</view>
 			<view class="tags">
 				<view>
-					<text>来源: 报备</text>
+					<text>来源: {{OrderData.SourceName}}</text>
 				</view>
 				<view>
-					待设计
+					{{OrderData.StateName}}
 				</view>
 			</view>
 			<view class="phone">
-				<view>13216212336</view>
-				<view>加入时间：2020/05/30</view>
+				<view>{{OrderData.Mobile}}</view>
+				<view>加入时间：{{OrderData.AddDate}}</view>
 			</view>
 			<view class="develop">
-				<view>开发人员：名称</view>
-				<view>跟单人员：<text>张三</text>
+				<view>开发人员：{{OrderData.DeveloperName ? OrderData.DeveloperName : '暂无'}}</view>
+				<view>跟单人员：<text>{{OrderData.TrackerName ? OrderData.TrackerName : '暂无'}}</text>
 					<image src="../../../image/icon/more.svg"></image>
 				</view>
 			</view>
@@ -36,24 +38,24 @@
 <view class="constructionDetailsPickerAll">
 	<view class="constructionDetailsPicker">
 		<view>设计师(主案)</view>
-		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-			<view class="constructionDetailsPickerData"><text> </text>
+		<picker bindchange="bindPickerChange1" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{OrderData.DesignerName ? OrderData.DesignerName : '暂无'}}</text>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
 		</picker>
 	</view>
 	<view class="constructionDetailsPicker">
 		<view>设计师助理</view>
-		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-			<view class="constructionDetailsPickerData"><text>可多选</text>
+		<picker bindchange="bindPickerChange2" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{OrderData.DesignerAssistanceName  ? OrderData.DesignerAssistanceName : '暂无'}}</text>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
 		</picker>
 	</view>
 	<view class="constructionDetailsPicker">
 		<view>跟单员</view>
-		<picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-			<view class="constructionDetailsPickerData"><text>可多选</text>
+		<picker bindchange="bindPickerChange3" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{OrderData.TrackerName  ? OrderData.TrackerName : '暂无'}}</text>
 				<image src="../../../image/icon/more.svg"></image>
 			</view>
 		</picker>
@@ -73,15 +75,15 @@
 		<view>分享用户</view>
 	</view>
 	<view>
-		<view class="orderListScheduleList {{item.status ? '' : 'orderListScheduleListTwo'}}" wx:for='{{list}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
+		<view class="orderListScheduleList {{item.Remark == '进行中' ? '' : 'orderListScheduleListTwo'}}" wx:for='{{OrderData.States}}' wx:for-item='item' data-index='{{index}}' wx:key='index'>
 			<view class="orderListScheduleListTitle">
-				<view>计划: {{item.date}},实际: 4月8日</view>
-				<view bindtap="goUrl" data-url="{{item.status ? '/pages/decoration/followUp/followUp' : '/pages/decoration/commissionSettings/commissionSettings'}}">{{item.name}}</view>
+				<view>计划: {{item.PlanFinishDate ? item.PlanFinishDate : '暂无'}},实际: {{item.RealFinishDate ? item.RealFinishDate : '暂无'}}</view>
+				<view bindtap="goUrl" data-url="{{item.Remark == '进行中' ? '/pages/decoration/followUp/followUp?OrderID='+OrderData.OrderID+'&index='+index: '/pages/decoration/commissionSettings/commissionSettings?OrderID='+OrderData.OrderID}}">{{item.Remark}}</view>
 			</view>
 			<view class="orderListScheduleListBody">
 				<view></view>
-				<text>接单</text>
-        <text>回报></text>
+				<text>{{item.StateName}}</text>
+        <text bindtap="goUrl" data-url='/pages/decoration/followUp/followUp?OrderID={{OrderData.OrderID}}'>汇报></text>
 			</view>
 		</view>
 	</view>

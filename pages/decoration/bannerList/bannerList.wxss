@@ -1,0 +1,65 @@
+/* pages/decoration/bannerList/bannerList.wxss */
+page{
+  background: #f7f7f7;
+}
+.bannerListImg{
+  height: 350rpx;
+  width: 700rpx;
+  padding: 0 25rpx;
+}
+.effectPictureReleaseAdd{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  width: 700rpx;
+  font-family: PingFangSC-regular;
+  padding: 0 25rpx;
+  background:#FFFFFF;
+  text-align: right;
+  justify-content: flex-end;
+  margin-top: 25rpx;
+}
+.effectPictureReleaseAdd image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 12rpx;
+}
+.bannerListTitle{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  background: #FFFFFF;
+  align-items: center;
+  padding: 0 25rpx;
+  width: 700rpx;
+}
+.effectPictureEditButtons{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse ;
+}
+.effectPictureEditButtons view{
+  color: #909399 ;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  height: 60rpx;
+  width: 156rpx;
+  background: #FFFFFF;
+  border: 1rpx solid rgba(0, 129, 255, 1);
+  border-radius: 40rpx;
+  line-height: 60rpx;
+  position: relative;
+}
+.effectPictureEditButtons view:nth-child(2){
+  position: relative;
+  left: 40rpx;
+}
+.effectPictureEditButtons .nowButtons{
+  color: rgba(255, 255, 255, 1)!important;
+  background: #0081FF!important;
+  z-index: 1!important;
+}

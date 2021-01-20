@@ -1,6 +1,13 @@
 /* pages/decoration/assignCustomers/assignCustomers.wxss */
 page{
-  background: #f7f7f7;
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
+}
+.scroll{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 .assignCustomersList{
   margin-top: 15rpx;

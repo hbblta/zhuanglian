@@ -2,31 +2,29 @@
 <view class="user">
 	<view class="manageList">
 		<view class="listInfo">
-			<image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1235878547,3004072182&fm=26&gp=0.jpg"></image>
+			<image src="{{orderDetails.Avatar}}"></image>
 			<view>
 				<view class="name">
-					<view>胡彬彬</view>
+					<view>{{orderDetails.RealName}}</view>
 					<view>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
-						<image src="../../../image/icon/pentagram.svg"></image>
+						<image wx:for='{{orderDetails.Star}}' wx:for-item='item' data-index='{{index}}' wx:key='index'
+							src="../../../image/icon/pentagram.svg"></image>
 					</view>
 				</view>
 				<view class="phone">
-					<view>13216212336</view>
-					<view>加入时间：2020/05/30</view>
+					<view>{{orderDetails.Mobile}}</view>
+					<view>加入时间：{{orderDetails.AddDate}}</view>
 				</view>
 				<view class="develop">
-					<view>开发人员：<text>张三</text>
+					<view>开发人员：<text>{{orderDetails.DeveloperName ? orderDetails.DeveloperName : '暂无'}}</text>
 						<image src="../../../image/icon/more.svg"></image>
 					</view>
-					<view>跟单人员：<text>张三</text>
+					<view>跟单人员：<text>{{orderDetails.TrackerName ? orderDetails.TrackerName : '暂无'}}</text>
 						<image src="../../../image/icon/more.svg"></image>
 					</view>
 				</view>
 				<view class="develop">
-					<view>设计师: <text>张三</text>
+					<view>设计师: <text>{{orderDetails.DesignerName ? orderDetails.DesignerName : '暂无'}}</text>
 						<image src="../../../image/icon/more.svg"></image>
 					</view>
 				</view>
@@ -38,35 +36,43 @@
 <view class="scroll">
 	<view class="generalSelectionBody">
 		<view class="generalSelectionlist">
-			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex" class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
+			<view wx:for='{{textList}}' wx:for-item='item' wx:key='index' data-index="{{index}}" bindtap="changeIndex"
+				class="{{textListIndex == index ? 'generalSelectionCurrent' : ''}} generalSelectionlistView">
 				{{item}}</view>
 		</view>
 		<view>
 			<view class="searchInputViewBody" style="height:100%">
 				<scroll-view scroll-y="true" style="height:100%">
 					<view>
-						<view>
-							<view class="clientReportButton" bindtap="goUrl" data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
-							<view class="clientReportList">
-								<view class="clientReportListTitle">待量房</view>
-								<view class="followUpTitle"><text>图片上传</text><text>4/8</text></view>
-								<view class="clientReportListImg">
-									<view>
-										<image></image>
-									</view>
-									<view>
-										<image></image>
-									</view>
-									<view>
-										<image src="../../../image/icon/pushImg.png"></image>
-									</view>
+						<view class="clientReportButton" bindtap="goUrl"
+							
+							data-url='/pages/decoration/constructionReport/constructionReport?OrderID={{OrderID}}&reportLength={{list.length}}'>
+							汇报</view>
+						<view class="clientReportList" wx:for='{{list}}' wx:for-item='item' wx:key='index'
+							data-index="{{index}}">
+							<view class="clientReportListTitle">{{item.StateName}}</view>
+							<view class="clientReportListImg" wx:if="item.Summary">
+								<view wx:for='{{item.SummaryImageUrl}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+									<image src="{{items}}"></image>
 								</view>
 							</view>
-              <view class='clientReportInput'><input placeholder="请填写文字"></input></view>
-              <view class='clientReportInput'>
-                <input placeholder="计划完成时间" disabled></input>
-                <image src="../../../image/icon/more.svg"></image>
-              </view>
+							<view class="clientReportListText" wx:if="{{item.Summary}}">总结:{{item.Summary}}</view>
+							<view class="clientReportListImg">
+								<view wx:for='{{item.PlanImageUrl}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+									<image src="{{items}}"></image>
+								</view>
+							</view>
+							<view class="clientReportListText">计划:{{item.Plan}}</view>
+							<view wx:for='{{item.Messages}}' wx:for-item='items' wx:key='index' data-index="{{index}}">
+								<view class="clientReportListImg">
+									<view wx:for='{{items.ImageUrl}}' wx:for-item='itemss' wx:key='index' data-index="{{index}}">
+										<image src="{{itemss}}"></image>
+									</view>
+								</view>
+								<view class="clientReportListText">{{items.NickName}}留言:{{items.Content}}</view>
+							</view>
+							<view class="clientReportListButton" bindtap="goUrl"
+								data-url='/pages/decoration/constructionMessage/constructionMessage?TrackID={{item.TrackID}}&type=followUp'>我要留言</view>
 						</view>
 					</view>
 				</scroll-view>

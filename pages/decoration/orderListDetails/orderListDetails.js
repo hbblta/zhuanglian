@@ -6,52 +6,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-    decorationArray:{
-      textList: ['张三','李四','王二','码字'],
-      idList: [0,1,2,3]
-     },
-     list:[
-       {
-         status:true,
-         name:'接单',
-         date:'15165/05'
-       },
-       {
-         status:true,
-         name:'量房',
-         date:'15165/05'
-       },
-       {
-         status:false,
-         name:'接单',
-         date:'15165/05'
-       },
-       {
-         status:false,
-         name:'设计',
-         date:'15165/05'
-       },
-       {
-         status:false,
-         name:'报价',
-         date:'15165/05'
-       },
-       {
-         status:false,
-         name:'报价',
-         date:'15165/05'
-       },
-     ]
+     userlist :[],
+     OrderData : {},
+     OrderID : '',
+     list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      OrderID : options.OrderID
+    })
+    this.getOrderData()
+    this.getStaffList()
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  getOrderData(){
+    app.ajaxToken('/shop/getorderdetail/'+app.globalData.userData.ShopID+'/'+this.data.OrderID,'','get').then(res=>{
+      app.globalData.orderDetails = res.data
+      this.setData({
+        OrderData : res.data
+      })
+    })
+  },
+  getStaffList(){
+    app.getStaffList(res=>{
+      this.setData({
+        userlist:  res
+      })
+    })
+  },
+  bindPickerChange1: function(e) {
+    this.setData({
+      'OrderData.DesignerID': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  bindPickerChange2: function(e) {
+    this.setData({
+      'OrderData.DesignerAssistance': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  bindPickerChange3: function(e) {
+    this.setData({
+      'OrderData.TrackerID': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  refreshOrder(){
+    var data = {
+      TrackerID : this.data.OrderData.TrackerID ? this.data.OrderData.TrackerID : app.globalData.userData.UserID,
+      DesignerID : this.data.OrderData.DesignerID ? this.data.OrderData.DesignerID : app.globalData.userData.UserID,
+      DesignerAssistance : this.data.OrderData.DesignerAssistance ? this.data.OrderData.DesignerAssistance : app.globalData.userData.UserID,
+    }
+    app.ajaxToken('/shop/allocorder/'+app.globalData.userData.ShopID+'/'+this.data.OrderID,data,'post').then(res=>{
+      this.getOrderData()
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)

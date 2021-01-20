@@ -1,0 +1,38 @@
+<!--pages/ordinary/userEdit/userEdit.wxml-->
+<view class="effectPictureEditInput effectPictureEditLogo">
+  <input disabled  placeholder="头像"></input>
+  <view bindtap="upload" data-type="avatar">
+    <image src="{{formData.Avatar ? formData.Avatar : '../../../image/testImg/logo.png'}}"></image>
+  </view>
+</view>
+<view class="effectPictureEditInput">
+  <input bindinput="updateInput" data-key="RealName" value="{{formData.RealName}}" placeholder="姓名"></input>
+  <view>
+    <!-- <image src="../../../image/icon/more.svg"></image> -->
+  </view>
+</view>
+<view class="effectPictureEditInput">
+  <input  bindinput="updateInput" data-key="Mobile" value="{{formData.Mobile}}" type="number" placeholder="手机号"></input>
+  <view>
+    <!-- <image src="../../../image/icon/more.svg"></image> -->
+  </view>
+</view>
+<view bindtap="goUrl"  data-url='/pages/ordinary/editPassword/editPassword' class="effectPictureEditInput">
+  <input disabled  placeholder="密码设置"></input>
+  <view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<view class="effectPictureEditInput effectPictureEditLogo">
+  <input disabled  placeholder="微信二维码"></input>
+  <view bindtap="upload" data-type="qrCode">
+    <image src="{{formData.CustomerServiceUrl ? formData.CustomerServiceUrl : '../../../image/testImg/logo.png'}}"></image>
+  </view>
+</view>
+<view bindtap="outAccount" class="effectPictureEditInput">
+  <input disabled  placeholder="退出账号"></input>
+  <view>
+    <image src="../../../image/icon/more.svg"></image>
+  </view>
+</view>
+<view class="floatingButton" bindtap="submit">保存</view>

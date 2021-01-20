@@ -106,3 +106,26 @@ page{
   left: 0;
   bottom: 0;
 }
+
+.clientReportInput{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 110rpx;
+  background-color: #FFFFFF;
+  margin-top: 15rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.clientReportInput image{
+  width: 32rpx;
+  height: 32rpx;
+}
+.clientReportInput input{
+  width: 455rpx;
+  height: 110rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}

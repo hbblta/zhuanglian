@@ -12,7 +12,8 @@ Page({
       pagesize : 10,
     },
     load : false,
-    list: []
+    list: [],
+    ShopID : ''
   },
 
   /**
@@ -20,7 +21,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      url : options.url
+      url : options.url,
+      ShopID : options.ShopID
     })
     this.loadresh()
   },
@@ -42,7 +44,7 @@ Page({
     if(this.data.url == '/user/getcollectionlist/'){
       url  =url+app.globalData.userData.UserID
     }else{
-      url = url+app.globalData.userData.ShopID
+      url = url+this.data.ShopID
     }
     app.ajaxToken(url, data, 'get').then(res => {
       if(res.status == 0){
@@ -55,7 +57,7 @@ Page({
         if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,
-            list:res.data,
+            list:this.data.list.concat(res.data),
             'formData.page' : that.data.formData.page + 1
           })
         }

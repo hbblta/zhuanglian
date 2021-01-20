@@ -90,27 +90,23 @@ Page({
     this.setData({
       date: e.detail.value
     })
-    if (this.data.date && this.data.date2) {
-      this.setData({
-        page:1,
-        flag:true,
-        list:[]
-      })
-      this.getList()
-    }
+    this.setData({
+      page:1,
+      flag:true,
+      list:[]
+    })
+    this.getList()
   },
   bindPickerChange5(e) {
     this.setData({
       date2: e.detail.value
     })
-    if (this.data.date && this.data.date2) {
-      this.setData({
-        page:1,
-        flag:true,
-        list:[]
-      })
-      this.getList()
-    }
+    this.setData({
+      page:1,
+      flag:true,
+      list:[]
+    })
+    this.getList()
   },
   bindPickerChange7(e){
     this.setData({
@@ -124,9 +120,6 @@ Page({
     this.getList()
   },
   goUrl(e) {
-    app.goUrl(e.currentTarget.dataset.url)
-  },
-  goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
   },
   //报单
@@ -194,7 +187,8 @@ Page({
     var data={
       page:this.data.page,
       keyword:this.data.keyword,
-      manager:app.globalData.userData.UserID
+      pagesize : 10,
+      // manager:app.globalData.userData.UserID
     }
     if(this.data.gradeIndex){
       data.grade = this.data.gradearr[this.data.gradeIndex].Nubmer
@@ -208,6 +202,8 @@ Page({
     if(this.data.stateIndex){
       data.state = this.data.statearr[this.data.stateIndex].value
     }
+    if (this.data.date)  data.begindate = this.data.date
+    if (this.data.date2)  data.enddate = this.data.date2
     app.ajaxToken('/shop/getorderlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
       this.setData({
         list:this.data.list.concat(res.data),

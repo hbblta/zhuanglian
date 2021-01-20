@@ -1,0 +1,22 @@
+<!--pages/decoration/renderingsDetails/renderingsDetails.wxml-->
+<picker bindchange="bindPickerChange" value="{{getcategoriesShowIndex}}" range="{{getcategoriesShow}}">
+  <view class="effectPictureEditInput">
+    <input placeholder="空间类别" value="{{formData.SpaceName}}" disabled="true"></input>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+</picker>
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitle"><text>效果图详情</text>
+    <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
+  </view>
+  <view class="effectPictureEditEditor">
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+      bindinput='editorData' bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
+    </editor>
+  </view>
+</view>
+<view bindtap="sumit" class="floatingButton">
+  <view>确定</view>
+</view>

@@ -59,10 +59,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    var data = {
-      content : this.data.articleData.Signature
+    if(this.data.articleData.Signature){
+      var data = {
+        content : this.data.articleData.Signature
+      }
+      app.ajaxToken('/shop/setsign/'+app.globalData.userData.ShopID,data, 'post').then(res => {})
     }
-    app.ajaxToken('/shop/setsign/'+app.globalData.userData.ShopID,data, 'post').then(res => {})
   },
 
   /**

@@ -7,33 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:8,
+    cooperationData : {},
+    list:[],
     textListIndex:0,
     textList : [
       {
         name : '引流客户',
         id : 0,
-        num: 3253
+        num: 0
       },
       {
-        name : '分享订单',
+        name : '分享总订单',
         id : 1,
-        num: 3212353
+        num: 0
       },
       {
         name : '成交订单',
         id : 2,
-        num: 3252343
-      },
-      {
-        name : '成交总额',
-        id : 2,
-        num: 3252343
+        num: 0
       },
       {
         name : '未成订单',
         id : 2,
-        num: 3252343
+        num: 0
       },
     ],
   },
@@ -42,17 +38,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      cooperationData : app.globalData.cooperationData
+    })
     wx.setNavigationBarTitle({
       title: '详情',
     })
+    this.getTextList()
+    this.getList()
   },
   changeIndex(e){
     this.setData({
       textListIndex : e.currentTarget.dataset.index
     })
+    this.getList()
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
+  },
+  getTextList(){
+    app.ajaxToken('/shop/getcooperationstat/'+app.globalData.userData.ShopID+'/'+this.data.cooperationData.ShopID,'','get').then(res=>{
+      this.setData({
+        'textList[0].num' : res.data.Customers,
+        'textList[1].num' : res.data.Orders,
+        'textList[2].num' : res.data.DealOrders,
+        'textList[3].num' : res.data.Orders - res.data.Customers,
+      })
+    })
+  },
+  getList(){
+    var data = {
+      page : 1,
+      pagesize : 10,
+    }
+    if(this.data.textListIndex != 0) data.type = this.data.textListIndex
+    app.ajaxToken((this.data.textListIndex != 0 ? '/shop/getcooperationorderlist/' : '/shop/getdraincustomerlist/')+app.globalData.userData.ShopID+'/'+this.data.cooperationData.ShopID,data,'get').then(res=>{
+      this.setData({
+         list : res.data
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

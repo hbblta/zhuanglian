@@ -1,0 +1,28 @@
+/* pages/ordinary/goBrowser/goBrowser.wxss */
+.downLoadHtmlBac{
+  width: 100%;
+  height: 1200rpx;
+  background: #f7f7ff;
+}
+.downLoadHtmlBottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.copyLink{
+  width: 700rpx;
+  margin-left: 50rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+}
+.copyLinks{
+  width: 700rpx;
+  margin-left: 50rpx;
+}
+.copyLink text{
+  font-size: 42rpx;
+  font-family: PingFang SC;
+  font-weight: 550;
+}

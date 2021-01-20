@@ -87,7 +87,7 @@
 	</view>
 	<view class="btn">
 		<view>
-			<view catchtap="follow" data-id="{{item.UserID}}" data-idx="4" data-item="{{item}}">跟进</view>
+			<view catchtap="follow" data-id="{{item.UserID}}" data-idx="4" data-index="{{index}}">跟进</view>
 			<view catchtap="declaration" data-item="{{item}}">报单</view>
 		</view>
 	</view>

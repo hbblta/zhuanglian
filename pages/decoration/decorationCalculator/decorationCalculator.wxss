@@ -42,11 +42,42 @@ page{
   height: 28rpx;
   margin-right: 20rpx;
 }
-.decorationCalculatorBroadcast text{
+.decorationCalculatorBroadcast>view{
+  height: 40rpx;
+  overflow: hidden;
+}
+.decorationCalculatorBroadcast>view>view{
+  position: relative;
+  animation:roll 30s infinite alternate;
+}
+@keyframes roll{
+  0% {bottom:0px;}
+  10% {bottom:40rpx;}
+  15% {bottom:40rpx;}
+  20% {bottom:80rpx;}
+  25% {bottom:80rpx;}
+  30% {bottom:120rpx;}
+  35% {bottom:120rpx;}
+  40% {bottom:160rpx;}
+  45% {bottom:160rpx;}
+  50% {bottom:200rpx;}
+  55% {bottom:200rpx;}
+  60% {bottom:240rpx;}
+  65% {bottom:240rpx;}
+  70% {bottom:280rpx;}
+  75% {bottom:280rpx;}
+  80% {bottom:320rpx;}
+  85% {bottom:320rpx;}
+  90% {bottom:360rpx;}
+  95% {bottom:360rpx;}
+  100% {bottom:400rpx;}
+}
+.decorationCalculatorBroadcast view view{
   color: rgba(144, 147, 153, 1);
   font-size: 28rpx;
   text-align: left;
   font-family: PingFangSC-regular;
+  height: 40rpx;
 }
 .decorationCalculatorBudget{
   height: 100rpx;
@@ -76,10 +107,10 @@ page{
   color: rgba(0, 129, 255, 1);
   font-size: 28rpx;
   font-family: PingFangSC-regular;
-  padding-top: 10rpx;
+  padding-top: 25rpx;
 }
 .decorationCalculatorSetInput input{
-  margin-top: 40rpx;
+  margin-top: 25rpx;
   width: 660rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
@@ -108,9 +139,6 @@ page{
   color: rgba(48, 49, 51, 1);
   font-size: 28rpx;
   font-family: PingFangSC-regular;
-}
-.decorationCalculatorTitleImgTwo{
-  height: 564rpx;
 }
 .decorationCalculatorSetButton{
   width: 100% !important;

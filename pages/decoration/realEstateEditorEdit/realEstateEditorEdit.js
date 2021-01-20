@@ -6,51 +6,66 @@ Page({
    * 页面的初始数据
    */
   data: {
-     styleListText : [],
-     styleList : [],
-     styleData : {
-      effectName : '',
-      style : '',
-      area : '',
-      vrImageUrl : '',
-      styleImage : [],
-      materials : [],
-      auxiliaryCost : ''
-     }
+    styleListText: [],
+    styleList: [],
+    styleData: {
+      styleText: '',
+      effectName: '',
+      style: '',
+      area: '',
+      vrImageUrl: '',
+      styleImage: [],
+      materials: [],
+      auxiliaryCost: '',
+      EffectImages : []
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(!app.globalData.styleListData.styleData){
+    if (!app.globalData.styleListData.styleData) {
       app.globalData.styleListData.styleData = {
-        materials : [],
-        auxiliaryCost : ''
+        materials: [],
+        auxiliaryCost: ''
       }
       console.log('新增')
-    }else{
+    } else {
       this.setData({
-        styleData : app.globalData.styleListData.styleData
+        styleData: app.globalData.styleListData.styleData
       })
       console.log('编辑')
     }
     this.getStylePicker()
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     this.setData({
-      'styleData.effectName' :  this.data.styleListText[e.detail.value],
-      'styleData.style' : this.data.styleList[e.detail.value].value,
+      'styleData.styleText': this.data.styleListText[e.detail.value],
+      'styleData.style': this.data.styleList[e.detail.value].value,
     })
   },
-  goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
+  goUrl(e) {
+    var url = e.currentTarget.dataset.url
+    if(url=='/pages/decoration/renderingsDetails/renderingsDetails' && e.currentTarget.dataset.index != undefined){//编辑
+      console.log(e.currentTarget.dataset.index)
+      url = `/pages/decoration/renderingsDetails/renderingsDetails?SpaceID=${this.data.styleData.EffectImages[e.currentTarget.dataset.index].SpaceID}&SpaceName=${this.data.styleData.EffectImages[e.currentTarget.dataset.index].SpaceName}&EffectIndex=${e.currentTarget.dataset.index}`
+      app.globalData.renderingsContent = this.data.styleData.EffectImages[e.currentTarget.dataset.index].Content
+    }
+    app.goUrl(url)
   },
-  getStylePicker(){//获取样式列表
+  goBack() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+  getStylePicker() { //获取样式列表
     app.ajaxToken('/common/getstyles', 'get').then(res => {
       this.setData({
-        styleListText : res.data.map((data)=>{return data.text}),
-        styleList : res.data
+        styleListText: res.data.map((data) => {
+          return data.text
+        }),
+        styleList: res.data
       })
     })
   },
@@ -61,13 +76,28 @@ Page({
       styleData
     })
   },
-  getImagePath(e){
+  getImagePath(e) {
     this.setData({
-      'styleData.styleImage' : e.detail.imageList
+      'styleData.styleImage': e.detail.imageList
     })
   },
-  saveStyle(){
-    console.log(this.data.styleData)
+  deleteRender(e){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗',
+      success (res) {
+        if (res.confirm) {
+          var EffectImagess = that.data.styleData.EffectImages
+          that.data.styleData.EffectImages.splice(e.currentTarget.dataset.index,1)
+          that.setData({
+            'styleData.EffectImages' : EffectImagess,
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -80,6 +110,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this;
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    if (currPage.data.EffectImagesData) {
+      if(currPage.data.EffectIndex){//编辑
+        console.log('编辑')
+        let EffectKey = `styleData.EffectImages[${currPage.data.EffectIndex}]`
+        that.setData({
+          [EffectKey] : currPage.data.EffectImagesData,
+          EffectIndex : null,
+          EffectImagesData : null
+        });
+      }else{//新增
+        console.log('新增')
+        let EffectData = that.data.styleData.EffectImages
+        EffectData.push(currPage.data.EffectImagesData)
+        that.setData({
+          'styleData.EffectImages' : EffectData,
+          EffectImagesData : null
+        });
+      }
+    }
   },
 
   /**
@@ -93,7 +145,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    var that=this;
+    var that = this;
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];
     let update = `formData.unitList[${app.globalData.styleListData.unitIndex}].styleList[${app.globalData.styleListData.styleIndex}]`

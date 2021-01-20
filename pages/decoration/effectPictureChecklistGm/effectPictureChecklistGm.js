@@ -86,7 +86,7 @@ Page({
         if(that.data.formData.page <= res.pagecount){
           that.setData({
             load : false,
-            list:res.data,
+            list:that.data.list.concat(res.data),
             'formData.page' : that.data.formData.page + 1
           })
         }
@@ -133,6 +133,11 @@ Page({
         selectList
       })
     }
+  },
+  goBack() {
+    wx.navigateBack({
+      delta: 1,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

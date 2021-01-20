@@ -85,7 +85,7 @@ page{
 }
 .effectPictureEditButtons{
   height: 100rpx;
-  width: 510rpx;
+  /* width: 510rpx; */
   margin-top: 30rpx;
   display: flex;
   align-items: center;
@@ -162,4 +162,49 @@ page{
   width: 50rpx;
   height: 50rpx;
   margin-right: 12rpx;
+}
+.houseListPicker{
+  width: 470rpx;
+  padding: 20rpx;
+  height: 170rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+  margin-top: 15rpx;
+  border-radius: 8rpx;
+  background: #FFFFFF;
+}
+.houseListPickerTitle{
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  margin-bottom: 15rpx;
+}
+.houseListPickerList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.houseListPickerData{
+  display: flex;
+  align-items: center;
+}
+.houseListPickerData{
+  width: 80rpx;
+  height: 50rpx;
+  color: rgba(27, 100, 172, 100);
+  font-size: 24rpx;
+  font-family: Microsoft Yahei;
+  border: 1rpx solid rgba(187, 187, 187, 100);
+  border-radius: 14rpx;
+  padding: 0 16rpx;
+  justify-content: space-between;
+  margin-right: 20rpx;
+  margin-bottom: 15rpx;
+}
+.houseListPickerData image{
+  width: 30rpx;
+  height: 30rpx;
+  transform: rotate(90deg);
+}
+.widthAdd{
+  width: 110rpx;
 }

@@ -6,7 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    code: ''//微信登录code
+    code: '',//微信登录code
+    formData : {
+      Mobile : '',
+      Password : ''
+    }
   },
 
   /**
@@ -48,57 +52,65 @@ Page({
       })
       app.ajaxToken('/account/gettoken', userToken, 'post').then(res => {
         app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
+        app.initCategoryList()
         app.ajaxToken('/account/register', data, 'post').then(ress => {
           wx.hideLoading()
-          wx.showToast({
-            title: '登录成功',
-          })
-          app.setUserInfo(ress.data.UserID,()=>{
-            setTimeout((res)=>{
-              wx.navigateBack({
-                delta: 1
-              })
-            },1000)
-          })
+          if(ress.status == 0){
+            wx.showToast({
+              title: '登录成功',
+            })
+            app.setUserInfo(ress.data.UserID,()=>{
+              setTimeout((res)=>{
+                wx.navigateBack({
+                  delta: 1
+                })
+              },1000)
+            })
+          }else{
+            wx.showToast({
+              title: ress.msg,
+              icon : 'none'
+            })
+          }
+
         })
       })
   },
   setRegistered(e){
-    var that = this
-    // 获取用户信息
     let data = {
-      encryptedData: '',
-      code: '',
-      signature: '',
-      iv: '',
-      commendId: '',
-      shopId: ''
+      Mobile : this.data.formData.Mobile,
+      Password : this.data.formData.Password
     }
-    // 登录
-    data.code = res.code
-    wx.getUserInfo({
-      success: res => {
-        var userToken = {
-          userName: 'decoration',
-          password: 'decoration'
-        }
-        wx.showLoading({
-          title: '登录中',
-          mask: true,
+    var userToken = {
+      userName: 'decoration',
+      password: 'decoration'
+    }
+    wx.showLoading({
+      title: '登录中',
+      mask: true,
+    })
+    app.ajaxToken('/account/gettoken', userToken, 'post').then(res => {
+      app.initCategoryList()
+      app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
+      app.ajaxToken('/account/login', data, 'post').then(ress => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '登录成功',
         })
-        app.ajaxToken('/v1.0/account/gettoken', userToken, 'post').then(res => {
-          app.globalData.Authorization = `${res.data.type+' '+res.data.token}`
-          app.ajaxToken('/v1.0/account/register', data, 'post').then(ress => {
-            app.setGlobalData({
-              userData: ress.data
-            })
-            wx.hideLoading()
+        app.setUserInfo(ress.data.UserID,()=>{
+          setTimeout((res)=>{
             wx.navigateBack({
               delta: 1
             })
-          })
+          },1000)
         })
-      }
+      })
+    })
+  },
+  updateInput(e) {
+    var fromDataKey = `formData.${e.currentTarget.dataset.key}`
+    this.setData({
+     [fromDataKey] : e.detail.value
     })
   },
   /**

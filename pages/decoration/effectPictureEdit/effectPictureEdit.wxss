@@ -11,6 +11,7 @@ page{
   background: #FFFFFF;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .effectPictureEditInput input{
   width: 670rpx;
@@ -138,4 +139,13 @@ page{
   color: rgba(255, 255, 255, 1)!important;
   background: #0081FF!important;
   z-index: 1!important;
+}
+.delete{
+  position: absolute;
+  right: 5rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background: #ffffff;
+  border-radius: 50%;
 }

@@ -1,0 +1,62 @@
+<!--pages/decoration/caseDetails/caseDetails.wxml-->
+<view class="swiperBox">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+    indicator-active-color="rgba(255,255,255,1)">
+    <block wx:for="{{caseData.StyleImageUrl}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="caseView">
+  <view class="caseTitle">{{caseData.EffectName}}</view>
+  <view class="decorationRecordingStyle">
+      <text>风格: {{caseData.EffectImages}}张</text>
+      <text>面积: {{caseData.Area}}㎡</text>
+  </view>
+  <view class="decorationRecordingMeun">
+      <view class="decorationRecordingMeunTitle">
+        <image src='../../../image/icon/materialcon.png'></image>
+        <text>材料清单</text>
+        <image src='../../../image/icon/more.svg'></image>
+      </view>
+      <view class="decorationRecordingMeunTitle" style="margin-left:20rpx" catchtap="goUrl" data-url="/pages/ordinary/goBrowser/goBrowser?url={{caseData.VRImageUrl}}">
+        <image src='../../../image/icon/VRIcon.png'></image>
+        <text>VR全景</text>
+        <image src='../../../image/icon/more.svg'></image>
+      </view>
+    </view>
+</view>
+<view class="propertyName">案例展示</view>
+<view
+    wx:for='{{caseData.EffectImageList}}' 
+    wx:for-item='item' 
+    data-index='{{index}}'
+    wx:key='index' 
+>
+<view class="houseList">{{item.SpaceName}}</view>
+<rich-text nodes="{{item.Content}}"></rich-text></view>
+<image class="goOffer" bindtap="goUrl" data-url='/pages/decoration/decorationCalculator/decorationCalculator' src="../../../image/backgroundImg/goOffer.png"></image>
+<view bindtap="goUrl" data-url="/pages/decoration/designFree/designFree" class="bluedSubmitButton">马上预约设计</view>
+<view style="height:120rpx"></view>
+<view class="designFreeBottom">
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free1.png"></image>
+    <view>微网</view>
+  </view>
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free2.png"></image>
+    <view>联系TA</view>
+  </view>
+  <view class="designFreeBottomIcon">
+    <image src="../../../image/icon/free3.png"></image>
+    <view>留言</view>
+  </view>
+  <view class="designFreeBottomIcon" bindtap="collection">
+    <image src="../../../image/icon/collection.png"></image>
+    <view>收藏</view>
+  </view>
+  <view class="designFreeBottomChat">与TA微聊</view>
+</view>

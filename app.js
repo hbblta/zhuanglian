@@ -17,6 +17,7 @@ App({
           that.setUserInfo(res.data.UserID, () => {
             console.log('获取缓存,刷新toekn,自动登录成功')
           })
+          that.initCategoryList()
         })
       }
     })
@@ -47,6 +48,65 @@ App({
           icon: 'none'
         })
       }
+    })
+  },
+  initCategoryList(){
+    this.ajaxToken('/common/getcategoryjson', 'get').then(res => {
+      this.globalData.categoryList = JSON.parse(res.data)
+    })
+  },
+  changeDateFormat(val) {
+    if (val != null) {
+        var datetime = new Date(val);
+        var year = datetime.getFullYear();
+        var month = datetime.getMonth() + 1;
+        var date = datetime.getDate();
+        var hour = datetime.getHours();
+        var minutes = datetime.getMinutes();
+        var second = datetime.getSeconds();
+        if (month < 10) {
+            month = "0" + month;
+        }
+        if (date < 10) {
+            date = "0" + date;
+        }
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (second < 10) {
+            second = "0" + second;
+        }
+        var time = year + "年" + month + "月" + date + '日';
+        console.log(time)
+        return time;
+    }
+    return "";
+},
+  getStaffList(returnRes){//获取员工列表，添加店主
+    var data={
+      page:1,
+      pagesize:50,
+      state:2
+    }
+    this.ajaxToken('/shop/getstafflist/'+this.globalData.userData.ShopID,data,'get').then(res=>{
+      res.data.push({
+        StaffID : this.globalData.userData.UserID,
+        UserID :  this.globalData.userData.UserID,
+        ParentID : 0,
+        ParentName: '店主',
+        Identity : '',
+        IdentityName : '店主',
+        Grade : 5,
+        Avatar : this.globalData.userData.Avatar,
+        Mobile : this.globalData.userData.Mobile,
+        Days : '无限',
+        RealName : '店主',
+        NickName : '店主',
+      })
+      returnRes(res.data)
     })
   },
   setUserInfo(UserID, success) { //保存用户数据
@@ -153,10 +213,10 @@ App({
         },
         fail: function (res) {
           wx.hideLoading()
-          wx.showToast({
-            icon: 'none',
-            title: JSON.stringify(res),
-          })
+          // wx.showToast({
+          //   icon: 'none',
+          //   title: JSON.stringify(res),
+          // })
           reject(res);
         },
       })
@@ -213,7 +273,15 @@ App({
         typeKey: 'type7'
       },
     ],
-    styleListData : null
+    styleListData : null,
+    renderingsContent : '',//效果图富文本
+    Addresses : [],
+    introductionBody : '',
+    bannerData : [],
+    cooperationData : {},
+    staffList : [],//员工列表
+    categoryList : [],//材料全部列表
+    orderDetails:{},//订单详情汇报数据
   }
 })
 // userType:{

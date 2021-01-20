@@ -70,7 +70,6 @@ Page({
     wx.setNavigationBarTitle({
       title: '效果图管理'
     }) 
-    this.getListData()
   },
   getListData(){
     var that = this
@@ -147,7 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getList({detail:{type:'loadresh'}})
   },
 
   /**

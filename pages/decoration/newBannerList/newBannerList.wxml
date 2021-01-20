@@ -1,0 +1,21 @@
+<!--pages/decoration/newBannerList/newBannerList.wxml-->
+<image class="decorationCalculatorTitleImg" src="{{formData.imageUrl}}"></image>
+<view class="decorationCalculatorChangeTitleImg">
+  <view></view>
+  <view class="decorationCalculatorChangeTitleImgButton" bindtap="upload" data-type="top">
+    <image src="../../../image/icon/image.svg"></image>
+    <text>更换图片</text>
+  </view>
+</view>
+<view class="effectPictureEditMain">
+  <view class="effectPictureEditMainTitles">
+    <text>详情</text>
+    <image catchtouchend="insertImage" src="../../../image/icon/image.svg"></image>
+  </view>
+  <view class="effectPictureEditEditor">
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+      bindinput='editorData' bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindready="onEditorReady">
+    </editor>
+  </view>
+</view>
+<view class="floatingButton" bindtap="submit">发布</view>

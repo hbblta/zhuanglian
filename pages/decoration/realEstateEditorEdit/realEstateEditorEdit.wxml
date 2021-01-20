@@ -1,29 +1,50 @@
 <!--pages/decoration/realEstateEditorEdit/realEstateEditorEdit.wxml-->
 <view>
+  <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="effectName"
+      value="{{styleData.effectName}}" placeholder="风格名称"></input></view>
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{styleListText}}">
     <view class="effectPictureEditInput">
-      <input  disabled value="{{styleData.effectName}}" placeholder="风格名称"></input>
-      <view><image src="../../../image/icon/more.svg"></image></view>
+      <input disabled value="{{styleData.styleText}}" placeholder="风格类型"></input>
+      <view>
+        <image src="../../../image/icon/more.svg"></image>
+      </view>
     </view>
   </picker>
-  <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="vrImageUrl" value="{{styleData.vrImageUrl}}" placeholder="输入复制的VR网址"></input></view>
-  <view class="effectPictureEditInput"><input type="number" bindinput="updateInput" data-key="area" value="{{styleData.area}}" placeholder="输入面积"></input></view>
-  <view data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist' bindtap="goUrl" class="effectPictureEditInput">
+  <view class="effectPictureEditInput"><input bindinput="updateInput" data-key="vrImageUrl"
+      value="{{styleData.vrImageUrl}}" placeholder="输入复制的VR网址"></input></view>
+  <view class="effectPictureEditInput"><input type="number" bindinput="updateInput" data-key="area"
+      value="{{styleData.area}}" placeholder="输入面积"></input></view>
+  <view data-url='/pages/decoration/effectPictureChecklist/effectPictureChecklist' bindtap="goUrl"
+    class="effectPictureEditInput">
     <input placeholder="装修清单" disabled="true"></input>
-    <view  ><image src="../../../image/icon/more.svg"></image></view>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+  <view data-url='/pages/decoration/renderingsDetails/renderingsDetails' bindtap="goUrl" class="effectPictureEditInput">
+    <input placeholder="效果图详情" disabled="true"></input>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+  </view>
+  <view wx:for='{{styleData.EffectImages}}' wx:for-item='item' data-index='{{index}}' wx:key='index'
+    data-url='/pages/decoration/renderingsDetails/renderingsDetails' bindtap="goUrl" class="effectPictureEditInput">
+    <input placeholder="{{item.SpaceName}}" disabled="true"></input>
+    <view>
+      <image src="../../../image/icon/more.svg"></image>
+    </view>
+    <image catchtap="deleteRender" data-index="{{index}}" class="delete" src="../../../image/icon/delete.svg"></image>
   </view>
 </view>
 <view class="effectPictureEditMain effectPictureEditMainOne">
   <view class="effectPictureEditMainTitle">主图上传</view>
   <view>
     <view class="effectPictureEditMainList">
-      <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
+      <uploadImage imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6'
+        imageType='-1' />
     </view>
   </view>
 </view>
-<!-- <view class="effectPictureEditMain effectPictureEditMainOne">
-  <view class="effectPictureEditMainTitle">效果图上传</view>
-  <view class="effectPictureEditMainList">
-    <uploadImage  imageList='{{styleData.styleImage}}' bind:getImagePath="getImagePath" imageLength='6' imageType='-1' />
-  </view>
-</view> -->
+<view bindtap="goBack" class="floatingButton">
+  <view>确定</view>
+</view>

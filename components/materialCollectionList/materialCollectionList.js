@@ -1,4 +1,5 @@
 // components/materialCollectionList/materialCollectionList.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -7,6 +8,14 @@ Component({
     item: {
       type: Object,
       value: {},
+    },
+    type: {
+      type: String,
+      value: '',
+    },
+    ShopID: {
+      type: String || Number,
+      value: '',
     }
   },
 
@@ -21,6 +30,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goUrl(e) {
+      app.goUrl(e.currentTarget.dataset.url)
+    },
   }
 })

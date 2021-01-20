@@ -83,3 +83,16 @@ page{
   width: 50rpx;
   height: 50rpx;
 }
+.newChatButton{
+  width: 700rpx;
+  height: 80rpx;
+  margin-left: 25rpx;
+  line-height: 80rpx;
+  background-color: #0081FF;
+  color: #FFFFFF;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border-radius: 8rpx;
+  margin-top: 20rpx;
+}

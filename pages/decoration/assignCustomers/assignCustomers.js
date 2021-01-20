@@ -1,12 +1,21 @@
 // pages/decoration/assignCustomers/assignCustomers.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:5,
-    customersType:false
+    formData:{
+      page : 1,
+      pagesize : 10,
+    },
+    load : false,
+    list: [],
+    staffList : [],
+    customersType:false,
+    distributionList : [],
+    nowStaffIndex : 0
   },
 
   /**
@@ -16,12 +25,89 @@ Page({
     wx.setNavigationBarTitle({
       title: '客户分配',
     })
+    this.loadresh()
+    this.getStaffList()
+  },
+  getStaffList(){
+    app.getStaffList(res=>{
+      this.setData({
+        staffList :  res
+      })
+    })
+  },
+  loadresh(){
+    this.setData({
+      'formData.page' : 1,
+      list : [],
+    })
+    this.getList()
+  },
+  getList() {
+    var that = this
+    var data = {
+      shopId : app.globalData.userData.ShopID,
+      manager : app.globalData.userData.UserID,
+      page : this.data.formData.page,
+      pagesize : this.data.formData.pagesize,
+    }
+    app.ajaxToken('/shop/getcustomerlist/'+ app.globalData.userData.ShopID, data, 'get').then(res => {
+      if(res.pagecount == 0){
+        that.setData({
+          load : false,
+        })
+        return
+      }
+      if(that.data.formData.page <= res.pagecount){
+        for(let i in res.data){
+          res.data[i].selected = false
+        }
+        that.setData({
+          load : false,
+          list:this.data.list.concat(res.data),
+          'formData.page' : that.data.formData.page + 1
+        })
+      }
+    })
   },
   changeCustomers(){
     var that = this
-    console.log(that.data.customersType)
     this.setData({
-      customersType : !that.data.customersType
+      customersType : true
+    })
+    var distributionList = []
+    this.data.list.forEach(item=>{
+      if(item.selected){
+        distributionList.push(item.UserID)
+      }
+    })
+    this.setData({
+      distributionList
+    })
+  },
+  distribution(e){
+    var kay = `list[${e.currentTarget.dataset.index}].selected`
+    this.setData({
+      [kay] : !this.data.list[e.currentTarget.dataset.index].selected
+    })
+  },
+  nowStaff(e){
+    this.setData({
+      nowStaffIndex : e.currentTarget.dataset.index
+    })
+  },
+  sumbit(){
+    var data = {
+      UserIDs : this.data.distributionList,
+      ManagerID : this.data.staffList[this.data.nowStaffIndex].UserID
+    }
+    app.ajaxToken('/shop/alloccustomer/'+ app.globalData.userData.ShopID, data, 'post').then(res => {
+      wx.showToast({
+        title: '分配成功',
+        icon : 'none'
+      })
+      wx.navigateBack({
+        delta: 1,
+      })
     })
   },
   /**

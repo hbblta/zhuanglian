@@ -31,10 +31,11 @@
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "enableEngineNative": false,
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "bundle": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.11.3",

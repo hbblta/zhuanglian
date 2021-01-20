@@ -2,49 +2,55 @@
 <view style="height:15rpx"></view>
 <view class="materialOrderList">
 	<view class="materialOrderListImg">
-		<image></image>
+		<image src="{{constructionData.Avatar}}"></image>
 	</view>
 	<view class="materialOrderListText">
 		<view class="materialOrderListName">
 			<view>
-				<view>姓名</view>
-				<text>水电</text>
+				<view>{{constructionData.RealName}}</view>
+				<text>{{constructionData.StateName}}</text>
 			</view>
-			<view>1555554555</view>
-			<view>成交时间: 2020/05/30</view>
-			<view>小区名称：分业小区2幢2单元88室</view>
+			<view>{{constructionData.Mobile}}</view>
+			<view>成交时间: {{constructionData.AddDate}}</view>
+			<view>小区名称：{{constructionData.Address}}</view>
 		</view>
 	</view>
 </view>
 <view class="constructionDetailsPickerAll">
-  <view class="constructionDetailsPicker">
-    <view>项目经理</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text>可多选</text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="constructionDetailsPicker">
-    <view>设计师</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text> </text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
-  <view class="constructionDetailsPicker">
-    <view>跟单员</view>
-    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">
-      <view class="constructionDetailsPickerData"><text>可多选</text><image src="../../../image/icon/more.svg"></image></view>
-    </picker>
-  </view>
+	<view class="constructionDetailsPicker">
+		<view>项目经理</view>
+		<picker bindchange="bindPickerChange1" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{constructionData.ProjectManagerName ? constructionData.ProjectManagerName : '暂无'}}</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+	<view class="constructionDetailsPicker">
+		<view>设计师</view>
+		<picker bindchange="bindPickerChange2" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{constructionData.DesignerName  ? constructionData.DesignerName : '暂无'}}</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
+	<view class="constructionDetailsPicker">
+		<view>跟单员</view>
+		<picker bindchange="bindPickerChange3" value="{{index}}" range="{{userlist}}" range-key="NickName">
+			<view class="constructionDetailsPickerData"><text>{{constructionData.TrackerName  ? constructionData.TrackerName : '暂无'}}</text>
+				<image src="../../../image/icon/more.svg"></image>
+			</view>
+		</picker>
+	</view>
   <view class="constructionDetailsSelecte">
     <view>业主是否可见</view>
     <view class="constructionDetailsSelecteImg">
-      <view><text>是</text><image src="../../../image/icon/Selecte.svg"></image></view>
-      <view><text>否</text><image src="../../../image/icon/selected.svg"></image></view>
+      <view bindtap="changeIsShow"><text>是</text><image src="{{constructionData.IsShow ? '../../../image/icon/selected.svg' : '../../../image/icon/Selecte.svg'}}"></image></view>
+      <view bindtap="changeIsShow"><text>否</text><image src="{{!constructionData.IsShow ? '../../../image/icon/selected.svg' : '../../../image/icon/Selecte.svg'}}"></image></view>
     </view>
   </view>
 </view>
 <view class="constructionDetailsSchedule">
-  <view class="schedule"><view style="width:{{scheduleNum}}" class="scheduleDetails"></view></view>
+  <view class="schedule"><view style="width:{{constructionData.Percent}}%" class="scheduleDetails"></view></view>
   <view class="scheduleTextList">
     <view class="scheduleText">
       <text 
@@ -54,7 +60,7 @@
         wx:key='index' 
       >{{item.name}}</text>
     </view>
-      <view class="scheduleTextBlueList" style="width:{{scheduleNum}}">
+      <view class="scheduleTextBlueList" style="width:{{constructionData.Percent}}%">
         <view class="scheduleText scheduleTextBlue">
           <text 
             wx:for='{{scheduleList}}' 
@@ -68,7 +74,7 @@
 </view>
 <view class="report" bindtap="goUrl"  data-url='/pages/decoration/constructionReport/constructionReport'>汇报</view>
 <view class="progressDetails">
-  <view class="progressDetailsTitle">
+  <!-- <view class="progressDetailsTitle">
     <view>油漆</view>
     <view>未完工</view>
   </view>
@@ -93,6 +99,6 @@
       <view><image></image></view>
     </view>
     <view class="progressDetailsText"><text>总结</text>: 暗示哦多少i等哈死哦大海哦哈似乎都啊烧死的后i啊是哦啊四月的佛啊是</view>
-  </view>
-  <view class="progressDetailsButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view>
+  </view> -->
+  <!-- <view class="progressDetailsButton" bindtap="goUrl"  data-url='/pages/decoration/constructionMessage/constructionMessage'>我要留言</view> -->
 </view>

@@ -1,4 +1,5 @@
 // pages/ordinary/components/searchHeader/searchHeader.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -21,6 +22,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goUrl(e){
+      app.goUrl(e.currentTarget.dataset.url)
+    },
   }
 })

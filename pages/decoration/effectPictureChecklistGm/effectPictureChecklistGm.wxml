@@ -29,3 +29,6 @@
 		</view>
 	</scroll-view>
 </view>
+<view bindtap="goBack" class="floatingButton">
+  <view>确定</view>
+</view>

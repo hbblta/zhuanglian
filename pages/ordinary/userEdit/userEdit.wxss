@@ -1,0 +1,94 @@
+/* pages/ordinary/userEdit/userEdit.wxss */
+page{
+  background : #f7f7ff
+}
+.effectPictureEditInput{
+  border-top:1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 100rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.effectPictureEditInput input{
+  width: 670rpx;
+  height: 110rpx;
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.effectPictureEditInput>view{
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+}
+.effectPictureEditInput image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.effectPictureEditButtons{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse ;
+}
+.effectPictureEditButtons view{
+  color: #909399;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  height: 60rpx;
+  width: 156rpx;
+  background: #FFFFFF;
+  border: 1rpx solid rgba(0, 129, 255, 1);
+  border-radius: 40rpx;
+  line-height: 60rpx;
+  position: relative;
+}
+.effectPictureEditButtons view:nth-child(2){
+  position: relative;
+  left: 40rpx;
+}
+.effectPictureEditButtons .nowButtons{
+  color: rgba(255, 255, 255, 1)!important;
+  background: #0081FF!important;
+  z-index: 1!important;
+}
+.effectPictureEditLogo{
+  height: 160rpx;
+}
+.effectPictureEditLogo view image{
+  height: 120rpx;
+  width: 120rpx;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  padding-bottom: 100rpx;
+  margin-top: 15rpx;
+  /* height: calc(100% - 200rpx); */
+}
+.effectPictureEditMainTitle{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.effectPictureEditMainTitle image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.effectPictureEditEditor{
+  background: #F7F7F7;
+}

@@ -104,27 +104,29 @@ Page({
     this.setData({
       date: e.detail.value
     })
-    if (this.data.date && this.data.date2) {
-      this.setData({
-        page:1,
-        flag:true,
-        list:[]
-      })
-      this.getList()
-    }
+    this.setData({
+      page:1,
+      flag:true,
+      list:[]
+    })
+    this.getList()
+    // if (this.data.date && this.data.date2) {
+      
+    // }
   },
   bindPickerChange5(e) {
     this.setData({
       date2: e.detail.value
     })
-    if (this.data.date && this.data.date2) {
-      this.setData({
-        page:1,
-        flag:true,
-        list:[]
-      })
-      this.getList()
-    }
+    this.setData({
+      page:1,
+      flag:true,
+      list:[]
+    })
+    this.getList()
+    // if (this.data.date && this.data.date2) {
+
+    // }
   },
   goUrl(e) {
     app.goUrl(e.currentTarget.dataset.url)
@@ -145,7 +147,7 @@ Page({
   },
   //报单
   declaration(e) {
-    app.goUrl('/pages/decoration/declaration/declaration')
+    app.goUrl('/pages/decoration/declaration/declaration?userId='+e.currentTarget.dataset.item.UserID)
   },
   scroll(e){
      if(this.data.page<this.data.pagecount){
@@ -199,15 +201,11 @@ Page({
       keyword:this.data.keyword,
       manager:app.globalData.userData.UserID
     }
-    if(this.data.gradeIndex){
-      data.grade = this.data.gradearr[this.data.gradeIndex].Nubmer
-    }
-    if(this.data.sourceIndex){
-      data.source = this.data.sourcearr[this.data.sourceIndex].id
-    }
-    if(this.data.typeIndex){
-      data.type = this.data.typearr[this.data.typeIndex].id
-    }
+    if(this.data.gradeIndex) data.grade = this.data.gradearr[this.data.gradeIndex].Nubmer
+    if(this.data.sourceIndex) data.source = this.data.sourcearr[this.data.sourceIndex].id
+    if(this.data.typeIndex) data.type = this.data.typearr[this.data.typeIndex].id
+    if (this.data.date)  data.begindate = this.data.date
+    if (this.data.date2)  data.enddate = this.data.date2
     app.ajaxToken('/shop/getcustomerlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
       this.setData({
         list:this.data.list.concat(res.data),

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "materialCollectionList" :"/components/materialCollectionList/materialCollectionList"
+  }
+}

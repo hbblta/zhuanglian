@@ -1,0 +1,34 @@
+<!--pages/material/cooperativeConfirm/cooperativeConfirm.wxml-->
+<view class="cooperativeConfirmTitle">
+  {{cooperationData.CompanyName}}
+</view>
+<view>
+  <view class="cooperativeConfirmBody">
+    <view>商家地址: {{cooperationData.Address}}</view>
+    <view class="cooperativeConfirmBodyImg">
+      <image src="../../../image/icon/map.png"></image>
+    </view>
+  </view>
+  <view class="cooperativeConfirmBody">
+    <view>商家电话: {{cooperationData.Telphone}}</view>
+    <view class="cooperativeConfirmBodyImg">
+      <image src="../../../image/icon/phone.png"></image>
+    </view>
+  </view>
+</view>
+<!-- <view class="cooperativeConfirmChatAll">
+  <view class="cooperativeConfirmChat">
+    <view class="cooperativeConfirmChatTitle">
+      <view>材料商</view>
+      <view>已确认</view>
+    </view>
+    <view class="cooperativeConfirmChatBody">文字文字文字文字文字文字文字文字文字文字文字文字文字</view>
+    <view class="cooperativeConfirmChatButton">回复</view>
+  </view>
+</view> -->
+<view class="floatingSelectButton">
+  <view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{decorationArray.textList}}">放弃</picker>
+  </view>
+  <view bindtap="submit">合作</view>
+</view>

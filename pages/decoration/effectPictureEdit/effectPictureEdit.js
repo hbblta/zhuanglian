@@ -9,6 +9,7 @@ Page({
      styleListText : [],
      styleList : [],
      styleData : {
+      styleText : '',
       effectName : '',
       style : '',
       area : '',
@@ -16,7 +17,8 @@ Page({
       styleImage : [],
       materials : [],
       auxiliaryCost : '',
-      isGround : true
+      isGround : true,
+      EffectImages : []
      },
      EffectID : null
   },
@@ -44,12 +46,18 @@ Page({
   },
   bindPickerChange: function(e) {
     this.setData({
-      'styleData.effectName' :  this.data.styleListText[e.detail.value],
+      'styleData.styleText' :  this.data.styleListText[e.detail.value],
       'styleData.style' : this.data.styleList[e.detail.value].value,
     })
   },
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url)
+    var url = e.currentTarget.dataset.url
+    if(url=='/pages/decoration/renderingsDetails/renderingsDetails' && e.currentTarget.dataset.index != undefined){//编辑
+      console.log(e.currentTarget.dataset.index)
+      url = `/pages/decoration/renderingsDetails/renderingsDetails?SpaceID=${this.data.styleData.EffectImages[e.currentTarget.dataset.index].SpaceID}&SpaceName=${this.data.styleData.EffectImages[e.currentTarget.dataset.index].SpaceName}&EffectIndex=${e.currentTarget.dataset.index}`
+      app.globalData.renderingsContent = this.data.styleData.EffectImages[e.currentTarget.dataset.index].Content
+    }
+    app.goUrl(url)
   },
   getStylePicker(){//获取样式列表
     app.ajaxToken('/common/getstyles', 'get').then(res => {
@@ -86,7 +94,14 @@ Page({
       styleID : this.data.styleData.style,
       auxiliaryCost : this.data.styleData.auxiliaryCost,
       isGround :  this.data.styleData.isGround ? 1 : 0,
-      materials : that.changeMaterialsList(this.data.styleData.materials)
+      materials : that.changeMaterialsList(this.data.styleData.materials),
+      EffectImages : []
+    }
+    for(let i in this.data.styleData.EffectImages){
+      data.EffectImages[i] = {
+        Content : this.data.styleData.EffectImages[i].Content,
+        SpaceID : this.data.styleData.EffectImages[i].SpaceID
+      }
     }
     if(this.data.EffectID) data.EffectID = this.data.EffectID
     wx.showLoading({
@@ -131,15 +146,21 @@ Page({
         isGround : res.data.IsGround ? true : false,
         styleImage : that.mergeImg(res.data.StyleImageUrl,res.data.StyleImage),
         vrImageUrl : res.data.VRImageUrl,
-        StyleID : res.data.StyleID
+        style : res.data.StyleID,
+        EffectImages : res.data.EffectImages && res.data.EffectImages.length > 0 ? res.data.EffectImages : []
       }
       styleData.materials = [[],[],[],[],[]]
-      res.data.SpaceMaterials[0].Materials.forEach((item3,index3)=>{
-        if(!item3.SpaceID){
-          item3.selected = true
-          styleData.materials[0].push(item3)
-        }
-      })
+      try {
+        res.data.SpaceMaterials[0].Materials.forEach((item3,index3)=>{
+          if(!item3.SpaceID){
+            item3.selected = true
+            styleData.materials[0].push(item3)
+          }
+        })
+      } catch (error) {
+        console.log(error)
+      }
+
       app.globalData.styleListData = {
         styleData : {
           materials : styleData.materials,
@@ -162,6 +183,24 @@ Page({
     })
     return imageList
   },
+  deleteRender(e){
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗',
+      success (res) {
+        if (res.confirm) {
+          var EffectImagess = that.data.styleData.EffectImages
+          that.data.styleData.EffectImages.splice(e.currentTarget.dataset.index,1)
+          that.setData({
+            'styleData.EffectImages' : EffectImagess,
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -173,6 +212,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let that = this;
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    if (currPage.data.EffectImagesData) {
+      if(currPage.data.EffectIndex){//编辑
+        console.log('编辑')
+        let EffectKey = `styleData.EffectImages[${currPage.data.EffectIndex}]`
+        that.setData({
+          [EffectKey] : currPage.data.EffectImagesData,
+          EffectIndex : null,
+          EffectImagesData : null
+        });
+      }else{//新增
+        console.log('新增')
+        let EffectData = that.data.styleData.EffectImages
+        EffectData.push(currPage.data.EffectImagesData)
+        that.setData({
+          'styleData.EffectImages' : EffectData,
+          EffectImagesData : null
+        });
+      }
+    }
   },
 
   /**

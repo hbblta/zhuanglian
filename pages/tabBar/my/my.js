@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopNo : '',
     nowUserType : {},
     userData : {},
     userFeaturesList : [
@@ -281,6 +282,7 @@ Page({
   },
 
   goUrl(e){
+    e.currentTarget.dataset.url =  e.currentTarget.dataset.url+'?ShopID='+this.data.userData.ShopID
     app.goUrl(e.currentTarget.dataset.url)
   },
   /**
@@ -314,6 +316,13 @@ Page({
         this.data.userFeaturesList.splice(8,1)
         this.setData({
           userFeaturesList : this.data.userFeaturesList
+        })
+      }
+      if(this.data.nowUserType.type2){
+        app.ajaxToken('/store/getshopinfo/'+app.globalData.userData.ShopID,'','get').then(res=>{
+          this.setData({
+            shopNo : res.data.ShopNo
+          })
         })
       }
       if(this.data.nowUserType.type3){

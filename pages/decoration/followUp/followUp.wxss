@@ -97,8 +97,7 @@ page{
 }
 .manageList .listInfo>view .develop{
   font-size: 24rpx;
-  line-height: 24rpx;
-  height: 32rpx;
+  line-height: 30rpx;
   color: #909399;
 }
 .manageList .listInfo>view .develop text{
@@ -113,7 +112,7 @@ page{
   width: 30rpx;
   height: 30rpx;
   margin-left: 10rpx;
-  margin-top: 4rpx;
+  vertical-align:middle;
 }
 .user{
   width: 100%;
@@ -292,7 +291,7 @@ page{
 .clientReportList{
   background: #FFFFFF;
   padding: 0 30rpx 20rpx;
-  border-bottom: 1rpx solid #f7f7f7;
+  border-bottom: 10rpx solid #f7f7f7;
 }
 .clientReportListTitle{
   color: rgba(0, 129, 255, 1);
@@ -352,4 +351,20 @@ page{
   border-radius: 8rpx;
   font-size: 28rpx;
   font-family: Arial;
+}
+.clientReportListButton{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: rgba(247, 247, 247, 1);
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+}
+.clientReportListText {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  color: rgba(48, 49, 51, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
 }

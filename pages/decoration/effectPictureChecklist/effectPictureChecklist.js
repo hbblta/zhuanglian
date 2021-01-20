@@ -33,25 +33,14 @@ Page({
   },
   reshMaterials(){
     if(app.globalData.styleListData.styleData.materials.length == 0){
-      app.ajaxToken('/common/getcategories', 'get').then(res => {
-        for(let i in res.data){
-          app.globalData.styleListData.styleData.materials[i] = []
-          res.data[i].name = res.data[i].text
-        }
-        this.setData({
-          textList : res.data,
-          auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
-        })
+      this.setData({
+        textList : app.globalData.categoryList,
+        auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
       })
     }else{
-      app.ajaxToken('/common/getcategories', 'get').then(res => {
-        for(let i in res.data){
-          res.data[i].name = res.data[i].text
-        }
-        this.setData({
-          textList : res.data,
-          auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
-        })
+      this.setData({
+        textList : app.globalData.categoryList,
+        auxiliaryCost : app.globalData.styleListData.styleData.auxiliaryCost
       })
     }
 

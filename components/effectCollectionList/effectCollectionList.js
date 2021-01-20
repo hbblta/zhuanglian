@@ -18,6 +18,10 @@ Component({
       type: Number,
       value: 1,
     },
+    id: {
+      type: Number,
+      value: 1,
+    },
   },
 
   /**
@@ -32,6 +36,10 @@ Component({
    */
   methods: {
     goMaterialList(e){
+      var url = '/store/geteffectmaterials/'
+      if(e.currentTarget.dataset.type == 2){
+        url = '/store/getstylematerials/'
+      }
       app.ajaxToken('/store/geteffectmaterials/'+app.globalData.userData.ShopID+'/'+e.currentTarget.dataset.id,'', 'get').then(res => {
         var styleData = {
           materials : [],
@@ -52,6 +60,15 @@ Component({
         }
         app.goUrl('/pages/decoration/effectPictureChecklist/effectPictureChecklist')
       })
+    },
+    goUrl(e){
+      app.goUrl(e.currentTarget.dataset.url)
+    },
+    goEffectDetails(){
+      app.goUrl('/pages/decoration/effectDetails/effectDetails?caseId='+this.data.item.CaseID+'&id='+this.data.id)
+    },
+    goCaseDetails(){
+      app.goUrl('/pages/decoration/caseDetails/caseDetails?styleId='+this.data.item.EffectID+'&type='+this.data.item.EffectType+'&id='+this.data.id)
     },
   }
 })

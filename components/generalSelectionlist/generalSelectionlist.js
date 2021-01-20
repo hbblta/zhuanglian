@@ -7,14 +7,18 @@ Component({
     multipleSlots : true
   },
   properties: {
-    textList: {
+    textList: {//左侧渲染列表
       type: Array,
       value: [],
     },
-    keyword:{
+    keyword:{//右侧搜索关键字
       type:String,
       value:''
-    }
+    },
+    listSearch:{//右侧搜索
+      type:Boolean,
+      value:true
+    },
   },
 
   /**
@@ -29,6 +33,8 @@ Component({
   /**
    * 组件的方法列表
    */
+  created(){
+  },
   methods: {
     changeIndex(e){
       this.setData({

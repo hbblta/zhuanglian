@@ -7,7 +7,8 @@ Page({
    */
   data: {
     listOne:[],
-    listTwo : []
+    listTwo : [],
+    ShopID : ''
   },
 
   /**
@@ -17,30 +18,33 @@ Page({
     wx.setNavigationBarTitle({
       title: '团队介绍',
     })
+    this.setData({
+      ShopID : options.ShopID
+    })
     this.getList()
   },
   getList(){
     var dataOne = {
-      shopId  : app.globalData.userData.ShopID,
+      shopId  : this.data.ShopID,
       type : 1
     }
     var dataTwo = {
-      shopId  : app.globalData.userData.ShopID,
+      shopId  : this.data.ShopID,
       type : 2
     }
-    app.ajaxToken('/store/getteamlist/'+app.globalData.userData.ShopID,dataOne,'get').then(res=>{
+    app.ajaxToken('/store/getteamlist/'+this.data.ShopID,dataOne,'get').then(res=>{
       this.setData({
         listOne : res.data
       })
     })
-    app.ajaxToken('/store/getteamlist/'+app.globalData.userData.ShopID,dataTwo,'get').then(res=>{
+    app.ajaxToken('/store/getteamlist/'+this.data.ShopID,dataTwo,'get').then(res=>{
       this.setData({
         listTwo : res.data
       })
     })
   },
   goUrl(e){
-    app.goUrl(e.currentTarget.dataset.url+'?teamid='+e.currentTarget.dataset.id+'&type=show')
+    app.goUrl(e.currentTarget.dataset.url+'?teamid='+e.currentTarget.dataset.id+'&type=show'+'&ShopID='+this.data.ShopID)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

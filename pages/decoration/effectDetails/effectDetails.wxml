@@ -1,0 +1,43 @@
+<!--pages/decoration/effectDetails/effectDetails.wxml-->
+<view class="swiperBox">
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" indicator-color="rgba(0,0,0,0.3)"
+    indicator-active-color="rgba(255,255,255,1)">
+    <block wx:for="{{effectData.ImageUrl}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="propertyName">{{effectData.CaseName}}</view>
+<view class="houseList">户型列表</view>
+<view>
+  <view 
+  class="effectDetailsList" 
+  bindtap="goHouse"
+  data-id='{{item.HouseID}}'
+  wx:for='{{effectData.HouseHolds}}' 
+  wx:for-item='item' 
+  data-index='{{index}}'
+  wx:key='index' 
+  >
+    <view class="effectDetailsListImg">
+      <image src="{{item.HouseImageUrl[0]}}"></image>
+    </view>
+    <view class="effectDetailsListText">
+      <view class="effectDetailsListTextName">{{item.HouseName}}</view>
+      <view class="effectDetailsListTextData">
+        <view class="effectDetailsListTextArea">
+          <view>{{item.HouseNo ? item.HouseNo : ''}}</view>
+          <view style="margin-top:20rpx">{{item.Area ? item.Area + '㎡' : ''}}</view>
+        </view>
+        <!-- <view class="effectDetailsListTextArea" catchtap="collection">
+          <view>
+            <image src="../../../image/icon/collection.png"></image>
+          </view>
+          <view>收藏</view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

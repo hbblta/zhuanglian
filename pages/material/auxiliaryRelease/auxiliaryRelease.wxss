@@ -1,4 +1,4 @@
-/* pages/material/auxiliaryRelease/auxiliaryRelease.wxss */
+/* pages/decoration/auxiliaryRelease/auxiliaryRelease.wxss */
 page{
   background: #f7f7f7;
 }

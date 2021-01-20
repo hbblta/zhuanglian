@@ -23,6 +23,12 @@ Page({
       src: options.imagUrl,
       imageType : options.imageType
     });
+    if(options.imageSize == 'rectangle'){
+      this.setData({
+        width: 375,
+        height : 200
+      });
+    }
     wx.showLoading({
       title: '加载中'
     })

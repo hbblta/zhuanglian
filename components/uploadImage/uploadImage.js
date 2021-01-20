@@ -13,7 +13,7 @@ Component({
       type: Array,
       value: [],
     },
-    imageType: {
+    imageType: {//如果当前页面uploadImage组件在list中渲染，或者图片上传需要在多个数组中选渲染需要用到index需要传递index进来，如果当前页面就一个uploadImage组件则不需要传或者传-1即可
       type: Number,
       value: -1
     },
@@ -53,16 +53,7 @@ Component({
   pageLifetimes: {
     show: function() {
       // 页面被展示
-      if(app.globalData.cropperImg != '' && this.data.imageType == app.globalData.cropperImg.imageType){
-        this.data.imageList.push(app.globalData.cropperImg)
-        this.triggerEvent('getImagePath',{
-          imageList :this.data.imageList,
-          imageType : app.globalData.cropperImg.imageType
-        })
-        setTimeout(()=>{
-          app.globalData.cropperImg = ''
-        },400)
-      }
+      this.initImg()
     },
     hide: function() {
       // 页面被隐藏
@@ -96,7 +87,6 @@ Component({
           }
         }
       })
-
     },
     upload(e) {//上传图片
       var that = this;
@@ -109,5 +99,17 @@ Component({
         }
       })
     },
+    initImg(){
+      if(app.globalData.cropperImg != '' && this.data.imageType == app.globalData.cropperImg.imageType){
+        this.data.imageList.push(app.globalData.cropperImg)
+        this.triggerEvent('getImagePath',{
+          imageList :this.data.imageList,
+          imageType : app.globalData.cropperImg.imageType
+        })
+        setTimeout(()=>{
+          app.globalData.cropperImg = ''
+        },400)
+      }
+    }
   }
 })

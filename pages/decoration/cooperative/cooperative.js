@@ -95,21 +95,23 @@ Page({
       page:1,
       flag:true
     })
-    console.log(this.data.textListIndex,this.data.commissiontype)
     this.changeF()
   },
   //获取合作材料
   getcl(){
+    var that = this
     var data={
       page:this.data.page,
       keyword:this.data.keyword
     }
-    data.type = this.data.commissiontype?2:1
+    data.type = this.data.commissiontype - 0?2:1
     if(this.data.areaid){
       data.area = this.data.areaid
     }
     app.ajaxToken('/shop/getcooperationlist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
-      console.log(res)
+      res.data.forEach((item,index) => {
+        res.data[index].EndDate = app.changeDateFormat(item.EndDate)
+      });
       this.setData({
         list:this.data.list.concat(res.data),
         flag:true,
@@ -122,7 +124,7 @@ Page({
     var data = {
       keyword:this.data.keyword,
       page:this.data.page,
-      type:this.data.commissiontype?2:1
+      type:this.data.commissiontype - 0?2:1
     }
     if(this.data.areaid){
       data.area = this.data.areaid
@@ -146,7 +148,6 @@ Page({
     }
     var url = this.data.commissiontype == 0?'/shop/launchcooperationlist/':'/shop/sponsorcooperationlist/'
     if(this.data.commissiontype == 0){
-
     }else{
       data.type = this.data.commissiontype
     }
@@ -162,7 +163,6 @@ Page({
     this.setData({
       commissiontype : e.currentTarget.dataset.commissiontype
     })
-    console.log(this.data.textListIndex,this.data.commissiontype)
     this.setData({
       page:1,
       flag:true,
@@ -171,12 +171,14 @@ Page({
     this.changeF()
   },
   goUrl(e){
+    if(e.currentTarget.dataset.url == '/pages/decoration/cooperativeConfirm/cooperativeConfirm' || e.currentTarget.dataset.url == '/pages/decoration/cooperativeDetails/cooperativeDetails'){
+      app.globalData.cooperationData = this.data.list[e.currentTarget.dataset.index]
+    }
     app.goUrl(e.currentTarget.dataset.url)
   },
   
   //发起合作
   apply(e){
-    console.log(e)
     app.ajaxToken('/shop/launchcooperation/'+app.globalData.userData.ShopID+'/'+e.currentTarget.dataset.id,'','post').then(res=>{
       if(res.status == 0){
         wx.showToast({
@@ -199,6 +201,7 @@ Page({
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

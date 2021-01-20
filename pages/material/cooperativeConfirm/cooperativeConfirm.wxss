@@ -1,0 +1,97 @@
+/* pages/material/cooperativeConfirm/cooperativeConfirm.wxss */
+page{
+  background:#f7f7f7;
+}
+.cooperativeConfirmBody{
+  display: flex;
+  justify-content: space-between;
+  padding:0 25rpx;
+  width: 700rpx;
+  height: 100rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #f7f7f7;
+  background: #FFFFFF;
+}
+.cooperativeConfirmBody view{
+  color: rgba(85, 85, 85, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+}
+.cooperativeConfirmBody .cooperativeConfirmBodyImg{
+  width: 80rpx;
+  height: 80rpx;
+}
+.cooperativeConfirmBody .cooperativeConfirmBodyImg image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.cooperativeConfirmChatAll{
+  margin-top: 15rpx;
+}
+.cooperativeConfirmChat{
+  background: #FFFFFF;
+  padding: 20rpx 25rpx;
+  width: 700rpx;
+}
+.cooperativeConfirmChatTitle{
+  display: flex;
+  justify-content: space-between;
+}
+.cooperativeConfirmChatTitle view:nth-child(1){
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.cooperativeConfirmChatTitle view:nth-child(2){
+  color: rgba(0, 129, 255, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.cooperativeConfirmChatBody{
+  margin-top: 25rpx;
+  color: rgba(48, 49, 51, 1);
+  font-size:28rpx;
+  font-family: PingFangSC-regular;
+}
+.cooperativeConfirmChatButton{
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: rgba(247, 247, 247, 1);
+  color: rgba(144, 147, 153, 1);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  border-radius: 8rpx;
+  margin-top: 20rpx;
+}
+.cooperativeConfirmPrompt{
+  margin-top: 25rpx;
+  width: 700rpx;
+  margin-left: 25rpx;
+  display: flex;
+  color: rgba(144, 147, 153, 1);
+  font-size: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.cooperativeConfirmPromptImg{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.cooperativeConfirmPromptImg image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.cooperativeConfirmTitle{
+  padding:0 25rpx;
+  width: 700rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  border-top: 1rpx solid #f7f7f7;
+  background: #FFFFFF;
+  color: rgba(85, 85, 85, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+}

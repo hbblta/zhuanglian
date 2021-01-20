@@ -19,12 +19,12 @@
 			<image class="myUserImg" src="{{userData.Avatar}}"></image>
 			<view>
 				<view class="myUserName">{{userData.NickName}}</view>
-				<view class="myUserNameTwo">{{nowUserType.nowUserText}}</view>
+				<view class="myUserNameTwo">{{nowUserType.nowUserText}}   {{shopNo ? '店码'+shopNo : ''}}</view>
 				<!-- <view class="myUserNameTwo">有效期：2020/1/1— 2020/5/20 写死的</view> -->
 			</view>
 		</view>
 		<view>
-			<view class="myUserButton"  bindtap="goUrl" data-url="">
+			<view class="myUserButton"  bindtap="goUrl" data-url="/pages/ordinary/userEdit/userEdit">
 				设置
 			</view>
 			<view class="myUserButtonMore" bindtap="goUrl" data-url="/pages/ordinary/login/login">

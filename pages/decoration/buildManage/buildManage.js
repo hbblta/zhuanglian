@@ -57,7 +57,7 @@ Page({
     app.ajaxToken('/shop/getconstructionstat/' + app.globalData.userData.ShopID,{}, 'get').then(res => {
       var arr = res.data.States
       for(let i in arr){
-        arr[i].name = arr[i].StateName
+        arr[i].label = arr[i].StateName
       }
       if(res.status == 0){
         this.setData({
@@ -96,7 +96,9 @@ Page({
     data.begindate = this.data.starttime
     data.enddate = this.data.endtime
     app.ajaxToken('/shop/getconstructionlist/'+app.globalData.userData.ShopID,data,'get').then( res =>{
-      console.log(res)
+      res.data.forEach((item,index) => {
+        res.data[index].AddDate = app.changeDateFormat(item.AddDate)
+      });
       if(res.status == 0){
         this.setData({
           total:res.totalitem,
@@ -112,7 +114,7 @@ Page({
   },
   //当前tab选项
   getList(e){
-    var index = e.detail.index
+    var index = e.detail.type == "loadresh" ? this.data.textIndex : e.detail.index
     //初始化搜索参数
     this.setData({
       textIndex:index,
@@ -124,7 +126,7 @@ Page({
       starttime:'',
       list:[]
     })
-    this.getUser(this.data.textList[index].State)
+    this.getUser(this.data.textList[this.data.textIndex].State)
   },
   //跳转报备按钮
   goto(e){

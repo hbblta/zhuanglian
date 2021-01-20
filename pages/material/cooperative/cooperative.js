@@ -139,7 +139,7 @@ Page({
       })
     })
   },
-  //获取合作发起
+  //获取合作发起列表
   getds(){
     var data = {
       keyword:this.data.keyword,
@@ -158,20 +158,31 @@ Page({
   },
   //再次发起合作
   again(e){
-    var id = e.currentTarget.dataset.id
-    app.ajaxToken('/materialshop/launchcooperationagain/'+app.globalData.userData.MaterialShopID+'/'+id,'','post').then(res=>{
-      wx.showToast({
-        title: res.msg,
-        icon:'none'
-      })
-      setTimeout(()=>{
-        this.setData({
-          list:[],
-          page:1,
-          flag:true
-        })
-        this.getds()
-      },1500)
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定发起合作吗',
+      success (res) {
+        if (res.confirm) {
+          var id = e.currentTarget.dataset.id
+          app.ajaxToken('/materialshop/launchcooperationagain/'+app.globalData.userData.MaterialShopID+'/'+id,'','post').then(res=>{
+            wx.showToast({
+              title: res.msg,
+              icon:'none'
+            })
+            setTimeout(()=>{
+              that.setData({
+                list:[],
+                page:1,
+                flag:true
+              })
+              that.getds()
+            },1500)
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
   //获取发起合作列表
@@ -210,6 +221,10 @@ Page({
     this.changeF()
   },
   goUrl(e){
+    if(e.currentTarget.dataset.url == '/pages/material/cooperativeConfirm/cooperativeConfirm'){
+      app.globalData.cooperationData = this.data.list[e.currentTarget.dataset.index]
+    }
+    if(e.currentTarget.dataset.state == 1) return
     app.goUrl(e.currentTarget.dataset.url)
   },
   

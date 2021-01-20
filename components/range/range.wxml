@@ -1,5 +1,6 @@
 <!--components/range/range.wxml-->
 <picker 
+      wx:if="{{type != 2}}"
       mode="multiSelector" 
       value="{{multiIndex}}"
       range="{{multiArray}}"
@@ -11,4 +12,18 @@
           <image wx:if="{{type == 1}}" src="../../image/icon/more.svg"></image>
         </view>
     </picker>
+<view 
+wx:if="{{type == 2}}"
+class="type2">
+  <picker 
+      mode="multiSelector" 
+      value="{{multiIndex}}"
+      range="{{multiArray}}"
+      bindchange="bindchange"
+      bindcolumnchange="bindMultiPickerChange"
+    >
+          <input  disabled="true" value="{{name}}" placeholder="区域"></input>
+          <image src="../../image/icon/more.svg"></image>
+    </picker>
+</view>
 

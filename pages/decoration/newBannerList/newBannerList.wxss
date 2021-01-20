@@ -1,0 +1,76 @@
+/* pages/decoration/newBannerList/newBannerList.wxss */
+page{
+  background:#f7f7f7;
+}
+.effectPictureEditMain{
+  background: #FFFFFF;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-bottom:25rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  width: 700rpx;
+  margin-top: 15rpx;
+}
+.effectPictureEditMainTitle{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+}
+.effectPictureEditMainList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.effectPictureEditEditor{
+  background: #F7F7F7;
+}
+.effectPictureEditMainTitles{
+  color: rgba(59, 59, 59, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.effectPictureEditMainTitles image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.decorationCalculatorTitleImg{
+  width: 100%;
+  height: 400rpx;
+  background: #DDDDDD;
+}
+.decorationCalculatorChangeTitleImg{
+  width: 735rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.decorationCalculatorChangeTitleImg text{
+  color: rgba(0, 129, 255, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regula
+}
+.decorationCalculatorChangeTitleImgButton{
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+.decorationCalculatorChangeTitleImgButton image{
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 6rpx;
+}
+.ql-container{
+  min-height: 400rpx;
+  height: auto;
+}

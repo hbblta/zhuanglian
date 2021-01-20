@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "searchTitle": "/components/searchTitle/searchTitle",
+    "generalSelectionlist": "/components/generalSelectionlist/generalSelectionlist"
+  }
+}

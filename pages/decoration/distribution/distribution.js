@@ -10,15 +10,15 @@ Page({
     generalIndex:0,
     textList : [
       {
-        name : '分销团队',
+        label : '分销团队',
         id : 2
       },
       {
-        name : '分销审核',
+        label : '分销审核',
         id : 0
       },
       {
-        name : '团队分配',
+        label : '团队分配',
         id : 2
       },
     ],

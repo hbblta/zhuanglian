@@ -116,11 +116,7 @@ Page({
     this.setData({
       item: current.data.nowobj
     })
-    if(options.idx){
-      this.getfollow()
-    }else{
-      this.getmove()
-    }
+
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
@@ -136,7 +132,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(this.data.textListIndex){
+      this.getfollow()
+    }else{
+      this.getmove()
+    }
   },
 
   /**

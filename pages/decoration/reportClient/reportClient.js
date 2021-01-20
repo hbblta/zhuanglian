@@ -116,6 +116,7 @@ Page({
     if(this.data.cateIndex){
       data.isCommunicate = this.data.catearr[this.data.cateIndex].id
     }
+    data.Avatar = '1'
     app.ajaxToken('/shop/reportcustomer/'+app.globalData.userData.ShopID,data,'post').then(res=>{
       console.log(res)
       if(res.status == 0){
@@ -150,18 +151,13 @@ Page({
       title: '报备客户'
     })
     this.getfg()
-    this.getUser()
+    this.getStaffList()
   },
   //员工列表
-  getUser(){
-    var data={
-      page:1,
-      pagesize:50,
-      state:2
-    }
-    app.ajaxToken('/shop/getstafflist/'+app.globalData.userData.ShopID,data,'get').then(res=>{
+  getStaffList(){
+    app.getStaffList(res=>{
       this.setData({
-        userlist:res.data
+        userlist:  res
       })
     })
   },

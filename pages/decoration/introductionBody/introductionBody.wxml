@@ -1,0 +1,2 @@
+<!--pages/decoration/introductionBody/introductionBody.wxml-->
+<rich-text nodes="{{introductionBody}}"></rich-text>

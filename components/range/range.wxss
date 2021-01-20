@@ -6,3 +6,26 @@
   align-items: center;
   white-space: nowrap;
 }
+
+.type2>view{
+  position: relative;
+}
+.type2>view image{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 48rpx;
+  top: 24rpx;
+}
+.type2 input{
+  margin-top: 50rpx;
+  width: 640rpx;
+  margin-left: 25rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background-color: rgba(247, 247, 247, 1);
+  font-size: 28rpx;
+  font-family: Arial;
+}

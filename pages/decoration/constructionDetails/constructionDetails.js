@@ -10,7 +10,6 @@ Page({
       textList: ['张三','李四','王二','码字'],
       idList: [0,1,2,3]
      },
-     scheduleNum:'0%',
      scheduleList:[
        {
          name: '浇底',
@@ -48,7 +47,9 @@ Page({
          name: '完成',
          id:8
        },
-     ]
+     ],
+     ConstructionID : '',
+     constructionData : {}
   },
 
   /**
@@ -57,17 +58,59 @@ Page({
   onLoad: function (options) {
     this.setData({
       scheduleNum : '50%',
-      id:options.id
+      ConstructionID:options.ConstructionID 
     })
     this.getInfo()
+    this.getStaffList()
   },
-  getInfo(){
-    app.ajaxToken('/shop/getconstructiondetail/'+app.globalData.userData.ShopID+'/'+this.data.id,'','get').then(res=>{
-      console.log(res)
+  getStaffList(){
+    app.getStaffList(res=>{
+      this.setData({
+        userlist:  res
+      })
     })
   },
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  getInfo(){
+    app.ajaxToken('/shop/getconstructiondetail/'+app.globalData.userData.ShopID+'/'+this.data.ConstructionID,'','get').then(res=>{
+      this.setData({
+        constructionData : res.data
+      })
+    })
+  },
+  bindPickerChange1: function(e) {
+    this.setData({
+      'constructionData.ProjectManager': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  bindPickerChange2: function(e) {
+    this.setData({
+      'constructionData.DesignerID': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  bindPickerChange3: function(e) {
+    this.setData({
+      'constructionData.TrackerID': this.data.userlist[e.detail.value].UserID
+    })
+    this.refreshOrder()
+  },
+  changeIsShow(){
+    this.setData({
+      'constructionData.IsShow': this.data.constructionData.IsShow ? 0 : 1
+    })
+    this.refreshOrder()
+  },
+  refreshOrder(){
+    var data = {
+      IsShow : this.data.constructionData.IsShow,
+      TrackerID : this.data.constructionData.TrackerID ? this.data.constructionData.TrackerID : app.globalData.userData.UserID,
+      DesignerID : this.data.constructionData.DesignerID ? this.data.constructionData.DesignerID : app.globalData.userData.UserID,
+      ProjectManager : this.data.constructionData.ProjectManager ? this.data.constructionData.ProjectManager : app.globalData.userData.UserID,
+    }
+    app.ajaxToken('/shop/allocconstruction/'+app.globalData.userData.ShopID+'/'+this.data.ConstructionID,data,'post').then(res=>{
+      this.getInfo()
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

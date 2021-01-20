@@ -1,55 +1,55 @@
 <!--pages/decoration/assignCustomers/assignCustomers.wxml-->
 <view>
-  <view class="assignCustomersList"
-    wx:if='{{!customersType}}'
-    wx:for='{{list}}' 
-    wx:for-item='item' 
-    data-index='{{index}}'
-    wx:key='index' >
-    <view class="assignCustomersSelecte"><image src="../../../image/icon/selecte.svg"></image></view>
-    <view class="assignCustomersData">
-      <view class="assignCustomersDataImg"><image></image></view>
-      <view class="assignCustomersDataText">
-        <view class="assignCustomersDataName">
-           <view>姓名</view>
-           <view>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-           </view>
+  <view class="scroll" wx:if='{{!customersType}}'>
+    <scroll-view style="height:100%" scroll-y="true" refresher-enabled refresher-triggered="{{load}}"
+      bindrefresherrefresh="loadresh" bindscrolltolower="getList">
+      <view class="assignCustomersList" bindtap="distribution"   wx:for='{{list}}' wx:for-item='item'
+        data-index='{{index}}' wx:key='index'>
+        <view class="assignCustomersSelecte">
+          <image wx:if="{{!item.selected}}" src="../../../image/icon/selecte.svg"></image>
+          <image wx:if="{{item.selected}}" src="../../../image/icon/selected.svg"></image>
         </view>
-        <view class="assignCustomersDataPhone">
-          <view>1561641561</view>
-          <view>未分配</view>
+        <view class="assignCustomersData">
+          <view class="assignCustomersDataImg">
+            <image src="{{item.Avatar}}"></image>
+          </view>
+          <view class="assignCustomersDataText">
+            <view class="assignCustomersDataName">
+              <view>{{item.NickName}}</view>
+              <view>
+                <image wx:for='{{item.Grade}}' wx:for-item='item' data-index='{{index}}' wx:key='index'
+                  src="../../../image/icon/pentagram.svg"></image>
+              </view>
+            </view>
+            <view class="assignCustomersDataPhone">
+              <view>{{item.Mobile}}</view>
+              <view>未分配</view>
+            </view>
+            <view class="assignCustomersDataDate">加入时间: {{item.AddDate}}</view>
+          </view>
         </view>
-        <view class="assignCustomersDataDate">加入时间: 2020/05/05</view>
       </view>
-    </view>
+    </scroll-view>
   </view>
-    <view class="assignCustomersList"
-    wx:if='{{customersType}}'
-    wx:for='{{list}}' 
-    wx:for-item='item' 
-    data-index='{{index}}'
-    wx:key='index' >
-    <view class="assignCustomersSelecte"><image src="../../../image/icon/selecte.svg"></image></view>
+  <view class="assignCustomersList" bindtap="nowStaff" wx:if='{{customersType}}' wx:for='{{staffList}}' wx:for-item='item'
+    data-index='{{index}}' wx:key='index'>
+    <view class="assignCustomersSelecte">
+      <image src="{{nowStaffIndex == index ? '../../../image/icon/selected.svg' : '../../../image/icon/selecte.svg'}}"></image>
+    </view>
     <view class="assignCustomersData">
-      <view class="assignCustomersDataImg"><image></image></view>
+      <view class="assignCustomersDataImg">
+        <image src="{{item.Avatar}}"></image>
+      </view>
       <view class="assignCustomersDataText">
         <view class="assignCustomersDataName">
-           <view>姓名</view>
-           <view>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-            <image src="../../../image/icon/pentagram.svg"></image>
-           </view>
+          <view>{{item.RealName}}</view>
+          <view>
+            <image wx:for='{{item.Grade}}' wx:for-item='item' data-index='{{index}}' wx:key='index'
+              src="../../../image/icon/pentagram.svg"></image>
+          </view>
         </view>
         <view class="assignCustomersDataPhone">
-          <view>1561641561</view>
+          <view>{{item.Mobile}}</view>
           <view> </view>
         </view>
         <view class="assignCustomersDataDate"> </view>
@@ -57,4 +57,5 @@
     </view>
   </view>
 </view>
-<view class="floatingButton" bindtap="changeCustomers">分配</view>
+<view class="floatingButton" wx:if='{{!customersType}}' bindtap="changeCustomers">分配给员工</view>
+<view class="floatingButton" wx:if='{{customersType}}' bindtap="sumbit">确定分配</view>

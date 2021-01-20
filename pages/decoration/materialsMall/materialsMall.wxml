@@ -1,0 +1,35 @@
+<!--pages/decoration/materialsMall/materialsMall.wxml-->
+<searchTitle bind:getList='listChange' wx:if="{{materialsType == 0}}" tabShow='{{tabShow}}' />
+<view class="scroll" wx:if="{{materialsType == 0}}">
+  <scroll-view style="height:100%" scroll-y="true">
+    <view class="materialsMallList">
+      <view bindtap="goUrl" data-url="/pages/material/myShop/myShop?id={{item.ShopID}}" wx:for="{{materialsList}}"
+        data-index='{{index}}' wx:key="index" class="materialsMallListData">
+        <image></image>
+        <view>{{item.CompanyName}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<generalSelectionlist wx:if="{{materialsType == 1}}" listSearch='{{false}}' textList='{{textList}}'  bind:getList="getList">
+  <view slot="after" class="materialOrderScroll">
+    <view  
+    bindtap="goUrl" 
+    data-url="/pages/decoration/commodityList/commodityList?id={{item.value}}&ShopID={{ShopID}}"
+    wx:for='{{list}}' 
+    bindtap="goUrl" 
+    data-index="{{listIndex}}" 
+    wx:for-item='item' 
+    wx:for-index="listIndex" 
+    wx:key='listIndex' 
+    class="materialOrderList">
+      <view><image></image></view>
+      <view>{{item.label}}</view>
+    </view>
+  </view>
+</generalSelectionlist>
+
+<view class="materialsMallType">
+  <view catchtap="changType" class="{{materialsType == 0 ? 'nowType' : ''}}" data-type="0">合作品牌</view>
+  <view catchtap="changType" class="{{materialsType == 1 ? 'nowType' : ''}}" data-type="1">材料品类</view>
+</view>

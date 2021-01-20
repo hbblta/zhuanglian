@@ -65,12 +65,15 @@ page{
 .introduction{
   margin-top: 15rpx;
   background: #FFFFFF;
+  height: 70rpx;
+  line-height: 70rpx;
   padding: 15rpx;
   width: 720rpx;
 }
 .introductionTitle{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .introductionTitle view,.introductionBody,.shopMapPhoneView view{
   color: rgba(85, 85, 85, 100);

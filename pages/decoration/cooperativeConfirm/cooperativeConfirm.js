@@ -7,12 +7,27 @@ Page({
    */
   data: {
     decorationArray:{
-      textList: ['张三','李四','王二','码字'],
+      textList: ['放弃原因1','放弃原因2','放弃原因3','放弃原因4'],
       idList: [0,1,2,3]
      },
+     cooperationData : {}
   },
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    var data = {
+      AuditID : this.data.cooperationData.AuditID,
+      Reason : this.data.decorationArray.textList[e.detail.value]
+    }
+    app.ajaxToken('/shop/cooperationback/'+app.globalData.userData.ShopID,data,'post').then(res=>{
+      if(res.status == 0){
+        wx.showToast({
+          title: res.msg,
+        })
+        wx.navigateBack({
+          delta: 1,
+        })
+      }
+    })
   },
   goUrl(e){
     app.goUrl(e.currentTarget.dataset.url)
@@ -21,7 +36,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      cooperationData : app.globalData.cooperationData
+    })
   },
 
   /**
